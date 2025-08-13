@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import '../sass/scss/nav.scss'
-import L from '../images/logo.png'
+import L from '../images/logo.svg'
 
 const Nav = () => {
   return (
