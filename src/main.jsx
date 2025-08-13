@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 
 import App from './MyApp.jsx'
 import { HashRouter } from 'react-router-dom'
-import './sass/all.scss'
+import './sass/scss/all.scss'
 
 
 createRoot(document.getElementById('root')).render(
