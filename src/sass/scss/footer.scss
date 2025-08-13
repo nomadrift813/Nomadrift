@@ -1,0 +1,24 @@
+@use 'reset';
+@use 'var' as *;
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: auto;
+    background-color: #41453D;
+    color: #F4F1E5;
+}
+
+ul.Sitemap {
+    display: flex;
+    justify-content: center;
+    padding: 30px 50px;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    background-color: #201811;
+    color: #F4F1E5;
+}
