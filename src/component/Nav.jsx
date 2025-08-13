@@ -1,16 +1,25 @@
 import { Link } from "react-router-dom"
-import '../sass/scss/_nav.scss'
+import '../sass/scss/nav.scss'
 
 const Nav = () => {
   return (
-    <div className="navbar">
-        <ul>
-            <li><Link to="/">logo</Link></li>
-            <li><Link to="/location">熱門地點</Link></li>
-            <li><Link to="/group">揪團活動</Link></li>
-            <li><Link to="/diary">漂日記</Link></li>
-        </ul>
-    </div>
+    // 頁首區
+    <header id="topbar">
+      <div class="logo">
+        <Link to="/">logo<img src="" alt="" /></Link>
+      </div>
+
+      <ul class="navmenu">
+        <li><Link to="/location">熱門地點</Link></li>
+        <li><Link to="/group">揪團活動</Link></li>
+        <li><Link to="/diary">漂日記</Link></li>
+      </ul>
+
+      <ul class="navlogs">
+        <li class="navlog"><Link>登入</Link></li>
+        <li class="navsign"><Link>註冊</Link></li>
+      </ul>
+    </header>
   )
 }
 
