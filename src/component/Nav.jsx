@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import '../sass/scss/nav.scss'
+import L from '../images/logo.png'
 
 const Nav = () => {
   return (
     // 頁首區
     <header id="topbar">
       <div class="logo">
-        <Link to="/">logo<img src="" alt="" /></Link>
+        <Link to="/"><img src={L} alt="" /></Link>
       </div>
 
       <ul class="navmenu">
