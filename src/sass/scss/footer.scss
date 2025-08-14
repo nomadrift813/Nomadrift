@@ -12,7 +12,7 @@ footer {
 
 ul.Sitemap {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 30px 50px;
 }
 
@@ -20,5 +20,9 @@ h4 {
     display: flex;
     justify-content: center;
     background-color: #201811;
+    color: #F4F1E5;
+}
+
+.footer-a {
     color: #F4F1E5;
 }
