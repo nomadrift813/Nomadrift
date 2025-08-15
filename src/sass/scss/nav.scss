@@ -31,7 +31,12 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    a {
+      color: #201811;
+    }
   }
+
 
   .navlogs {
     display: flex;
@@ -40,6 +45,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    a {
+      color: #201811;
+    }
 
     li {
       display: flex;
@@ -61,7 +70,5 @@
     }
   }
 
-  .nav-a {
-    color: #201811;
-  }
+
 }
