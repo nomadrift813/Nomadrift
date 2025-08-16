@@ -8,7 +8,7 @@ const Home = () => {
       <section id="homebanner">
 
         <div className="homeslogan">
-          <h2>在世界的浪潮中， 自由前行</h2>
+          <h2>在世界的浪潮中，自由前行</h2>
 
           <button className="home-b-form" type="button">
             <span>Start</span>
@@ -16,7 +16,7 @@ const Home = () => {
           </button>
         </div>
 
-        <p>floating your own way</p> 
+        <p className='banner-side-word'>floating your own way</p> 
         <div className="homescroll">
           <img src={homescroll} alt="" />
         </div>
