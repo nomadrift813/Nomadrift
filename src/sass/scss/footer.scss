@@ -14,15 +14,20 @@ ul.Sitemap {
     display: flex;
     justify-content: space-around;
     padding: 30px 50px;
+
+    a {
+        color: #F4F1E5;
+    }
+
+    ul {
+        font-size: 12px;
+        font-weight: 200;
+    }
 }
 
 h4 {
     display: flex;
     justify-content: center;
     background-color: #201811;
-    color: #F4F1E5;
-}
-
-.footer-a {
     color: #F4F1E5;
 }
