@@ -5,7 +5,7 @@
 #homebanner {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 964px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@
         width: 571px;
         flex-direction: column;
         align-items: center;
-        gap: 21px;
+        gap: 20px;
 
         h2 {
             font-size: $f-s-xxl;
@@ -60,6 +60,163 @@
             }
         }
 
+
     }
 
+    .banner-side-word {
+        position: absolute;
+        left: 50px;
+        top: 223px;
+        writing-mode: vertical-rl;
+        white-space: nowrap;
+
+        color: $white;
+
+        text-align: center;
+        // font-family: Inter;
+        font-size: $spacing-md;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%;
+        letter-spacing: $spacing-xxs;
+    }
+
+    .homescroll {
+        display: flex;
+        justify-content: center;
+        width: 88px;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom: 155px;
+        width: 88px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+    }
+
+    .banner-line {
+        position: absolute;
+        top: 127px;
+        right: 0;
+        width: 1266.99px;
+        height: 638.351px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+    }
+
+    .homeboat-b {
+        position: absolute;
+        top: 110px;
+        right: 68px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+    }
+}
+
+#homelocation {
+
+    width: 100%;
+    height: 800px;
+    padding: 42px 50px 0 50px;
+    position: relative;
+
+    .homenext {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 13px;
+        margin-right: 50px;
+
+        .h-n-1 {
+            color: $primary2;
+            text-align: center;
+            font-family: $en;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: $spacing-xxs;
+
+        }
+
+        .h-n-2 {
+            color: $primary1;
+            font-family: $family-tc;
+            font-size: $f-s-xxl;
+            font-style: normal;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            /* 54px */
+            letter-spacing: $spacing-xs;
+        }
+
+    }
+
+    .popularcity {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: absolute;
+        top: 110px;
+
+        p {
+            // font-family: $family-en;
+            font-size: 96px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 100%;
+            opacity: 0.6;
+            background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0.00) 113.51%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .home-city-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 180px 140px 140px;   /* 你要的三列高度 */
+  grid-template-areas:
+    "a a b"
+    "c d b"
+    "e f g";
+  gap: 16px;
+  margin: 0;
+  img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* 等比例填滿，必要時裁切 */
+  border-radius: 14px;
+  display: block;
+}
+.city-grid img:nth-child(1){ grid-area: a; } /* 左上大圖（跨兩欄兩列） */
+.city-grid img:nth-child(2){ grid-area: b; } /* 右上直幅（跨兩列） */
+.city-grid img:nth-child(3){ grid-area: c; }
+.city-grid img:nth-child(4){ grid-area: d; }
+.city-grid img:nth-child(5){ grid-area: e; }
+.city-grid img:nth-child(6){ grid-area: f; }
+.city-grid img:nth-child(7){ grid-area: g; }
+}
 }
