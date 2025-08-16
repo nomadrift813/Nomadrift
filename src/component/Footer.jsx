@@ -25,13 +25,13 @@ const Footer = () => {
           <li>
             <a href="#">最新消息</a>
             <ul>
-              <li><a href="#">E-mail</a></li>
-              <li><a href="#">Subscribe</a></li>
+              <li><a href="#" className='frame1'>E-mail</a></li>
+              <li><a href="#" className='frame2'>Subscribe</a></li>
             </ul>
           </li>
         </ul>
       </nav>
-      <h4>亞洲第一數位遊牧平台 <span>｜© 2025 Nomadrift. All rights reserved.</span></h4>
+      <h4> <span>亞洲第一數位遊牧平台 ｜ © 2025 Nomadrift. All rights reserved.</span></h4>
     </footer>
   )
 }
