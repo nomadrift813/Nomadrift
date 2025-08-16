@@ -124,3 +124,30 @@ a {
   color: ColorValues;
   text-decoration: none;
 }
+
+#homebanner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(65, 69, 61, 0) 75.48%, #41453D 100%), url("../../images/img-Home/HomeBanner.jpg") center/cover no-repeat;
+}
+#homebanner h2 {
+  font-size: 36px;
+  color: #fff;
+  font-family: "Noto Sans TC";
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  letter-spacing: 10px;
+}
+#homebanner .home-b-form {
+  display: flex;
+  height: 43px;
+  padding: 8px 24px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}

@@ -1,23 +1,24 @@
-import React from 'react'
-import homebanner from '../images/img-Home/HomeBanner.jpg'
 import '../sass/scss/home.scss'
+import homesright from'../images/img-Home/home-s-right.svg'
+import homescroll from'../images/img-Home/homescroll.svg'
+
 const Home = () => {
   return (
     <main>
-      <section className="homebanner">
-        <figure>
-          <img src={homebanner} alt="home banner" />
-        </figure>
+      <section id="homebanner">
 
-        <div className="homeslogan"> 
+        <div className="homeslogan">
           <h2>在世界的浪潮中， 自由前行</h2>
-          <form name="home-b-form" id="home-b-form" method="post" accept-charset="UTF-8">
-            <input type="button" value="Start" className="home-b-button" />
-          </form>
+
+          <button className="home-b-form" type="button">
+            <span>Start</span>
+            <img src={homesright} alt="" />
+          </button>
         </div>
 
-        <div className="homesideword">
-          <p>floating your own way</p>
+        <p>floating your own way</p> 
+        <div className="homescroll">
+          <img src={homescroll} alt="" />
         </div>
       </section>
     </main>

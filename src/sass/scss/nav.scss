@@ -32,9 +32,7 @@
     margin: 0;
     padding: 0;
 
-    a {
-      color: #201811;
-    }
+   
   }
 
 
@@ -46,9 +44,7 @@
     margin: 0;
     padding: 0;
 
-    a {
-      color: #201811;
-    }
+    
 
     li {
       display: flex;
@@ -69,6 +65,9 @@
       color: #ffffff;
     }
   }
+  a {
+      color: $text;
+    }
 
 
 }

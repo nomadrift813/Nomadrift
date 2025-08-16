@@ -1,2 +1,37 @@
 @use 'reset';
 @use 'var' as *;
+
+
+#homebanner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(180deg,
+            rgba(65, 69, 61, 0) 75.48%,
+            #41453D 100%),
+        url("../../images/img-Home/HomeBanner.jpg") center/cover no-repeat;
+
+    h2 {
+        font-size: $f-s-xxl;
+        color: $white;
+        font-family: $family-tc;
+        text-align: center;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.80);
+        font-weight: 500;
+        letter-spacing: $spacing-xs;
+    }
+
+    .home-b-form {
+        display: flex;
+        height: 43px;
+        padding: 8px 24px;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+    }
+
+}
