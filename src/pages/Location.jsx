@@ -1,4 +1,4 @@
-import React from 'react'
+import '../sass/scss/location.scss'
 
 const Location = () => {
   return (
