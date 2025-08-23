@@ -1,2 +1,71 @@
 @use 'reset';
 @use 'var' as *;
+
+// 共用區
+
+
+// banner區
+#locBanner {
+    display: flex;
+    width: 100%;
+    height: 130vh;
+    flex-direction: column;
+    align-items: center;
+
+    background: url("../../../public/img-Location/Banner.jpg");
+
+    .locSlogan {
+        position: absolute;
+        top: 200px; // 原本144
+
+        .l-t-1 {
+            color: #fff;
+            text-align: center;
+            font-family: $en;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: $spacing-xxs;
+        }
+
+        .l-t-2 {
+            color: #fff;
+            text-align: center;
+            font-family: $family-tc;
+            font-size: $f-s-xxl;
+            font-style: normal;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            /* 54px */
+            letter-spacing: $spacing-xs;
+        }
+
+        .locScroll {
+            img {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                height: 16px;
+            }
+
+        }
+    }
+
+    .locBanner-side-word {
+        position: absolute;
+        left: 50px;
+        top: 134px;
+        writing-mode: vertical-rl;
+        white-space: nowrap;
+
+        color: $white;
+
+        font-family: Inter;
+        font-size: $spacing-md;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%;
+        letter-spacing: $spacing-xxs;
+    }
+}
