@@ -158,31 +158,53 @@ a {
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 #topbar .navlogs {
   display: flex;
   justify-content: flex-end;
+  flex-direction: row;
   gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: nowrap;
 }
 #topbar .navlogs li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex;
+  /* 只跟內容一樣寬 */
+  flex: 0 0 auto;
+  /* 不伸展、不縮小 */
+  width: auto;
   padding: 4px 24px;
   border-radius: 999px;
 }
 #topbar .navlogs .navlog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #201811;
+  font-family: "Noto Sans TC";
   color: #201811;
 }
 #topbar .navlogs .navsign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #F4D000;
   background-color: #F4D000;
   color: #ffffff;
 }
 #topbar a {
   color: #201811;
+  font-family: "Noto Sans TC";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: auto;
 }

@@ -80,10 +80,11 @@ const Home = () => {
 
         </header>
         <div className='h-l-text'>
-          <figure><img src="" alt="" /></figure>
-          <figure><img src="" alt="" /></figure>
-          <figure><img src="" alt="" /></figure>
-
+          <div className='h-g-pic'>
+            <figure className='h-g-p-1'><img src="/img-Home/group1.jpg" alt="" /></figure>
+            <figure className='h-g-p-2'><img src="/img-Home/group2.jpeg" alt="" /></figure>
+            <figure className='h-g-p-3'><img src="/img-Home/group3.jpeg" alt="" /></figure>
+          </div>
           <ul>
             <li><span>找吃飯夥伴<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
             <li><span>找工作夥伴<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
@@ -91,13 +92,20 @@ const Home = () => {
             <li><span>找合租室友<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
             <li><span>找 Chill 伴<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
             <p className='home-all-spot' >
-              <Link to="/location" >更多地點</Link>
+              <Link to="/group" >所有活動</Link>
             </p>
           </ul>
         </div>
+      
+        <div className="h-g-tags">
           <p className='h-g-block1'>讓你在異鄉，也有同路人～</p>
           <p className='h-g-block2'>一個人沒動力？一起就有趣！!</p>
+        </div>
+         <div className="h-g-botton-wrap">
         <p className='h-g-botton'>Get together Get together</p>
+        </div>
+      
+      
       </section>
     </main>
   )

@@ -98,6 +98,15 @@
                 height: 24px;
 
             }
+
+            span {
+                font-family: $en;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: $f-w-4;
+                line-height: 150%;
+                letter-spacing: 5px;
+            }
         }
 
 
@@ -113,7 +122,7 @@
         color: $white;
 
         text-align: center;
-        font-family: Inter;
+        font-family: $en;
         font-size: $spacing-md;
         font-style: normal;
         font-weight: 300;
@@ -250,7 +259,7 @@
 
 
         .home-city-grid {
-            width: 85%;
+            width: 78%;
             //   margin: 0;                         
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -329,7 +338,7 @@
         color: $primary1;
 
         text-align: center;
-        font-family: "Inter";
+        font-family: $en;
         font-size: $spacing-md;
         font-style: normal;
         font-weight: 300;
@@ -347,7 +356,7 @@
         color: $primary1;
 
         text-align: center;
-         font-family: "Inter";
+        font-family: "Inter";
         font-size: $spacing-md;
         font-style: normal;
         font-weight: 300;
@@ -360,6 +369,10 @@
         top: 440px;
         left: 180px;
         display: block;
+
+        z-index: 1;
+        pointer-events: none;
+        overflow: visible;
 
         img {
             width: 100%;
@@ -402,32 +415,114 @@
     }
 
     .h-l-text {
+        display: flex;
+        justify-content: flex-start;
+        /* 靠左 */
+        align-items: flex-start;
+        width: 100%;
+        gap: 150px;
+        padding-left: 150px;
+        padding-top: 70px;
 
+        .h-g-pic {
 
-        ul {
-            list-style: disc;
-            gap: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
 
-            span {
-                color: $text;
+            figure {
+                border: 5px solid $white;
+                flex-shrink: 0;
                 display: flex;
-                font-family: $family-tc;
-                font-size: $f-s-md;
-                font-style: normal;
-                font-weight: $f-w-4;
-                line-height: 150%;
-                letter-spacing: 2px;
+                justify-content: center;
+                align-items: center;
 
                 img {
-                    width: 24px;
-                    height: 24px;
-
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
                 }
+            }
+
+            .h-g-p-1 {
+                width: 159.209px;
+                height: 106.113px;
+                transform: rotate(-6.904deg);
+                z-index: 1;
+                margin-right: -110px;
+                margin-top: 290px;
+            }
+
+            .h-g-p-2 {
+                width: 492.651px;
+                height: 328.434px;
+                transform: rotate(4.139deg);
+
+            }
+
+            .h-g-p-3 {
+                width: 210.076px;
+                height: 140.05px;
+                transform: rotate(-3.236deg);
+                margin-left: -90px;
+                margin-top: -280px;
             }
 
         }
 
+        ul {
+            list-style: disc;
+            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+
+
+        }
+
+        span {
+            color: $text;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-family: $family-tc;
+            font-size: $f-s-md;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 2px;
+
+            img {
+                width: 24px;
+                height: 24px;
+
+            }
+
+
+        }
+
+        li {
+            &:nth-child(n+2) {
+                span {
+                    opacity: 30%;
+                }
+
+                img {
+                    opacity: 0%;
+
+                }
+
+            }
+        }
+
         .home-all-spot {
+            margin-left: -20px;
+
             a {
 
                 color: $white;
@@ -439,59 +534,102 @@
                 letter-spacing: 2px;
             }
         }
+
+
+
     }
 
-    .h-g-block1 {
-        display: inline-flex;
-        transform: rotate(-1.822deg);
-        padding: 12px 40px;
-        justify-content: center;
+
+    /* 膠囊和大字之間的距離 */
+    .h-g-tags {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
-
-        border-radius: 10px;
-        background: $white;
-
-        color: $primary1;
-        font-family: "Noto Sans TC";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 2px;
-    }
-
-    .h-g-block2 {
-        display: inline-flex;
-        transform: rotate(1.951deg);
-        padding: 12px 40px;
         justify-content: center;
-        align-items: center;
-        gap: 10px;
+        gap: 20px;
+        width: 100%;
+        padding-right: 150px;
+        padding-left: 800px;
+        margin-top: -50px;
 
-        border-radius: 10px;
-        background-color: $accent;
+        .h-g-block1 {
+            display: inline-flex;
+            align-self: flex-end;
+            transform: rotate(-1.822deg);
+            padding: 12px 40px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
 
-        color: $text;
-        font-family: "Noto Sans TC";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 2px;
+            border-radius: 10px;
+            background: $white;
+
+            color: $primary1;
+            font-family: "Noto Sans TC";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .h-g-block2 {
+            align-self: flex-start;
+            display: inline-flex;
+            transform: rotate(1.951deg);
+            padding: 12px 40px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            border-radius: 10px;
+            background-color: $accent;
+
+            color: $text;
+            font-family: "Noto Sans TC";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
     }
 
-    .h-g-botton {
-        // font-family: $family-en;
-        font-size: 96px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 100%;
+    .h-g-botton-wrap {
+        position: absolute;
+        left: 0;
+        /* 把外層錨在整個區塊寬度 */
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        /* 讓裡面東西水平置中 */
+        overflow-x: hidden;
+        /* 只裁左右 */
+        overflow-y: visible;
+        /* 上下完全顯示 */
+        scrollbar-width: none;    
 
-        opacity: 0.6;
-        background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0.00) 113.51%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+
+        .h-g-botton {
+
+
+            display: inline-block;
+            /* 讓寬度等於文字本身 */
+            white-space: nowrap;
+            /* 不換行 */
+            pointer-events: none;
+            font-family: $family-en;
+            font-size: clamp(56px, 8vw, 120px);
+            line-height: 1;
+            font-weight: 400;
+            opacity: .6;
+            background: linear-gradient(180deg, $accent, rgba(244, 208, 0, 0));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
