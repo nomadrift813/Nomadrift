@@ -23,21 +23,21 @@ const Home = () => {
 
           <button className="home-b-form" type="button">
             <span>Start</span>
-            <img src={homesright} alt="" />
+            <img src="/img-Home/HomeBanner.jpg" alt="" />
           </button>
         </div>
 
         <p className='banner-side-word'>floating your own way</p>
         <div className="homescroll">
-          <img src={homescroll} alt="" />
+          <img src="/img-Home/homescroll.svg" alt="" />
         </div>
 
         <div className="banner-line">
-          <img src={bannerline} alt="" />
+          <img src="/img-Home/banner-line.svg" alt="" />
         </div>
 
         <div className="homeboat-b">
-          <img src={boatb} alt="" />
+          <img src="/img-Home/boat-b.svg" alt="" />
         </div>
       </section>
 
@@ -55,13 +55,13 @@ const Home = () => {
           <p>City</p>
         </div>
         <figure className="home-city-grid">
-          <img src={location1} alt="" />
-          <img src={location2} alt="" />
-          <img src={location3} alt="" />
-          <img src={location4} alt="" />
-          <img src={location5} alt="" />
-          <img src={location6} alt="" />
-          <img src={location7} alt="" />
+          <img src="/img-Home/location-1.jpg" alt="" />
+          <img src="/img-Home/location-2.jpg" alt="" />
+          <img src="/img-Home/location-3.jpg" alt="" />
+          <img src="/img-Home/location-4.jpg" alt="" />
+          <img src="/img-Home/location-5.jpg" alt="" />
+          <img src="/img-Home/location-6.jpg" alt="" />
+          <img src="/img-Home/location-7.jpg" alt="" />
         </figure>
         <p>next stop</p>
         <p>Top Trending Nomad Cities</p>
