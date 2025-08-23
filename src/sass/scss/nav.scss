@@ -31,43 +31,67 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
-   
   }
 
 
   .navlogs {
     display: flex;
     justify-content: flex-end;
+    flex-direction: row;
     gap: 16px;
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-wrap: nowrap;
 
-    
+
 
     li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: inline-flex;
+      /* 只跟內容一樣寬 */
+      flex: 0 0 auto;
+      /* 不伸展、不縮小 */
+      width: auto;
       padding: 4px 24px;
       border-radius: 999px;
     }
 
     .navlog {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 1px solid $text;
+      font-family: $family-tc;
       color: $text;
+
     }
 
     .navsign {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 1px solid $accent;
       background-color: $accent;
       color: #ffffff;
     }
   }
+
   a {
-      color: $text;
-    }
+    color: $text;
+    font-family: $family-tc;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 2px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: auto;
+
+  }
 
 
 }
