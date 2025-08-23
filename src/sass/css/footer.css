@@ -1,5 +1,10 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap");
 /* 編碼一定要在第一行 */
+@font-face {
+  font-family: Nico Moji;
+  src: url(../../assets/font/NicoMoji-Regular.ttf);
+}
 /* css reset */
 * {
   box-sizing: border-box;
@@ -136,8 +141,48 @@ footer {
 
 ul.Sitemap {
   display: flex;
-  justify-content: space-around;
-  padding: 30px 50px;
+  justify-content: center;
+  padding: 20px 50px;
+}
+ul.Sitemap a {
+  color: #F4F1E5;
+}
+ul.Sitemap .frame1 {
+  display: flex;
+  width: 140px;
+  height: 20px;
+  padding: 0px 10px;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  color: #737B6B;
+  border-radius: 999px;
+  border: 1px solid #F4F1E5;
+  background: #F4F1E5;
+}
+ul.Sitemap .frame2 {
+  display: flex;
+  width: 100px;
+  height: 20px;
+  padding: 0px 10px;
+  align-items: center;
+  color: #201811;
+  border-radius: 999px;
+  border: 1px solid #F4D000;
+  background: #F4D000;
+}
+ul.Sitemap ul {
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 20px;
+  align-items: center;
+}
+ul.Sitemap li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 180px;
+  gap: 8px;
 }
 
 h4 {
@@ -146,7 +191,8 @@ h4 {
   background-color: #201811;
   color: #F4F1E5;
 }
-
-.footer-a {
-  color: #F4F1E5;
+h4 span {
+  font-size: 12px;
+  font-weight: 300;
+  padding: 10px 0px;
 }
