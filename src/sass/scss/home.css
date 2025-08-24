@@ -1,0 +1,639 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap");
+/* 編碼一定要在第一行 */
+@font-face {
+  font-family: Nico Moji;
+  src: url(../../assets/font/NicoMoji-Regular.ttf);
+}
+/* css reset */
+* {
+  box-sizing: border-box;
+  /* 不累加內距及邊框 */
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連接 */
+a {
+  color: ColorValues;
+  text-decoration: none;
+}
+
+.h-t-1 {
+  color: #737B6B;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+
+.h-t-2 {
+  color: #41453D;
+  font-family: "Noto Sans TC";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  /* 54px */
+  letter-spacing: 10px;
+}
+
+.home-all-spot {
+  display: flex;
+  padding: 5px 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 99px;
+  background-color: #41453D;
+}
+
+#homebanner {
+  position: relative;
+  width: 100%;
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(65, 69, 61, 0) 75.48%, #41453D 100%), url("../../../public/img-Home/HomeBanner.jpg") center/cover no-repeat;
+}
+#homebanner .homeslogan {
+  display: flex;
+  width: 571px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+#homebanner .homeslogan h2 {
+  font-size: 36px;
+  color: #fff;
+  font-family: "Noto Sans TC";
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  letter-spacing: 10px;
+}
+#homebanner .homeslogan .home-b-form {
+  display: flex;
+  height: 43px;
+  padding: 8px 24px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 999px;
+  border: 1px solid #fff;
+  background: rgba(244, 241, 229, 0.5);
+  color: #201811;
+  font-family: "Inter";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+#homebanner .homeslogan .home-b-form img {
+  width: 24px;
+  height: 24px;
+}
+#homebanner .homeslogan .home-b-form span {
+  font-family: "Inter";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+#homebanner .banner-side-word {
+  position: absolute;
+  left: 50px;
+  top: 288px;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  color: #fff;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+#homebanner .homescroll {
+  display: flex;
+  justify-content: center;
+  width: 88px;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 155px;
+  width: 88px;
+}
+#homebanner .homescroll img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
+#homebanner .banner-line {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  width: 1266.99px;
+  height: 638.351px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#homebanner .banner-line img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
+#homebanner .homeboat-b {
+  position: absolute;
+  top: 185px;
+  right: 68px;
+}
+#homebanner .homeboat-b img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
+
+#homelocation {
+  width: 100%;
+  height: 115vh;
+  padding: 42px 50px 0 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #F4F1E5;
+  overflow: visible;
+}
+#homelocation header {
+  display: flex;
+  flex-direction: column;
+}
+#homelocation header .homenext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 13px;
+  margin-right: 100px;
+}
+#homelocation header .popularcity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 100px;
+  margin-top: -30px;
+}
+#homelocation header .popularcity p {
+  font-family: "Nico Moji";
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  opacity: 0.6;
+  background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0) 113.51%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#homelocation header figure {
+  position: absolute;
+  top: 80px;
+  right: 152px;
+}
+#homelocation header figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
+#homelocation .home-lo-boxs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 80px 100px 0;
+  gap: 30px;
+  margin-top: -160px;
+}
+#homelocation .home-lo-boxs .home-city-grid {
+  width: 78%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 180px 153px 153px;
+  grid-template-areas: "a a b" "c d b" "e f g";
+  gap: 12px;
+}
+#homelocation .home-lo-boxs .home-city-grid > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(1) {
+  grid-area: a;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(2) {
+  grid-area: b;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(3) {
+  grid-area: c;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(4) {
+  grid-area: d;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(5) {
+  grid-area: e;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(6) {
+  grid-area: f;
+}
+#homelocation .home-lo-boxs .home-city-grid > img:nth-child(7) {
+  grid-area: g;
+}
+#homelocation .home-lo-boxs .home-all-spot a {
+  color: #fff;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+#homelocation .h-1-side-word-1 {
+  position: absolute;
+  right: 50px;
+  top: 210px;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  color: #41453D;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+#homelocation .h-1-side-word-2 {
+  position: absolute;
+  left: 50px;
+  bottom: 100px;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  color: #41453D;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+#homelocation .h-location-line {
+  position: absolute;
+  top: 440px;
+  left: 180px;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+#homelocation .h-location-line img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+}
+
+#homegroup {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 45px;
+  background-color: #F4F1E5;
+  overflow: visible;
+  /* 膠囊和大字之間的距離 */
+}
+#homegroup header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+#homegroup header span {
+  border-bottom: 1px solid #41453D;
+  padding-bottom: 8px;
+}
+#homegroup header .h-t-2 {
+  color: #201811;
+}
+#homegroup .h-l-text {
+  display: flex;
+  justify-content: flex-start;
+  /* 靠左 */
+  align-items: flex-start;
+  width: 100%;
+  gap: 150px;
+  padding-left: 150px;
+  padding-top: 70px;
+}
+#homegroup .h-l-text .h-g-pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+#homegroup .h-l-text .h-g-pic figure {
+  border: 5px solid #fff;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#homegroup .h-l-text .h-g-pic figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+#homegroup .h-l-text .h-g-pic .h-g-p-1 {
+  width: 159.209px;
+  height: 106.113px;
+  transform: rotate(-6.904deg);
+  z-index: 1;
+  margin-right: -110px;
+  margin-top: 290px;
+}
+#homegroup .h-l-text .h-g-pic .h-g-p-2 {
+  width: 492.651px;
+  height: 328.434px;
+  transform: rotate(4.139deg);
+}
+#homegroup .h-l-text .h-g-pic .h-g-p-3 {
+  width: 210.076px;
+  height: 140.05px;
+  transform: rotate(-3.236deg);
+  margin-left: -90px;
+  margin-top: -280px;
+}
+#homegroup .h-l-text ul {
+  list-style: disc;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#homegroup .h-l-text span {
+  color: #201811;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+#homegroup .h-l-text span img {
+  width: 24px;
+  height: 24px;
+}
+#homegroup .h-l-text li:nth-child(n+2) span {
+  opacity: 30%;
+}
+#homegroup .h-l-text li:nth-child(n+2) img {
+  opacity: 0%;
+}
+#homegroup .h-l-text .home-all-spot {
+  margin-left: -20px;
+}
+#homegroup .h-l-text .home-all-spot a {
+  color: #fff;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+#homegroup .h-g-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  padding-right: 150px;
+  padding-left: 800px;
+  margin-top: -50px;
+}
+#homegroup .h-g-tags .h-g-block1 {
+  display: inline-flex;
+  align-self: flex-end;
+  transform: rotate(-1.822deg);
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #fff;
+  color: #41453D;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+#homegroup .h-g-tags .h-g-block2 {
+  align-self: flex-start;
+  display: inline-flex;
+  transform: rotate(1.951deg);
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #F4D000;
+  color: #201811;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+#homegroup .h-g-botton-wrap {
+  position: absolute;
+  left: 0;
+  /* 把外層錨在整個區塊寬度 */
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /* 讓裡面東西水平置中 */
+  overflow-x: hidden;
+  /* 只裁左右 */
+  overflow-y: visible;
+  /* 上下完全顯示 */
+  scrollbar-width: none;
+}
+#homegroup .h-g-botton-wrap .h-g-botton {
+  display: inline-block;
+  /* 讓寬度等於文字本身 */
+  white-space: nowrap;
+  /* 不換行 */
+  pointer-events: none;
+  font-family: "Nico Moji";
+  font-size: clamp(56px, 8vw, 120px);
+  line-height: 1;
+  font-weight: 400;
+  opacity: 0.6;
+  background: linear-gradient(180deg, #F4D000, rgba(244, 208, 0, 0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}/*# sourceMappingURL=home.css.map */
