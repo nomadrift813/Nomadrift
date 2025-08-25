@@ -35,6 +35,7 @@
 
     border-radius: 99px;
     background-color: $primary1;
+    border: none;
 }
 
 // banner區
@@ -115,7 +116,7 @@
     .banner-side-word {
         position: absolute;
         left: 50px;
-        top: 288px;
+        top: 360px;
         writing-mode: vertical-rl;
         white-space: nowrap;
 
@@ -150,8 +151,8 @@
 
     .banner-line {
         position: absolute;
-        top: 200px;
-        right: 0;
+        top: 300px;
+        right: 10px;
         width: 1266.99px;
         height: 638.351px;
         flex-shrink: 0;
@@ -169,7 +170,7 @@
 
     .homeboat-b {
         position: absolute;
-        top: 185px;
+        top: 280px;
         right: 68px;
 
         img {
@@ -197,6 +198,11 @@
 
         display: flex;
         flex-direction: column;
+
+        span {
+            border-bottom: 1px solid $primary1;
+            padding-bottom: 8px;
+        }
 
 
         .homenext {
@@ -231,19 +237,7 @@
             }
         }
 
-        figure {
-
-            position: absolute;
-            top: 80px;
-            right: 152px;
-
-            img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-position: center;
-            }
-        }
+        
     }
 
     .home-lo-boxs {
@@ -550,7 +544,7 @@
         width: 100%;
         padding-right: 150px;
         padding-left: 800px;
-        margin-top: -50px;
+        margin-top: -80px;
 
         .h-g-block1 {
             display: inline-flex;
@@ -602,7 +596,7 @@
         left: 0;
         /* 把外層錨在整個區塊寬度 */
         right: 0;
-        bottom: 0;
+        bottom: -10px;
         width: 100%;
         text-align: center;
         /* 讓裡面東西水平置中 */
@@ -610,7 +604,7 @@
         /* 只裁左右 */
         overflow-y: visible;
         /* 上下完全顯示 */
-        scrollbar-width: none;    
+        scrollbar-width: none;
 
 
         .h-g-botton {
@@ -631,5 +625,276 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+    }
+
+    .h-g-side-word-1 {
+        position: absolute;
+        right: 50px;
+        top: 90px;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        white-space: nowrap;
+
+        color: $primary1;
+
+        text-align: center;
+        font-family: $en;
+        font-size: $spacing-md;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%;
+        letter-spacing: $spacing-xxs;
+    }
+
+    .h-group-line {
+        position: absolute;
+        top: 320px;
+        right: 120px;
+        display: block;
+
+        z-index: 1;
+        pointer-events: none;
+        overflow: visible;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+
+    }
+}
+
+// 日記區
+#homediary {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: $background1;
+
+
+    background-image: url("../../../public/img-Home/diary-bg.jpg");
+    background-size: contain;
+    background-position: bottom;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
+
+    position: relative;
+    padding: 80px 150px 285px 150px;
+    display: grid;
+    justify-content: center;
+
+    grid-template-columns: minmax(200px, 700px) auto 1fr;
+
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "pics . title"
+        "pics . article";
+    align-items: start;
+
+    header {
+        grid-area: title;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 13px;
+
+        // padding: 90px 150px;
+        span {
+            border-bottom: 1px solid $primary1;
+            padding-bottom: 8px;
+        }
+
+    }
+
+    .h-d-article-box {
+        grid-area: article;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+
+        article {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 10px;
+
+            .h-d-member {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                div {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 99px;
+                    background-color: $primary1;
+                }
+
+                p {
+                    color: $text;
+                    font-family: $en;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 130%;
+                    letter-spacing: 0.8px;
+                }
+            }
+
+            .h-d-text-card {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .h-d-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 13px;
+
+                    .h-d-tit {
+                        color: $text;
+                        font-family: $family-tc;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 150%;
+                        letter-spacing: 2px;
+                    }
+
+                    .h-d-word {
+                        color: $text;
+                        font-family: $family-tc;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 150%;
+                        letter-spacing: 1.6px;
+                    }
+
+                }
+
+            }
+
+            .h-d-sign {
+                display: flex;
+                gap: 7px;
+                align-items: center;
+
+                p {
+                    color: $text;
+
+                    text-align: center;
+                    font-family: $family-tc;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 100%;
+                }
+
+                .h-d-locaion {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        display: flex;
+                        width: 32px;
+                        height: 32px;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    p {
+                        display: flex;
+                        padding: 10px 20px;
+                        justify-content: flex-start;
+                        align-items: center;
+                        flex-shrink: 0;
+                        white-space: nowrap;
+
+                        border-radius: 999px;
+                        background-color: rgba(255, 255, 255, 0.50);
+
+
+                    }
+                }
+
+                .h-d-date {
+                    display: flex;
+                    padding: 10px 20px;
+                    justify-content: center;
+                    align-items: center;
+                    color: #201811;
+                    white-space: nowrap;
+
+                    border-radius: 999px;
+                    background: rgba(255, 255, 255, 0.50);
+                }
+
+                img {
+                    width: 26px;
+                    height: 26px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+        }
+
+        .home-all-spot {
+            background-color: $accent;
+
+            a {
+                color: $text;
+                font-family: $family-tc;
+                font-size: $spacing-md;
+                font-style: normal;
+                font-weight: $f-w-4;
+                line-height: 150%;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    .h-d-pics {
+        grid-area: pics;
+
+        position: relative;
+        width: 100%;
+        height: 500px; // 可依設計稿調整
+
+        img {
+            position: absolute;
+            box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.25);
+            object-fit: cover;
+
+        }
+
+        img:nth-child(1) {
+            width: 197px;
+            height: 225px;
+            top: 0;
+            left: 0;
+        }
+
+        img:nth-child(2) {
+            width: 229px;
+            height: 274px;
+            top: 30px;
+            left: 120px;
+        }
+
+        img:nth-child(3) {
+            width: 226px;
+            height: 320px;
+            top: 80px;
+            left: 285px;
+        }
+
     }
 }

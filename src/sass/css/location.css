@@ -267,11 +267,16 @@ a {
   height: 9px;
 }
 
+<<<<<<< HEAD
 #globalAsia {
+=======
+#global {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   background-color: #F4F1E5;
   padding: 80px 100px;
 }
@@ -286,6 +291,13 @@ a {
   height: 520px;
 }
 #globalAsia .asia h2 {
+=======
+  gap: -46px;
+  background-color: #F4F1E5;
+  padding: 80px 50px 60px 50px;
+}
+#global .asia {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   color: #fff;
   font-family: "Noto Sans TC";
   font-size: 48px;
@@ -293,6 +305,7 @@ a {
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 14.4px;
+<<<<<<< HEAD
   position: absolute;
   left: 50px;
 }
@@ -315,30 +328,53 @@ a {
 #globalAsia .asiaCard .manila .p1-sel .loc-p1,
 #globalAsia .asiaCard .nepal .p1-sel .loc-p1,
 #globalAsia .asiaCard .israel .p1-sel .loc-p1 {
+=======
+}
+#global .manila, #global .nepal, #global .israel {
+  background-color: #fff;
+  position: relative;
+}
+#global .manila .p1-sel, #global .nepal .p1-sel, #global .israel .p1-sel {
+  display: flex;
+}
+#global .manila .p1-sel .loc-p1, #global .nepal .p1-sel .loc-p1, #global .israel .p1-sel .loc-p1 {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   width: 270px;
   height: 180px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .p1-sel .select,
 #globalAsia .asiaCard .nepal .p1-sel .select,
 #globalAsia .asiaCard .israel .p1-sel .select {
+=======
+#global .manila .p1-sel .select, #global .nepal .p1-sel .select, #global .israel .p1-sel .select {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   width: 34px;
   height: 34px;
   position: absolute;
   top: 12px;
   right: 12px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info,
 #globalAsia .asiaCard .nepal .loc-info,
 #globalAsia .asiaCard .israel .loc-info {
+=======
+#global .manila .loc-info, #global .nepal .loc-info, #global .israel .loc-info {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 10px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info h2,
 #globalAsia .asiaCard .nepal .loc-info h2,
 #globalAsia .asiaCard .israel .loc-info h2 {
+=======
+#global .manila .loc-info h2, #global .nepal .loc-info h2, #global .israel .loc-info h2 {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   width: 230px;
   color: #201811;
@@ -348,9 +384,13 @@ a {
   font-weight: 400;
   line-height: normal;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info .loc-text,
 #globalAsia .asiaCard .nepal .loc-info .loc-text,
 #globalAsia .asiaCard .israel .loc-info .loc-text {
+=======
+#global .manila .loc-info .loc-text, #global .nepal .loc-info .loc-text, #global .israel .loc-info .loc-text {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: -webkit-box;
   width: 230px;
   -webkit-box-orient: vertical;
@@ -364,9 +404,13 @@ a {
   font-weight: 400;
   line-height: 20px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info .wi-st,
 #globalAsia .asiaCard .nepal .loc-info .wi-st,
 #globalAsia .asiaCard .israel .loc-info .wi-st {
+=======
+#global .manila .loc-info .wi-st, #global .nepal .loc-info .wi-st, #global .israel .loc-info .wi-st {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   width: 230px;
   align-items: center;
@@ -374,15 +418,20 @@ a {
   border-bottom: 1px solid;
   padding-bottom: 12px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info .wi-st ul,
 #globalAsia .asiaCard .nepal .loc-info .wi-st ul,
 #globalAsia .asiaCard .israel .loc-info .wi-st ul {
+=======
+#global .manila .loc-info .wi-st ul, #global .nepal .loc-info .wi-st ul, #global .israel .loc-info .wi-st ul {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   align-items: center;
   gap: 5px;
   flex: 100;
   width: auto;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info .wi-st ul img,
 #globalAsia .asiaCard .nepal .loc-info .wi-st ul img,
 #globalAsia .asiaCard .israel .loc-info .wi-st ul img {
@@ -392,6 +441,13 @@ a {
 #globalAsia .asiaCard .manila .loc-info .wi-st ul p,
 #globalAsia .asiaCard .nepal .loc-info .wi-st ul p,
 #globalAsia .asiaCard .israel .loc-info .wi-st ul p {
+=======
+#global .manila .loc-info .wi-st ul img, #global .nepal .loc-info .wi-st ul img, #global .israel .loc-info .wi-st ul img {
+  width: 20px;
+  height: 14px;
+}
+#global .manila .loc-info .wi-st ul p, #global .nepal .loc-info .wi-st ul p, #global .israel .loc-info .wi-st ul p {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   color: #41453D;
   font-family: "Inter";
   font-size: 14px;
@@ -400,24 +456,36 @@ a {
   line-height: normal;
   letter-spacing: 1.6px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info .wi-st .stars,
 #globalAsia .asiaCard .nepal .loc-info .wi-st .stars,
 #globalAsia .asiaCard .israel .loc-info .wi-st .stars {
+=======
+#global .manila .loc-info .wi-st .stars, #global .nepal .loc-info .wi-st .stars, #global .israel .loc-info .wi-st .stars {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   align-items: center;
   gap: 5px;
   align-self: stretch;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info .wi-st .stars img,
 #globalAsia .asiaCard .nepal .loc-info .wi-st .stars img,
 #globalAsia .asiaCard .israel .loc-info .wi-st .stars img {
+=======
+#global .manila .loc-info .wi-st .stars img, #global .nepal .loc-info .wi-st .stars img, #global .israel .loc-info .wi-st .stars img {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   align-self: stretch;
   width: 20px;
   height: 20px;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .loc-info span,
 #globalAsia .asiaCard .nepal .loc-info span,
 #globalAsia .asiaCard .israel .loc-info span {
+=======
+#global .manila .loc-info span, #global .nepal .loc-info span, #global .israel .loc-info span {
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
   display: flex;
   width: 230px;
   color: #41453D;
@@ -427,6 +495,7 @@ a {
   font-weight: 400;
   line-height: normal;
 }
+<<<<<<< HEAD
 #globalAsia .asiaCard .manila .color-block,
 #globalAsia .asiaCard .nepal .color-block,
 #globalAsia .asiaCard .israel .color-block {
@@ -442,3 +511,10 @@ a {
   align-items: center;
   gap: 405px;
 }/*# sourceMappingURL=location.css.map */
+=======
+#global .manila .color-block, #global .nepal .color-block, #global .israel .color-block {
+  width: 270px;
+  height: 8px;
+  background-color: #F4D000;
+}
+>>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3

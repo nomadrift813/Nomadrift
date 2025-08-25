@@ -37,14 +37,14 @@ const Home = () => {
       <section id='homelocation'>
         <header>
           <div className='homenext'>
-            <p className='h-t-1'>Start your next journey here</p>
+            <p className='h-t-1'>Start your next journey <span>here</span></p>
             <p className='h-t-2'>下一站 點擊出發!</p>
           </div>
           <div className='popularcity'>
             <p>Popular</p>
             <p>City</p>
           </div>
-          <figure><img src="/img-Home/home-title-line.svg" alt="" /></figure>
+        
         </header>
 
         <div className='home-lo-boxs'>
@@ -57,9 +57,10 @@ const Home = () => {
             <img src="/img-Home/location-6.jpg" alt="" />
             <img src="/img-Home/location-7.jpg" alt="" />
           </figure>
-          <p className='home-all-spot' >
+
+          <button className='home-all-spot'>
             <Link to="/location" >更多地點</Link>
-          </p>
+          </button>
 
           <div className='h-location-line'>
             <img src="/img-Home/location-line.svg" alt="" />
@@ -91,21 +92,67 @@ const Home = () => {
             <li><span>找踩點夥伴<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
             <li><span>找合租室友<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
             <li><span>找 Chill 伴<img src="/img-Home/home-s-right.svg" alt="" /></span></li>
-            <p className='home-all-spot' >
+            <button className='home-all-spot'>
               <Link to="/group" >所有活動</Link>
-            </p>
+            </button>
           </ul>
+
         </div>
-      
+
         <div className="h-g-tags">
           <p className='h-g-block1'>讓你在異鄉，也有同路人～</p>
           <p className='h-g-block2'>一個人沒動力？一起就有趣！!</p>
         </div>
-         <div className="h-g-botton-wrap">
-        <p className='h-g-botton'>Get together Get together</p>
+        <div className="h-g-botton-wrap">
+          <p className='h-g-botton'>Get together Get together</p>
         </div>
-      
-      
+        <p className='h-g-side-word-1'>nice to me you</p>
+        <figure className='h-group-line'><img src="/img-Home/group-line.svg" alt="" /></figure>
+      </section>
+
+      <section id='homediary'>
+        <header>
+          <p className='h-t-1'>D<span>iary</span></p>
+          <p className='h-t-2'>漂日記</p>
+        </header>
+        <div className='h-d-article-box'>
+          <article>
+            <div className='h-d-member'>
+              <div></div>
+              <p>Josh Kuo</p>
+            </div>
+            <div className='h-d-text-card' >
+              <div className='h-d-text'>
+                <p className='h-d-tit'>/ 只緣身在此山中</p>
+                <p className='h-d-word'>
+                  以為是迷路，原來是迷霧。<br />
+                  穿過層層山路，終於與雲相遇。<br />
+                  腳下是現實，身邊是霧，<br />
+                  心裡，是一種說不出的寧靜。</p>
+              </div>
+
+              <div className='h-d-sign'>
+                <div className='h-d-locaion'>
+                  <figure><img src="/img-Home/location.svg" alt="" /></figure>
+                  <p>越南/番西邦峰</p>
+                </div>
+                <p className='h-d-date'>Apr,03 2025</p>
+                <figure><img src="/img-Home/heart.svg" alt="" /></figure>
+                <figure><img src="/img-Home/chat.svg" alt="" /></figure>
+                <figure><img src="/img-Home/save.svg" alt="" /></figure>
+              </div>
+            </div>
+          </article>
+          <button className='home-all-spot'>
+            <Link to="/group">所有日記</Link>
+          </button>
+        </div>
+
+        <figure className='h-d-pics'>
+          <img src="/img-Home/diary-1.jpg" alt="" />
+          <img src="/img-Home/diary-2.jpg" alt="" />
+          <img src="/img-Home/diary-3.jpg" alt="" />
+        </figure>
       </section>
     </main>
   )
