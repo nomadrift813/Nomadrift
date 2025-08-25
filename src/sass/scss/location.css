@@ -285,28 +285,32 @@ a {
   line-height: 150%;
   letter-spacing: 14.4px;
 }
-#global .manila {
+#global .manila, #global .nepal, #global .israel {
   background-color: #fff;
+  position: relative;
 }
-#global .manila .p1-sel {
+#global .manila .p1-sel, #global .nepal .p1-sel, #global .israel .p1-sel {
   display: flex;
 }
-#global .manila .p1-sel .loc-p1 {
+#global .manila .p1-sel .loc-p1, #global .nepal .p1-sel .loc-p1, #global .israel .p1-sel .loc-p1 {
   display: flex;
   width: 270px;
   height: 180px;
 }
-#global .manila .p1-sel .select {
-  width: 30px;
-  height: 30px;
+#global .manila .p1-sel .select, #global .nepal .p1-sel .select, #global .israel .p1-sel .select {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
-#global .manila .loc-info {
+#global .manila .loc-info, #global .nepal .loc-info, #global .israel .loc-info {
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 10px;
 }
-#global .manila .loc-info h2 {
+#global .manila .loc-info h2, #global .nepal .loc-info h2, #global .israel .loc-info h2 {
   display: flex;
   width: 230px;
   color: #201811;
@@ -316,7 +320,7 @@ a {
   font-weight: 400;
   line-height: normal;
 }
-#global .manila .loc-info .loc-text {
+#global .manila .loc-info .loc-text, #global .nepal .loc-info .loc-text, #global .israel .loc-info .loc-text {
   display: -webkit-box;
   width: 230px;
   -webkit-box-orient: vertical;
@@ -330,7 +334,7 @@ a {
   font-weight: 400;
   line-height: 20px;
 }
-#global .manila .loc-info .wi-st {
+#global .manila .loc-info .wi-st, #global .nepal .loc-info .wi-st, #global .israel .loc-info .wi-st {
   display: flex;
   width: 230px;
   align-items: center;
@@ -338,18 +342,18 @@ a {
   border-bottom: 1px solid;
   padding-bottom: 12px;
 }
-#global .manila .loc-info .wi-st ul {
+#global .manila .loc-info .wi-st ul, #global .nepal .loc-info .wi-st ul, #global .israel .loc-info .wi-st ul {
   display: flex;
   align-items: center;
   gap: 5px;
   flex: 100;
   width: auto;
 }
-#global .manila .loc-info .wi-st ul img {
+#global .manila .loc-info .wi-st ul img, #global .nepal .loc-info .wi-st ul img, #global .israel .loc-info .wi-st ul img {
   width: 20px;
   height: 14px;
 }
-#global .manila .loc-info .wi-st ul p {
+#global .manila .loc-info .wi-st ul p, #global .nepal .loc-info .wi-st ul p, #global .israel .loc-info .wi-st ul p {
   color: #41453D;
   font-family: "Inter";
   font-size: 14px;
@@ -358,18 +362,18 @@ a {
   line-height: normal;
   letter-spacing: 1.6px;
 }
-#global .manila .loc-info .wi-st .stars {
+#global .manila .loc-info .wi-st .stars, #global .nepal .loc-info .wi-st .stars, #global .israel .loc-info .wi-st .stars {
   display: flex;
   align-items: center;
   gap: 5px;
   align-self: stretch;
 }
-#global .manila .loc-info .wi-st .stars img {
+#global .manila .loc-info .wi-st .stars img, #global .nepal .loc-info .wi-st .stars img, #global .israel .loc-info .wi-st .stars img {
   align-self: stretch;
   width: 20px;
   height: 20px;
 }
-#global .manila .loc-info span {
+#global .manila .loc-info span, #global .nepal .loc-info span, #global .israel .loc-info span {
   display: flex;
   width: 230px;
   color: #41453D;
@@ -379,7 +383,7 @@ a {
   font-weight: 400;
   line-height: normal;
 }
-#global .manila .color-block {
+#global .manila .color-block, #global .nepal .color-block, #global .israel .color-block {
   width: 270px;
   height: 8px;
   background-color: #F4D000;

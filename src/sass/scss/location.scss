@@ -183,8 +183,9 @@
         letter-spacing: 14.4px;
     }
 
-    .manila {
+        .manila,.nepal,.israel {
         background-color: $white;
+        position: relative;
 
         .p1-sel {
             display: flex;
@@ -196,8 +197,11 @@
             }
 
             .select {
-                width: 30px;
-                height: 30px;
+                width: 34px;
+                height: 34px;
+                position: absolute;
+                top: 12px;
+                right: 12px;
             }
         }
 
