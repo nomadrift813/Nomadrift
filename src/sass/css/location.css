@@ -129,3 +129,316 @@ a {
   color: ColorValues;
   text-decoration: none;
 }
+
+#locBanner {
+  display: flex;
+  width: 100%;
+  height: 926px;
+  flex-direction: column;
+  align-items: center;
+  background: url("../../../public/img-Location/Banner.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #F4F1E5;
+}
+#locBanner .locSlogan {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  top: 180px;
+}
+#locBanner .locSlogan .locTitle {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+}
+#locBanner .locSlogan .locTitle .l-t-1 {
+  color: #fff;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+#locBanner .locSlogan .locTitle .l-t-2 {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Sans TC";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 10px;
+}
+#locBanner .locSlogan .locScroll img {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 16px;
+}
+#locBanner .locBanner-side-word {
+  position: absolute;
+  left: 50px;
+  top: 134px;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+  letter-spacing: 5px;
+}
+
+#discover {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F4F1E5;
+  padding: 180px 50px 0 50px;
+}
+#discover header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+#discover header .l-t-1 {
+  color: #737B6B;
+  font-family: "Inter";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 4.4px;
+}
+#discover header .l-t-1 span {
+  border-bottom: 1px solid #41453D;
+  padding-bottom: 8px;
+}
+#discover header .l-t-2 {
+  color: #201811;
+  font-family: "Noto Sans TC";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 10.8px;
+}
+#discover .locDrop {
+  display: flex;
+  width: 1440px;
+  padding: 50px 150px 24px 150px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+}
+#discover .locDrop ul {
+  display: flex;
+  padding: 4px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex: 100;
+  border-radius: 100px;
+  background: #41453D;
+}
+#discover .locDrop ul li {
+  color: #F4F1E5;
+  text-align: center;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+#discover .locDrop ul img {
+  width: 12px;
+  height: 9px;
+}
+
+#globalAsia {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F1E5;
+  padding: 80px 100px;
+}
+#globalAsia .asia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+#globalAsia .asia img {
+  height: 520px;
+}
+#globalAsia .asia h2 {
+  color: #fff;
+  font-family: "Noto Sans TC";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 14.4px;
+  position: absolute;
+  left: 50px;
+}
+#globalAsia .asiaCard {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+#globalAsia .asiaCard .manila,
+#globalAsia .asiaCard .nepal,
+#globalAsia .asiaCard .israel {
+  background-color: #fff;
+  position: relative;
+}
+#globalAsia .asiaCard .manila .p1-sel,
+#globalAsia .asiaCard .nepal .p1-sel,
+#globalAsia .asiaCard .israel .p1-sel {
+  display: flex;
+}
+#globalAsia .asiaCard .manila .p1-sel .loc-p1,
+#globalAsia .asiaCard .nepal .p1-sel .loc-p1,
+#globalAsia .asiaCard .israel .p1-sel .loc-p1 {
+  display: flex;
+  width: 270px;
+  height: 180px;
+}
+#globalAsia .asiaCard .manila .p1-sel .select,
+#globalAsia .asiaCard .nepal .p1-sel .select,
+#globalAsia .asiaCard .israel .p1-sel .select {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+#globalAsia .asiaCard .manila .loc-info,
+#globalAsia .asiaCard .nepal .loc-info,
+#globalAsia .asiaCard .israel .loc-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+#globalAsia .asiaCard .manila .loc-info h2,
+#globalAsia .asiaCard .nepal .loc-info h2,
+#globalAsia .asiaCard .israel .loc-info h2 {
+  display: flex;
+  width: 230px;
+  color: #201811;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#globalAsia .asiaCard .manila .loc-info .loc-text,
+#globalAsia .asiaCard .nepal .loc-info .loc-text,
+#globalAsia .asiaCard .israel .loc-info .loc-text {
+  display: -webkit-box;
+  width: 230px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  color: #737B6B;
+  text-overflow: ellipsis;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+#globalAsia .asiaCard .manila .loc-info .wi-st,
+#globalAsia .asiaCard .nepal .loc-info .wi-st,
+#globalAsia .asiaCard .israel .loc-info .wi-st {
+  display: flex;
+  width: 230px;
+  align-items: center;
+  gap: 3px;
+  border-bottom: 1px solid;
+  padding-bottom: 12px;
+}
+#globalAsia .asiaCard .manila .loc-info .wi-st ul,
+#globalAsia .asiaCard .nepal .loc-info .wi-st ul,
+#globalAsia .asiaCard .israel .loc-info .wi-st ul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 100;
+  width: auto;
+}
+#globalAsia .asiaCard .manila .loc-info .wi-st ul img,
+#globalAsia .asiaCard .nepal .loc-info .wi-st ul img,
+#globalAsia .asiaCard .israel .loc-info .wi-st ul img {
+  width: 20px;
+  height: 14px;
+}
+#globalAsia .asiaCard .manila .loc-info .wi-st ul p,
+#globalAsia .asiaCard .nepal .loc-info .wi-st ul p,
+#globalAsia .asiaCard .israel .loc-info .wi-st ul p {
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+}
+#globalAsia .asiaCard .manila .loc-info .wi-st .stars,
+#globalAsia .asiaCard .nepal .loc-info .wi-st .stars,
+#globalAsia .asiaCard .israel .loc-info .wi-st .stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+}
+#globalAsia .asiaCard .manila .loc-info .wi-st .stars img,
+#globalAsia .asiaCard .nepal .loc-info .wi-st .stars img,
+#globalAsia .asiaCard .israel .loc-info .wi-st .stars img {
+  align-self: stretch;
+  width: 20px;
+  height: 20px;
+}
+#globalAsia .asiaCard .manila .loc-info span,
+#globalAsia .asiaCard .nepal .loc-info span,
+#globalAsia .asiaCard .israel .loc-info span {
+  display: flex;
+  width: 230px;
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#globalAsia .asiaCard .manila .color-block,
+#globalAsia .asiaCard .nepal .color-block,
+#globalAsia .asiaCard .israel .color-block {
+  width: 270px;
+  height: 8px;
+  background-color: #F4D000;
+}
+#globalAsia button {
+  display: flex;
+  height: 26px;
+  padding: 10px 14px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 405px;
+}/*# sourceMappingURL=location.css.map */

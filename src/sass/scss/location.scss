@@ -4,7 +4,7 @@
 // 共用區
 
 
-// banner區
+// banner
 #locBanner {
     display: flex;
     width: 100%;
@@ -84,6 +84,7 @@
     }
 }
 
+// 探索所有地點
 #discover {
     display: flex;
     width: 100%;
@@ -164,142 +165,197 @@
     }
 }
 
-#global {
+// 各大洲區卡片
+#globalAsia,
+#globalEurope,
+#globalNA {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: -46px;
     background-color: $background1;
-    padding: 80px 50px 60px 50px;
+    padding: 80px 100px;
+    position: relative;
 
-    .asia {
-        color: $white;
-        font-family: $family-tc;
-        font-size: $f-s-xxxl;
-        font-style: normal;
-        font-weight: $f-w-5;
-        line-height: 150%;
-        letter-spacing: 14.4px;
-    }
-
-        .manila,.nepal,.israel {
-        background-color: $white;
+    // 各大洲區
+    .asia,
+    .europe,
+    .NorthA {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         position: relative;
 
-        .p1-sel {
-            display: flex;
-
-            .loc-p1 {
-                display: flex;
-                width: 270px;
-                height: 180px;
-            }
-
-            .select {
-                width: 34px;
-                height: 34px;
-                position: absolute;
-                top: 12px;
-                right: 12px;
-            }
+        img {
+            // width: 500px;
+            height: 520px;
         }
 
-        .loc-info {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            gap: 10px;
-
-            h2 {
-                display: flex;
-                width: 230px;
-                color: $text;
-                font-family: Inter;
-                font-size: 24px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-            }
-
-            .loc-text {
-                display: -webkit-box;
-                width: 230px;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-
-                overflow: hidden;
-                color: $primary2;
-                text-overflow: ellipsis;
-                font-family: $en;
-                font-size: $f-s-xs;
-                font-style: normal;
-                font-weight: $f-w-4;
-                line-height: 20px;
-            }
-
-            .wi-st {
-                display: flex;
-                width: 230px;
-                align-items: center;
-                gap: 3px;
-
-                border-bottom: 1px solid;
-                padding-bottom: 12px;
-
-                ul {
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-                    flex: 100;
-                    width: auto;
-
-                    img {
-                        width: 20px;
-                        height: 14px;
-                    }
-
-                    p {
-                        color: $primary1;
-                        font-family: $en;
-                        font-size: $f-s-xs;
-                        font-style: normal;
-                        font-weight: $f-w-4;
-                        line-height: normal;
-                        letter-spacing: 1.6px;
-                    }
-                }
-
-                .stars {
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-                    align-self: stretch;
-
-                    img {
-                        align-self: stretch;
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
-            }
-
-            span {
-                display: flex;
-                width: 230px;
-                color: $primary1;
-                font-family: $en;
-                font-size: $f-s-md;
-                font-style: normal;
-                font-weight: $f-w-4;
-                line-height: normal;
-            }
-        }
-
-        .color-block {
-            width: 270px;
-            height: 8px;
-            background-color: $accent;
+        h2 {
+            color: $white;
+            font-family: $family-tc;
+            font-size: $f-s-xxxl;
+            font-style: normal;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            letter-spacing: 14.4px;
+            position: absolute;
+            left: 50px;
         }
     }
+
+    // 各大洲卡片
+    .asiaCard,
+    .europeCard,
+    .NorthACard {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+
+        .country1,
+        .country2,
+        .country3 {
+            background-color: $white;
+            position: relative;
+
+            .p1-sel {
+                display: flex;
+
+                .loc-p1 {
+                    display: flex;
+                    width: 270px;
+                    height: 180px;
+                }
+
+                .select {
+                    width: 34px;
+                    height: 34px;
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                }
+            }
+
+            .loc-info {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+
+                h2 {
+                    display: flex;
+                    width: 230px;
+                    color: $text;
+                    font-family: Inter;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
+                .loc-text {
+                    display: -webkit-box;
+                    width: 230px;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+
+                    overflow: hidden;
+                    color: $primary2;
+                    text-overflow: ellipsis;
+                    font-family: $en;
+                    font-size: $f-s-xs;
+                    font-style: normal;
+                    font-weight: $f-w-4;
+                    line-height: 20px;
+                }
+
+                .wi-st {
+                    display: flex;
+                    width: 230px;
+                    align-items: center;
+                    gap: 3px;
+
+                    border-bottom: 1px solid;
+                    padding-bottom: 12px;
+
+                    ul {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        flex: 100;
+                        width: auto;
+
+                        img {
+                            width: 20px;
+                            height: 14px;
+                        }
+
+                        p {
+                            color: $primary1;
+                            font-family: $en;
+                            font-size: $f-s-xs;
+                            font-style: normal;
+                            font-weight: $f-w-4;
+                            line-height: normal;
+                            letter-spacing: 1.6px;
+                        }
+                    }
+
+                    .stars {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        align-self: stretch;
+
+                        img {
+                            align-self: stretch;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                span {
+                    display: flex;
+                    width: 230px;
+                    color: $primary1;
+                    font-family: $en;
+                    font-size: $f-s-md;
+                    font-style: normal;
+                    font-weight: $f-w-4;
+                    line-height: normal;
+                }
+            }
+
+            .color-block {
+                width: 270px;
+                height: 8px;
+                background-color: $accent;
+            }
+        }
+    }
+
+    // 更多按鈕
+    il {
+        display: flex;
+        height: 32px;
+        padding: 10px 14px;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        right: 100px;
+        bottom: 80px;
+
+        color: $text;
+        font-family: $en;
+        font-size: $f-s-xs;
+        font-weight: $f-w-4;
+        line-height: 100%;
+
+        border-radius: 999px;
+        background: $accent;
+        border: none;
+    }
+
 }
