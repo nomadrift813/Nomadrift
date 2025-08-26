@@ -16,6 +16,22 @@ const Location = () => {
         </div>
 
         <p className='locBanner-side-word'>where is the next</p>
+
+        <div className="hotLoc">
+          <figure className='h-l-1'>
+            <img src="/img-Location/Bali.jpg" alt="" />
+          </figure>
+          <figure className='h-l-2'>
+            <img src="/img-Location/Turkey.jpg" alt="" />
+          </figure>
+          <figure className='h-l-3'>
+            <img src="/img-Location/Japan.jpg" alt="" />
+          </figure>
+          <figure className='h-l-4'>
+            <img src="/img-Location/Thailand.jpg" alt="" />
+          </figure>
+        </div>
+
       </section>
 
       {/* 探索所有地點 */}
@@ -48,13 +64,11 @@ const Location = () => {
 
       {/* 亞洲區 */}
       <section id='globalAsia'>
-
         {/* 亞洲 */}
         <article className='asia'>
           <figure><img src="img-Location/Asia.png" alt="" /></figure>
           <h2>亞洲</h2>
         </article>
-
         {/* 所有卡片 */}
         <article className='asiaCard'>
           {/* 亞洲卡片1 */}
@@ -133,26 +147,23 @@ const Location = () => {
             <div className='color-block'></div>
           </section>
         </article>
-
         {/* 更多按鈕 */}
         <il><a href='#'></a>View more</il>
       </section>
 
       {/* 歐洲區 */}
       <section id='globalEurope'>
-
         {/* 歐洲 */}
         <article className='europe'>
           <figure><img src="img-Location/Europe.png" alt="" /></figure>
           <h2>歐洲</h2>
         </article>
-
         {/* 所有卡片 */}
         <article className='europeCard'>
           {/* 歐洲卡片1 */}
           <section className='country1'>
             <div className='p1-sel'>
-              <figure className='loc-p1'><img src="img-Location/Manila.jpg" alt="" /></figure>
+              <figure className='loc-p1'><img src="img-Location/Spain.jpg" alt="" /></figure>
               <figure className='select'><img src="img-Location/select.svg" alt="" /></figure>
             </div>
             <article className='loc-info'>
@@ -177,7 +188,7 @@ const Location = () => {
           {/* 歐洲卡片2 */}
           <section className='country2'>
             <div className='p1-sel'>
-              <figure className='loc-p1'><img src="img-Location/Nepal.jpg" alt="" /></figure>
+              <figure className='loc-p1'><img src="img-Location/Italy.jpg" alt="" /></figure>
               <figure className='select'><img src="img-Location/select.svg" alt="" /></figure>
             </div>
             <article className='loc-info'>
@@ -202,7 +213,7 @@ const Location = () => {
           {/* 亞洲卡片3 */}
           <section className='country3'>
             <div className='p1-sel'>
-              <figure className='loc-p1'><img src="img-Location/Israel.jpg" alt="" /></figure>
+              <figure className='loc-p1'><img src="img-Location/Netherlands.jpg" alt="" /></figure>
               <figure className='select'><img src="img-Location/select.svg" alt="" /></figure>
             </div>
             <article className='loc-info'>
@@ -225,26 +236,23 @@ const Location = () => {
             <div className='color-block'></div>
           </section>
         </article>
-
         {/* 更多按鈕 */}
         <il><a href='#'></a>View more</il>
       </section>
 
       {/* 北美洲區 */}
       <section id='globalNA'>
-
         {/* 北美洲 */}
         <article className='NorthA'>
           <figure><img src="img-Location/North America.png" alt="" /></figure>
           <h2>北美洲</h2>
         </article>
-        
         {/* 所有卡片 */}
         <article className='NorthACard'>
           {/* 北美洲卡片1 */}
           <section className='country1'>
             <div className='p1-sel'>
-              <figure className='loc-p1'><img src="img-Location/Manila.jpg" alt="" /></figure>
+              <figure className='loc-p1'><img src="img-Location/US.jpg" alt="" /></figure>
               <figure className='select'><img src="img-Location/select.svg" alt="" /></figure>
             </div>
             <article className='loc-info'>
@@ -269,7 +277,7 @@ const Location = () => {
           {/* 北美洲卡片2 */}
           <section className='country2'>
             <div className='p1-sel'>
-              <figure className='loc-p1'><img src="img-Location/Nepal.jpg" alt="" /></figure>
+              <figure className='loc-p1'><img src="img-Location/Canada.jpg" alt="" /></figure>
               <figure className='select'><img src="img-Location/select.svg" alt="" /></figure>
             </div>
             <article className='loc-info'>
@@ -294,7 +302,7 @@ const Location = () => {
           {/* 北美洲卡片3 */}
           <section className='country3'>
             <div className='p1-sel'>
-              <figure className='loc-p1'><img src="img-Location/Israel.jpg" alt="" /></figure>
+              <figure className='loc-p1'><img src="img-Location/Mexico.jpg" alt="" /></figure>
               <figure className='select'><img src="img-Location/select.svg" alt="" /></figure>
             </div>
             <article className='loc-info'>
@@ -315,12 +323,16 @@ const Location = () => {
               <span>15000 /月</span>
             </article>
             <div className='color-block'></div>
+
           </section>
         </article>
-
         {/* 更多按鈕 */}
         <il><a href='#'></a>View more</il>
       </section>
+
+      <div className='expMore'>
+        <button className="btn-expMore"><a href='#'></a>探索更多</button>
+      </div>
 
     </main>
 

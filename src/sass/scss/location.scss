@@ -11,6 +11,7 @@
     height: 926px;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
     background: url("../../../public/img-Location/Banner.png");
     background-size: 100%;
@@ -69,7 +70,7 @@
     .locBanner-side-word {
         position: absolute;
         left: 50px;
-        top: 134px;
+        top: 136px;
         writing-mode: vertical-rl;
         white-space: nowrap;
 
@@ -82,7 +83,68 @@
         line-height: 150%;
         letter-spacing: $spacing-xxs;
     }
+
+    .hotLoc {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        position: absolute;
+        bottom: 0;
+
+        .h-l-1 {
+            display: flex;
+            // width: 220px;
+            height: 340px;
+            transform: rotate(3.741deg);
+            aspect-ratio: 11/15;
+            margin-bottom: -200px;
+
+            border-radius: 5px;
+            border: 5px solid #FFF;
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        .h-l-2 {
+            display: flex;
+            // width: 220px;
+            height: 340px;
+            transform: rotate(-6.03deg);
+            aspect-ratio: 11/15;
+            margin-bottom: 10px;
+
+            border-radius: 5px;
+            border: 5px solid #FFF;
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        .h-l-3 {
+            display: flex;
+            // width: 220px;
+            height: 340px;
+            transform: rotate(4.568deg);
+            aspect-ratio: 11/15;
+            margin-bottom: -280px;
+
+            border-radius: 5px;
+            border: 5px solid #FFF;
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        .h-l-4 {
+            display: flex;
+            // width: 220px;
+            height: 340px;
+            transform: rotate(-5.724deg);
+            aspect-ratio: 11/15;
+            margin-top: 160px;
+
+            border-radius: 5px;
+            border: 5px solid #FFF;
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+        }
+    }
 }
+
 
 // 探索所有地點
 #discover {
@@ -194,6 +256,7 @@
 
         h2 {
             color: $white;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             font-family: $family-tc;
             font-size: $f-s-xxxl;
             font-style: normal;
@@ -212,6 +275,8 @@
         display: flex;
         align-items: center;
         gap: 32px;
+        z-index: 1;
+        margin-left: -40px;
 
         .country1,
         .country2,
@@ -358,4 +423,32 @@
         border: none;
     }
 
+}
+
+// 探索更多
+.expMore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background1;
+    padding: 10px 0 80px 0;
+
+    .btn-expMore {
+        display: flex;
+        padding: 4px 24px;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        font-weight: $f-w-3;
+        line-height: 150%;
+        letter-spacing: 2px;
+
+        color: $background1;
+        border: none;
+        border-radius: 999px;
+        background: $primary1;
+    }
 }
