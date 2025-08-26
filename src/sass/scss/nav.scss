@@ -26,13 +26,16 @@
 
   .navmenu {
     display: flex;
-    justify-content: center;
-    gap: 120px;
+    justify-content:space-between;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 120px;
     flex-direction: row;
     flex-wrap: nowrap;
+
+    @media ($mediaMd) {
+     padding: 0 50px;
+    }
 
   }
 

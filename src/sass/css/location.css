@@ -267,37 +267,52 @@ a {
   height: 9px;
 }
 
-<<<<<<< HEAD
-#globalAsia {
-=======
-#global {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia,
+#globalEurope,
+#globalNA {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
   background-color: #F4F1E5;
   padding: 80px 100px;
+  position: relative;
 }
-#globalAsia .asia {
+#globalAsia .asia,
+#globalAsia .europe,
+#globalAsia .NorthA,
+#globalEurope .asia,
+#globalEurope .europe,
+#globalEurope .NorthA,
+#globalNA .asia,
+#globalNA .europe,
+#globalNA .NorthA {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   position: relative;
 }
-#globalAsia .asia img {
+#globalAsia .asia img,
+#globalAsia .europe img,
+#globalAsia .NorthA img,
+#globalEurope .asia img,
+#globalEurope .europe img,
+#globalEurope .NorthA img,
+#globalNA .asia img,
+#globalNA .europe img,
+#globalNA .NorthA img {
   height: 520px;
 }
-#globalAsia .asia h2 {
-=======
-  gap: -46px;
-  background-color: #F4F1E5;
-  padding: 80px 50px 60px 50px;
-}
-#global .asia {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asia h2,
+#globalAsia .europe h2,
+#globalAsia .NorthA h2,
+#globalEurope .asia h2,
+#globalEurope .europe h2,
+#globalEurope .NorthA h2,
+#globalNA .asia h2,
+#globalNA .europe h2,
+#globalNA .NorthA h2 {
   color: #fff;
   font-family: "Noto Sans TC";
   font-size: 48px;
@@ -305,76 +320,204 @@ a {
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 14.4px;
-<<<<<<< HEAD
   position: absolute;
   left: 50px;
 }
-#globalAsia .asiaCard {
+#globalAsia .asiaCard,
+#globalAsia .europeCard,
+#globalAsia .NorthACard,
+#globalEurope .asiaCard,
+#globalEurope .europeCard,
+#globalEurope .NorthACard,
+#globalNA .asiaCard,
+#globalNA .europeCard,
+#globalNA .NorthACard {
   display: flex;
   align-items: center;
   gap: 32px;
 }
-#globalAsia .asiaCard .manila,
-#globalAsia .asiaCard .nepal,
-#globalAsia .asiaCard .israel {
+#globalAsia .asiaCard .country1,
+#globalAsia .asiaCard .country2,
+#globalAsia .asiaCard .country3,
+#globalAsia .europeCard .country1,
+#globalAsia .europeCard .country2,
+#globalAsia .europeCard .country3,
+#globalAsia .NorthACard .country1,
+#globalAsia .NorthACard .country2,
+#globalAsia .NorthACard .country3,
+#globalEurope .asiaCard .country1,
+#globalEurope .asiaCard .country2,
+#globalEurope .asiaCard .country3,
+#globalEurope .europeCard .country1,
+#globalEurope .europeCard .country2,
+#globalEurope .europeCard .country3,
+#globalEurope .NorthACard .country1,
+#globalEurope .NorthACard .country2,
+#globalEurope .NorthACard .country3,
+#globalNA .asiaCard .country1,
+#globalNA .asiaCard .country2,
+#globalNA .asiaCard .country3,
+#globalNA .europeCard .country1,
+#globalNA .europeCard .country2,
+#globalNA .europeCard .country3,
+#globalNA .NorthACard .country1,
+#globalNA .NorthACard .country2,
+#globalNA .NorthACard .country3 {
   background-color: #fff;
   position: relative;
 }
-#globalAsia .asiaCard .manila .p1-sel,
-#globalAsia .asiaCard .nepal .p1-sel,
-#globalAsia .asiaCard .israel .p1-sel {
+#globalAsia .asiaCard .country1 .p1-sel,
+#globalAsia .asiaCard .country2 .p1-sel,
+#globalAsia .asiaCard .country3 .p1-sel,
+#globalAsia .europeCard .country1 .p1-sel,
+#globalAsia .europeCard .country2 .p1-sel,
+#globalAsia .europeCard .country3 .p1-sel,
+#globalAsia .NorthACard .country1 .p1-sel,
+#globalAsia .NorthACard .country2 .p1-sel,
+#globalAsia .NorthACard .country3 .p1-sel,
+#globalEurope .asiaCard .country1 .p1-sel,
+#globalEurope .asiaCard .country2 .p1-sel,
+#globalEurope .asiaCard .country3 .p1-sel,
+#globalEurope .europeCard .country1 .p1-sel,
+#globalEurope .europeCard .country2 .p1-sel,
+#globalEurope .europeCard .country3 .p1-sel,
+#globalEurope .NorthACard .country1 .p1-sel,
+#globalEurope .NorthACard .country2 .p1-sel,
+#globalEurope .NorthACard .country3 .p1-sel,
+#globalNA .asiaCard .country1 .p1-sel,
+#globalNA .asiaCard .country2 .p1-sel,
+#globalNA .asiaCard .country3 .p1-sel,
+#globalNA .europeCard .country1 .p1-sel,
+#globalNA .europeCard .country2 .p1-sel,
+#globalNA .europeCard .country3 .p1-sel,
+#globalNA .NorthACard .country1 .p1-sel,
+#globalNA .NorthACard .country2 .p1-sel,
+#globalNA .NorthACard .country3 .p1-sel {
   display: flex;
 }
-#globalAsia .asiaCard .manila .p1-sel .loc-p1,
-#globalAsia .asiaCard .nepal .p1-sel .loc-p1,
-#globalAsia .asiaCard .israel .p1-sel .loc-p1 {
-=======
-}
-#global .manila, #global .nepal, #global .israel {
-  background-color: #fff;
-  position: relative;
-}
-#global .manila .p1-sel, #global .nepal .p1-sel, #global .israel .p1-sel {
-  display: flex;
-}
-#global .manila .p1-sel .loc-p1, #global .nepal .p1-sel .loc-p1, #global .israel .p1-sel .loc-p1 {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .p1-sel .loc-p1,
+#globalAsia .asiaCard .country2 .p1-sel .loc-p1,
+#globalAsia .asiaCard .country3 .p1-sel .loc-p1,
+#globalAsia .europeCard .country1 .p1-sel .loc-p1,
+#globalAsia .europeCard .country2 .p1-sel .loc-p1,
+#globalAsia .europeCard .country3 .p1-sel .loc-p1,
+#globalAsia .NorthACard .country1 .p1-sel .loc-p1,
+#globalAsia .NorthACard .country2 .p1-sel .loc-p1,
+#globalAsia .NorthACard .country3 .p1-sel .loc-p1,
+#globalEurope .asiaCard .country1 .p1-sel .loc-p1,
+#globalEurope .asiaCard .country2 .p1-sel .loc-p1,
+#globalEurope .asiaCard .country3 .p1-sel .loc-p1,
+#globalEurope .europeCard .country1 .p1-sel .loc-p1,
+#globalEurope .europeCard .country2 .p1-sel .loc-p1,
+#globalEurope .europeCard .country3 .p1-sel .loc-p1,
+#globalEurope .NorthACard .country1 .p1-sel .loc-p1,
+#globalEurope .NorthACard .country2 .p1-sel .loc-p1,
+#globalEurope .NorthACard .country3 .p1-sel .loc-p1,
+#globalNA .asiaCard .country1 .p1-sel .loc-p1,
+#globalNA .asiaCard .country2 .p1-sel .loc-p1,
+#globalNA .asiaCard .country3 .p1-sel .loc-p1,
+#globalNA .europeCard .country1 .p1-sel .loc-p1,
+#globalNA .europeCard .country2 .p1-sel .loc-p1,
+#globalNA .europeCard .country3 .p1-sel .loc-p1,
+#globalNA .NorthACard .country1 .p1-sel .loc-p1,
+#globalNA .NorthACard .country2 .p1-sel .loc-p1,
+#globalNA .NorthACard .country3 .p1-sel .loc-p1 {
   display: flex;
   width: 270px;
   height: 180px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .p1-sel .select,
-#globalAsia .asiaCard .nepal .p1-sel .select,
-#globalAsia .asiaCard .israel .p1-sel .select {
-=======
-#global .manila .p1-sel .select, #global .nepal .p1-sel .select, #global .israel .p1-sel .select {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .p1-sel .select,
+#globalAsia .asiaCard .country2 .p1-sel .select,
+#globalAsia .asiaCard .country3 .p1-sel .select,
+#globalAsia .europeCard .country1 .p1-sel .select,
+#globalAsia .europeCard .country2 .p1-sel .select,
+#globalAsia .europeCard .country3 .p1-sel .select,
+#globalAsia .NorthACard .country1 .p1-sel .select,
+#globalAsia .NorthACard .country2 .p1-sel .select,
+#globalAsia .NorthACard .country3 .p1-sel .select,
+#globalEurope .asiaCard .country1 .p1-sel .select,
+#globalEurope .asiaCard .country2 .p1-sel .select,
+#globalEurope .asiaCard .country3 .p1-sel .select,
+#globalEurope .europeCard .country1 .p1-sel .select,
+#globalEurope .europeCard .country2 .p1-sel .select,
+#globalEurope .europeCard .country3 .p1-sel .select,
+#globalEurope .NorthACard .country1 .p1-sel .select,
+#globalEurope .NorthACard .country2 .p1-sel .select,
+#globalEurope .NorthACard .country3 .p1-sel .select,
+#globalNA .asiaCard .country1 .p1-sel .select,
+#globalNA .asiaCard .country2 .p1-sel .select,
+#globalNA .asiaCard .country3 .p1-sel .select,
+#globalNA .europeCard .country1 .p1-sel .select,
+#globalNA .europeCard .country2 .p1-sel .select,
+#globalNA .europeCard .country3 .p1-sel .select,
+#globalNA .NorthACard .country1 .p1-sel .select,
+#globalNA .NorthACard .country2 .p1-sel .select,
+#globalNA .NorthACard .country3 .p1-sel .select {
   width: 34px;
   height: 34px;
   position: absolute;
   top: 12px;
   right: 12px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info,
-#globalAsia .asiaCard .nepal .loc-info,
-#globalAsia .asiaCard .israel .loc-info {
-=======
-#global .manila .loc-info, #global .nepal .loc-info, #global .israel .loc-info {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info,
+#globalAsia .asiaCard .country2 .loc-info,
+#globalAsia .asiaCard .country3 .loc-info,
+#globalAsia .europeCard .country1 .loc-info,
+#globalAsia .europeCard .country2 .loc-info,
+#globalAsia .europeCard .country3 .loc-info,
+#globalAsia .NorthACard .country1 .loc-info,
+#globalAsia .NorthACard .country2 .loc-info,
+#globalAsia .NorthACard .country3 .loc-info,
+#globalEurope .asiaCard .country1 .loc-info,
+#globalEurope .asiaCard .country2 .loc-info,
+#globalEurope .asiaCard .country3 .loc-info,
+#globalEurope .europeCard .country1 .loc-info,
+#globalEurope .europeCard .country2 .loc-info,
+#globalEurope .europeCard .country3 .loc-info,
+#globalEurope .NorthACard .country1 .loc-info,
+#globalEurope .NorthACard .country2 .loc-info,
+#globalEurope .NorthACard .country3 .loc-info,
+#globalNA .asiaCard .country1 .loc-info,
+#globalNA .asiaCard .country2 .loc-info,
+#globalNA .asiaCard .country3 .loc-info,
+#globalNA .europeCard .country1 .loc-info,
+#globalNA .europeCard .country2 .loc-info,
+#globalNA .europeCard .country3 .loc-info,
+#globalNA .NorthACard .country1 .loc-info,
+#globalNA .NorthACard .country2 .loc-info,
+#globalNA .NorthACard .country3 .loc-info {
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 10px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info h2,
-#globalAsia .asiaCard .nepal .loc-info h2,
-#globalAsia .asiaCard .israel .loc-info h2 {
-=======
-#global .manila .loc-info h2, #global .nepal .loc-info h2, #global .israel .loc-info h2 {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info h2,
+#globalAsia .asiaCard .country2 .loc-info h2,
+#globalAsia .asiaCard .country3 .loc-info h2,
+#globalAsia .europeCard .country1 .loc-info h2,
+#globalAsia .europeCard .country2 .loc-info h2,
+#globalAsia .europeCard .country3 .loc-info h2,
+#globalAsia .NorthACard .country1 .loc-info h2,
+#globalAsia .NorthACard .country2 .loc-info h2,
+#globalAsia .NorthACard .country3 .loc-info h2,
+#globalEurope .asiaCard .country1 .loc-info h2,
+#globalEurope .asiaCard .country2 .loc-info h2,
+#globalEurope .asiaCard .country3 .loc-info h2,
+#globalEurope .europeCard .country1 .loc-info h2,
+#globalEurope .europeCard .country2 .loc-info h2,
+#globalEurope .europeCard .country3 .loc-info h2,
+#globalEurope .NorthACard .country1 .loc-info h2,
+#globalEurope .NorthACard .country2 .loc-info h2,
+#globalEurope .NorthACard .country3 .loc-info h2,
+#globalNA .asiaCard .country1 .loc-info h2,
+#globalNA .asiaCard .country2 .loc-info h2,
+#globalNA .asiaCard .country3 .loc-info h2,
+#globalNA .europeCard .country1 .loc-info h2,
+#globalNA .europeCard .country2 .loc-info h2,
+#globalNA .europeCard .country3 .loc-info h2,
+#globalNA .NorthACard .country1 .loc-info h2,
+#globalNA .NorthACard .country2 .loc-info h2,
+#globalNA .NorthACard .country3 .loc-info h2 {
   display: flex;
   width: 230px;
   color: #201811;
@@ -384,13 +527,33 @@ a {
   font-weight: 400;
   line-height: normal;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info .loc-text,
-#globalAsia .asiaCard .nepal .loc-info .loc-text,
-#globalAsia .asiaCard .israel .loc-info .loc-text {
-=======
-#global .manila .loc-info .loc-text, #global .nepal .loc-info .loc-text, #global .israel .loc-info .loc-text {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info .loc-text,
+#globalAsia .asiaCard .country2 .loc-info .loc-text,
+#globalAsia .asiaCard .country3 .loc-info .loc-text,
+#globalAsia .europeCard .country1 .loc-info .loc-text,
+#globalAsia .europeCard .country2 .loc-info .loc-text,
+#globalAsia .europeCard .country3 .loc-info .loc-text,
+#globalAsia .NorthACard .country1 .loc-info .loc-text,
+#globalAsia .NorthACard .country2 .loc-info .loc-text,
+#globalAsia .NorthACard .country3 .loc-info .loc-text,
+#globalEurope .asiaCard .country1 .loc-info .loc-text,
+#globalEurope .asiaCard .country2 .loc-info .loc-text,
+#globalEurope .asiaCard .country3 .loc-info .loc-text,
+#globalEurope .europeCard .country1 .loc-info .loc-text,
+#globalEurope .europeCard .country2 .loc-info .loc-text,
+#globalEurope .europeCard .country3 .loc-info .loc-text,
+#globalEurope .NorthACard .country1 .loc-info .loc-text,
+#globalEurope .NorthACard .country2 .loc-info .loc-text,
+#globalEurope .NorthACard .country3 .loc-info .loc-text,
+#globalNA .asiaCard .country1 .loc-info .loc-text,
+#globalNA .asiaCard .country2 .loc-info .loc-text,
+#globalNA .asiaCard .country3 .loc-info .loc-text,
+#globalNA .europeCard .country1 .loc-info .loc-text,
+#globalNA .europeCard .country2 .loc-info .loc-text,
+#globalNA .europeCard .country3 .loc-info .loc-text,
+#globalNA .NorthACard .country1 .loc-info .loc-text,
+#globalNA .NorthACard .country2 .loc-info .loc-text,
+#globalNA .NorthACard .country3 .loc-info .loc-text {
   display: -webkit-box;
   width: 230px;
   -webkit-box-orient: vertical;
@@ -404,13 +567,33 @@ a {
   font-weight: 400;
   line-height: 20px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info .wi-st,
-#globalAsia .asiaCard .nepal .loc-info .wi-st,
-#globalAsia .asiaCard .israel .loc-info .wi-st {
-=======
-#global .manila .loc-info .wi-st, #global .nepal .loc-info .wi-st, #global .israel .loc-info .wi-st {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info .wi-st,
+#globalAsia .asiaCard .country2 .loc-info .wi-st,
+#globalAsia .asiaCard .country3 .loc-info .wi-st,
+#globalAsia .europeCard .country1 .loc-info .wi-st,
+#globalAsia .europeCard .country2 .loc-info .wi-st,
+#globalAsia .europeCard .country3 .loc-info .wi-st,
+#globalAsia .NorthACard .country1 .loc-info .wi-st,
+#globalAsia .NorthACard .country2 .loc-info .wi-st,
+#globalAsia .NorthACard .country3 .loc-info .wi-st,
+#globalEurope .asiaCard .country1 .loc-info .wi-st,
+#globalEurope .asiaCard .country2 .loc-info .wi-st,
+#globalEurope .asiaCard .country3 .loc-info .wi-st,
+#globalEurope .europeCard .country1 .loc-info .wi-st,
+#globalEurope .europeCard .country2 .loc-info .wi-st,
+#globalEurope .europeCard .country3 .loc-info .wi-st,
+#globalEurope .NorthACard .country1 .loc-info .wi-st,
+#globalEurope .NorthACard .country2 .loc-info .wi-st,
+#globalEurope .NorthACard .country3 .loc-info .wi-st,
+#globalNA .asiaCard .country1 .loc-info .wi-st,
+#globalNA .asiaCard .country2 .loc-info .wi-st,
+#globalNA .asiaCard .country3 .loc-info .wi-st,
+#globalNA .europeCard .country1 .loc-info .wi-st,
+#globalNA .europeCard .country2 .loc-info .wi-st,
+#globalNA .europeCard .country3 .loc-info .wi-st,
+#globalNA .NorthACard .country1 .loc-info .wi-st,
+#globalNA .NorthACard .country2 .loc-info .wi-st,
+#globalNA .NorthACard .country3 .loc-info .wi-st {
   display: flex;
   width: 230px;
   align-items: center;
@@ -418,36 +601,96 @@ a {
   border-bottom: 1px solid;
   padding-bottom: 12px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info .wi-st ul,
-#globalAsia .asiaCard .nepal .loc-info .wi-st ul,
-#globalAsia .asiaCard .israel .loc-info .wi-st ul {
-=======
-#global .manila .loc-info .wi-st ul, #global .nepal .loc-info .wi-st ul, #global .israel .loc-info .wi-st ul {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info .wi-st ul,
+#globalAsia .asiaCard .country2 .loc-info .wi-st ul,
+#globalAsia .asiaCard .country3 .loc-info .wi-st ul,
+#globalAsia .europeCard .country1 .loc-info .wi-st ul,
+#globalAsia .europeCard .country2 .loc-info .wi-st ul,
+#globalAsia .europeCard .country3 .loc-info .wi-st ul,
+#globalAsia .NorthACard .country1 .loc-info .wi-st ul,
+#globalAsia .NorthACard .country2 .loc-info .wi-st ul,
+#globalAsia .NorthACard .country3 .loc-info .wi-st ul,
+#globalEurope .asiaCard .country1 .loc-info .wi-st ul,
+#globalEurope .asiaCard .country2 .loc-info .wi-st ul,
+#globalEurope .asiaCard .country3 .loc-info .wi-st ul,
+#globalEurope .europeCard .country1 .loc-info .wi-st ul,
+#globalEurope .europeCard .country2 .loc-info .wi-st ul,
+#globalEurope .europeCard .country3 .loc-info .wi-st ul,
+#globalEurope .NorthACard .country1 .loc-info .wi-st ul,
+#globalEurope .NorthACard .country2 .loc-info .wi-st ul,
+#globalEurope .NorthACard .country3 .loc-info .wi-st ul,
+#globalNA .asiaCard .country1 .loc-info .wi-st ul,
+#globalNA .asiaCard .country2 .loc-info .wi-st ul,
+#globalNA .asiaCard .country3 .loc-info .wi-st ul,
+#globalNA .europeCard .country1 .loc-info .wi-st ul,
+#globalNA .europeCard .country2 .loc-info .wi-st ul,
+#globalNA .europeCard .country3 .loc-info .wi-st ul,
+#globalNA .NorthACard .country1 .loc-info .wi-st ul,
+#globalNA .NorthACard .country2 .loc-info .wi-st ul,
+#globalNA .NorthACard .country3 .loc-info .wi-st ul {
   display: flex;
   align-items: center;
   gap: 5px;
   flex: 100;
   width: auto;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info .wi-st ul img,
-#globalAsia .asiaCard .nepal .loc-info .wi-st ul img,
-#globalAsia .asiaCard .israel .loc-info .wi-st ul img {
+#globalAsia .asiaCard .country1 .loc-info .wi-st ul img,
+#globalAsia .asiaCard .country2 .loc-info .wi-st ul img,
+#globalAsia .asiaCard .country3 .loc-info .wi-st ul img,
+#globalAsia .europeCard .country1 .loc-info .wi-st ul img,
+#globalAsia .europeCard .country2 .loc-info .wi-st ul img,
+#globalAsia .europeCard .country3 .loc-info .wi-st ul img,
+#globalAsia .NorthACard .country1 .loc-info .wi-st ul img,
+#globalAsia .NorthACard .country2 .loc-info .wi-st ul img,
+#globalAsia .NorthACard .country3 .loc-info .wi-st ul img,
+#globalEurope .asiaCard .country1 .loc-info .wi-st ul img,
+#globalEurope .asiaCard .country2 .loc-info .wi-st ul img,
+#globalEurope .asiaCard .country3 .loc-info .wi-st ul img,
+#globalEurope .europeCard .country1 .loc-info .wi-st ul img,
+#globalEurope .europeCard .country2 .loc-info .wi-st ul img,
+#globalEurope .europeCard .country3 .loc-info .wi-st ul img,
+#globalEurope .NorthACard .country1 .loc-info .wi-st ul img,
+#globalEurope .NorthACard .country2 .loc-info .wi-st ul img,
+#globalEurope .NorthACard .country3 .loc-info .wi-st ul img,
+#globalNA .asiaCard .country1 .loc-info .wi-st ul img,
+#globalNA .asiaCard .country2 .loc-info .wi-st ul img,
+#globalNA .asiaCard .country3 .loc-info .wi-st ul img,
+#globalNA .europeCard .country1 .loc-info .wi-st ul img,
+#globalNA .europeCard .country2 .loc-info .wi-st ul img,
+#globalNA .europeCard .country3 .loc-info .wi-st ul img,
+#globalNA .NorthACard .country1 .loc-info .wi-st ul img,
+#globalNA .NorthACard .country2 .loc-info .wi-st ul img,
+#globalNA .NorthACard .country3 .loc-info .wi-st ul img {
   width: 20px;
   height: 14px;
 }
-#globalAsia .asiaCard .manila .loc-info .wi-st ul p,
-#globalAsia .asiaCard .nepal .loc-info .wi-st ul p,
-#globalAsia .asiaCard .israel .loc-info .wi-st ul p {
-=======
-#global .manila .loc-info .wi-st ul img, #global .nepal .loc-info .wi-st ul img, #global .israel .loc-info .wi-st ul img {
-  width: 20px;
-  height: 14px;
-}
-#global .manila .loc-info .wi-st ul p, #global .nepal .loc-info .wi-st ul p, #global .israel .loc-info .wi-st ul p {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info .wi-st ul p,
+#globalAsia .asiaCard .country2 .loc-info .wi-st ul p,
+#globalAsia .asiaCard .country3 .loc-info .wi-st ul p,
+#globalAsia .europeCard .country1 .loc-info .wi-st ul p,
+#globalAsia .europeCard .country2 .loc-info .wi-st ul p,
+#globalAsia .europeCard .country3 .loc-info .wi-st ul p,
+#globalAsia .NorthACard .country1 .loc-info .wi-st ul p,
+#globalAsia .NorthACard .country2 .loc-info .wi-st ul p,
+#globalAsia .NorthACard .country3 .loc-info .wi-st ul p,
+#globalEurope .asiaCard .country1 .loc-info .wi-st ul p,
+#globalEurope .asiaCard .country2 .loc-info .wi-st ul p,
+#globalEurope .asiaCard .country3 .loc-info .wi-st ul p,
+#globalEurope .europeCard .country1 .loc-info .wi-st ul p,
+#globalEurope .europeCard .country2 .loc-info .wi-st ul p,
+#globalEurope .europeCard .country3 .loc-info .wi-st ul p,
+#globalEurope .NorthACard .country1 .loc-info .wi-st ul p,
+#globalEurope .NorthACard .country2 .loc-info .wi-st ul p,
+#globalEurope .NorthACard .country3 .loc-info .wi-st ul p,
+#globalNA .asiaCard .country1 .loc-info .wi-st ul p,
+#globalNA .asiaCard .country2 .loc-info .wi-st ul p,
+#globalNA .asiaCard .country3 .loc-info .wi-st ul p,
+#globalNA .europeCard .country1 .loc-info .wi-st ul p,
+#globalNA .europeCard .country2 .loc-info .wi-st ul p,
+#globalNA .europeCard .country3 .loc-info .wi-st ul p,
+#globalNA .NorthACard .country1 .loc-info .wi-st ul p,
+#globalNA .NorthACard .country2 .loc-info .wi-st ul p,
+#globalNA .NorthACard .country3 .loc-info .wi-st ul p {
   color: #41453D;
   font-family: "Inter";
   font-size: 14px;
@@ -456,36 +699,96 @@ a {
   line-height: normal;
   letter-spacing: 1.6px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info .wi-st .stars,
-#globalAsia .asiaCard .nepal .loc-info .wi-st .stars,
-#globalAsia .asiaCard .israel .loc-info .wi-st .stars {
-=======
-#global .manila .loc-info .wi-st .stars, #global .nepal .loc-info .wi-st .stars, #global .israel .loc-info .wi-st .stars {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info .wi-st .stars,
+#globalAsia .asiaCard .country2 .loc-info .wi-st .stars,
+#globalAsia .asiaCard .country3 .loc-info .wi-st .stars,
+#globalAsia .europeCard .country1 .loc-info .wi-st .stars,
+#globalAsia .europeCard .country2 .loc-info .wi-st .stars,
+#globalAsia .europeCard .country3 .loc-info .wi-st .stars,
+#globalAsia .NorthACard .country1 .loc-info .wi-st .stars,
+#globalAsia .NorthACard .country2 .loc-info .wi-st .stars,
+#globalAsia .NorthACard .country3 .loc-info .wi-st .stars,
+#globalEurope .asiaCard .country1 .loc-info .wi-st .stars,
+#globalEurope .asiaCard .country2 .loc-info .wi-st .stars,
+#globalEurope .asiaCard .country3 .loc-info .wi-st .stars,
+#globalEurope .europeCard .country1 .loc-info .wi-st .stars,
+#globalEurope .europeCard .country2 .loc-info .wi-st .stars,
+#globalEurope .europeCard .country3 .loc-info .wi-st .stars,
+#globalEurope .NorthACard .country1 .loc-info .wi-st .stars,
+#globalEurope .NorthACard .country2 .loc-info .wi-st .stars,
+#globalEurope .NorthACard .country3 .loc-info .wi-st .stars,
+#globalNA .asiaCard .country1 .loc-info .wi-st .stars,
+#globalNA .asiaCard .country2 .loc-info .wi-st .stars,
+#globalNA .asiaCard .country3 .loc-info .wi-st .stars,
+#globalNA .europeCard .country1 .loc-info .wi-st .stars,
+#globalNA .europeCard .country2 .loc-info .wi-st .stars,
+#globalNA .europeCard .country3 .loc-info .wi-st .stars,
+#globalNA .NorthACard .country1 .loc-info .wi-st .stars,
+#globalNA .NorthACard .country2 .loc-info .wi-st .stars,
+#globalNA .NorthACard .country3 .loc-info .wi-st .stars {
   display: flex;
   align-items: center;
   gap: 5px;
   align-self: stretch;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info .wi-st .stars img,
-#globalAsia .asiaCard .nepal .loc-info .wi-st .stars img,
-#globalAsia .asiaCard .israel .loc-info .wi-st .stars img {
-=======
-#global .manila .loc-info .wi-st .stars img, #global .nepal .loc-info .wi-st .stars img, #global .israel .loc-info .wi-st .stars img {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info .wi-st .stars img,
+#globalAsia .asiaCard .country2 .loc-info .wi-st .stars img,
+#globalAsia .asiaCard .country3 .loc-info .wi-st .stars img,
+#globalAsia .europeCard .country1 .loc-info .wi-st .stars img,
+#globalAsia .europeCard .country2 .loc-info .wi-st .stars img,
+#globalAsia .europeCard .country3 .loc-info .wi-st .stars img,
+#globalAsia .NorthACard .country1 .loc-info .wi-st .stars img,
+#globalAsia .NorthACard .country2 .loc-info .wi-st .stars img,
+#globalAsia .NorthACard .country3 .loc-info .wi-st .stars img,
+#globalEurope .asiaCard .country1 .loc-info .wi-st .stars img,
+#globalEurope .asiaCard .country2 .loc-info .wi-st .stars img,
+#globalEurope .asiaCard .country3 .loc-info .wi-st .stars img,
+#globalEurope .europeCard .country1 .loc-info .wi-st .stars img,
+#globalEurope .europeCard .country2 .loc-info .wi-st .stars img,
+#globalEurope .europeCard .country3 .loc-info .wi-st .stars img,
+#globalEurope .NorthACard .country1 .loc-info .wi-st .stars img,
+#globalEurope .NorthACard .country2 .loc-info .wi-st .stars img,
+#globalEurope .NorthACard .country3 .loc-info .wi-st .stars img,
+#globalNA .asiaCard .country1 .loc-info .wi-st .stars img,
+#globalNA .asiaCard .country2 .loc-info .wi-st .stars img,
+#globalNA .asiaCard .country3 .loc-info .wi-st .stars img,
+#globalNA .europeCard .country1 .loc-info .wi-st .stars img,
+#globalNA .europeCard .country2 .loc-info .wi-st .stars img,
+#globalNA .europeCard .country3 .loc-info .wi-st .stars img,
+#globalNA .NorthACard .country1 .loc-info .wi-st .stars img,
+#globalNA .NorthACard .country2 .loc-info .wi-st .stars img,
+#globalNA .NorthACard .country3 .loc-info .wi-st .stars img {
   align-self: stretch;
   width: 20px;
   height: 20px;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .loc-info span,
-#globalAsia .asiaCard .nepal .loc-info span,
-#globalAsia .asiaCard .israel .loc-info span {
-=======
-#global .manila .loc-info span, #global .nepal .loc-info span, #global .israel .loc-info span {
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3
+#globalAsia .asiaCard .country1 .loc-info span,
+#globalAsia .asiaCard .country2 .loc-info span,
+#globalAsia .asiaCard .country3 .loc-info span,
+#globalAsia .europeCard .country1 .loc-info span,
+#globalAsia .europeCard .country2 .loc-info span,
+#globalAsia .europeCard .country3 .loc-info span,
+#globalAsia .NorthACard .country1 .loc-info span,
+#globalAsia .NorthACard .country2 .loc-info span,
+#globalAsia .NorthACard .country3 .loc-info span,
+#globalEurope .asiaCard .country1 .loc-info span,
+#globalEurope .asiaCard .country2 .loc-info span,
+#globalEurope .asiaCard .country3 .loc-info span,
+#globalEurope .europeCard .country1 .loc-info span,
+#globalEurope .europeCard .country2 .loc-info span,
+#globalEurope .europeCard .country3 .loc-info span,
+#globalEurope .NorthACard .country1 .loc-info span,
+#globalEurope .NorthACard .country2 .loc-info span,
+#globalEurope .NorthACard .country3 .loc-info span,
+#globalNA .asiaCard .country1 .loc-info span,
+#globalNA .asiaCard .country2 .loc-info span,
+#globalNA .asiaCard .country3 .loc-info span,
+#globalNA .europeCard .country1 .loc-info span,
+#globalNA .europeCard .country2 .loc-info span,
+#globalNA .europeCard .country3 .loc-info span,
+#globalNA .NorthACard .country1 .loc-info span,
+#globalNA .NorthACard .country2 .loc-info span,
+#globalNA .NorthACard .country3 .loc-info span {
   display: flex;
   width: 230px;
   color: #41453D;
@@ -495,26 +798,54 @@ a {
   font-weight: 400;
   line-height: normal;
 }
-<<<<<<< HEAD
-#globalAsia .asiaCard .manila .color-block,
-#globalAsia .asiaCard .nepal .color-block,
-#globalAsia .asiaCard .israel .color-block {
+#globalAsia .asiaCard .country1 .color-block,
+#globalAsia .asiaCard .country2 .color-block,
+#globalAsia .asiaCard .country3 .color-block,
+#globalAsia .europeCard .country1 .color-block,
+#globalAsia .europeCard .country2 .color-block,
+#globalAsia .europeCard .country3 .color-block,
+#globalAsia .NorthACard .country1 .color-block,
+#globalAsia .NorthACard .country2 .color-block,
+#globalAsia .NorthACard .country3 .color-block,
+#globalEurope .asiaCard .country1 .color-block,
+#globalEurope .asiaCard .country2 .color-block,
+#globalEurope .asiaCard .country3 .color-block,
+#globalEurope .europeCard .country1 .color-block,
+#globalEurope .europeCard .country2 .color-block,
+#globalEurope .europeCard .country3 .color-block,
+#globalEurope .NorthACard .country1 .color-block,
+#globalEurope .NorthACard .country2 .color-block,
+#globalEurope .NorthACard .country3 .color-block,
+#globalNA .asiaCard .country1 .color-block,
+#globalNA .asiaCard .country2 .color-block,
+#globalNA .asiaCard .country3 .color-block,
+#globalNA .europeCard .country1 .color-block,
+#globalNA .europeCard .country2 .color-block,
+#globalNA .europeCard .country3 .color-block,
+#globalNA .NorthACard .country1 .color-block,
+#globalNA .NorthACard .country2 .color-block,
+#globalNA .NorthACard .country3 .color-block {
   width: 270px;
   height: 8px;
   background-color: #F4D000;
 }
-#globalAsia button {
+#globalAsia il,
+#globalEurope il,
+#globalNA il {
   display: flex;
-  height: 26px;
+  height: 32px;
   padding: 10px 14px;
   justify-content: flex-end;
   align-items: center;
-  gap: 405px;
-}/*# sourceMappingURL=location.css.map */
-=======
-#global .manila .color-block, #global .nepal .color-block, #global .israel .color-block {
-  width: 270px;
-  height: 8px;
-  background-color: #F4D000;
+  position: absolute;
+  right: 100px;
+  bottom: 80px;
+  color: #201811;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  border-radius: 999px;
+  background: #F4D000;
+  border: none;
 }
->>>>>>> 110be3bca33ce904afb50f0cc593528216ba6aa3

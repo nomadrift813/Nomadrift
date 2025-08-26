@@ -1,20 +1,39 @@
 import '../sass/scss/home.scss'
 import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
 
 
 const Home = () => {
+
+  // 淡入淡出
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+  const update = () => {
+    const cutoff = Math.round(window.innerHeight * 0.35); // 35% 視窗高
+    setShow(window.scrollY <= cutoff);
+  };
+  update(); // 進頁面先判斷一次
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  return () => {
+    window.removeEventListener("scroll", update);
+    window.removeEventListener("resize", update);
+  };
+}, []);
+
   return (
     <main>
       <section id="homebanner">
+       
+          <div className={`homeslogan ${show ? "fade-in" : "fade-out"}`}>
+            <h2>在世界的浪潮中，自由前行</h2>
 
-        <div className="homeslogan">
-          <h2>在世界的浪潮中，自由前行</h2>
-
-          <button className="home-b-form" type="button">
-            <span>Start</span>
-            <img src="/img-Home/home-s-right.svg" alt="" />
-          </button>
-        </div>
+            <button className="home-b-form" type="button">
+              <span>Start</span>
+              <img src="/img-Home/home-s-right.svg" alt="" />
+            </button>
+          </div>
+    
 
         <p className='banner-side-word'>floating your own way</p>
         <div className="homescroll">
@@ -28,6 +47,27 @@ const Home = () => {
         <div className="homeboat-b">
           <img src="/img-Home/boat-b.svg" alt="" />
         </div>
+      </section>
+
+      <section id='homeadvantages'>
+
+        <header>
+          <p className='h-t-1'><span>From</span> Taiwan to the World</p>
+          <p className='h-t-2'>
+            亞洲第一<br />
+            數位遊牧平台</p>
+        </header>
+        <div className='h-a-boxs'>
+          <article><figure><img src="/img-Home/advico-1.svg" alt="" /></figure><h3>全中介面</h3><p>亞洲第一數位遊牧<br />
+            揪團社群網頁</p></article>
+          <article><figure><img src="/img-Home/advico-2.svg" alt="" /></figure><h3>資訊整合</h3><p>整合揪團&資源<br />
+            一站式查詢</p></article>
+          <article><figure><img src="/img-Home/advico-3.svg" alt="" /></figure><h3>跨國交流</h3><p>與世界各地游牧者<br />
+            互動學習</p></article>
+          <article><figure><img src="/img-Home/advico-4.svg" alt="" /></figure><h3>快速揪團</h3><p>一鍵開團<br />
+            立刻找到同行夥伴</p></article>
+        </div>
+
       </section>
 
       <section className='home-advantages'>
@@ -44,7 +84,7 @@ const Home = () => {
             <p>Popular</p>
             <p>City</p>
           </div>
-        
+
         </header>
 
         <div className='home-lo-boxs'>
@@ -153,6 +193,8 @@ const Home = () => {
           <img src="/img-Home/diary-2.jpg" alt="" />
           <img src="/img-Home/diary-3.jpg" alt="" />
         </figure>
+        <p className='h-d-side-word'>mood ...</p>
+        <figure className='h-d-boat'><img src="/img-Home/diary-boat.svg" alt="" /></figure>
       </section>
     </main>
   )

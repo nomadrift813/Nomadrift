@@ -38,6 +38,8 @@
     border: none;
 }
 
+
+
 // banner區
 #homebanner {
     position: relative;
@@ -52,17 +54,52 @@
         linear-gradient(180deg,
             rgba(65, 69, 61, 0) 75.48%,
             #41453D 100%),
-        url("../../../public/img-Home/HomeBanner.jpg") center/cover no-repeat;
+        url("/img-Home/HomeBanner.jpg") center/cover no-repeat;
     // background-attachment: fixed; //固定背景
+    overflow-x: hidden;
+    /* ← 你之前寫在 .homeslogan，請移到這裡 */
+    overflow-y: visible;
+
+
+
 
     .homeslogan {
+
+        position: fixed;
+        inset: 0;
+        /* top/right/bottom/left = 0 */
+        margin: auto;
+        /* 在可用空間中居中 */
+        // width: min(571px, 92vw);
+        /* 小螢幕不超出 */
+        height: max-content;
+        /* 讓 margin:auto 能計算垂直置中 */
+        text-align: center;
+        z-index: 2;
+
+
+        opacity: 0;
+        transition: opacity 0.3s ease;
 
         display: flex;
         width: 571px;
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        margin-bottom: 100px;
+        // margin-bottom: 100px;
+
+
+
+
+
+
+        &.fade-in {
+            opacity: 1;
+        }
+
+        &.fade-out {
+            opacity: 0;
+        }
 
         h2 {
             font-size: $f-s-xxl;
@@ -93,6 +130,9 @@
             font-weight: 400;
             line-height: 150%;
             letter-spacing: 5px;
+            overflow: clip;
+
+
 
             img {
                 width: 24px;
@@ -112,6 +152,7 @@
 
 
     }
+
 
     .banner-side-word {
         position: absolute;
@@ -138,7 +179,7 @@
         flex-direction: column;
         align-items: center;
         position: absolute;
-        bottom: 155px;
+        bottom: 250px;
         width: 88px;
 
         img {
@@ -153,18 +194,19 @@
         position: absolute;
         top: 300px;
         right: 10px;
-        width: 1266.99px;
-        height: 638.351px;
+     
         flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        max-width: 100%;
+        overflow: clip;
 
         img {
+        
             display: block;
-            width: 100%;
-            height: 100%;
-            object-position: center;
+            max-width: 100%;
+            height: auto;
         }
     }
 
@@ -172,21 +214,145 @@
         position: absolute;
         top: 280px;
         right: 68px;
+        max-width: 100%;
 
         img {
+        
             display: block;
-            width: 100%;
-            height: 100%;
-            object-position: center;
+            max-width: 100%;
+            height: auto;
         }
     }
+}
+
+//優勢區
+#homeadvantages {
+    width: 100%;
+    height: 50vh;
+    background-color: $primary1;
+    padding: 0 80px 130px 150px;
+    gap: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: -60px;
+
+    @media ($mediaXl) {
+        flex-direction: column;
+        padding: 0 80px 130px 100px;
+         height: 60vh;
+    }
+
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        z-index: 1;
+
+        p {
+            color: $white;
+            display: flex;
+            white-space: nowrap;
+        }
+
+        span {
+            border-bottom: 1px solid $white;
+            padding-bottom: 10px;
+        }
+
+    }
+
+    .h-a-boxs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+
+        width: 40%;
+        flex: 1;
+        z-index: 1;
+
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+
+            // width: 160px;
+            &:nth-child(1) {
+                margin-top: -100px;
+            }
+
+            &:nth-child(2) {
+                margin-top: 50px;
+            }
+
+            &:nth-child(3) {
+                margin-top: -100px;
+            }
+
+            &:nth-child(4) {
+                margin-top: 50px;
+            }
+
+            figure {
+                background-color: $accent;
+                border-radius: 99px;
+                width: 78px;
+                height: 78px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            h3 {
+                color: $white;
+                text-align: center;
+                font-family: $en;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 100%;
+                letter-spacing: 2px;
+                white-space: nowrap;
+            }
+
+            p {
+                color: $white;
+
+                text-align: center;
+                font-family: $en;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                letter-spacing: 1.12px;
+                white-space: nowrap;
+
+            }
+
+        }
+    }
+
+
 }
 
 // 地點區
 #homelocation {
 
     width: 100%;
-    height: 115vh;
+    // height: 115vh;
     padding: 42px 50px 0 50px;
     position: relative;
     display: flex;
@@ -223,6 +389,10 @@
             margin-left: 100px;
             margin-top: -30px;
 
+            @media ($mediaMd) {
+                margin-left: 0;
+            }
+
             p {
                 font-family: $family-en;
                 font-size: 96px;
@@ -237,7 +407,7 @@
             }
         }
 
-        
+
     }
 
     .home-lo-boxs {
@@ -418,6 +588,11 @@
         padding-left: 150px;
         padding-top: 70px;
 
+        @media ($mediaMd) {
+            flex-direction: column;
+            // padding-left: 50px;
+        }
+
         .h-g-pic {
 
             display: flex;
@@ -545,6 +720,11 @@
         padding-right: 150px;
         padding-left: 800px;
         margin-top: -80px;
+
+
+        @media ($mediaMd) {
+              padding-left: 500px;
+        }
 
         .h-g-block1 {
             display: inline-flex;
@@ -896,5 +1076,36 @@
             left: 285px;
         }
 
+    }
+
+    .h-d-side-word {
+        position: absolute;
+        left: 50px;
+        top: 415px;
+        writing-mode: vertical-rl;
+        white-space: nowrap;
+
+        color: $primary1;
+
+        text-align: center;
+        font-family: $en;
+        font-size: $spacing-md;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%;
+        letter-spacing: $spacing-xxs;
+    }
+
+    .h-d-boat {
+        position: absolute;
+        left: 150px;
+        bottom: 0px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
     }
 }
