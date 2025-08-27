@@ -17,6 +17,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: $background1;
+    // background-attachment: fixed; 
 
     .locSlogan {
         display: inline-flex;
@@ -84,6 +85,13 @@
         letter-spacing: $spacing-xxs;
     }
 
+    .bPath {
+        display: flex;
+        position: absolute;
+        bottom: 120px;
+        width: 100%;
+    }
+
     .hotLoc {
         display: flex;
         align-items: center;
@@ -91,58 +99,100 @@
         position: absolute;
         bottom: 0;
 
-        .h-l-1 {
+        .hotCard-1,
+        .hotCard-2,
+        .hotCard-3,
+        .hotCard-4 {
             display: flex;
-            // width: 220px;
-            height: 340px;
-            transform: rotate(3.741deg);
-            aspect-ratio: 11/15;
-            margin-bottom: -200px;
+            flex-direction: column;
+            align-items: center;
+            gap: 36px;
 
-            border-radius: 5px;
-            border: 5px solid #FFF;
-            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-        }
+            .hot-1,
+            .hot-2,
+            .hot-3,
+            .hot-4 {
+                display: flex;
+                padding: 4px 16px;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                flex: 100;
 
-        .h-l-2 {
-            display: flex;
-            // width: 220px;
-            height: 340px;
-            transform: rotate(-6.03deg);
-            aspect-ratio: 11/15;
-            margin-bottom: 10px;
+                border-radius: 100px;
+                background: #FFF;
 
-            border-radius: 5px;
-            border: 5px solid #FFF;
-            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-        }
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
 
-        .h-l-3 {
-            display: flex;
-            // width: 220px;
-            height: 340px;
-            transform: rotate(4.568deg);
-            aspect-ratio: 11/15;
-            margin-bottom: -280px;
+                li {
+                    color: $primary1;
+                    text-align: center;
+                    font-family: $family-tc;
+                    font-size: $f-s-md;
+                    font-style: normal;
+                    font-weight: $f-w-4;
+                    line-height: 150%;
+                    letter-spacing: 2px;
+                }
+            }
 
-            border-radius: 5px;
-            border: 5px solid #FFF;
-            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-        }
+            .h-l-1 {
+                display: flex;
+                // width: 220px;
+                height: 340px;
+                transform: rotate(3.741deg);
+                aspect-ratio: 11/15;
+                margin-bottom: -120px;
 
-        .h-l-4 {
-            display: flex;
-            // width: 220px;
-            height: 340px;
-            transform: rotate(-5.724deg);
-            aspect-ratio: 11/15;
-            margin-top: 160px;
+                border-radius: 5px;
+                border: 5px solid #FFF;
+                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+            }
 
-            border-radius: 5px;
-            border: 5px solid #FFF;
-            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+            .h-l-2 {
+                display: flex;
+                // width: 220px;
+                height: 340px;
+                transform: rotate(-6.03deg);
+                aspect-ratio: 11/15;
+                margin-bottom: 10px;
+
+                border-radius: 5px;
+                border: 5px solid #FFF;
+                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+            }
+
+            .h-l-3 {
+                display: flex;
+                // width: 220px;
+                height: 340px;
+                transform: rotate(4.568deg);
+                aspect-ratio: 11/15;
+                margin-bottom: -280px;
+
+                border-radius: 5px;
+                border: 5px solid #FFF;
+                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+            }
+
+            .h-l-4 {
+                display: flex;
+                // width: 220px;
+                height: 340px;
+                transform: rotate(-5.724deg);
+                aspect-ratio: 11/15;
+                margin-bottom: -50px;
+
+                border-radius: 5px;
+                border: 5px solid #FFF;
+                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+            }
         }
     }
+
 }
 
 
@@ -153,7 +203,7 @@
     flex-direction: column;
     align-items: center;
     background-color: $background1;
-    padding: 180px 50px 0 50px;
+    padding: 220px 50px 0px 50px;
 
     header {
         display: flex;
