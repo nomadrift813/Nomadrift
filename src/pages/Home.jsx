@@ -21,7 +21,6 @@ const Home = () => {
   };
 }, []);
 
-
   return (
     <main>
       <section id="homebanner">
