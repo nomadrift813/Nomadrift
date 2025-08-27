@@ -12,7 +12,7 @@ const Group = () => {
           <h2>一個人沒動力？一起就有趣！</h2>
           <button>發起揪團</button>
           <figure className="locScroll">
-            <img src="/img-Location/scroll.svg" alt="" />
+            <img src="./img-Location/scroll.svg" alt="" />
           </figure>
         </div>
       </section>
