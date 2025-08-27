@@ -1,4 +1,4 @@
-# 專題網站網址（gh-pages）：
+# 專題網站網址（gh-pages）：https://nomadrift813.github.io/Nomadrift/ 
 ## 俞老師
 - 0814：選單ok
 - 0814：圖片畫素太大，請壓縮圖片寬度畫素在1920px
