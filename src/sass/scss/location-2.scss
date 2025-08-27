@@ -45,3 +45,107 @@
         width: 65px;
     }
 }
+
+#allInfo {
+
+
+    .allPic {
+        display: flex;
+        width: 478px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .picXl {
+            height: 530px;
+            align-self: stretch;
+            border-radius: 80px 0 0 0;
+        }
+
+        .detPic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            align-self: stretch;
+
+            img {
+                width: 146px;
+                height: 146px;
+            }
+        }
+    }
+
+    .locContent {
+        display: flex;
+        width: 660px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+
+        h2 {
+            color: $primary1;
+            font-family: $en;
+            font-size: $f-s-xxl;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 3.6px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+            align-self: stretch;
+
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                flex: 100;
+                width: auto;
+
+                img {
+                    width: 20px;
+                    height: 14px;
+                }
+
+                p {
+                    color: $primary1;
+                    font-family: $en;
+                    font-size: $f-s-xs;
+                    font-style: normal;
+                    font-weight: $f-w-4;
+                    line-height: normal;
+                    letter-spacing: 1.6px;
+                }
+            }
+
+            .stars {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                align-self: stretch;
+
+                img {
+                    align-self: stretch;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            span {
+                color: $primary1;
+                font-family: $en;
+                font-size: $f-s-md;
+                font-style: normal;
+                font-weight: $f-w-6;
+                line-height: normal;
+            }
+        }
+
+    }
+}
