@@ -1,0 +1,47 @@
+@use 'reset';
+@use 'var' as *;
+
+#disDes {
+    display: flex;
+    width: 1440px;
+    padding: 120px 50px;
+    align-items: flex-start;
+    gap: 455px;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        .l-t-1 {
+            color: $primary2;
+            font-family: $en;
+            font-size: $f-s-md2;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 4.4px;
+
+            span {
+                border-bottom: 1px solid $primary1;
+                padding-bottom: 8px;
+            }
+        }
+
+        .l-t-2 {
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-xxl;
+            font-style: normal;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            letter-spacing: 10.8px;
+        }
+    }
+
+    div {
+        width: 65px;
+    }
+}
