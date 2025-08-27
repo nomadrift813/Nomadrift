@@ -654,7 +654,7 @@ body {
         justify-content: center;
     }
 
-   
+
 
 
     header {
@@ -700,7 +700,7 @@ body {
             justify-content: center;
             gap: 0;
 
-           
+
 
             figure {
                 border: 5px solid $white;
@@ -728,8 +728,8 @@ body {
                 @media ($mediaSm) {
                     width: 100px;
                     height: 70px;
-                     margin-top: 100px;
-                     margin-right: 0px;
+                    margin-top: 100px;
+                    margin-right: 0px;
                 }
             }
 
@@ -737,7 +737,7 @@ body {
                 width: 492.651px;
                 height: 328.434px;
                 transform: rotate(4.139deg);
-                
+
                 @media ($mediaSm) {
                     width: 300px;
                     height: 200px;
@@ -1024,6 +1024,17 @@ body {
         padding: 80px 80px 285px 0px;
     }
 
+    @media ($mediaSm) {
+        padding: 80px 50px 285px 20px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "title"
+            "pics"
+            "article";
+        justify-items: flex-end;
+    }
+
     header {
         grid-area: title;
 
@@ -1048,12 +1059,23 @@ body {
         align-items: flex-start;
         gap: 30px;
 
+            @media ($mediaSm) {
+                align-items: center;
+                padding: 0 50px;
+                margin-top: 0px;
+            }
+
         article {
 
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             gap: 10px;
+
+              @media ($mediaSm) {
+                   margin-top: -230px;
+                
+                }
 
             .h-d-member {
                 display: flex;
@@ -1082,6 +1104,9 @@ body {
                 display: flex;
                 flex-direction: column;
                 gap: 30px;
+                
+
+              
 
                 .h-d-text {
                     display: flex;
@@ -1229,6 +1254,12 @@ body {
             height: 274px;
             top: 30px;
             left: 120px;
+            @media ($mediaSm) {
+              width: 180px;
+                height: 220px;
+                left: 150px;
+                top: -30px;
+            }
         }
 
         img:nth-child(3) {
@@ -1239,6 +1270,13 @@ body {
 
             @media ($mediaLg) {
                 left: 150px;
+            }
+
+            @media ($mediaSm) {
+                width: 180px;
+                height: 250px;
+                left: 200px;
+                top: 0px;
             }
         }
 
