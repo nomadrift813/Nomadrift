@@ -70,10 +70,6 @@ const Home = () => {
 
       </section>
 
-      <section className='home-advantages'>
-
-      </section>
-
       <section id='homelocation'>
         <header>
           <div className='homenext'>

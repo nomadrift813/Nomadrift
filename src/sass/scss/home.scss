@@ -4,6 +4,10 @@
 
 // 共用區
 
+body {
+    overflow-x: hidden;
+}
+
 .h-t-1 {
     color: $primary2;
     text-align: center;
@@ -13,6 +17,7 @@
     font-weight: $f-w-4;
     line-height: 150%;
     letter-spacing: $spacing-xxs;
+    white-space: nowrap;
 
 }
 
@@ -25,6 +30,8 @@
     line-height: 150%;
     /* 54px */
     letter-spacing: $spacing-xs;
+    white-space: nowrap;
+
 }
 
 .home-all-spot {
@@ -55,7 +62,7 @@
             rgba(65, 69, 61, 0) 75.48%,
             #41453D 100%),
         url("/img-Home/HomeBanner.jpg") center/cover no-repeat;
-    // background-attachment: fixed; //固定背景
+    //  background-attachment: fixed; //固定背景
     overflow-x: hidden;
     /* ← 你之前寫在 .homeslogan，請移到這裡 */
     overflow-y: visible;
@@ -88,7 +95,10 @@
         gap: 20px;
         // margin-bottom: 100px;
 
+        @media ($mediaSm) {
+            padding: 50px;
 
+        }
 
 
 
@@ -109,6 +119,7 @@
             text-shadow: 0 0 20px rgba(0, 0, 0, 0.80);
             font-weight: 500;
             letter-spacing: $spacing-xs;
+
         }
 
         .home-b-form {
@@ -131,6 +142,13 @@
             line-height: 150%;
             letter-spacing: 5px;
             overflow: clip;
+
+            @media ($mediaSm) {
+                height: $spacing-xl;
+                align-self: center;
+                gap: 160px;
+                padding: 8px 16px;
+            }
 
 
 
@@ -170,6 +188,10 @@
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
+
+        @media ($mediaSm) {
+            display: none;
+        }
     }
 
     .homescroll {
@@ -194,7 +216,7 @@
         position: absolute;
         top: 300px;
         right: 10px;
-     
+
         flex-shrink: 0;
         display: flex;
         justify-content: center;
@@ -203,7 +225,7 @@
         overflow: clip;
 
         img {
-        
+
             display: block;
             max-width: 100%;
             height: auto;
@@ -217,7 +239,7 @@
         max-width: 100%;
 
         img {
-        
+
             display: block;
             max-width: 100%;
             height: auto;
@@ -240,7 +262,14 @@
     @media ($mediaXl) {
         flex-direction: column;
         padding: 0 80px 130px 100px;
-         height: 60vh;
+        height: 60vh;
+    }
+
+    @media ($mediaSm) {
+        flex-direction: column;
+        padding: 0 50px 130px 80px;
+        height: 70vh;
+        gap: 50px;
     }
 
 
@@ -274,6 +303,12 @@
         flex: 1;
         z-index: 1;
 
+        @media ($mediaSm) {
+            width: 80%;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
 
         article {
             display: flex;
@@ -285,18 +320,34 @@
             // width: 160px;
             &:nth-child(1) {
                 margin-top: -100px;
+
+                @media ($mediaSm) {
+                    margin-top: 0;
+                }
             }
 
             &:nth-child(2) {
                 margin-top: 50px;
+
+                @media ($mediaSm) {
+                    margin-top: 0;
+                }
             }
 
             &:nth-child(3) {
                 margin-top: -100px;
+
+                @media ($mediaSm) {
+                    margin-top: 0;
+                }
             }
 
             &:nth-child(4) {
                 margin-top: 50px;
+
+                @media ($mediaSm) {
+                    margin-top: 0;
+                }
             }
 
             figure {
@@ -360,6 +411,13 @@
     background-color: $background1;
     overflow: visible;
 
+    @media ($mediaSm) {
+        gap: 100px;
+
+    }
+
+
+
     header {
 
         display: flex;
@@ -379,6 +437,10 @@
             gap: 13px;
             margin-right: 100px;
 
+            @media ($mediaSm) {
+                margin-right: 0px;
+            }
+
         }
 
         .popularcity {
@@ -390,8 +452,16 @@
             margin-top: -30px;
 
             @media ($mediaMd) {
-                margin-left: 0;
+                margin-left: 50px;
+                margin-top: 30px;
+
             }
+
+            @media ($mediaSm) {
+                margin-left: -20px;
+            }
+
+
 
             p {
                 font-family: $family-en;
@@ -404,6 +474,12 @@
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+
+                @media ($mediaSm) {
+                    font-size: 56px;
+                }
+
+
             }
         }
 
@@ -420,6 +496,10 @@
 
         margin-top: -160px;
 
+        @media ($mediaSm) {
+
+            padding: 0;
+        }
 
 
         .home-city-grid {
@@ -508,6 +588,10 @@
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
+
+        @media ($mediaSm) {
+            display: none;
+        }
     }
 
     .h-1-side-word-2 {
@@ -538,6 +622,11 @@
         pointer-events: none;
         overflow: visible;
 
+
+        @media ($mediaSm) {
+            display: none;
+        }
+
         img {
             width: 100%;
             height: 100%;
@@ -559,6 +648,14 @@
     padding-top: 45px;
     background-color: $background1;
     overflow: visible;
+
+
+    @media ($mediaMd) {
+        justify-content: center;
+    }
+
+   
+
 
     header {
         display: flex;
@@ -588,9 +685,12 @@
         padding-left: 150px;
         padding-top: 70px;
 
-        @media ($mediaMd) {
+
+
+        @media ($mediaXl) {
             flex-direction: column;
-            // padding-left: 50px;
+            padding-left: 80px;
+            gap: 65px;
         }
 
         .h-g-pic {
@@ -599,6 +699,8 @@
             align-items: center;
             justify-content: center;
             gap: 0;
+
+           
 
             figure {
                 border: 5px solid $white;
@@ -622,13 +724,24 @@
                 z-index: 1;
                 margin-right: -110px;
                 margin-top: 290px;
+
+                @media ($mediaSm) {
+                    width: 100px;
+                    height: 70px;
+                     margin-top: 100px;
+                     margin-right: 0px;
+                }
             }
 
             .h-g-p-2 {
                 width: 492.651px;
                 height: 328.434px;
                 transform: rotate(4.139deg);
-
+                
+                @media ($mediaSm) {
+                    width: 300px;
+                    height: 200px;
+                }
             }
 
             .h-g-p-3 {
@@ -637,6 +750,10 @@
                 transform: rotate(-3.236deg);
                 margin-left: -90px;
                 margin-top: -280px;
+
+                @media ($mediaSm) {
+                    display: none;
+                }
             }
 
         }
@@ -648,6 +765,17 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+
+            @media ($mediaXl) {
+                flex-direction: row;
+                // padding-left: 50px;
+                gap: 45px;
+                flex-wrap: wrap;
+            }
+
+            @media ($mediaMd) {
+                justify-content: center;
+            }
 
 
 
@@ -713,62 +841,70 @@
     .h-g-tags {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
         gap: 20px;
         width: 100%;
-        padding-right: 150px;
-        padding-left: 800px;
-        margin-top: -80px;
-
+        // padding-right: 150px;
+        // padding-left: 800px;
+        margin-right: 280px;
+        margin-top: -50px;
 
         @media ($mediaMd) {
-              padding-left: 500px;
+            display: none;
         }
 
-        .h-g-block1 {
-            display: inline-flex;
-            align-self: flex-end;
-            transform: rotate(-1.822deg);
-            padding: 12px 40px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
 
-            border-radius: 10px;
-            background: $white;
-
-            color: $primary1;
-            font-family: "Noto Sans TC";
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: 2px;
-            white-space: nowrap;
+        @media ($mediaXl) {
+            margin-right: 150px;
+            margin-top: -250px;
+            z-index: 1;
         }
+    }
 
-        .h-g-block2 {
-            align-self: flex-start;
-            display: inline-flex;
-            transform: rotate(1.951deg);
-            padding: 12px 40px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+    .h-g-block1 {
+        display: inline-flex;
+        // align-self: flex-end;
+        transform: rotate(-1.822deg);
+        padding: 12px 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
 
-            border-radius: 10px;
-            background-color: $accent;
+        border-radius: 10px;
+        background: $white;
 
-            color: $text;
-            font-family: "Noto Sans TC";
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: 2px;
-            white-space: nowrap;
-        }
+        color: $primary1;
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 2px;
+        white-space: nowrap;
+    }
+
+    .h-g-block2 {
+        // align-self: flex-start;
+        display: inline-flex;
+        transform: rotate(1.951deg);
+        padding: 12px 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        border-radius: 10px;
+        background-color: $accent;
+
+        color: $text;
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        margin-right: 200px;
     }
 
     .h-g-botton-wrap {
@@ -810,7 +946,7 @@
     .h-g-side-word-1 {
         position: absolute;
         right: 50px;
-        top: 90px;
+        top: 20%;
         writing-mode: vertical-lr;
         transform: rotate(180deg);
         white-space: nowrap;
@@ -824,6 +960,10 @@
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
+
+        @media ($mediaSm) {
+            display: none;
+        }
     }
 
     .h-group-line {
@@ -836,6 +976,11 @@
         pointer-events: none;
         overflow: visible;
 
+        @media ($mediaMd) {
+            display: none;
+        }
+
+
         img {
             width: 100%;
             height: 100%;
@@ -844,6 +989,9 @@
 
     }
 }
+
+
+
 
 // 日記區
 #homediary {
@@ -871,6 +1019,10 @@
     grid-template-areas: "pics . title"
         "pics . article";
     align-items: start;
+
+    @media ($mediaXl) {
+        padding: 80px 80px 285px 0px;
+    }
 
     header {
         grid-area: title;
@@ -1048,6 +1200,10 @@
         width: 100%;
         height: 500px; // 可依設計稿調整
 
+        @media ($mediaXl) {
+            margin-left: -50px;
+        }
+
         img {
             position: absolute;
             box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.25);
@@ -1060,6 +1216,12 @@
             height: 225px;
             top: 0;
             left: 0;
+
+            @media ($mediaXl) {
+                display: none;
+
+            }
+
         }
 
         img:nth-child(2) {
@@ -1074,6 +1236,10 @@
             height: 320px;
             top: 80px;
             left: 285px;
+
+            @media ($mediaLg) {
+                left: 150px;
+            }
         }
 
     }
