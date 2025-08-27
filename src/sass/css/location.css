@@ -197,6 +197,12 @@ a {
   line-height: 150%;
   letter-spacing: 5px;
 }
+#locBanner .bPath {
+  display: flex;
+  position: absolute;
+  bottom: 120px;
+  width: 100%;
+}
 #locBanner .hotLoc {
   display: flex;
   align-items: center;
@@ -204,17 +210,101 @@ a {
   position: absolute;
   bottom: 0;
 }
-#locBanner .hotLoc .h-l-1 {
+#locBanner .hotLoc .hotCard-1,
+#locBanner .hotLoc .hotCard-2,
+#locBanner .hotLoc .hotCard-3,
+#locBanner .hotLoc .hotCard-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+#locBanner .hotLoc .hotCard-1 .hot-1,
+#locBanner .hotLoc .hotCard-1 .hot-2,
+#locBanner .hotLoc .hotCard-1 .hot-3,
+#locBanner .hotLoc .hotCard-1 .hot-4,
+#locBanner .hotLoc .hotCard-2 .hot-1,
+#locBanner .hotLoc .hotCard-2 .hot-2,
+#locBanner .hotLoc .hotCard-2 .hot-3,
+#locBanner .hotLoc .hotCard-2 .hot-4,
+#locBanner .hotLoc .hotCard-3 .hot-1,
+#locBanner .hotLoc .hotCard-3 .hot-2,
+#locBanner .hotLoc .hotCard-3 .hot-3,
+#locBanner .hotLoc .hotCard-3 .hot-4,
+#locBanner .hotLoc .hotCard-4 .hot-1,
+#locBanner .hotLoc .hotCard-4 .hot-2,
+#locBanner .hotLoc .hotCard-4 .hot-3,
+#locBanner .hotLoc .hotCard-4 .hot-4 {
+  display: flex;
+  padding: 4px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex: 100;
+  border-radius: 100px;
+  background: #FFF;
+}
+#locBanner .hotLoc .hotCard-1 .hot-1 img,
+#locBanner .hotLoc .hotCard-1 .hot-2 img,
+#locBanner .hotLoc .hotCard-1 .hot-3 img,
+#locBanner .hotLoc .hotCard-1 .hot-4 img,
+#locBanner .hotLoc .hotCard-2 .hot-1 img,
+#locBanner .hotLoc .hotCard-2 .hot-2 img,
+#locBanner .hotLoc .hotCard-2 .hot-3 img,
+#locBanner .hotLoc .hotCard-2 .hot-4 img,
+#locBanner .hotLoc .hotCard-3 .hot-1 img,
+#locBanner .hotLoc .hotCard-3 .hot-2 img,
+#locBanner .hotLoc .hotCard-3 .hot-3 img,
+#locBanner .hotLoc .hotCard-3 .hot-4 img,
+#locBanner .hotLoc .hotCard-4 .hot-1 img,
+#locBanner .hotLoc .hotCard-4 .hot-2 img,
+#locBanner .hotLoc .hotCard-4 .hot-3 img,
+#locBanner .hotLoc .hotCard-4 .hot-4 img {
+  width: 20px;
+  height: 20px;
+}
+#locBanner .hotLoc .hotCard-1 .hot-1 li,
+#locBanner .hotLoc .hotCard-1 .hot-2 li,
+#locBanner .hotLoc .hotCard-1 .hot-3 li,
+#locBanner .hotLoc .hotCard-1 .hot-4 li,
+#locBanner .hotLoc .hotCard-2 .hot-1 li,
+#locBanner .hotLoc .hotCard-2 .hot-2 li,
+#locBanner .hotLoc .hotCard-2 .hot-3 li,
+#locBanner .hotLoc .hotCard-2 .hot-4 li,
+#locBanner .hotLoc .hotCard-3 .hot-1 li,
+#locBanner .hotLoc .hotCard-3 .hot-2 li,
+#locBanner .hotLoc .hotCard-3 .hot-3 li,
+#locBanner .hotLoc .hotCard-3 .hot-4 li,
+#locBanner .hotLoc .hotCard-4 .hot-1 li,
+#locBanner .hotLoc .hotCard-4 .hot-2 li,
+#locBanner .hotLoc .hotCard-4 .hot-3 li,
+#locBanner .hotLoc .hotCard-4 .hot-4 li {
+  color: #41453D;
+  text-align: center;
+  font-family: "Noto Sans TC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+#locBanner .hotLoc .hotCard-1 .h-l-1,
+#locBanner .hotLoc .hotCard-2 .h-l-1,
+#locBanner .hotLoc .hotCard-3 .h-l-1,
+#locBanner .hotLoc .hotCard-4 .h-l-1 {
   display: flex;
   height: 340px;
   transform: rotate(3.741deg);
   aspect-ratio: 11/15;
-  margin-bottom: -200px;
+  margin-bottom: -120px;
   border-radius: 5px;
   border: 5px solid #FFF;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
 }
-#locBanner .hotLoc .h-l-2 {
+#locBanner .hotLoc .hotCard-1 .h-l-2,
+#locBanner .hotLoc .hotCard-2 .h-l-2,
+#locBanner .hotLoc .hotCard-3 .h-l-2,
+#locBanner .hotLoc .hotCard-4 .h-l-2 {
   display: flex;
   height: 340px;
   transform: rotate(-6.03deg);
@@ -224,7 +314,10 @@ a {
   border: 5px solid #FFF;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
 }
-#locBanner .hotLoc .h-l-3 {
+#locBanner .hotLoc .hotCard-1 .h-l-3,
+#locBanner .hotLoc .hotCard-2 .h-l-3,
+#locBanner .hotLoc .hotCard-3 .h-l-3,
+#locBanner .hotLoc .hotCard-4 .h-l-3 {
   display: flex;
   height: 340px;
   transform: rotate(4.568deg);
@@ -234,12 +327,15 @@ a {
   border: 5px solid #FFF;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
 }
-#locBanner .hotLoc .h-l-4 {
+#locBanner .hotLoc .hotCard-1 .h-l-4,
+#locBanner .hotLoc .hotCard-2 .h-l-4,
+#locBanner .hotLoc .hotCard-3 .h-l-4,
+#locBanner .hotLoc .hotCard-4 .h-l-4 {
   display: flex;
   height: 340px;
   transform: rotate(-5.724deg);
   aspect-ratio: 11/15;
-  margin-top: 160px;
+  margin-bottom: -50px;
   border-radius: 5px;
   border: 5px solid #FFF;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
@@ -251,7 +347,7 @@ a {
   flex-direction: column;
   align-items: center;
   background-color: #F4F1E5;
-  padding: 180px 50px 0 50px;
+  padding: 220px 50px 0px 50px;
 }
 #discover header {
   display: flex;
