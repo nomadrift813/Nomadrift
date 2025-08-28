@@ -180,7 +180,7 @@ const Home = () => {
             </div>
           </article>
           <button className='home-all-spot'>
-            <Link to="/group">所有日記</Link>
+            <Link to="/diary">所有日記</Link>
           </button>
         </div>
 
