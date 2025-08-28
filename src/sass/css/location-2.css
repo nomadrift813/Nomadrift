@@ -169,3 +169,90 @@ a {
 #disDes div {
   width: 65px;
 }
+
+#allInfo .allPic {
+  display: flex;
+  width: 478px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#allInfo .allPic .picXl {
+  height: 530px;
+  align-self: stretch;
+  border-radius: 80px 0 0 0;
+}
+#allInfo .allPic .detPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+}
+#allInfo .allPic .detPic img {
+  width: 146px;
+  height: 146px;
+}
+#allInfo .locContent {
+  display: flex;
+  width: 660px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+#allInfo .locContent h2 {
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 36px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.6px;
+}
+#allInfo .locContent div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+#allInfo .locContent div ul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 100;
+  width: auto;
+}
+#allInfo .locContent div ul img {
+  width: 20px;
+  height: 14px;
+}
+#allInfo .locContent div ul p {
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+}
+#allInfo .locContent div .stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+}
+#allInfo .locContent div .stars img {
+  align-self: stretch;
+  width: 20px;
+  height: 20px;
+}
+#allInfo .locContent div span {
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

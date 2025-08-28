@@ -1298,6 +1298,10 @@ body {
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
+
+         @media ($mediaSm) {
+            display: none;
+         }
     }
 
     .h-d-boat {

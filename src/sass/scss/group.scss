@@ -91,7 +91,7 @@
 }
 
 // 內容區
-#group-content {
+.group-content {
     position: relative;
     min-height: 100dvh;
     padding-top: 72px;
@@ -190,26 +190,27 @@
 // 揪團卡片
 
 // 上半部圖片
-#group-event-card {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+.group-event-card {
     width: 360px;
     height: 578px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    // justify-content: flex-end;
+    // align-items: flex-end;
+    
     border-radius: 12px;
-    border: 5px solid rgb(0, 255, 38);
+    border: 2px solid rgb(0, 255, 38);
 }
-
 
 
 .card-img {
     display: flex;
-    width: 360px;
-    height: 358px;
+    position: relative;
+    
     // padding: 16px 16px 310px 241px;
-    justify-content: flex-end;
-    align-items: center;
+    // justify-content: center;
+    // align-items: stretch;
 
     .badge-signup-count {
         position: absolute;
@@ -220,6 +221,8 @@
         font-size: 14px;
         padding: 4px 10px;
         border-radius: 20px;
+        z-index: 2;
+        border: 2px solid rgb(229, 255, 0);
 
     }
 }

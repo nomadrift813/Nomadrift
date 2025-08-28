@@ -207,7 +207,7 @@ a {
   height: 16px;
 }
 
-#group-content {
+.group-content {
   position: relative;
   min-height: 100dvh;
   padding-top: 72px;
@@ -295,23 +295,19 @@ a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-#group-event-card {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+.group-event-card {
   width: 360px;
   height: 578px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   border-radius: 12px;
-  border: 5px solid rgb(0, 255, 38);
+  border: 2px solid rgb(0, 255, 38);
 }
 
 .card-img {
   display: flex;
-  width: 360px;
-  height: 358px;
-  justify-content: flex-end;
-  align-items: center;
+  position: relative;
 }
 .card-img .badge-signup-count {
   position: absolute;
@@ -322,4 +318,6 @@ a {
   font-size: 14px;
   padding: 4px 10px;
   border-radius: 20px;
+  z-index: 2;
+  border: 2px solid rgb(229, 255, 0);
 }
