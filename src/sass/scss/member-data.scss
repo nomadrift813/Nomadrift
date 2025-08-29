@@ -7,14 +7,14 @@
     height: 100vh;
     display: flex;
     justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
+
     background-color: $background1;
     padding-top: 166px;
+    padding-left: 225px;
 
-    .m-all-box {
+    gap: 185px;
 
-        display: flex;
+    header {
 
         ul {
             display: flex;
@@ -39,17 +39,161 @@
                 letter-spacing: 1.8px;
                 border-bottom: 1px solid $text;
             }
+
+        }
+
+    }
+
+
+    .m-all-box {
+
+        .m-d-title {
+           
+            p {
+                color: $text;
+                text-align: start;
+                font-family: $en;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 130%;
+                letter-spacing: 1.2px;
+            }
+
+            span{
+                
+                height: 7px;
+                display: block;
+                
+                border-bottom: 1px dashed $text;
+                margin-bottom: 32px;
+            }
+        }
+
+        article {
+
+            display: flex;
+            gap: 100px;
+
+            .m-p-b {
+                display: flex;
+                flex-direction: column;
+                gap: 22px;
+                justify-content: flex-start;
+                align-items: center;
+
+                figure {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    width: 192px;
+                    height: 248.14px;
+                    background-color: $white;
+                    padding: 10px 10px 50px 10px;
+                    box-shadow: 6px 5px 10px 0 rgba(0, 0, 0, 0.25);
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+
+
+
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+
+                    button {
+
+                        border: none;
+                        display: flex;
+                        height: 29px;
+                        padding: 10px 14px;
+                        justify-content: center;
+                        align-items: center;
+                        align-self: stretch;
+                        border-radius: 999px;
+                        background: #F4D000;
+                    }
+                }
+
+
+            }
+
+
         }
 
         #memberform {
             display: flex;
             flex-direction: column;
+            gap: 30px;
+
 
             .form-row {
                 display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+
+                label {
+                    text-align: right;
+                    white-space: nowrap;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+
+                    color: $text;
+                    font-family: $family-tc;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    letter-spacing: 2px;
+
+                }
+
+                input {
+
+                    flex: 1;
+                    height: 32px;
+                    border: none;
+                    border-radius: 99px;
+                    // text-align: end;
+                    padding: 5px;
+
+
+
+                    background: rgba(255, 255, 255, 0.80);
+
+                }
+
+                .m-sex-box {
+                    display: flex;
+                    gap: 3px;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin: auto;
+
+                    .m-sex-choice1 {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+
+                }
+
+
+
+
             }
         }
-
 
 
     }
