@@ -124,8 +124,6 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    // margin: 0 24px;
-    // padding-block: 12px;
     background: $background1;
     z-index: 1;
 
@@ -160,7 +158,6 @@
 
 .button-list {
     width: 100%;
-    // padding-inline: clamp(16px, 6vw, 150px);
 }
 
 .group-buttons {
@@ -213,7 +210,6 @@
     align-items: center;
     width: 100%;
     gap: 24px;
-    // border: 2px solid rgb(255, 0, 238);
 }
 
 .all-cards {
@@ -237,7 +233,6 @@
     &:hover {
         transform: translateY(0.5px);
         box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
-        // border: 2px solid rgb(0, 255, 38);
     }
 }
 
@@ -268,7 +263,6 @@
         padding: 4px 16px;
         border-radius: 20px;
         z-index: 2;
-        // border: 2px solid rgb(229, 255, 0);
     }
 }
 
@@ -320,6 +314,7 @@
         -webkit-box-orient: vertical;
         /* 垂直排列 */
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         /* 限制顯示 2 行 */
         overflow: hidden;
         /* 超出隱藏 */

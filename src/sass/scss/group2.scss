@@ -1,0 +1,237 @@
+@use 'reset';
+@use 'var' as *;
+
+
+// Banner區
+#groupBanner2 {
+    position: relative;
+    /* 讓內部子元素可以絕對定位 */
+    display: flex;
+    width: 100%;
+    height: 465px;
+    // justify-content: center;
+    // align-items: center;
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        /* 去掉底部空隙 */
+    }
+}
+
+.groupSlogan2 {
+    position: absolute;
+    /* 疊在圖片上 */
+    top: 50%;
+    /* 垂直置中 */
+    left: 50%;
+    /* 水平置中 */
+    transform: translate(-50%, -50%);
+    /* 修正偏移，真正置中 */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    h3,
+    h2 {
+        color: #fff;
+        text-align: center;
+        line-height: 150%;
+    }
+
+    h3 {
+        font-family: $en;
+        font-size: 22px;
+        font-weight: $f-w-4;
+        letter-spacing: $spacing-xxs;
+    }
+
+    h2 {
+        font-family: $family-tc;
+        font-size: $f-s-xxl;
+        font-weight: $f-w-5;
+        letter-spacing: $spacing-xs;
+    }
+
+    .line {
+        width: 60px;
+        height: 1px;
+        background: #fff;
+    }
+}
+
+// 內文資訊區
+
+#groupInfo {
+    display: flex;
+    align-items: flex-end;
+    gap: 52px;
+
+    position: relative;
+    top: -110px;
+    /* 負值代表往上移動 */
+}
+
+.info_img {
+    // position: absolute;
+    // /* 絕對定位 */
+    // left: 150px;
+    // /* 距離左邊 150px */
+    // top: 391px;
+    // /* 距離上邊 391px */
+    width: 441px;
+    height: 400px;
+    flex-shrink: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-introduction {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    gap: 16px;
+
+    li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 16px; // h3 與 p 的間距
+    }
+
+    h3 {
+        padding: 4px 24px;
+        border-radius: 100px;
+        background: $primary1;
+        color: $white;
+        font-family: $family-tc;
+        letter-spacing: 2px;
+        display: flex;
+        justify-content: center;
+    }
+
+    p {
+        font-family: $family-tc;
+        font-size: $f-s-sm;
+        font-weight: $f-w-4;
+        color: $primary2;
+        line-height: 150%;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+}
+
+
+.activity-btn {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.pm {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 24px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    color: $text;
+    font-size: $f-s-md;
+    border-radius: 999px;
+
+    border: 1px solid #7A7872;
+
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background: #e0e0e0;
+    }
+}
+
+.join {
+    display: flex;
+    padding: 4px 24px;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $accent;
+    color: $text;
+    font-size: $f-s-md;
+    border-radius: 999px;
+
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background: #e7c300;
+    }
+
+    img {
+        width: 8.5px;
+        height: 15.5px;
+    }
+}
+
+.content-title {
+    display: flex;
+    /* 建議打開 flex，讓子元素好控制 */
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    /* 子元素全部靠左 */
+    padding: 0px 150px;
+
+    h3,
+    h2 {
+        text-align: left;
+        /* 文字靠左 */
+        line-height: 150%;
+    }
+
+    h3 {
+        color: $primary2;
+        font-family: $en;
+        font-size: 22px;
+        font-weight: $f-w-4;
+        letter-spacing: $spacing-xxs;
+    }
+
+    h2 {
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-xxl;
+        font-weight: $f-w-5;
+        letter-spacing: $spacing-xs;
+    }
+
+    .line {
+        width: 60px;
+        height: 1px;
+        background: $primary1;
+    }
+
+    p {
+        color: #7A7872;
+        font-family: $family-tc;
+        font-size: $f-s-lg;
+        font-weight: $f-w-4;
+        letter-spacing: 2.4px;
+    }
+}
