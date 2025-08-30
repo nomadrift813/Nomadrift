@@ -1201,6 +1201,11 @@ body {
   line-height: 150%;
   letter-spacing: 5px;
 }
+@media (max-width:640px) {
+  #homediary .h-d-side-word {
+    display: none;
+  }
+}
 #homediary .h-d-boat {
   position: absolute;
   left: 150px;

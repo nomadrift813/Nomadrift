@@ -241,7 +241,7 @@
 
     .locDrop {
         display: flex;
-        width: 1440px;
+        width: 100%;
         padding: 50px 150px 24px 150px;
         justify-content: center;
         align-items: flex-end;
@@ -267,6 +267,7 @@
                 font-weight: 400;
                 line-height: 150%;
                 letter-spacing: 2px;
+                text-wrap: nowrap;
             }
 
             img {
