@@ -17,8 +17,8 @@ const Nav = () => {
       </ul>
 
       <ul class="navlogs">
-        <li class="navlog"><Link>登入</Link></li>
-        <li class="navsign"><Link>註冊</Link></li>
+        <li class="navlog"><Link to="/log">登入</Link></li>
+        <li class="navsign"><Link to="/sign">註冊</Link></li>
       </ul>
     </header>
   )
