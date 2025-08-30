@@ -44,7 +44,7 @@ const Group = () => {
 
         <div className='all-cards'>
           {/* 揪團卡片_饒河夜市 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/night-market.jpg" alt="night-market" />
@@ -68,10 +68,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_一起征服米其林 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/dinner.jpg" alt="" />
@@ -95,10 +95,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_死了都要愛 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             {/* <figure className="card-img">
             <img src="./img-Group/night-market.jpg" alt="night-market" />
@@ -122,10 +122,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_來衝個早浪 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/surf.jpg" alt="night-market" />
@@ -149,12 +149,12 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className='all-cards'>
           {/* 揪團卡片_投杯乒乓 Beer pong */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/beer-pong.jpeg" alt="" />
@@ -184,10 +184,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_每周一網球 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/tennis.jpg" alt="" />
@@ -212,10 +212,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_一日艾蜜莉在巴黎 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/Paris.jpg" alt="" />
@@ -239,10 +239,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_午夜星空冥想派對 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             {/* <figure className="card-img">
               <img src="./img-Group/surf.jpg" alt="night-market" />
@@ -266,12 +266,12 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className='all-cards'>
           {/* 揪團卡片_參觀雪梨歌劇院 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/sydney-opera-house-view.jpg" alt="" />
@@ -295,10 +295,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_圖書館讀書會 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             {/* <figure className="card-img">
               <img src="./img-Group/dinner.jpg" alt="" />
@@ -322,10 +322,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_屋頂談心 */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/fireworks.jpeg" alt="" />
@@ -349,10 +349,10 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* 揪團卡片_88BBQ */}
-          <div className="group-event-card">
+          <Link to="/group2"  className="group-event-card">
             {/* 上半部圖片 */}
             <figure className="card-img">
               <img src="./img-Group/BBQ.jpg" alt="" />
@@ -378,7 +378,7 @@ const Group = () => {
                 <button className="view-more">了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" /></button>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         </div>
