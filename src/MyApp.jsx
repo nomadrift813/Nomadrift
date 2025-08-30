@@ -9,6 +9,7 @@ import Location2 from "./pages/Location-2"
 import Location3 from "./pages/Location-3"
 import Log from "./component/Log"
 import Sign from "./component/Sign"
+import Group2 from "./pages/Group2"
 import { Route, Routes } from "react-router-dom"
 
 const MyApp = () => {
