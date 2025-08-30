@@ -129,3 +129,12 @@ a {
     color: ColorValues;
     text-decoration: none;
 }
+
+/* 重置按鈕 */
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
