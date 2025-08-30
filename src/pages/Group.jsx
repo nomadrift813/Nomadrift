@@ -385,12 +385,7 @@ const Group = () => {
 
 
       </section>
-
-
-
-
     </main>
-
   )
 }
 
