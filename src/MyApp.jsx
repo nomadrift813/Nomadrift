@@ -7,12 +7,8 @@ import Diary from "./pages/Diary"
 import Member from "./pages/Member-data"    
 import Location2 from "./pages/Location-2"
 import Location3 from "./pages/Location-3"
-<<<<<<< HEAD
 import Log from "./component/Log"
 import Sign from "./component/Sign"
-=======
-import Group2 from "./pages/Group2"
->>>>>>> a7b4d5cfb5337c872c708b5501e968b42ad0b15f
 import { Route, Routes } from "react-router-dom"
 
 const MyApp = () => {
