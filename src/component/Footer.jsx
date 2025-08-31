@@ -5,6 +5,12 @@ const Footer = () => {
   return (
     <footer>
       <nav>
+        {/* waves */}
+        <div class="ocean">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
         <ul class="Sitemap">
           <li>
             <a href="#">關於我們</a>
