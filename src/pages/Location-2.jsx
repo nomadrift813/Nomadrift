@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../sass/scss/location-2.scss'
 
 const Location2 = () => {
@@ -12,10 +13,13 @@ const Location2 = () => {
                     <p className='l-t-1'>Discover<span> De</span>stination</p>
                     <p className='l-t-2'>探索地點</p>
                 </header>
+                 <p className='theCity'>亞洲-泰國-清邁</p>
             </section>
 
+            {/* <img className='pathArrow' src="pathArrow.svg" alt="" /> */}
+
             {/* 內容-探索地點 */}
-            <section id='allInfo'>
+            <section id='allInfo'> 
                 {/* 地點照片 */}
                 <figure className='allPic'>
                     <img className='picXl' src="./img-Location/p01.jpeg" alt="" />
@@ -72,7 +76,6 @@ const Location2 = () => {
 
                     <div className='color-block'></div>
                 </div>
-
             </section>
 
             {/* 探索更多城市 */}
@@ -81,6 +84,124 @@ const Location2 = () => {
                     <p className='l-t-1'>Discover M<span>ore</span> Destination</p>
                     <p className='l-t-2'>探索更多地點</p>
                 </header>
+
+                <div className='moreCards'>
+                    <img className='left' src="./img-Location/left.svg" alt="" />
+                    < article className='cards' >
+                        {/* 卡片1 */}
+                        <Link to="/location2">
+                            <section section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Italy.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>義大利</h2>
+                                    <p className='loc-text'>以古羅馬遺跡、文藝復興藝術、美食與時尚聞名。擁有羅馬、威尼斯、佛羅倫斯等歷史名城，文化魅力獨特。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link>
+                        {/* 卡片2 */}
+                        <Link to="/location2">
+                            <section section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Canada.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>加拿大</h2>
+                                    <p className='loc-text'>氣候宜人、自然風光壯麗，是融合多元文化的城市，擁有海灘、山脈與都市生活的完美平衡。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link>
+
+                        {/* 卡片3 */}
+                        <Link to="/location2">
+                            <section className='country'>
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>尼泊爾</h2>
+                                    <p className='loc-text'>位於喜馬拉雅山腳下，是宗教與歷史重鎮，擁有眾多佛教與印度教寺廟，文化深厚、街道熱鬧，是前往登山與探索尼泊爾文化的門戶。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section>
+                        </Link>
+
+
+                        {/* 卡片4 */}
+                        <Link to="/location2">
+                            <section section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Spain.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>西班牙</h2>
+                                    <p className='loc-text'>擁有豐富歷史與藝術文化，以佛朗明哥、鬥牛、美食和建築聞名，是充滿熱情與陽光的國度。ß</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link>
+                    </article >
+                    <img className='right' src="./img-Location/right.svg" alt="" />
+                </div>
 
             </section>
 

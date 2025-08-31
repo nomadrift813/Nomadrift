@@ -11,9 +11,10 @@ main {
 #disDes {
     display: flex;
     width: 100%;
-    padding: 120px 50px 80px 50px;
+    padding: 120px 50px 60px 50px;
     justify-content: center;
-    gap: 500px;
+    flex-direction: column;
+    gap: 14px;
 
     header {
         display: flex;
@@ -48,6 +49,16 @@ main {
         }
     }
 
+    .theCity {
+        color: $primary2;
+        text-align: center;
+        font-family: $family-tc;
+        font-size: $f-s-xs;
+        font-style: normal;
+        font-weight: $f-w-4;
+        line-height: 20px;
+    }
+
     // div {
     //     width: 65px;
     // }
@@ -55,10 +66,16 @@ main {
 
 #allInfo {
     display: flex;
-    width: 1440px;
+    width: 100%;
     justify-content: center;
     align-items: center;
     gap: 26px;
+
+    // .pathArrow {
+    //         display: flex;
+    //         width: 150px;
+    //         position: relative;
+    //     }
 
     /* 地點照片 */
     .allPic {
@@ -117,7 +134,7 @@ main {
                 h2 {
                     color: $text;
                     font-family: $en;
-                    font-size: $f-s-xxl;
+                    font-size: $f-s-xl;
                     font-weight: 400;
                     line-height: normal;
                     letter-spacing: 3.6px;
@@ -287,6 +304,145 @@ main {
             font-weight: $f-w-5;
             line-height: 150%;
             letter-spacing: 10.8px;
+        }
+    }
+
+    .moreCards {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        padding: 0px 50px 100px 50px;
+
+        .cards {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            .country {
+                background-color: $white;
+                position: relative;
+
+                .p1-sel {
+                    display: flex;
+
+                    .loc-p1 {
+                        display: flex;
+                        width: 270px;
+                        height: 180px;
+                    }
+
+                    .select {
+                        width: 34px;
+                        height: 34px;
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                    }
+                }
+
+                .loc-info {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 20px;
+                    gap: 10px;
+
+                    h2 {
+                        display: flex;
+                        width: 230px;
+                        color: $text;
+                        font-family: Inter;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    .loc-text {
+                        display: -webkit-box;
+                        width: 230px;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+
+                        overflow: hidden;
+                        color: $primary2;
+                        text-overflow: ellipsis;
+                        font-family: $en;
+                        font-size: $f-s-xs;
+                        font-style: normal;
+                        font-weight: $f-w-4;
+                        line-height: 20px;
+                    }
+
+                    .wi-st {
+                        display: flex;
+                        width: 230px;
+                        align-items: center;
+                        gap: 3px;
+
+                        border-bottom: 1px solid;
+                        padding-bottom: 12px;
+
+                        ul {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            flex: 100;
+                            width: auto;
+
+                            img {
+                                width: 20px;
+                                height: 14px;
+                            }
+
+                            p {
+                                color: $primary1;
+                                font-family: $en;
+                                font-size: $f-s-xs;
+                                font-style: normal;
+                                font-weight: $f-w-4;
+                                line-height: normal;
+                                letter-spacing: 1.6px;
+                            }
+                        }
+
+                        .stars {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            align-self: stretch;
+
+                            img {
+                                align-self: stretch;
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+
+                    span {
+                        display: flex;
+                        width: 230px;
+                        color: $primary1;
+                        font-family: $en;
+                        font-size: $f-s-md;
+                        font-style: normal;
+                        font-weight: $f-w-4;
+                        line-height: normal;
+                    }
+                }
+
+                .color-block {
+                    width: 270px;
+                    height: 8px;
+                    background-color: $accent;
+                }
+            }
+        }
+
+        .left,
+        .right {
+            width: 60px;
+            height: 60px;
         }
     }
 }
