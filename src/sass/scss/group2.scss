@@ -70,9 +70,14 @@
 
 #groupInfo {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activity-main {
+    display: flex;
     align-items: flex-end;
     gap: 52px;
-
     position: relative;
     top: -110px;
     /* 負值代表往上移動 */
@@ -130,7 +135,6 @@ img {
         text-align: center;
     }
 }
-
 
 .activity-btn {
     display: flex;
@@ -233,5 +237,257 @@ img {
         font-size: $f-s-lg;
         font-weight: $f-w-4;
         letter-spacing: 2.4px;
+    }
+}
+
+// 發起人+報名人數
+#people-info {
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    padding: 0px 150px;
+    justify-content: space-between;
+    /* 左右分散對齊 */
+    align-items: center;
+}
+
+.organizer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $f-s-xl;
+        line-height: 150%;
+        letter-spacing: 6.4px;
+    }
+
+    p {
+        color: #7A7872;
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        line-height: 150%;
+        letter-spacing: 2px;
+    }
+}
+
+.participants {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $f-s-xl;
+        line-height: 150%;
+        letter-spacing: 6.4px;
+    }
+
+    p {
+        color: #7A7872;
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        line-height: 150%;
+        letter-spacing: 2px;
+    }
+}
+
+
+.people-img {
+    display: flex;
+    width: 100px;
+
+    border-radius: 999px;
+    border: 2px solid $white;
+}
+
+.join-people {
+    display: flex;
+    align-items: center;
+}
+
+.people-img2 {
+    display: flex;
+    width: 100px;
+
+    border-radius: 999px;
+    border: 2px solid $white;
+    margin-left: -40px;
+}
+
+.people-img2 img:first-child {
+    margin-left: 0;
+}
+
+// 留言區
+#activity-comments {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    margin-top: 40px;
+    padding: 0px 150px;
+    align-items: flex-start;
+    /* 讓子元素在水平軸靠左 */
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $f-s-xl;
+        line-height: 150%;
+        letter-spacing: 6.4px;
+    }
+}
+
+.comment {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    padding: 16px 0px;
+    align-items: center;
+    border-bottom: 1px solid $primary2;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.commenter-photo {
+    display: flex;
+    width: 72px;
+
+    border-radius: 999px;
+    border: 2px solid $white;
+}
+
+
+.commenter-name {
+    align-self: stretch;
+
+    color: #7A7872;
+    font-family: $family-tc;
+    font-size: $f-s-md;
+    line-height: 150%;
+    letter-spacing: 2px;
+}
+
+p {
+    align-self: stretch;
+    color: #41453D;
+    font-family: $family-tc;
+    font-size: $f-s-lg;
+    line-height: 150%;
+    letter-spacing: 2.4px;
+}
+
+.input {
+    font-size: $f-s-md;
+    color: #7A7872;
+    border-left: 2px solid $primary2;
+    padding-left: 8px; // 這裡加上 gap
+}
+
+// 留言區
+#more-activities {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 150px;
+    margin-top: 80px;
+    gap: 32px;
+}
+
+.more-activities-title {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: $background1;
+    z-index: 1;
+
+    h3,
+    h2 {
+        text-align: center;
+        line-height: 150%;
+    }
+
+    h3 {
+        color: $primary2;
+        font-family: $en;
+        font-size: 22px;
+        font-weight: $f-w-4;
+        letter-spacing: $spacing-xxs;
+    }
+
+    h2 {
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-xxl;
+        font-weight: $f-w-5;
+        letter-spacing: $spacing-xs;
+    }
+
+    .line {
+        width: 60px;
+        height: 1px;
+        background: $primary2;
+    }
+}
+
+.more-activities-cards {
+    display: flex;
+    gap: 40px;
+}
+
+// 發起揪團
+
+#createGroup {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 80px 150px;
+    // border: 5px solid #f80202;
+}
+
+.createGroup-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    h2 {
+        color: $primary2;
+        font-family: $family-tc;
+        font-size: $f-s-md2;
+        letter-spacing: 4.4px;
+    }
+
+    .line {
+        width: 60px;
+        height: 1px;
+        background: $primary2;
+    }
+
+    button {
+        color: $primary1;
+        text-align: center;
+
+        /* 中文/大標 */
+        font-family:$family-tc;
+        font-size: $f-s-xl;
+        font-weight: $f-w-5;
+        line-height: 150%;
+        letter-spacing:$spacing-xs;
+
+        display: flex;
+        width: 100%;
+        padding: 4px 24px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 999px;
+        background: $accent;
+
     }
 }
