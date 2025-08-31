@@ -21,7 +21,7 @@ const Group = () => {
 
       {/* 主標題 */}
       <section className="group-content">
-        <div className="content-title">
+        <div className="g-content-title">
           <h3>Travel solo, connect together!</h3>
           <div className="line"></div>
           <h2>漂友集合站！</h2>
