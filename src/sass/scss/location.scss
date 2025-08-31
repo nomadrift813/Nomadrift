@@ -1,505 +1,555 @@
  @use 'reset';
-@use 'var' as *;
-
-// 共用區
-
-
-// banner
-#locBanner {
-    display: flex;
-    width: 100%;
-    height: 926px;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-
-    background: url("../../../public/img-Location/Banner.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: $background1;
-    // background-attachment: fixed; 
-
-    .locSlogan {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        position: absolute;
-        top: 180px; // 原本144
-
-        .locTitle {
-            display: flex;
-            text-align: center;
-            flex-direction: column;
-            gap: 10px;
-
-            .l-t-1 {
-                color: $white;
-                text-align: center;
-                font-family: $en;
-                font-size: 22px;
-                font-style: normal;
-                font-weight: $f-w-4;
-                line-height: 150%;
-                letter-spacing: $spacing-xxs;
-            }
-
-            .l-t-2 {
-                color: $white;
-                text-align: center;
-                font-family: $family-tc;
-                font-size: $f-s-xxl;
-                font-style: normal;
-                font-weight: $f-w-5;
-                line-height: 150%;
-                letter-spacing: $spacing-xs;
-            }
-        }
-
-        .locScroll {
-            img {
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                height: 16px;
-            }
-
-        }
-    }
-
-    .locBanner-side-word {
-        position: absolute;
-        left: 50px;
-        top: 136px;
-        writing-mode: vertical-rl;
-        white-space: nowrap;
-
-        color: $white;
-
-        font-family: $en;
-        font-size: $spacing-md;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 150%;
-        letter-spacing: $spacing-xxs;
-    }
-
-    .bPath {
-        display: flex;
-        position: absolute;
-        bottom: 120px;
-        width: 100%;
-    }
-
-    .hotLoc {
-        display: flex;
-        align-items: center;
-        gap: 80px;
-        position: absolute;
-        bottom: 0;
-
-        .hotCard-1,
-        .hotCard-2,
-        .hotCard-3,
-        .hotCard-4 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 36px;
-
-            .hot-1,
-            .hot-2,
-            .hot-3,
-            .hot-4 {
-                display: flex;
-                padding: 4px 16px;
-                justify-content: center;
-                align-items: center;
-                gap: 5px;
-                flex: 100;
-
-                border-radius: 100px;
-                background: #FFF;
-
-                img {
-                    width: 20px;
-                    height: 20px;
-                }
-
-                li {
-                    color: $primary1;
-                    text-align: center;
-                    font-family: $family-tc;
-                    font-size: $f-s-md;
-                    font-style: normal;
-                    font-weight: $f-w-4;
-                    line-height: 150%;
-                    letter-spacing: 2px;
-                }
-            }
-
-            .h-l-1 {
-                display: flex;
-                // width: 220px;
-                height: 340px;
-                transform: rotate(3.741deg);
-                aspect-ratio: 11/15;
-                margin-bottom: -120px;
-
-                border-radius: 5px;
-                border: 5px solid #FFF;
-                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-            }
-
-            .h-l-2 {
-                display: flex;
-                // width: 220px;
-                height: 340px;
-                transform: rotate(-6.03deg);
-                aspect-ratio: 11/15;
-                margin-bottom: 10px;
-
-                border-radius: 5px;
-                border: 5px solid #FFF;
-                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-            }
-
-            .h-l-3 {
-                display: flex;
-                // width: 220px;
-                height: 340px;
-                transform: rotate(4.568deg);
-                aspect-ratio: 11/15;
-                margin-bottom: -280px;
-
-                border-radius: 5px;
-                border: 5px solid #FFF;
-                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-            }
-
-            .h-l-4 {
-                display: flex;
-                // width: 220px;
-                height: 340px;
-                transform: rotate(-5.724deg);
-                aspect-ratio: 11/15;
-                margin-bottom: -50px;
-
-                border-radius: 5px;
-                border: 5px solid #FFF;
-                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-            }
-        }
-    }
-
-}
-
-
-// 探索所有地點
-#discover {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    background-color: $background1;
-    padding: 220px 50px 0px 50px;
-
-    header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-
-        .l-t-1 {
-            color: $primary2;
-            font-family: $en;
-            font-size: $f-s-md2;
-            font-style: normal;
-            font-weight: $f-w-4;
-            line-height: 150%;
-            letter-spacing: 4.4px;
-
-            span {
-                border-bottom: 1px solid $primary1;
-                padding-bottom: 8px;
-            }
-        }
-
-        .l-t-2 {
-            color: $text;
-            font-family: $family-tc;
-            font-size: $f-s-xxl;
-            font-style: normal;
-            font-weight: $f-w-5;
-            line-height: 150%;
-            letter-spacing: 10.8px;
-        }
-
-    }
-
-    .locDrop {
-        display: flex;
-        width: 100%;
-        padding: 50px 150px 24px 150px;
-        justify-content: center;
-        align-items: flex-end;
-        gap: 24px;
-
-        ul {
-            display: flex;
-            padding: 4px 24px;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            flex: 100;
-
-            border-radius: 100px;
-            background: $primary1;
-
-            li {
-                color: $background1;
-                text-align: center;
-                font-family: $family-tc;
-                font-size: $f-s-md;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%;
-                letter-spacing: 2px;
-                text-wrap: nowrap;
-            }
-
-            img {
-                width: 12px;
-                height: 9px;
-            }
-        }
-    }
-}
-
-// 各大洲區卡片
-#globalAsia,
-#globalEurope,
-#globalNA {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: $background1;
-    padding: 80px 100px;
-    position: relative;
-
-    // 各大洲區
-    .asia,
-    .europe,
-    .NorthA {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        position: relative;
-
-        img {
-            // width: 500px;
-            height: 520px;
-        }
-
-        h2 {
-            color: $white;
-            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-            font-family: $family-tc;
-            font-size: $f-s-xxxl;
-            font-style: normal;
-            font-weight: $f-w-5;
-            line-height: 150%;
-            letter-spacing: 14.4px;
-            position: absolute;
-            left: 50px;
-        }
-    }
-
-    // 各大洲卡片
-    .asiaCard,
-    .europeCard,
-    .NorthACard {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-        z-index: 1;
-        margin-left: -40px;
-
-        .country1,
-        .country2,
-        .country3 {
-            background-color: $white;
-            position: relative;
-
-            .p1-sel {
-                display: flex;
-
-                .loc-p1 {
-                    display: flex;
-                    width: 270px;
-                    height: 180px;
-                }
-
-                .select {
-                    width: 34px;
-                    height: 34px;
-                    position: absolute;
-                    top: 12px;
-                    right: 12px;
-                }
-            }
-
-            .loc-info {
-                display: flex;
-                flex-direction: column;
-                padding: 20px;
-                gap: 10px;
-
-                h2 {
-                    display: flex;
-                    width: 230px;
-                    color: $text;
-                    font-family: Inter;
-                    font-size: 24px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
-                }
-
-                .loc-text {
-                    display: -webkit-box;
-                    width: 230px;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 1;
-
-                    overflow: hidden;
-                    color: $primary2;
-                    text-overflow: ellipsis;
-                    font-family: $en;
-                    font-size: $f-s-xs;
-                    font-style: normal;
-                    font-weight: $f-w-4;
-                    line-height: 20px;
-                }
-
-                .wi-st {
-                    display: flex;
-                    width: 230px;
-                    align-items: center;
-                    gap: 3px;
-
-                    border-bottom: 1px solid;
-                    padding-bottom: 12px;
-
-                    ul {
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                        flex: 100;
-                        width: auto;
-
-                        img {
-                            width: 20px;
-                            height: 14px;
-                        }
-
-                        p {
-                            color: $primary1;
-                            font-family: $en;
-                            font-size: $f-s-xs;
-                            font-style: normal;
-                            font-weight: $f-w-4;
-                            line-height: normal;
-                            letter-spacing: 1.6px;
-                        }
-                    }
-
-                    .stars {
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                        align-self: stretch;
-
-                        img {
-                            align-self: stretch;
-                            width: 20px;
-                            height: 20px;
-                        }
-                    }
-                }
-
-                span {
-                    display: flex;
-                    width: 230px;
-                    color: $primary1;
-                    font-family: $en;
-                    font-size: $f-s-md;
-                    font-style: normal;
-                    font-weight: $f-w-4;
-                    line-height: normal;
-                }
-            }
-
-            .color-block {
-                width: 270px;
-                height: 8px;
-                background-color: $accent;
-            }
-        }
-    }
-
-    // 更多按鈕
-    il {
-        display: flex;
-        height: 32px;
-        padding: 10px 14px;
-        justify-content: flex-end;
-        align-items: center;
-        position: absolute;
-        right: 100px;
-        bottom: 80px;
-
-        color: $text;
-        font-family: $en;
-        font-size: $f-s-xs;
-        font-weight: $f-w-4;
-        line-height: 100%;
-
-        border-radius: 999px;
-        background: $accent;
-        border: none;
-    }
-
-}
-
-// 探索更多
-.expMore {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: $background1;
-    padding: 10px 0 80px 0;
-
-    .btn-expMore {
-        display: flex;
-        padding: 4px 24px;
-        justify-content: center;
-        align-items: center;
-        width: 160px;
-
-        font-family: $family-tc;
-        font-size: $f-s-md;
-        font-weight: $f-w-3;
-        line-height: 150%;
-        letter-spacing: 2px;
-
-        color: $background1;
-        border: none;
-        border-radius: 999px;
-        background: $primary1;
-    }
-}
+ @use 'var' as *;
+
+ // 共用區
+
+
+ // banner
+ #locBanner {
+     display: flex;
+     width: 100%;
+     height: 926px;
+     flex-direction: column;
+     align-items: center;
+     position: relative;
+
+     background: url("../../../public/img-Location/Banner.png");
+     background-size: 100%;
+     background-repeat: no-repeat;
+     background-color: $background1;
+     // background-attachment: fixed; 
+
+     .locSlogan {
+         display: inline-flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         gap: 15px;
+         position: absolute;
+         top: 180px; // 原本144
+
+         .locTitle {
+             display: flex;
+             text-align: center;
+             flex-direction: column;
+             gap: 10px;
+
+             .l-t-1 {
+                 color: $white;
+                 text-align: center;
+                 font-family: $en;
+                 font-size: 22px;
+                 font-style: normal;
+                 font-weight: $f-w-4;
+                 line-height: 150%;
+                 letter-spacing: $spacing-xxs;
+             }
+
+             .l-t-2 {
+                 color: $white;
+                 text-align: center;
+                 font-family: $family-tc;
+                 font-size: $f-s-xxl;
+                 font-style: normal;
+                 font-weight: $f-w-5;
+                 line-height: 150%;
+                 letter-spacing: $spacing-xs;
+             }
+         }
+
+         .locScroll {
+             img {
+                 display: flex;
+                 justify-content: center;
+                 text-align: center;
+                 height: 16px;
+             }
+
+         }
+     }
+
+     .locBanner-side-word {
+         position: absolute;
+         left: 50px;
+         top: 136px;
+         writing-mode: vertical-rl;
+         white-space: nowrap;
+
+         color: $white;
+
+         font-family: $en;
+         font-size: $spacing-md;
+         font-style: normal;
+         font-weight: 300;
+         line-height: 150%;
+         letter-spacing: $spacing-xxs;
+     }
+
+     .bPath {
+         display: flex;
+         position: absolute;
+         bottom: 120px;
+         width: 100%;
+     }
+
+     .hotLoc {
+         display: flex;
+         align-items: center;
+         gap: 80px;
+         position: absolute;
+         bottom: 0;
+
+         .hotCard-1,
+         .hotCard-2,
+         .hotCard-3,
+         .hotCard-4 {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 36px;
+
+             .hot-1,
+             .hot-2,
+             .hot-3,
+             .hot-4 {
+                 display: flex;
+                 padding: 4px 16px;
+                 justify-content: center;
+                 align-items: center;
+                 gap: 5px;
+                 flex: 100;
+
+                 border-radius: 100px;
+                 background: #FFF;
+
+                 img {
+                     width: 16px;
+                     height: 20px;
+                 }
+
+                 li {
+                     color: $primary1;
+                     text-align: center;
+                     font-family: $family-tc;
+                     font-size: $f-s-md;
+                     font-style: normal;
+                     font-weight: $f-w-4;
+                     line-height: 150%;
+                     letter-spacing: 2px;
+                 }
+             }
+
+             .h-l-1 {
+                 display: flex;
+                 // width: 220px;
+                 height: 340px;
+                 transform: rotate(3.741deg);
+                 aspect-ratio: 11/15;
+                 margin-bottom: -120px;
+
+                 border-radius: 5px;
+                 border: 5px solid #FFF;
+                 box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+
+                 &:hover {
+                     box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
+                     transform: translateY(-8px) scale(1.02);
+                     transition: all .2s 0s;
+                 }
+             }
+
+             .h-l-2 {
+                 display: flex;
+                 // width: 220px;
+                 height: 340px;
+                 transform: rotate(-6.03deg);
+                 aspect-ratio: 11/15;
+                 margin-bottom: 10px;
+
+                 border-radius: 5px;
+                 border: 5px solid #FFF;
+                 box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+
+                 &:hover {
+                     box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
+                     transform: translateY(-8px) scale(1.02);
+                     transition: all .2s 0s;
+                 }
+             }
+
+             .h-l-3 {
+                 display: flex;
+                 // width: 220px;
+                 height: 340px;
+                 transform: rotate(4.568deg);
+                 aspect-ratio: 11/15;
+                 margin-bottom: -280px;
+
+                 border-radius: 5px;
+                 border: 5px solid #FFF;
+                 box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+
+                 &:hover {
+                     box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
+                     transform: translateY(-8px) scale(1.02);
+                     transition: all .2s 0s;
+                 }
+             }
+
+             .h-l-4 {
+                 display: flex;
+                 // width: 220px;
+                 height: 340px;
+                 transform: rotate(-5.724deg);
+                 aspect-ratio: 11/15;
+                 margin-bottom: -50px;
+
+                 border-radius: 5px;
+                 border: 5px solid #FFF;
+                 box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+
+                 &:hover {
+                     box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
+                     transform: translateY(-8px) scale(1.02);
+                     transition: all .2s 0s;
+                 }
+             }
+         }
+     }
+
+ }
+
+
+ // 探索所有地點
+ #discover {
+     display: flex;
+     width: 100%;
+     flex-direction: column;
+     align-items: center;
+     background-color: $background1;
+     padding: 220px 50px 0px 50px;
+
+     header {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 15px;
+
+         .l-t-1 {
+             color: $primary2;
+             font-family: $en;
+             font-size: $f-s-md2;
+             font-style: normal;
+             font-weight: $f-w-4;
+             line-height: 150%;
+             letter-spacing: 4.4px;
+
+             span {
+                 border-bottom: 1px solid $primary1;
+                 padding-bottom: 8px;
+             }
+         }
+
+         .l-t-2 {
+             color: $text;
+             font-family: $family-tc;
+             font-size: $f-s-xxl;
+             font-style: normal;
+             font-weight: $f-w-5;
+             line-height: 150%;
+             letter-spacing: 10.8px;
+         }
+
+     }
+
+     .locDrop {
+         display: flex;
+         width: 100%;
+         padding: 50px 150px 24px 150px;
+         justify-content: center;
+         align-items: center;
+         gap: 24px;
+
+         ul {
+             display: flex;
+             padding: 4px 24px;
+             justify-content: center;
+             align-items: center;
+             gap: 5px;
+             flex: 100;
+
+             border-radius: 100px;
+             background: $primary1;
+
+             &:hover {
+                 background: $accent;
+             }
+
+
+             li {
+                 color: $white;
+                 text-align: center;
+                 font-family: $family-tc;
+                 font-size: $f-s-md;
+                 font-style: normal;
+                 font-weight: 400;
+                 line-height: 150%;
+                 letter-spacing: 2px;
+                 text-wrap: nowrap;
+             }
+
+             img {
+                 width: 12px;
+                 height: 9px;
+             }
+         }
+     }
+ }
+
+ // 各大洲區卡片
+ #globalAsia,
+ #globalEurope,
+ #globalNA {
+     display: flex;
+     width: 100%;
+     justify-content: center;
+     align-items: center;
+     background-color: $background1;
+     padding: 80px 100px;
+     position: relative;
+
+     // 各大洲區
+     .asia,
+     .europe,
+     .NorthA {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: flex-start;
+         position: relative;
+
+         img {
+             // width: 500px;
+             height: 520px;
+         }
+
+         h2 {
+             color: $white;
+             text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+             font-family: $family-tc;
+             font-size: $f-s-xxxl;
+             font-style: normal;
+             font-weight: $f-w-5;
+             line-height: 150%;
+             letter-spacing: 14.4px;
+             position: absolute;
+             left: 50px;
+         }
+     }
+
+     // 各大洲卡片
+     .asiaCard,
+     .europeCard,
+     .NorthACard {
+         display: flex;
+         align-items: center;
+         gap: 32px;
+         z-index: 1;
+         margin-left: -40px;
+
+         .country1,
+         .country2,
+         .country3 {
+             background-color: $white;
+             position: relative;
+
+             &:hover {
+                 box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
+                 transform: translateY(-8px) scale(1.02);
+                 transition: all .2s 0s;
+
+                 .color-block {
+                     width: 270px;
+                     height: 8px;
+                     background-color: $accent;
+                 }
+             }
+
+             .p1-sel {
+                 display: flex;
+
+                 .loc-p1 {
+                     display: flex;
+                     width: 270px;
+                     height: 180px;
+                 }
+
+                 .select {
+                     width: 34px;
+                     height: 34px;
+                     position: absolute;
+                     top: 12px;
+                     right: 12px;
+                 }
+             }
+
+             .loc-info {
+                 display: flex;
+                 flex-direction: column;
+                 padding: 20px;
+                 gap: 10px;
+
+                 h2 {
+                     display: flex;
+                     width: 230px;
+                     color: $text;
+                     font-family: Inter;
+                     font-size: 24px;
+                     font-style: normal;
+                     font-weight: 400;
+                     line-height: normal;
+                 }
+
+                 .loc-text {
+                     display: -webkit-box;
+                     width: 230px;
+                     -webkit-box-orient: vertical;
+                     -webkit-line-clamp: 1;
+
+                     overflow: hidden;
+                     color: $primary2;
+                     text-overflow: ellipsis;
+                     font-family: $en;
+                     font-size: $f-s-xs;
+                     font-style: normal;
+                     font-weight: $f-w-4;
+                     line-height: 20px;
+                 }
+
+                 .wi-st {
+                     display: flex;
+                     width: 230px;
+                     align-items: center;
+                     gap: 3px;
+
+                     border-bottom: 1px solid;
+                     padding-bottom: 12px;
+
+                     ul {
+                         display: flex;
+                         align-items: center;
+                         gap: 5px;
+                         flex: 100;
+                         width: auto;
+
+                         img {
+                             width: 20px;
+                             height: 14px;
+                         }
+
+                         p {
+                             color: $primary1;
+                             font-family: $en;
+                             font-size: $f-s-xs;
+                             font-style: normal;
+                             font-weight: $f-w-4;
+                             line-height: normal;
+                             letter-spacing: 1.6px;
+                         }
+                     }
+
+                     .stars {
+                         display: flex;
+                         align-items: center;
+                         gap: 5px;
+                         align-self: stretch;
+
+                         img {
+                             align-self: stretch;
+                             width: 20px;
+                             height: 20px;
+                         }
+                     }
+                 }
+
+                 span {
+                     display: flex;
+                     width: 230px;
+                     color: $primary1;
+                     font-family: $en;
+                     font-size: $f-s-md;
+                     font-style: normal;
+                     font-weight: $f-w-4;
+                     line-height: normal;
+                 }
+             }
+
+             .color-block {
+                 width: 270px;
+                 height: 8px;
+                 background-color: $primary1;
+             }
+         }
+     }
+
+     // 更多按鈕
+     il {
+         display: flex;
+         height: 32px;
+         padding: 10px 14px;
+         justify-content: flex-end;
+         align-items: center;
+         position: absolute;
+         right: 100px;
+         bottom: 80px;
+
+         color: $text;
+         font-family: $en;
+         font-size: $f-s-xs;
+         font-weight: $f-w-4;
+         line-height: 100%;
+
+         border-radius: 999px;
+         background: $accent;
+         border: none;
+
+         &:hover {
+             box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+             transition: all .2s 0s;
+         }
+     }
+
+ }
+
+ // 探索更多
+ .expMore {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background-color: $background1;
+     padding: 10px 0 80px 0;
+
+     .btn-expMore {
+         display: flex;
+         padding: 4px 24px;
+         justify-content: center;
+         align-items: center;
+         width: 160px;
+
+         font-family: $family-tc;
+         font-size: $f-s-md;
+         font-weight: $f-w-3;
+         line-height: 150%;
+         letter-spacing: 2px;
+
+         color: $white;
+         border: none;
+         border-radius: 999px;
+         background: $primary1;
+
+         &:hover {
+             background: $accent;
+         }
+     }
+ }

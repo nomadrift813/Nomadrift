@@ -1,52 +1,49 @@
 // font size
-$f-s-xs:14px;
-$f-s-sm:16px;
-$f-s-md:20px;
-$f-s-md2:22px;
-$f-s-lg:24px;
-$f-s-xl:32px;
-$f-s-xxl:36px;
-$f-s-xxxl:48px;
+$f-s-xs: 14px;
+$f-s-sm: 16px;
+$f-s-md: 20px;
+$f-s-md2: 22px;
+$f-s-lg: 24px;
+$f-s-xl: 32px;
+$f-s-xxl: 36px;
+$f-s-xxxl: 48px;
+$f-s-ex: 64px;
 
 // color
-$accent:#F4D000;
-$background1:#F4F1E5;
+$accent: #F4D000;
+$background1: #F4F1E5;
 // $background2:#FEFADB;
-$text:#201811;
-$primary1:#41453D;
-$primary2:#737B6B;
-$white:#fff;
+$text: #201811;
+$primary1: #41453D;
+$primary2: #737B6B;
+$white: #fff;
 
 // spacing
-$spacing-xxs:5px;
-$spacing-xs:10px;
-$spacing-sm:15px;
-$spacing-md:20px;
-$spacing-lg:25px;
-$spacing-xl:30px;
-$spacing-xxl:50px;
+$spacing-xxs: 5px;
+$spacing-xs: 10px;
+$spacing-sm: 15px;
+$spacing-md: 20px;
+$spacing-lg: 25px;
+$spacing-xl: 30px;
+$spacing-xxl: 50px;
 
 // font family
-$family-en:"Nico Moji";
-$family-tc:"Noto Sans TC";
-$en:'Inter';
+$family-en: "Nico Moji";
+$family-tc: "Noto Sans TC";
+$en: 'Inter';
 
 // font weight
-$f-w-2:200;
-$f-w-3:300;
-$f-w-4:400;
-$f-w-5:500;
-$f-w-6:600;
-$f-w-7:700;
-$f-w-8:800;
-$f-w-9:900;
+$f-w-2: 200;
+$f-w-3: 300;
+$f-w-4: 400;
+$f-w-5: 500;
+$f-w-6: 600;
+$f-w-7: 700;
+$f-w-8: 800;
+$f-w-9: 900;
 
 //RWD
 $mediaSm: "max-width:640px";
 $mediaMd: "max-width:820px";
 $mediaLg: "max-width:970px";
 $mediaXl: "max-width:1255px";
-
-
-
-
