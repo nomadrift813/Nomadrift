@@ -6,75 +6,123 @@ footer {
     justify-content: space-between;
     flex-direction: column;
     margin-top: auto;
-    background-color: #41453D;
-    color: #F4F1E5;
-}
+    // background-color: #41453D;
 
-ul.Sitemap {
-    display: flex;
-    justify-content: center;
-    padding: 20px 50px;
+    /* waves */
+    .ocean {
+        height: 60px;
+        /* change the height of the waves here */
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow-x: hidden;
+    }
 
-    a {
+    .wave {
+        background: url('../../../public/img-Footer/waves.svg');
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        animation: wave 10s -3s linear infinite;
+        transform: translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+
+    .wave:nth-of-type(2) {
+        bottom: 0;
+        animation: wave 18s linear reverse infinite;
+        opacity: 0.5;
+    }
+
+    .wave:nth-of-type(3) {
+        bottom: 0;
+        animation: wave 20s -1s linear infinite;
+        opacity: 0.5;
+    }
+
+    @keyframes wave {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-25%);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    ul.Sitemap {
+        display: flex;
+        justify-content: center;
+        padding: 20px 50px;
+        background-color: $primary1;
+
+        a {
+            color: #F4F1E5;
+        }
+
+        .frame1 {
+            display: flex;
+            width: 140px;
+            height: 20px;
+            padding: 0px 10px;
+            align-items: center;
+            margin-top: 4px;
+            margin-bottom: 10px;
+
+
+            color: $primary2;
+            border-radius: 999px;
+            border: 1px solid $background1;
+            background: $background1;
+        }
+
+        .frame2 {
+            display: flex;
+            width: 100px;
+            height: 20px;
+            padding: 0px 10px;
+            align-items: center;
+
+            color: $text;
+            border-radius: 999px;
+            border: 1px solid $accent;
+            background: $accent;
+        }
+
+        ul {
+            font-size: 12px;
+            font-weight: 200;
+            line-height: 20px;
+            align-items: center;
+        }
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 180px;
+            gap: 8px;
+        }
+
+    }
+
+    h4 {
+        display: flex;
+        justify-content: center;
+        background-color: #201811;
         color: #F4F1E5;
+
+        span {
+            font-size: 12px;
+            font-weight: 300;
+            padding: 10px 0px;
+        }
+
     }
-
-    .frame1 {
-        display: flex;
-        width: 140px;
-        height: 20px;
-        padding: 0px 10px;
-        align-items: center;
-        margin-top: 4px;
-        margin-bottom: 10px;
-
-
-        color: $primary2;
-        border-radius: 999px;
-        border: 1px solid $background1;
-        background: $background1;
-    }
-
-    .frame2 {
-        display: flex;
-        width: 100px;
-        height: 20px;
-        padding: 0px 10px;
-        align-items: center;
-
-        color: $text;
-        border-radius: 999px;
-        border: 1px solid $accent;
-        background: $accent;
-    }
-
-    ul {
-        font-size: 12px;
-        font-weight: 200;
-        line-height: 20px;
-        align-items: center;
-    }
-
-    li {
-        display: flex;
-        flex-direction: column;
-        align-items:flex-start;
-        width: 180px;
-        gap: 8px;
-    }
-
-}
-
-h4 {
-    display: flex;
-    justify-content: center;
-    background-color: #201811;
-    color: #F4F1E5;
-
-    span {
-        font-size: 12px;
-        font-weight: 300;
-        padding: 10px 0px;
-    }
-
 }
