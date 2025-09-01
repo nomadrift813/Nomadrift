@@ -1,7 +1,7 @@
 @use 'reset';
 @use 'var' as *;
 
-.diaAll {
+.diaAll2 {
 
     background-image: url('../img/diary-bg.png');
     background-size: cover;
@@ -9,14 +9,14 @@
     width: 100%;
 }
 
-#diary-discover {
+#diary-discover2{
     display: flex;
     width: 100%;
     flex-direction: column;
     background-color: $background1;
     padding: 50px 50px 0 50px;
 
-    .d-t-title {
+    .d-t-title2 {
         display: flex;
         align-items: baseline;
         padding: 70px 0 0 16px;
@@ -24,7 +24,7 @@
     }
 
 
-    .title-large {
+    .title-large2 {
         color: $primary2;
         font-family: $en;
         font-size: $f-s-xxl;
@@ -33,7 +33,7 @@
         letter-spacing: 4.4px;
     }
 
-    .title-small {
+    .title-small2 {
         color: $primary2;
         font-family: $en;
         font-size: $f-s-xs;
@@ -41,6 +41,7 @@
         line-height: 150%;
         letter-spacing: 4.4px;
     }
+
 
 
     header {
@@ -55,7 +56,7 @@
     }
 }
 
-.diaDrop {
+.diaDrop2 {
     flex: 0 0 180px;
     display: flex;
     max-width: 1440px;
@@ -101,80 +102,47 @@
 
 
 
-.diaContent {
+.diaContent2 {
     display: flex;
     align-items: flex-start;
-    gap: 3rem;
-    padding-bottom: 2rem 3rem;
+    gap: 10rem;
     padding: 20px 0 0 0;
 }
 
-#diary-article {
-    flex: 1;
-    padding: 2rem;
-    max-width: 1007px;
-    width: 100%;
-
-    .diaPost {
-        padding: 24px;
-
-        .d-member {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
 
 
-            div {
-                width: 30px;
-                height: 30px;
-                background-color: #333;
-                border-radius: 50%;
-            }
-
-            p {
-                font-size: $f-s-sm;
-                color: #7A7872;
-                width: 207px;
-                border-bottom: 1px solid #333;
-            }
-        }
-
-    }
-
-    .diaArticleSection1 {
-        display: flex;
-        justify-content: space-between;
-        padding: 1.5rem;
-        gap: 2rem;
+    .diaArticleSection2 {
+        padding:50px 24px 24px 24px;
         font-family: 'Helvetica Neue', sans-serif;
         color: #333;
         border-bottom: 1px solid #333;
+        max-width: 870px;
+            width: 100%;
 
-        .p1-sel {
+        .p1-sel2 {
             order: 2;
 
-            .dia-p1 {
-                width: 274px;
-                height: 223px;
-                border-top-right-radius: 60px;
+            .dia-p2 {
+                border-top-right-radius: 100px;
                 overflow: hidden;
-
+                
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                     display: block;
+                  
                 }
             }
         }
 
-        .diaArticle1 {
+        .diaArticle2 {
             flex: 1;
             display: flex;
             flex-direction: column;
-
-            .d-member {
+            
+            .d-member2 {
+                padding: 24px 0 0 0;
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
@@ -186,32 +154,26 @@
                     background-color: #333;
                     border-radius: 50%;
                 }
-
-                p {
-                    font-weight: 600;
+                p{
                     font-size: $f-s-sm;
                 }
+
             }
 
-            .d-text-card {
+            .d-text-card2 {
                 display: flex;
                 flex-direction: column;
 
 
-                .d-text {
-                    .d-tit {
+                .d-text2 {
+                    .d-tit2 {
                         font-size: $f-s-md;
                         font-weight: bold;
                         margin-bottom: 0.8rem;
 
                     }
 
-                    .d-word {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 4;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        text-overflow: ellipsis; //省略
+                    .d-word2 {
                         font-size: $f-s-sm;
                         color: #555;
                         line-height: 1.6;
@@ -220,7 +182,7 @@
                     }
                 }
 
-                .d-sign {
+                .d-sign2 {
                     display: flex;
                     align-items: center;
                     gap: 1rem;
@@ -228,7 +190,7 @@
                     font-size: 0.8rem;
                     color: #999;
 
-                    .d-locaion {
+                    .d-locaion2 {
                         display: flex;
                         align-items: center;
                         gap: 0.4rem;
@@ -237,10 +199,9 @@
                             width: 25px;
                             height: 25px;
                         }
-
                     }
 
-                    .h-d-loc {
+                    .h-d-loc2{
                         background-color: #fff;
                         border-radius: 12px;
                         padding: 1.5px 12px;
@@ -248,7 +209,7 @@
                         font-size: 0.8rem;
                     }
 
-                    .h-d-date {
+                    .h-d-date2 {
                         background-color: #fff;
                         border-radius: 12px;
                         padding: 1.5px 9px;
@@ -275,4 +236,3 @@
             }
         }
     }
-}

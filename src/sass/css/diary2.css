@@ -130,27 +130,27 @@ a {
   text-decoration: none;
 }
 
-.diaAll {
+.diaAll2 {
   background-image: url("../img/diary-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
 }
 
-#diary-discover {
+#diary-discover2 {
   display: flex;
   width: 100%;
   flex-direction: column;
   background-color: #F4F1E5;
   padding: 50px 50px 0 50px;
 }
-#diary-discover .d-t-title {
+#diary-discover2 .d-t-title2 {
   display: flex;
   align-items: baseline;
   padding: 70px 0 0 16px;
   gap: 15px;
 }
-#diary-discover .title-large {
+#diary-discover2 .title-large2 {
   color: #737B6B;
   font-family: "Inter";
   font-size: 36px;
@@ -158,7 +158,7 @@ a {
   line-height: 150%;
   letter-spacing: 4.4px;
 }
-#diary-discover .title-small {
+#diary-discover2 .title-small2 {
   color: #737B6B;
   font-family: "Inter";
   font-size: 14px;
@@ -166,7 +166,7 @@ a {
   line-height: 150%;
   letter-spacing: 4.4px;
 }
-#diary-discover header {
+#diary-discover2 header {
   width: 100%;
   align-items: flex-start;
   display: flex;
@@ -177,7 +177,7 @@ a {
   padding: 50px 50px 0 50px;
 }
 
-.diaDrop {
+.diaDrop2 {
   flex: 0 0 180px;
   display: flex;
   max-width: 1440px;
@@ -187,7 +187,7 @@ a {
   gap: 12px;
   flex-direction: column;
 }
-.diaDrop ul {
+.diaDrop2 ul {
   width: 100%;
   max-width: 140px;
   display: flex;
@@ -199,7 +199,7 @@ a {
   border-radius: 100px;
   background: #41453D;
 }
-.diaDrop ul li {
+.diaDrop2 ul li {
   display: flex;
   color: #F4F1E5;
   text-align: center;
@@ -210,113 +210,78 @@ a {
   line-height: 150%;
   letter-spacing: 2px;
 }
-.diaDrop ul img {
+.diaDrop2 ul img {
   width: 15px;
   height: 15px;
 }
 
-.diaContent {
+.diaContent2 {
   display: flex;
   align-items: flex-start;
-  gap: 3rem;
-  padding-bottom: 2rem 3rem;
+  gap: 10rem;
   padding: 20px 0 0 0;
 }
 
-#diary-article {
-  flex: 1;
-  padding: 2rem;
-  max-width: 1007px;
-  width: 100%;
-}
-#diary-article .diaPost {
-  padding: 24px;
-}
-#diary-article .diaPost .d-member {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.8rem;
-}
-#diary-article .diaPost .d-member div {
-  width: 30px;
-  height: 30px;
-  background-color: #333;
-  border-radius: 50%;
-}
-#diary-article .diaPost .d-member p {
-  font-size: 16px;
-  color: #7A7872;
-  width: 207px;
-  border-bottom: 1px solid #333;
-}
-#diary-article .diaArticleSection1 {
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem;
-  gap: 2rem;
+.diaArticleSection2 {
+  padding: 50px 24px 24px 24px;
   font-family: "Helvetica Neue", sans-serif;
   color: #333;
   border-bottom: 1px solid #333;
+  max-width: 870px;
+  width: 100%;
 }
-#diary-article .diaArticleSection1 .p1-sel {
+.diaArticleSection2 .p1-sel2 {
   order: 2;
 }
-#diary-article .diaArticleSection1 .p1-sel .dia-p1 {
-  width: 274px;
-  height: 223px;
-  border-top-right-radius: 60px;
+.diaArticleSection2 .p1-sel2 .dia-p2 {
+  border-top-right-radius: 100px;
   overflow: hidden;
 }
-#diary-article .diaArticleSection1 .p1-sel .dia-p1 img {
+.diaArticleSection2 .p1-sel2 .dia-p2 img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
 }
-#diary-article .diaArticleSection1 .diaArticle1 {
+.diaArticleSection2 .diaArticle2 {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-member {
+.diaArticleSection2 .diaArticle2 .d-member2 {
+  padding: 24px 0 0 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.8rem;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-member div {
+.diaArticleSection2 .diaArticle2 .d-member2 div {
   width: 30px;
   height: 30px;
   background-color: #333;
   border-radius: 50%;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-member p {
+.diaArticleSection2 .diaArticle2 .d-member2 p {
   font-weight: 600;
   font-size: 16px;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card {
+.diaArticleSection2 .diaArticle2 .d-text-card2 {
   display: flex;
   flex-direction: column;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-text .d-tit {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-text2 .d-tit2 {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 0.8rem;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-text .d-word {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-text2 .d-word2 {
   font-size: 16px;
   color: #555;
   line-height: 1.6;
   margin-bottom: 0.8rem;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -324,38 +289,38 @@ a {
   font-size: 0.8rem;
   color: #999;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign .d-locaion {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 .d-locaion2 {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign .d-locaion img {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 .d-locaion2 img {
   width: 25px;
   height: 25px;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign .h-d-loc {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 .h-d-loc2 {
   background-color: #fff;
   border-radius: 12px;
   padding: 1.5px 12px;
   color: #aaa;
   font-size: 0.8rem;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign .h-d-date {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 .h-d-date {
   background-color: #fff;
   border-radius: 12px;
   padding: 1.5px 9px;
   color: #aaa;
   font-size: 0.8rem;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign figure {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 figure {
   margin: 0;
   cursor: pointer;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign figure img {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 figure img {
   width: 20px;
   height: 20px;
   transition: transform 0.2s;
 }
-#diary-article .diaArticleSection1 .diaArticle1 .d-text-card .d-sign figure img:hover {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 figure img:hover {
   transform: scale(1.1);
-}/*# sourceMappingURL=diary.css.map */
+}/*# sourceMappingURL=diary2.css.map */
