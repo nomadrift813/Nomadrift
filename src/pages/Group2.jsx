@@ -1,6 +1,7 @@
 import '../sass/scss/group2.scss'
 import { Link } from "react-router-dom"
 
+
 const Group2 = () => {
     return (
         <main>

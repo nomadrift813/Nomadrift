@@ -125,8 +125,8 @@ img {
         //  按鈕樣式
         display: flex;
         padding: 5px 30px;
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        // align-items: center;
         border-radius: 99px;
         background-color: $primary1;
     }
@@ -136,8 +136,7 @@ img {
         font-size: $f-s-sm;
         font-weight: $f-w-4;
         color: $primary2;
-        // justify-content: center;
-        // align-items: center;
+
         // line-height: 150%;
         // letter-spacing: 2px;
         // text-align: center;
@@ -156,8 +155,8 @@ img {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 24px;
-    width: 100%;
+    padding: 5px 30px;
+    // width: 100%;
     justify-content: center;
     align-items: center;
 
@@ -177,11 +176,11 @@ img {
 
 .join {
     display: flex;
-    padding: 4px 24px;
+    padding: 5px 30px;
     gap: 8px;
-    width: 100%;
+    // width: 100%;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
 
     background-color: $accent;
     color: $text;
@@ -242,9 +241,9 @@ img {
     p {
         color: #7A7872;
         font-family: $family-tc;
-        font-size: $f-s-lg;
+        font-size: $f-s-md;
         font-weight: $f-w-4;
-        letter-spacing: 2.4px;
+        letter-spacing: 2px;
     }
 }
 
@@ -254,8 +253,7 @@ img {
     width: 100%;
     margin-top: 40px;
     padding: 0px 150px;
-    justify-content: space-between;
-    /* 左右分散對齊 */
+    gap: 20%;
     align-items: center;
 }
 
@@ -266,16 +264,16 @@ img {
 
     h3 {
         font-family: $family-tc;
-        font-size: $f-s-xl;
-        line-height: 150%;
-        letter-spacing: 6.4px;
+        font-size: $f-s-lg;
+        line-height: 100%;
+        letter-spacing: 2px;
     }
 
     p {
         color: #7A7872;
         font-family: $family-tc;
-        font-size: $f-s-md;
-        line-height: 150%;
+        font-size: $f-s-sm;
+        line-height: 100%;
         letter-spacing: 2px;
     }
 }
@@ -287,16 +285,16 @@ img {
 
     h3 {
         font-family: $family-tc;
-        font-size: $f-s-xl;
-        line-height: 150%;
-        letter-spacing: 6.4px;
+        font-size: $f-s-lg;
+        line-height: 100%;
+        letter-spacing: 2px;
     }
 
     p {
         color: #7A7872;
         font-family: $family-tc;
-        font-size: $f-s-md;
-        line-height: 150%;
+        font-size: $f-s-sm;
+        line-height: 100%;
         letter-spacing: 2px;
     }
 }
@@ -304,7 +302,7 @@ img {
 
 .people-img {
     display: flex;
-    width: 100px;
+    width: 80px;
 
     border-radius: 999px;
     border: 2px solid $white;
@@ -317,7 +315,7 @@ img {
 
 .people-img2 {
     display: flex;
-    width: 100px;
+    width: 80px;
 
     border-radius: 999px;
     border: 2px solid $white;
@@ -341,9 +339,9 @@ img {
 
     h3 {
         font-family: $family-tc;
-        font-size: $f-s-xl;
-        line-height: 150%;
-        letter-spacing: 6.4px;
+        font-size: $f-s-lg;
+        line-height: 100%;
+        letter-spacing: 2px;
     }
 }
 
@@ -376,18 +374,18 @@ img {
 
     color: #7A7872;
     font-family: $family-tc;
-    font-size: $f-s-md;
+    font-size: $f-s-sm2;
     line-height: 150%;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 p {
     align-self: stretch;
     color: #41453D;
     font-family: $family-tc;
-    font-size: $f-s-lg;
+    font-size: $f-s-md;
     line-height: 150%;
-    letter-spacing: 2.4px;
+    letter-spacing: 2px;
 }
 
 .input {
@@ -447,6 +445,8 @@ p {
 .more-activities-cards {
     display: flex;
     gap: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 // 發起揪團
@@ -463,13 +463,13 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
 
     h2 {
         color: $primary2;
         font-family: $family-tc;
-        font-size: $f-s-md2;
-        letter-spacing: 4.4px;
+        font-size: $f-s-md;
+        letter-spacing: 2px;
     }
 
     .line {
@@ -481,21 +481,61 @@ p {
     button {
         color: $primary1;
         text-align: center;
-
+        margin-top: 5px;
         /* 中文/大標 */
         font-family: $family-tc;
-        font-size: $f-s-xl;
+        font-size: $f-s-lg;
         font-weight: $f-w-5;
         line-height: 150%;
-        letter-spacing: $spacing-xs;
+        letter-spacing: 2px;
 
         display: flex;
-        width: 100%;
-        padding: 4px 24px;
+        padding: 8px 40px;
         justify-content: center;
         align-items: center;
         border-radius: 999px;
         background: $accent;
 
+        /* 上下飄移動畫 */
+        animation: floatUpDown 3s ease-in-out infinite;
     }
+
+    /* hover 時：加上旋轉動畫，只跑一次 */
+    button:hover {
+        animation: floatUpDown 3s ease-in-out infinite, rotateShake 0.5s ease-in-out 1;
+    }
+
+    /* keyframes: 上下飄移 */
+    @keyframes floatUpDown {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-6px);
+        }
+    }
+
+    /* keyframes: 左右旋轉 */
+    @keyframes rotateShake {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(-5deg);
+        }
+
+        75% {
+            transform: rotate(5deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+
 }
