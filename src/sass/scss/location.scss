@@ -88,7 +88,7 @@
      .bPath {
          display: flex;
          position: absolute;
-         bottom: 120px;
+         bottom: 80px;
          width: 100%;
      }
 
@@ -145,7 +145,7 @@
                  height: 340px;
                  transform: rotate(3.741deg);
                  aspect-ratio: 11/15;
-                 margin-bottom: -120px;
+                 margin-bottom: -140px;
 
                  border-radius: 5px;
                  border: 5px solid #FFF;
@@ -164,7 +164,7 @@
                  height: 340px;
                  transform: rotate(-6.03deg);
                  aspect-ratio: 11/15;
-                 margin-bottom: 10px;
+                 margin-bottom: 120px;
 
                  border-radius: 5px;
                  border: 5px solid #FFF;
@@ -183,7 +183,7 @@
                  height: 340px;
                  transform: rotate(4.568deg);
                  aspect-ratio: 11/15;
-                 margin-bottom: -280px;
+                 margin-bottom: -290px;
 
                  border-radius: 5px;
                  border: 5px solid #FFF;
@@ -202,7 +202,7 @@
                  height: 340px;
                  transform: rotate(-5.724deg);
                  aspect-ratio: 11/15;
-                 margin-bottom: -50px;
+                 margin-bottom: -120px;
 
                  border-radius: 5px;
                  border: 5px solid #FFF;
@@ -226,6 +226,7 @@
      width: 100%;
      flex-direction: column;
      align-items: center;
+     text-align: center;
      background-color: $background1;
      padding: 220px 50px 0px 50px;
 
