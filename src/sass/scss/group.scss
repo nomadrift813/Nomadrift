@@ -56,19 +56,24 @@
     }
 
     button {
+
+        // 按鈕樣式
         display: flex;
+        padding: 5px 30px;
         justify-content: center;
         align-items: center;
-        gap: 5px;
-        width: 225px;
-        height: 64px;
-        padding: 8px 24px;
-        border: none;
-        border-radius: 999px;
-        background: #F4D000;
-        font-size: 1.2rem;
-        font-weight: bold;
-        cursor: pointer;
+        border-radius: 99px;
+        background: $accent;
+
+        // 字樣式
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        font-style: normal;
+        font-weight: $f-w-4;
+        line-height: 150%;
+        letter-spacing: 2px;
+
         transition: .15s ease;
 
         &:hover {
@@ -109,6 +114,8 @@
 }
 
 // 內容區
+
+// 主標題
 .group-content {
     position: relative;
     display: flex;
@@ -156,6 +163,8 @@
     }
 }
 
+
+// 各揪團按鈕
 .button-list {
     width: 100%;
 }
@@ -174,21 +183,23 @@
 }
 
 .group-buttons li a {
-    display: inline-flex;
-    align-items: center;
-    width: auto;
-    height: 40px;
-    padding: 4px 24px;
-    border-radius: 999px;
-    background: $primary1;
-    color: $background1;
+    // 文字樣式
+    color: #fff;
     font-family: $family-tc;
-    font-size: $f-s-md;
-    font-weight: $f-w-2;
-    letter-spacing: $spacing-xxs;
-    white-space: nowrap;
-    text-decoration: none;
-    cursor: pointer;
+    font-size: $spacing-md;
+    // font-style: normal;
+    font-weight: $f-w-4;
+    line-height: 150%;
+    letter-spacing: 2px;
+
+    //  按鈕樣式
+    display: flex;
+    padding: 5px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 99px;
+    background-color: $primary1;
+
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
@@ -207,7 +218,6 @@
 .cards-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
     gap: 24px;
 }
@@ -245,7 +255,6 @@
 
     img {
         width: 100%;
-        height: 240px;
         object-fit: cover;
     }
 
@@ -299,33 +308,34 @@
         flex-direction: column;
         gap: 4px;
         align-self: stretch;
-    }
 
-    h2 {
-        color: $primary1;
-        font-family: $family-tc;
-        font-size: $f-s-lg;
-        font-weight: $f-w-5;
-        letter-spacing: 2.4px;
-    }
 
-    p {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        /* 垂直排列 */
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        /* 限制顯示 2 行 */
-        overflow: hidden;
-        /* 超出隱藏 */
-        text-overflow: ellipsis;
-        /* 文字省略號 */
+        h2 {
+            color: $primary1;
+            font-family: $family-tc;
+            font-size: $f-s-lg;
+            font-weight: $f-w-5;
+            letter-spacing: 2.4px;
+        }
 
-        color: $primary2;
-        font-family: $family-tc;
-        font-size: $f-s-xs;
-        line-height: 150%;
-        letter-spacing: 1.4px;
+        p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            /* 垂直排列 */
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            /* 限制顯示 2 行 */
+            overflow: hidden;
+            /* 超出隱藏 */
+            text-overflow: ellipsis;
+            /* 文字省略號 */
+
+            color: $primary2;
+            font-family: $family-tc;
+            font-size: $f-s-xs;
+            line-height: 150%;
+            letter-spacing: 1.4px;
+        }
     }
 
     // 按鈕區
@@ -333,22 +343,22 @@
         display: flex;
         gap: 24px;
         justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        background-color: none;
-
-        // align-self: stretch;
 
         .join {
             display: flex;
+            width: auto;
+            height: 32px;
             padding: 4px 24px;
+            justify-content: center;
+            align-items: center;
 
-            background-color: $accent;
             color: $text;
             font-size: $f-s-sm;
+            font-weight: $f-w-4;
+            line-height: 100%;
             border-radius: 999px;
+            background: $accent;
 
-            cursor: pointer;
             transition: 0.2s;
 
             &:hover {
@@ -358,18 +368,16 @@
 
         .view-more {
             display: flex;
+            height: 32px;
             padding: 4px 24px;
+            justify-content: center;
             align-items: center;
-            gap: 8px;
-            width: 100%;
-
             color: $text;
             font-size: $f-s-sm;
+            gap: 8px;
             border-radius: 999px;
 
             border: 1px solid #7A7872;
-
-            cursor: pointer;
             transition: 0.2s;
 
             &:hover {
@@ -382,7 +390,5 @@
             }
         }
     }
+
 }
-
-
-

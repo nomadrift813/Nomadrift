@@ -104,25 +104,31 @@ img {
 .activity-introduction {
     display: flex;
     flex-direction: column;
+
     // align-items: center;
     gap: 16px;
 
     li {
-        list-style: none;
         display: flex;
         align-items: center;
         gap: 16px; // h3 與 p 的間距
     }
 
     h3 {
-        padding: 4px 24px;
-        border-radius: 100px;
-        background: $primary1;
-        color: $white;
+        // 文字樣式
+        color: #fff;
         font-family: $family-tc;
+        font-size: $spacing-md;
+        font-weight: $f-w-4;
         letter-spacing: 2px;
+
+        //  按鈕樣式
         display: flex;
+        padding: 5px 30px;
         justify-content: center;
+        align-items: center;
+        border-radius: 99px;
+        background-color: $primary1;
     }
 
     p {
@@ -130,9 +136,11 @@ img {
         font-size: $f-s-sm;
         font-weight: $f-w-4;
         color: $primary2;
-        line-height: 150%;
-        letter-spacing: 2px;
-        text-align: center;
+        // justify-content: center;
+        // align-items: center;
+        // line-height: 150%;
+        // letter-spacing: 2px;
+        // text-align: center;
     }
 }
 
@@ -475,11 +483,11 @@ p {
         text-align: center;
 
         /* 中文/大標 */
-        font-family:$family-tc;
+        font-family: $family-tc;
         font-size: $f-s-xl;
         font-weight: $f-w-5;
         line-height: 150%;
-        letter-spacing:$spacing-xs;
+        letter-spacing: $spacing-xs;
 
         display: flex;
         width: 100%;
