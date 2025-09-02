@@ -31,18 +31,18 @@
     width: 100%;
     padding: 80px 150px 80px 150px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     gap: 24px;
 
     ul {
         display: flex;
-        padding: 4px 24px;
+        padding: 5px 30px;
         justify-content: center;
         align-items: center;
         gap: 5px;
         flex: 100;
 
-        border-radius: 100px;
+        border-radius: 99px;
         background: $primary1;
 
         &:hover {
@@ -55,10 +55,9 @@
             font-family: $family-tc;
             font-size: $f-s-md;
             font-style: normal;
-            font-weight: 400;
+            font-weight: $f-w-4;
             line-height: 150%;
             letter-spacing: 2px;
-            text-wrap: nowrap;
         }
 
         img {
@@ -209,3 +208,35 @@
         }
     }
 }
+
+ // 探索更多
+ .expMore {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background-color: $background1;
+     padding: 10px 0 80px 0;
+
+     .btn-expMore {
+         display: flex;
+         padding: 4px 24px;
+         justify-content: center;
+         align-items: center;
+         width: 160px;
+
+         font-family: $family-tc;
+         font-size: $f-s-md;
+         font-weight: $f-w-3;
+         line-height: 150%;
+         letter-spacing: 2px;
+
+         color: $white;
+         border: none;
+         border-radius: 999px;
+         background: $primary1;
+
+         &:hover {
+             background: $accent;
+         }
+     }
+ }

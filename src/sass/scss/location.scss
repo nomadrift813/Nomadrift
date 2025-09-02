@@ -296,7 +296,7 @@
                  font-family: $family-tc;
                  font-size: $f-s-md;
                  font-style: normal;
-                 font-weight: 400;
+                 font-weight: $f-w-4;
                  line-height: 150%;
                  letter-spacing: 2px;
              }
@@ -312,7 +312,10 @@
  // 各大洲區卡片
  #globalAsia,
  #globalEurope,
- #globalNA {
+ #globalNA,
+ #globalLA,
+ #globalAfrica,
+ #globalOceania {
      display: flex;
      width: 100%;
      justify-content: center;
@@ -324,7 +327,10 @@
      // 各大洲區
      .asia,
      .europe,
-     .NorthA {
+     .northA,
+     .latinA,
+     .africa,
+     .oceania {
          display: flex;
          flex-direction: column;
          justify-content: center;
@@ -353,7 +359,10 @@
      // 各大洲卡片
      .asiaCard,
      .europeCard,
-     .NorthACard {
+     .northACard,
+     .latinACard,
+     .africaCard,
+     .oceaniaCard {
          display: flex;
          align-items: center;
          gap: 32px;
@@ -525,7 +534,7 @@
  }
 
  // 探索更多
- .expMore {
+/*  .expMore {
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -554,4 +563,4 @@
              background: $accent;
          }
      }
- }
+ } */
