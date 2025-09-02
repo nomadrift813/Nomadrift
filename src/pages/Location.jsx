@@ -213,14 +213,14 @@ const Location = () => {
           </Link>
         </article>
         {/* 更多按鈕 */}
-        <il><a href='#'></a>View more</il>
+        <button><a href='#'></a>View more</button>
       </section >
 
       {/* 歐洲區 */}
       < section id='globalEurope' >
         {/* 歐洲 */}
         <Link to="/location3">
-          <article article className='europe' >
+          <article className='europe' >
             <figure><img src="./img-Location/Europe.png" alt="" /></figure>
             <h2>歐洲</h2>
           </article >
@@ -229,7 +229,7 @@ const Location = () => {
         < article className='europeCard' >
           {/* 歐洲卡片1 */}
           <Link to="/location2">
-            <section section className='country1' >
+            <section className='country1' >
               <div className='p1-sel'>
                 <figure className='loc-p1'><img src="./img-Location/Spain.jpg" alt="" /></figure>
                 <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -256,7 +256,7 @@ const Location = () => {
           </Link>
           {/* 歐洲卡片2 */}
           <Link to="/location2">
-            <section section className='country2' >
+            <section className='country2' >
               <div className='p1-sel'>
                 <figure className='loc-p1'><img src="./img-Location/Italy.jpg" alt="" /></figure>
                 <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -283,7 +283,7 @@ const Location = () => {
           </Link>
           {/* 歐洲卡片3 */}
           <Link to="/location2">
-            <section section className='country3' >
+            <section className='country3' >
               <div className='p1-sel'>
                 <figure className='loc-p1'><img src="./img-Location/Netherlands.jpg" alt="" /></figure>
                 <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -310,14 +310,14 @@ const Location = () => {
           </Link>
         </article >
         {/* 更多按鈕 */}
-        <il il > <a href='#'></a>View more</il >
+        <button> <a href='#'></a>View more</button >
       </section >
 
       {/* 北美洲區 */}
       < section id='globalNA' >
         {/* 北美洲 */}
         <Link to="/location3">
-          <article article className='NorthA' >
+          <article className='NorthA' >
             <figure><img src="./img-Location/North America.png" alt="" /></figure>
             <h2>北美洲</h2>
           </article >
@@ -326,7 +326,7 @@ const Location = () => {
         < article className='NorthACard' >
           {/* 北美洲卡片1 */}
           <Link to="/location2">
-            <section section className='country1' >
+            <section className='country1' >
               <div className='p1-sel'>
                 <figure className='loc-p1'><img src="./img-Location/US.jpg" alt="" /></figure>
                 <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -353,7 +353,7 @@ const Location = () => {
           </Link>
           {/* 北美洲卡片2 */}
           <Link to="/location2">
-            <section section className='country2' >
+            <section className='country2' >
               <div className='p1-sel'>
                 <figure className='loc-p1'><img src="./img-Location/Canada.jpg" alt="" /></figure>
                 <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -380,7 +380,7 @@ const Location = () => {
           </Link>
           {/* 北美洲卡片3 */}
           <Link to="/location2">
-            <section section className='country3' >
+            <section className='country3' >
               <div className='p1-sel'>
                 <figure className='loc-p1'><img src="./img-Location/Mexico.jpg" alt="" /></figure>
                 <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -408,7 +408,7 @@ const Location = () => {
           </Link>
         </article >
         {/* 更多按鈕 */}
-        <il il > <a href='#'></a>View more</il >
+        <button> <a href='#'></a>View more</button >
       </section >
 
       <div className='expMore'>

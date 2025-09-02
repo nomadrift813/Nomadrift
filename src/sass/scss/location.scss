@@ -274,13 +274,13 @@
 
          ul {
              display: flex;
-             padding: 4px 24px;
+             padding: 5px 30px;
              justify-content: center;
              align-items: center;
              gap: 5px;
              flex: 100;
 
-             border-radius: 100px;
+             border-radius: 99px;
              background: $primary1;
 
              &:hover {
@@ -297,7 +297,6 @@
                  font-weight: 400;
                  line-height: 150%;
                  letter-spacing: 2px;
-                 text-wrap: nowrap;
              }
 
              img {
@@ -495,7 +494,7 @@
      }
 
      // 更多按鈕
-     il {
+     button {
          display: flex;
          height: 32px;
          padding: 10px 14px;
