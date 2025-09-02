@@ -12,7 +12,7 @@ const Location = () => {
             <p className='l-t-2'>熱門地點</p>
           </div>
           <div className="locScroll">
-            <img src="./img-Location/scroll.svg" alt="" />
+            <img src="./img-Location/scrollBlack.svg" alt="" />
           </div>
         </div>
 
