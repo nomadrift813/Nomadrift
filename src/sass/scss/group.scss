@@ -14,102 +14,119 @@
     height: 100vh;
     display: flex;
     background: url("/public/img-Group/BannerPhoto.jpg") center/cover no-repeat;
-}
 
-// 標語區
-.groupSlogan {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding: 24px;
-    margin-top: 421px;
-    text-align: center;
-
-    h3,
-    h2 {
-        color: #fff;
-        text-align: center;
-        line-height: 150%;
+    @media ($mediaMd) {
+        height: 80vh;
     }
 
-    h3 {
-        font-family: $en;
-        font-size: 22px;
-        font-weight: $f-w-4;
-        letter-spacing: $spacing-xxs;
+    @media ($mediaSm) {
+        height: 70vh;
     }
 
-    h2 {
-        font-family: $family-tc;
-        font-size: $f-s-xxl;
-        font-weight: $f-w-5;
-        letter-spacing: $spacing-xs;
-    }
-
-    .line {
-        width: 60px;
-        height: 1px;
-        background: $background1;
-    }
-
-    button {
-
-        // 按鈕樣式
+    // 標語區
+    .groupSlogan {
+        position: absolute;
+        inset: 0;
         display: flex;
-        padding: 5px 30px;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-radius: 99px;
-        background: $accent;
+        gap: 20px;
+        // padding: 24px;
+        height: 150vh;
+        text-align: center;
 
-        // 字樣式
-        color: $text;
-        font-family: $family-tc;
-        font-size: $f-s-md;
-        font-style: normal;
-        font-weight: $f-w-4;
-        line-height: 150%;
-        letter-spacing: 2px;
-
-        transition: .15s ease;
-
-        &:hover {
-            background: #e7c300;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
-        }
-    }
-
-    .locScroll {
-        margin-top: 37px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .locScroll img {
-        display: block;
-        height: 16px;
-
-        /* 加上浮動動畫 */
-        animation: floatIcon 2s ease-in-out infinite;
-    }
-
-    @keyframes floatIcon {
-        0% {
-            transform: translateY(0);
+        @media ($mediaMd) {
+            height: 125vh;
         }
 
-        50% {
-            transform: translateY(-10px);
+        @media ($mediaSm) {
+            height: 100vh;
         }
 
-        /* 上下位移 */
-        100% {
-            transform: translateY(0);
+        h3,
+        h2 {
+            color: #fff;
+            text-align: center;
+            line-height: 150%;
+        }
+
+        h3 {
+            font-family: $en;
+            font-size: $f-s-sm2;
+            font-weight: $f-w-4;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-family: $family-tc;
+            font-size: $f-s-xl;
+            font-weight: $f-w-5;
+            letter-spacing: 4px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: $background1;
+        }
+
+        button {
+
+            // 按鈕樣式
+            display: flex;
+            padding: 5px 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99px;
+            background: $accent;
+
+            // 字樣式
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-md;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 2px;
+
+            transition: .15s ease;
+
+            &:hover {
+                background: #e7c300;
+                transform: translateY(-1px);
+                box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+            }
+
+        }
+
+        .locScroll {
+            margin-top: 37px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .locScroll img {
+            display: block;
+            height: 16px;
+
+            /* 加上浮動動畫 */
+            animation: floatIcon 2s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            /* 上下位移 */
+            100% {
+                transform: translateY(0);
+            }
         }
     }
 }
@@ -117,14 +134,14 @@
 // 內容區
 
 // 主標題
-.group-content {
+#group-content {
     position: relative;
     display: flex;
     flex-direction: column;
     margin: 40px 100px;
     overflow-x: clip;
     gap: 32px;
-}
+
 
 .g-content-title {
     position: static;
@@ -144,17 +161,17 @@
     h3 {
         color: $primary2;
         font-family: $en;
-        font-size: 22px;
+        font-size: $f-s-sm2;
         font-weight: $f-w-4;
-        letter-spacing: $spacing-xxs;
+        letter-spacing: 2px;
     }
 
     h2 {
         color: $text;
         font-family: $family-tc;
-        font-size: $f-s-xxl;
+        font-size: $f-s-xl;
         font-weight: $f-w-5;
-        letter-spacing: $spacing-xs;
+        letter-spacing: 4px;
     }
 
     .line {
@@ -167,50 +184,48 @@
 
 // 各揪團按鈕
 .button-list {
-    width: 100%;
-}
-
-.group-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 16px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.group-buttons>li {
-    min-width: 0;
-}
-
-.group-buttons li a {
-    // 文字樣式
-    color: #fff;
-    font-family: $family-tc;
-    font-size: $spacing-md;
-    // font-style: normal;
-    font-weight: $f-w-4;
-    line-height: 150%;
-    letter-spacing: 2px;
-
-    //  按鈕樣式
-    display: flex;
-    padding: 5px 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 99px;
-    background-color: $primary1;
-
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .group-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
-    &:active {
-        transform: translateY(0px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    .group-buttons>li {
+        min-width: 0;
+    }
+
+    .group-buttons li a {
+        // 文字樣式
+        color: #fff;
+        font-family: $family-tc;
+        font-size: $spacing-md;
+        // font-style: normal;
+        font-weight: $f-w-4;
+        line-height: 150%;
+        letter-spacing: 2px;
+
+        //  按鈕樣式
+        display: flex;
+        padding: 5px 30px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 99px;
+        background-color: $primary1;
+
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+            transform: translateY(0px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
     }
 }
 
@@ -225,8 +240,8 @@
 
 .all-cards {
     display: flex;
-    width: 360px;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
-}
+}}

@@ -22,7 +22,7 @@ const Group = () => {
       {/* 內容區 */}
 
       {/* 主標題 */}
-      <section className="group-content">
+      <section id="group-content">
         <div className="g-content-title">
           <h3>Travel solo, connect together!</h3>
           <div className="line"></div>

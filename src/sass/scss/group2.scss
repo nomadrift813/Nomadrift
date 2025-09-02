@@ -219,17 +219,17 @@ img {
     h3 {
         color: $primary2;
         font-family: $en;
-        font-size: 22px;
+        font-size: $f-s-sm2;
         font-weight: $f-w-4;
-        letter-spacing: $spacing-xxs;
+        letter-spacing: 2px;
     }
 
     h2 {
         color: $text;
         font-family: $family-tc;
-        font-size: $f-s-xxl;
+        font-size: $f-s-xl;
         font-weight: $f-w-5;
-        letter-spacing: $spacing-xs;
+        letter-spacing: 4px;
     }
 
     .line {
@@ -447,23 +447,125 @@ p {
     gap: 40px;
     justify-content: center;
     align-items: center;
+
+    element.style {
+        --pause-on-hover: running;
+        --pause-on-click: paused;
+        --width: 100% --transform: none;
+    }
 }
 
 // 發起揪團
 
-#createGroup {
-    display: flex;
+/* ===== Carousel (更多揪團) ===== */
+/* 放在 #more-activities 區塊後方 */
+
+.carousel {
     width: 100%;
-    flex-direction: column;
-    padding: 80px 150px;
-    // border: 5px solid #f80202;
+    // max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
+
+.carousel-title-en {
+    font-family: $en;
+    font-size: $f-s-sm2;
+    color: $primary2;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 150%;
+    
+}
+
+.carousel .line {
+    width: 60px;
+    height: 1px;
+    background: $primary2;
+    margin: 10px auto;
+}
+
+.carousel-title {
+    color: $text;
+    font-family: $family-tc;
+    font-size: $f-s-xl;
+    font-weight: $f-w-5;
+    letter-spacing: 4px;
+    text-align: center;
+    line-height: 150%;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    border-radius: 14px;
+    position: relative;
+    background: $background1;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 16px;
+    /* 卡片間距 */
+    will-change: transform;
+}
+
+.carousel-set {
+    
+    display: flex;
+    gap: 16px;
+    margin: 16px 0px;
+    align-items: center;
+    /* 與 .carousel-track 保持一致 */
+}
+
+/* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
+.carousel-card {
+    flex: 0 0 calc((100% - 2 * 16px) / 3);
+    /* 3 欄時扣掉 2 個間距 */
+}
+
+@media (max-width: $mediaLg) {
+    .carousel-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
+    /* 2 欄 */
+}
+
+@media (max-width: $mediaMd) {
+    .carousel-card {
+        flex: 0 0 calc((100%));
+    }
+    /* 1 欄 */
+}
+
+/* 可選：GroupCard 在輪播裡的微互動（若根節點 class 不同可刪或改） */
+.carousel-card .group-card {
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.carousel-card .group-card:hover {
+    transform: translateY(-2px);
+}
+
+/* 使用者偏好：若系統開啟減少動畫，讓 rAF 邏輯可切換（需在 React 內配合加上 is-reduced） */
+@media (prefers-reduced-motion: reduce) {
+    .carousel.is-reduced .carousel-track {
+        transition: none !important;
+    }
+}
+
+/* ===== 舊的 grid 刪除或停用 ===== */
+/* 原本的 .more-activities-cards 建議移除；若仍存在，先隱藏避免版型衝突 */
+// .more-activities-cards {
+//     display: none !important;
+// }
+
 
 .createGroup-title {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    margin-top: 16px;
 
     h2 {
         color: $primary2;
