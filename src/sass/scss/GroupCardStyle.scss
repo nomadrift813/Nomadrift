@@ -3,7 +3,8 @@
 
 // Group-揪團卡片區
 .group-event-card {
-    width: 360px;
+
+    // width: 360px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -54,113 +55,171 @@
     flex-direction: column;
     gap: 16px;
 
-    .card-date {
+    @media ($mediaMd) {
+        padding: 14px 22px;
+        gap: 16px;
+    }
+
+    @media ($mediaSm) {
+        padding: 16px 20px;
+        gap: 12px;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media ($mediaXl) {
+            align-items: flex-start;
+        }
+
+        @media ($mediaLg) {
+            align-items: flex-start;
+        }
+
+        @media ($mediaMd) {
+            align-items: flex-start;
+        }
+
+        @media ($mediaSm) {
+            align-items: flex-start;
+        }
+    }
+
+    .datetime {
         display: flex;
         // justify-content: center;
-        justify-content: space-between;
+        gap: 5px;
         align-items: center;
         color: $primary1;
         font-family: $family-en;
-        font-size: $primary1;
+        font-size: $f-s-md;
 
-        .card-location {
-            font-family: $family-tc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 4px 16px;
-            border-radius: 999px;
-            border: 1px solid $primary1;
+        @media ($mediaMd) {
+            flex-direction: column;
+            gap: 4px;
+            align-items: start;
+        }
+
+        @media ($mediaXl) {
+            flex-direction: column;
+            gap: 4px;
+            align-items: start;
+        }
+
+        @media ($mediaLg) {
+            flex-direction: column;
+            gap: 4px;
+            align-items: start;
+        }
+
+        @media ($mediaSm) {
+            flex-direction: column;
+            gap: 4px;
+            align-items: start;
         }
     }
 
-    // 活動標題+內容
-    .card-item {
+
+    .card-location {
+        font-family: $family-tc;
+        font-size: $f-s-xs;
         display: flex;
-        flex-direction: column;
-        gap: 4px;
-        align-self: stretch;
-
-
-        h2 {
-            color: $primary1;
-            font-family: $family-tc;
-            font-size: $f-s-lg;
-            font-weight: $f-w-5;
-            letter-spacing: 2.4px;
-        }
-
-        p {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            /* 垂直排列 */
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
-            /* 限制顯示 2 行 */
-            overflow: hidden;
-            /* 超出隱藏 */
-            text-overflow: ellipsis;
-            /* 文字省略號 */
-
-            color: $primary2;
-            font-family: $family-tc;
-            font-size: $f-s-xs;
-            line-height: 150%;
-            letter-spacing: 1.4px;
-        }
-    }
-
-    // 按鈕區
-    .card-btns {
-        display: flex;
-        gap: 24px;
         justify-content: center;
+        align-items: center;
+        padding: 4px 16px;
+        border-radius: 999px;
+        border: 1px solid $primary1;
+    }
 
-        .join {
-            display: flex;
-            width: auto;
-            height: 32px;
-            padding: 4px 24px;
-            justify-content: center;
-            align-items: center;
+}
 
-            color: $text;
-            font-size: $f-s-sm;
-            font-weight: $f-w-4;
-            line-height: 100%;
-            border-radius: 999px;
-            background: $accent;
+// 活動標題+內容
+.card-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-self: stretch;
 
-            transition: 0.2s;
 
-            &:hover {
-                background: #e7c300;
-            }
-        }
+    h2 {
+        color: $primary1;
+        font-family: $family-tc;
+        font-size: $f-s-lg;
+        font-weight: $f-w-5;
+        letter-spacing: 2px;
+    }
 
-        .view-more {
-            display: flex;
-            height: 32px;
-            padding: 4px 24px;
-            justify-content: center;
-            align-items: center;
-            color: $text;
-            font-size: $f-s-sm;
-            gap: 8px;
-            border-radius: 999px;
+    p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        /* 垂直排列 */
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        /* 限制顯示 2 行 */
+        overflow: hidden;
+        /* 超出隱藏 */
+        text-overflow: ellipsis;
+        /* 文字省略號 */
 
-            border: 1px solid #7A7872;
-            transition: 0.2s;
+        color: $primary2;
+        font-family: $family-tc;
+        font-size: $f-s-xs;
+        line-height: 150%;
+        letter-spacing: 1.4px;
+    }
+}
 
-            &:hover {
-                background: #e0e0e0;
-            }
+// 按鈕區
+.card-btns {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
 
-            img {
-                width: 8.5px;
-                height: 15.5px;
-            }
+    .join {
+        display: flex;
+        width: auto;
+        height: 32px;
+        padding: 4px 24px;
+        justify-content: center;
+        align-items: center;
+
+        color: $text;
+        font-size: $f-s-sm;
+        font-weight: $f-w-4;
+        line-height: 100%;
+        border-radius: 999px;
+        background: $accent;
+
+        transition: 0.2s;
+
+        &:hover {
+            background: #e7c300;
         }
     }
 
+    .view-more {
+        display: flex;
+        height: 32px;
+        padding: 4px 24px;
+        justify-content: center;
+        align-items: center;
+        color: $text;
+        font-size: $f-s-sm;
+        gap: 8px;
+        border-radius: 999px;
+
+        border: 1px solid #7A7872;
+        transition: 0.2s;
+
+        &:hover {
+            background: #e0e0e0;
+        }
+
+        img {
+            width: 8.5px;
+            height: 15.5px;
+        }
+    }
 }

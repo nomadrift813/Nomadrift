@@ -4,7 +4,8 @@ import "../sass/scss/GroupCardStyle.scss"
 const GroupCard = ({
     image,
     signupCount,
-    dateTime,
+    date,
+    time,
     location,
     title,
     description,
@@ -27,8 +28,11 @@ const GroupCard = ({
 
             {/* 下半部活動內容 */}
             <div className="card-content">
-                <header className="card-date">
-                    {dateTime}
+                <header className="card-header">
+                    <div className="datetime">
+                    <div className="date">{date}</div>
+                    <div className="time">{time}</div>
+                    </div>
                     <div className="card-location">{location}</div>
                 </header>
 
