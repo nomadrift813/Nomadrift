@@ -138,110 +138,151 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 40px 100px;
+    margin: 40px 150px;
     overflow-x: clip;
     gap: 32px;
 
-
-.g-content-title {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    background: $background1;
-    z-index: 1;
-
-    h3,
-    h2 {
-        text-align: center;
-        line-height: 150%;
+    @media ($mediaXl) {
+        margin: 20px 130px;
+    }
+    @media ($mediaLg) {
+        margin: 20px 120px;
     }
 
-    h3 {
-        color: $primary2;
-        font-family: $en;
-        font-size: $f-s-sm2;
-        font-weight: $f-w-4;
-        letter-spacing: 2px;
+    @media ($mediaMd) {
+        margin: 10px 80px;
     }
 
-    h2 {
-        color: $text;
-        font-family: $family-tc;
-        font-size: $f-s-xl;
-        font-weight: $f-w-5;
-        letter-spacing: 4px;
+    @media ($mediaSm) {
+        margin: 10px 60px;
     }
 
-    .line {
-        width: 60px;
-        height: 1px;
-        background: $primary2;
-    }
-}
 
 
-// 各揪團按鈕
-.button-list {
-    .group-buttons {
+    .g-content-title {
+        position: static;
         display: flex;
-        flex-wrap: wrap;
-        gap: 12px 16px;
+        flex-direction: column;
         align-items: center;
+        gap: 12px;
+        background: $background1;
+        z-index: 1;
+
+        h3,
+        h2 {
+            text-align: center;
+            line-height: 150%;
+        }
+
+        h3 {
+            color: $primary2;
+            font-family: $en;
+            font-size: $f-s-sm2;
+            font-weight: $f-w-4;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-xl;
+            font-weight: $f-w-5;
+            letter-spacing: 4px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: $primary2;
+        }
+    }
+
+
+    // 各揪團按鈕
+    .button-list {
+        .group-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .group-buttons>li {
+            min-width: 0;
+        }
+
+        .group-buttons li a {
+            // 文字樣式
+            color: #fff;
+            font-family: $family-tc;
+            font-size: $spacing-md;
+            // font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 2px;
+
+            //  按鈕樣式
+            display: flex;
+            padding: 5px 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99px;
+            background-color: $primary1;
+
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            &:active {
+                transform: translateY(0px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+
+    // 所有揪團卡片合集
+    .cards-container {
+        display: flex;
         justify-content: center;
         width: 100%;
+        gap: 24px;
     }
 
-    .group-buttons>li {
-        min-width: 0;
-    }
-
-    .group-buttons li a {
-        // 文字樣式
-        color: #fff;
-        font-family: $family-tc;
-        font-size: $spacing-md;
-        // font-style: normal;
-        font-weight: $f-w-4;
-        line-height: 150%;
-        letter-spacing: 2px;
-
-        //  按鈕樣式
+    .all-cards {
         display: flex;
-        padding: 5px 30px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 99px;
-        background-color: $primary1;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
 
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media ($mediaXl) {
+            &:last-child{
+                display: none;
+            }
         }
 
-        &:active {
-            transform: translateY(0px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        @media ($mediaLg) {
+            &:last-child {
+                display: none;
+            }
+
+            @media ($mediaMd) {
+                &:nth-child(n+2) {
+                    display: none;
+                }
+            }
+
+            @media ($mediaSm) {
+                &:nth-child(n+2) {
+                    display: none;
+                }
+            }
         }
     }
 }
-
-
-// 揪團卡片
-.cards-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 24px;
-}
-
-.all-cards {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-}}

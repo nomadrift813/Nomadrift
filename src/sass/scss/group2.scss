@@ -229,7 +229,7 @@ img {
         font-family: $family-tc;
         font-size: $f-s-xl;
         font-weight: $f-w-5;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
     }
 
     .line {
@@ -462,8 +462,6 @@ p {
 
 .carousel {
     width: 100%;
-    // max-width: 1200px;
-    margin: 0 auto;
     padding: 0 40px;
 }
 
@@ -503,38 +501,39 @@ p {
 
 .carousel-track {
     display: flex;
-    gap: 16px;
+    gap: 30px;
     /* 卡片間距 */
     will-change: transform;
 }
 
 .carousel-set {
-    
     display: flex;
-    gap: 16px;
-    margin: 16px 0px;
+    gap: 30px;
+    margin: 30px 0px;
     align-items: center;
     /* 與 .carousel-track 保持一致 */
 }
 
 /* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
 .carousel-card {
-    flex: 0 0 calc((100% - 2 * 16px) / 3);
-    /* 3 欄時扣掉 2 個間距 */
+    flex: 0 0 calc((100% - 3 * 30px) / 4);
+    /* 5 欄時扣掉 4 個間距 */
 }
 
 @media (max-width: $mediaLg) {
     .carousel-card {
-        flex: 0 0 calc((100% - 16px) / 2);
+        flex: 0 0 calc((100% - 2*30px) / 3);
     }
-    /* 2 欄 */
+
+    /* 4 欄 */
 }
 
 @media (max-width: $mediaMd) {
     .carousel-card {
-        flex: 0 0 calc((100%));
+        flex: 0 0 calc((100% - 30px) / 2);
     }
-    /* 1 欄 */
+
+    /* 3 欄 */
 }
 
 /* 可選：GroupCard 在輪播裡的微互動（若根節點 class 不同可刪或改） */
@@ -552,13 +551,6 @@ p {
         transition: none !important;
     }
 }
-
-/* ===== 舊的 grid 刪除或停用 ===== */
-/* 原本的 .more-activities-cards 建議移除；若仍存在，先隱藏避免版型衝突 */
-// .more-activities-cards {
-//     display: none !important;
-// }
-
 
 .createGroup-title {
     display: flex;

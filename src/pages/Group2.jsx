@@ -74,7 +74,8 @@ const CardCarousel = ({ items }) => {
                                     <GroupCard
                                         image={card.image}
                                         signupCount={card.signupCount}
-                                        dateTime={card.dateTime}
+                                        date={card.date}
+                                        time={card.time}
                                         location={card.location}
                                         title={card.title}
                                         description={card.description}
@@ -97,50 +98,55 @@ const Group2 = () => {
             id: 1,
             image: "./img-Group/dinner.jpg",
             signupCount: 6,
-            dateTime: "2025/09/20  19:00",
+            date: "2025/09/20",
+            time: "19:00",
             location: "曼谷",
             title: "一起征服米其林",
-            description:"這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。",
+            description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。",
             detailLink: "/group2",
         },
         {
             id: 2,
             image: "./img-Group/surf.jpg",
             signupCount: 9,
-            dateTime: "2025/09/01  7:00",
+            date: "2025/09/01",
+            time:"7:00",
             location: "黃金海岸",
             title: "來衝個早浪",
-            description:"一起早起去海邊，踩著第一道陽光下水衝浪，滑幾道舒服的浪，讓身體醒過來，心也跟著放鬆。衝完再找間早餐店，好好開啟這一天，給生活一點鹹鹹的、自由的味道。",
+            description: "一起早起去海邊，踩著第一道陽光下水衝浪，滑幾道舒服的浪，讓身體醒過來，心也跟著放鬆。衝完再找間早餐店，好好開啟這一天，給生活一點鹹鹹的、自由的味道。",
             detailLink: "/group2",
         },
         {
             id: 3,
             image: "./img-Group/tennis.jpg",
             signupCount: 5,
-            dateTime: "2025/10/13  10:00",
+            date: "2025/10/13",
+            time:"10:00",
             location: "里斯本",
             title: "每周一網球",
-            description:"手癢想打網球卻找不到球友嗎?\n周一網球社歡迎你的加入，我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!",
+            description: "手癢想打網球卻找不到球友嗎?\n周一網球社歡迎你的加入，我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!",
             detailLink: "/group2",
         },
         {
             id: 4,
             image: "./img-Group/Paris.jpg",
             signupCount: 8,
-            dateTime: "2025/09/17  8:00",
+            date: "2025/09/17",
+            time:"8:00",
             location: "巴黎",
             title: "一日艾蜜莉在巴黎",
-            description:"打卡所有劇中的經典景點，化身艾蜜莉漫遊城市角落，走進每一幕熟悉場景，從咖啡館到花店，劇迷絕對不能錯過的一日朝聖行程，讓你拍好拍滿、浪漫爆棚！",
+            description: "打卡所有劇中的經典景點，化身艾蜜莉漫遊城市角落，走進每一幕熟悉場景，從咖啡館到花店，劇迷絕對不能錯過的一日朝聖行程，讓你拍好拍滿、浪漫爆棚！",
             detailLink: "/group2",
         },
         {
             id: 5,
             image: "./img-Group/sydney-opera-house-view.jpg",
             signupCount: 10,
-            dateTime: "2025/09/28  17:00",
+            date: "2025/09/28",
+            time:"17:00",
             location: "雪梨",
             title: "參觀雪梨歌劇院雪梨",
-            description:"澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名，有全中文解說的導遊帶領，不用怕有聽沒有懂，目前報名人數已達5人，一人只要50澳幣，數量有限快來跟我們一起參加吧!結束還可以一起去",
+            description: "澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名，有全中文解說的導遊帶領，不用怕有聽沒有懂，目前報名人數已達5人，一人只要50澳幣，數量有限快來跟我們一起參加吧!結束還可以一起去",
             detailLink: "/group2",
         },
     ];
