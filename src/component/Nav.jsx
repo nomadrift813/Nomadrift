@@ -6,19 +6,19 @@ const Nav = () => {
   return (
     // 頁首區
     <header id="topbar">
-      <div class="logo">
+      <div className="logo">
         <Link to="/"><img src={L} alt="" /></Link>
       </div>
 
-      <ul class="navmenu">
+      <ul className="navmenu">
         <li><Link to="/location" >熱門地點</Link></li>
         <li><Link to="/group">揪團活動</Link></li>
         <li><Link to="/diary">漂日記</Link></li>
       </ul>
 
-      <ul class="navlogs">
-        <li class="navlog"><Link to="/log">登入</Link></li>
-        <li class="navsign"><Link to="/sign">註冊</Link></li>
+      <ul className="navlogs">
+        <li className="navlog"><Link to="/log">登入</Link></li>
+        <li className="navsign"><Link to="/sign">註冊</Link></li>
       </ul>
     </header>
   )

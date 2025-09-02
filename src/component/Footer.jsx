@@ -6,12 +6,12 @@ const Footer = () => {
     <footer>
       <nav>
         {/* waves */}
-        <div class="ocean">
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
+        <div className="ocean">
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
         </div>
-        <ul class="Sitemap">
+        <ul className="Sitemap">
           <li>
             <a href="#">關於我們</a>
             <ul>

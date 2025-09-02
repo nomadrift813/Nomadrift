@@ -8,25 +8,25 @@
  #locBanner {
      display: flex;
      width: 100%;
-     height: 926px;
+     height: 120vh;
      flex-direction: column;
      align-items: center;
      position: relative;
 
-     background: url("../../../public/img-Location/Banner.png");
+     background: url("../../../public/img-Location/locBanner2.png");
      background-size: 100%;
      background-repeat: no-repeat;
      background-color: $background1;
-     // background-attachment: fixed; 
+     //  background-attachment: fixed;
 
      .locSlogan {
          display: inline-flex;
          flex-direction: column;
          justify-content: center;
          align-items: center;
-         gap: 15px;
+         gap: 24px;
          position: absolute;
-         top: 180px; // 原本144
+         top: 180px; // 原本144x
 
          .locTitle {
              display: flex;
@@ -35,7 +35,7 @@
              gap: 10px;
 
              .l-t-1 {
-                 color: $white;
+                 color: $text;
                  text-align: center;
                  font-family: $en;
                  font-size: 22px;
@@ -46,7 +46,7 @@
              }
 
              .l-t-2 {
-                 color: $white;
+                 color: $text;
                  text-align: center;
                  font-family: $family-tc;
                  font-size: $f-s-xxl;
@@ -63,6 +63,8 @@
                  justify-content: center;
                  text-align: center;
                  height: 16px;
+
+                 animation: floatIcon 2s ease-in-out infinite;
              }
 
          }
@@ -274,13 +276,13 @@
 
          ul {
              display: flex;
-             padding: 4px 24px;
+             padding: 5px 30px;
              justify-content: center;
              align-items: center;
              gap: 5px;
              flex: 100;
 
-             border-radius: 100px;
+             border-radius: 99px;
              background: $primary1;
 
              &:hover {
@@ -297,7 +299,6 @@
                  font-weight: 400;
                  line-height: 150%;
                  letter-spacing: 2px;
-                 text-wrap: nowrap;
              }
 
              img {
@@ -495,7 +496,7 @@
      }
 
      // 更多按鈕
-     il {
+     button {
          display: flex;
          height: 32px;
          padding: 10px 14px;
