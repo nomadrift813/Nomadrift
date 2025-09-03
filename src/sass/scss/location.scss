@@ -369,9 +369,7 @@
          z-index: 1;
          margin-left: -40px;
 
-         .country1,
-         .country2,
-         .country3 {
+         .country {
              background-color: $white;
              position: relative;
 
@@ -534,7 +532,7 @@
  }
 
  // 探索更多
-/*  .expMore {
+ /*  .expMore {
      display: flex;
      flex-direction: column;
      align-items: center;
