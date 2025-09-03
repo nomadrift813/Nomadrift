@@ -215,35 +215,6 @@ const Location = () => {
                 <div className='color-block'></div>
               </section>
             </Link>
-
-            {/* 亞洲卡片1 */}
-            <Link to="/location2">
-              <section className='country'>
-                <div className='p1-sel'>
-                  <figure className='loc-p1'><img src="./img-Location/Manila.jpg" alt="" /></figure>
-                  <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                </div>
-                <article className='loc-info'>
-                  <h2>菲律賓</h2>
-                  <p className='loc-text'>是歷史與現代交融的城市，擁有西班牙殖民遺跡與繁忙商業區，文化多元，生活節奏熱情而活力十足。</p>
-                  <div className='wi-st'>
-                    <ul>
-                      <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                    </ul>
-                    <figure className='stars'>
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                    </figure>
-                  </div>
-                  <span>15000 /月</span>
-                </article>
-                <div className='color-block'></div>
-              </section>
-
-            </Link>
           </article>
 
         {/* 更多按鈕 */}

@@ -1,12 +1,57 @@
 import { Link } from 'react-router-dom'
 import '../sass/scss/location-3.scss'
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+
 const Location3 = () => {
   return (
     <main>
-      <section id='locBanner3'>
+      <>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <h1 className='titleAsia'>亞洲</h1>
+          <SwiperSlide>
+            <img src="../../../public/img-Location/bannerAsia.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../../../public/img-Location/bJapan.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../../../public/img-Location/bTurkey.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../../../public/img-Location/bUAE.jpg" alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="../../../public/img-Location/bUzbekistan.jpg" alt="" />
+          </SwiperSlide>
+        </Swiper>
+      </>
+
+
+      {/* <section id='locBanner3'>
         <p className="titleAsia">亞洲</p>
-      </section>
+      </section> */}
 
       <div className='locDrop3'>
         <ul>

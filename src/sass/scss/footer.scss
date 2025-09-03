@@ -59,10 +59,10 @@ footer {
     .boat {
         width: 80px;
         position: relative;
-        left: 1200px;
-        bottom: 22px;
+        left: 1250px;
+        bottom: 44px;
 
-        animation: boat 2s linear infinite;
+        animation: boat 3s linear infinite;
     }
 
     @keyframes boat {
@@ -91,8 +91,9 @@ footer {
 ul.Sitemap {
     display: flex;
     justify-content: center;
-    padding: 20px 50px;
+    padding: 20px 50px 20px 90px;
     background-color: $primary1;
+    gap: 20px;
 
     a {
         color: #F4F1E5;
