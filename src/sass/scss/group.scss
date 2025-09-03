@@ -143,18 +143,19 @@
     gap: 32px;
 
     @media ($mediaXl) {
-        margin: 20px 130px;
+        margin: 20px 100px;
     }
+
     @media ($mediaLg) {
-        margin: 20px 120px;
+        margin: 20px 80px;
     }
 
     @media ($mediaMd) {
-        margin: 10px 80px;
+        margin: 10px 60px;
     }
 
     @media ($mediaSm) {
-        margin: 10px 60px;
+        margin: 10px 50px;
     }
 
 
@@ -252,6 +253,10 @@
         justify-content: center;
         width: 100%;
         gap: 24px;
+
+        @media ($mediaSm) {
+            flex-direction: column;
+        }
     }
 
     .all-cards {
@@ -261,8 +266,14 @@
         align-items: flex-start;
         gap: 30px;
 
+        /* 預設全部顯示 */
+        >* {
+            display: block;
+        }
+
+
         @media ($mediaXl) {
-            &:last-child{
+            &:last-child {
                 display: none;
             }
         }
@@ -271,18 +282,17 @@
             &:last-child {
                 display: none;
             }
+        }
 
-            @media ($mediaMd) {
-                &:nth-child(n+2) {
-                    display: none;
-                }
+        @media ($mediaMd) {
+            &:nth-child(0) {
+                display: none;
             }
+        }
 
-            @media ($mediaSm) {
-                &:nth-child(n+2) {
-                    display: none;
-                }
+        @media ($mediaSm) {
+                display: flex;
+                flex-direction: column;
             }
         }
     }
-}

@@ -33,7 +33,7 @@ const CardCarousel = ({ items }) => {
     // 自動向左位移（hover 時不更新 translateX）
     useEffect(() => {
         if (!setWidth) return;
-        const speedPxPerFrame = 0.8; // 速度可自行調整
+        const speedPxPerFrame = 1.2; // 速度可自行調整
         let raf;
         const tick = () => {
             if (!pausedRef.current) {
@@ -110,7 +110,7 @@ const Group2 = () => {
             image: "./img-Group/surf.jpg",
             signupCount: 9,
             date: "2025/09/01",
-            time:"7:00",
+            time: "7:00",
             location: "黃金海岸",
             title: "來衝個早浪",
             description: "一起早起去海邊，踩著第一道陽光下水衝浪，滑幾道舒服的浪，讓身體醒過來，心也跟著放鬆。衝完再找間早餐店，好好開啟這一天，給生活一點鹹鹹的、自由的味道。",
@@ -121,7 +121,7 @@ const Group2 = () => {
             image: "./img-Group/tennis.jpg",
             signupCount: 5,
             date: "2025/10/13",
-            time:"10:00",
+            time: "10:00",
             location: "里斯本",
             title: "每周一網球",
             description: "手癢想打網球卻找不到球友嗎?\n周一網球社歡迎你的加入，我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!",
@@ -132,7 +132,7 @@ const Group2 = () => {
             image: "./img-Group/Paris.jpg",
             signupCount: 8,
             date: "2025/09/17",
-            time:"8:00",
+            time: "8:00",
             location: "巴黎",
             title: "一日艾蜜莉在巴黎",
             description: "打卡所有劇中的經典景點，化身艾蜜莉漫遊城市角落，走進每一幕熟悉場景，從咖啡館到花店，劇迷絕對不能錯過的一日朝聖行程，讓你拍好拍滿、浪漫爆棚！",
@@ -143,7 +143,7 @@ const Group2 = () => {
             image: "./img-Group/sydney-opera-house-view.jpg",
             signupCount: 10,
             date: "2025/09/28",
-            time:"17:00",
+            time: "17:00",
             location: "雪梨",
             title: "參觀雪梨歌劇院雪梨",
             description: "澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名，有全中文解說的導遊帶領，不用怕有聽沒有懂，目前報名人數已達5人，一人只要50澳幣，數量有限快來跟我們一起參加吧!結束還可以一起去",
@@ -200,18 +200,20 @@ const Group2 = () => {
                         </div>
                     </div>
                 </div>
-
-                <article className="activity-content">
-                    <div className="content-title">
-                        <h3>Activity content</h3>
-                        <div className="line"></div>
-                        <h2>活動說明</h2>
-                        <p>
-                            來去饒河夜市走走吧！集合好之後就一起逛，先買個剛出爐的胡椒餅，再來一杯冰冰涼涼的仙草茶，邊吃邊聊超chill～一路上想停哪就停哪，看到什麼想吃就買，沒有SOP、也不用趕行程，就是數位遊牧者聚在一起隨興散步，順便認識新朋友。燈火通明、人聲熱鬧，美食香氣一路陪伴，聊工作、聊旅行、聊生活，輕鬆自在到不想回家，快來加入我們，用夜市的熱鬧氛圍開啟一個超好玩的夜晚吧！
-                        </p>
-                    </div>
-                </article>
             </section>
+
+            {/* 活動說明 */}
+            <article id="activity-content">
+                <div className="content-title">
+                    <h3>Activity content</h3>
+                    <div className="line"></div>
+                    <h2>活動說明</h2>
+                    <p>
+                        來去饒河夜市走走吧！集合好之後就一起逛，先買個剛出爐的胡椒餅，再來一杯冰冰涼涼的仙草茶，邊吃邊聊超chill～一路上想停哪就停哪，看到什麼想吃就買，沒有SOP、也不用趕行程，就是數位遊牧者聚在一起隨興散步，順便認識新朋友。燈火通明、人聲熱鬧，美食香氣一路陪伴，聊工作、聊旅行、聊生活，輕鬆自在到不想回家，快來加入我們，用夜市的熱鬧氛圍開啟一個超好玩的夜晚吧！
+                    </p>
+                </div>
+            </article>
+
 
             {/* 發起人+報名人數 */}
             <section id="people-info">
@@ -233,6 +235,45 @@ const Group2 = () => {
                         <img className="people-img2" src="./img-Group/people/join-people (6).jpg" alt="" />
                     </div>
                 </div>
+            </section>
+
+             {/* 留言區 */}
+            <section id='activity-comments'>
+                <h3>留言區</h3>
+                {/* Sherry */}
+                <div className='comment'>
+                    <img className="commenter-photo" src="./img-Group/people/Commenter (1).jpg" alt="" />
+                    <div className='comment-content'>
+                        <p className='commenter-name'>Sherry</p>
+                        <p>哇～夜市行程聽起來也太讚了吧！可惜那天有事走不開😭</p>
+                    </div>
+                </div>
+                {/* Eason */}
+                <div className='comment'>
+                    <img className="commenter-photo" src="./img-Group/people/Commenter (2).jpg" alt="" />
+                    <div className='comment-content'>
+                        <p className='commenter-name'>Eason</p>
+                        <p>我超愛逛夜市耶！饒河真的推推！！</p>
+                    </div>
+                </div>
+                {/* Jason */}
+                <div className='comment'>
+                    <img className="commenter-photo" src="./img-Group/people/Commenter (3).jpg" alt="" />
+                    <div className='comment-content'>
+                        <p className='commenter-name'>Jason</p>
+                        <p>團主的揪團超棒！希望下次能跟到！</p>
+                    </div>
+                </div>
+                {/* Andy Chen */}
+                <div className='comment'>
+                    <img className="commenter-photo" src="./img-Group/people/People-(10).jpg" alt="" />
+                    <div className='comment-content'>
+                        <p className='commenter-name'>Andy Chen</p>
+                        <p className='input'>我要留言</p>
+                    </div>
+                </div>
+
+
             </section>
 
             {/* 更多揪團：用輪播 */}
