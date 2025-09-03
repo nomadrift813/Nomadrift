@@ -317,13 +317,13 @@ const Location = () => {
       < section id='globalNA' >
         {/* 北美洲 */}
         <Link to="/location3">
-          <article className='NorthA' >
+          <article className='northA' >
             <figure><img src="./img-Location/North America.png" alt="" /></figure>
             <h2>北美洲</h2>
           </article >
         </Link>
         {/* 所有卡片 */}
-        < article className='NorthACard' >
+        < article className='northACard' >
           {/* 北美洲卡片1 */}
           <Link to="/location2">
             <section className='country1' >
@@ -411,9 +411,305 @@ const Location = () => {
         <button> <a href='#'></a>View more</button >
       </section >
 
-      <div className='expMore'>
+      {/* 中南美洲區 */}
+      < section id='globalLA' >
+        {/* 中南美洲 */}
+        <Link to="/location3">
+          <article className='latinA' >
+            <figure><img src="./img-Location/Central America.jpg" alt="" /></figure>
+            <h2>中南美洲</h2>
+          </article >
+        </Link>
+        {/* 所有卡片 */}
+        < article className='latinACard' >
+          {/* 中南美洲卡片1 */}
+          <Link to="/location2">
+            <section className='country1' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Colombia.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>哥倫比亞</h2>
+                <p className='loc-text'>以多元文化著稱，擁有豐富的咖啡、寶石和製造業，也是拉丁美洲重要的文化和經濟中心之一。 </p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+            </section >
+          </Link>
+          {/* 中南美洲卡片2 */}
+          <Link to="/location2">
+            <section className='country2' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Argentina.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>阿根廷</h2>
+                <p className='loc-text'>以熱情和對探戈、足球的熱愛而著稱，擁有悠久的歐洲移民歷史，並在文化、經濟和政治上是拉丁美洲的重要國家。</p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+            </section >
+          </Link>
+          {/* 中南美洲卡片3 */}
+          <Link to="/location2">
+            <section className='country3' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Brasil.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>巴西</h2>
+                <p className='loc-text'>擁有全球面積最大的熱帶雨林亞馬遜，是世界重要的農產和礦產出口國，以咖啡、甘蔗、柑橘聞名。 由於曾為葡萄牙殖民地，其官方語言為葡萄牙語，並以其多元文化、足球、嘉年華等聞名，是金磚國家之一。 </p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+
+            </section >
+          </Link>
+        </article >
+        {/* 更多按鈕 */}
+        <button> <a href='#'></a>View more</button >
+      </section >
+
+      {/* 非洲區 */}
+      < section id='globalAfrica' >
+        {/* 非洲 */}
+        <Link to="/location3">
+          <article className='africa' >
+            <figure><img src="./img-Location/Central America.jpg" alt="" /></figure>
+            <h2>非洲</h2>
+          </article >
+        </Link>
+        {/* 所有卡片 */}
+        < article className='africaCard' >
+          {/* 非洲卡片1 */}
+          <Link to="/location2">
+            <section className='country1' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Colombia.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>摩洛哥</h2>
+                <p className='loc-text'>以多元文化著稱，擁有豐富的咖啡、寶石和製造業，也是拉丁美洲重要的文化和經濟中心之一。 </p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+            </section >
+          </Link>
+          {/* 非洲卡片2 */}
+          <Link to="/location2">
+            <section className='country2' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Argentina.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>肯亞</h2>
+                <p className='loc-text'>以熱情和對探戈、足球的熱愛而著稱，擁有悠久的歐洲移民歷史，並在文化、經濟和政治上是拉丁美洲的重要國家。</p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+            </section >
+          </Link>
+          {/* 非洲卡片3 */}
+          <Link to="/location2">
+            <section className='country3' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Brasil.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>南非</h2>
+                <p className='loc-text'>擁有全球面積最大的熱帶雨林亞馬遜，是世界重要的農產和礦產出口國，以咖啡、甘蔗、柑橘聞名。 由於曾為葡萄牙殖民地，其官方語言為葡萄牙語，並以其多元文化、足球、嘉年華等聞名，是金磚國家之一。 </p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+
+            </section >
+          </Link>
+        </article >
+        {/* 更多按鈕 */}
+        <button> <a href='#'></a>View more</button >
+      </section >
+
+      {/* 大洋洲區 */}
+      < section id='globalOceania' >
+        {/* 大洋洲 */}
+        <Link to="/location3">
+          <article className='oceania' >
+            <figure><img src="./img-Location/Central America.jpg" alt="" /></figure>
+            <h2>大洋洲</h2>
+          </article >
+        </Link>
+        {/* 所有卡片 */}
+        < article className='oceaniaCard' >
+          {/* 非洲卡片1 */}
+          <Link to="/location2">
+            <section className='country1' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Colombia.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>澳洲</h2>
+                <p className='loc-text'>以多元文化著稱，擁有豐富的咖啡、寶石和製造業，也是拉丁美洲重要的文化和經濟中心之一。 </p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+            </section >
+          </Link>
+          {/* 非洲卡片2 */}
+          <Link to="/location2">
+            <section className='country2' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Argentina.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>紐西蘭</h2>
+                <p className='loc-text'>以熱情和對探戈、足球的熱愛而著稱，擁有悠久的歐洲移民歷史，並在文化、經濟和政治上是拉丁美洲的重要國家。</p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+            </section >
+          </Link>
+          {/* 非洲卡片3 */}
+          <Link to="/location2">
+            <section className='country3' >
+              <div className='p1-sel'>
+                <figure className='loc-p1'><img src="./img-Location/Brasil.jpg" alt="" /></figure>
+                <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+              </div>
+              <article className='loc-info'>
+                <h2>斐濟</h2>
+                <p className='loc-text'>擁有全球面積最大的熱帶雨林亞馬遜，是世界重要的農產和礦產出口國，以咖啡、甘蔗、柑橘聞名。 由於曾為葡萄牙殖民地，其官方語言為葡萄牙語，並以其多元文化、足球、嘉年華等聞名，是金磚國家之一。 </p>
+                <div className='wi-st'>
+                  <ul>
+                    <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                  </ul>
+                  <figure className='stars'>
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star1.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                    <img src="./img-Location/Star2.svg" alt="" />
+                  </figure>
+                </div>
+                <span>15000 /月</span>
+              </article>
+              <div className='color-block'></div>
+
+            </section >
+          </Link>
+        </article >
+        {/* 更多按鈕 */}
+        <button> <a href='#'></a>View more</button >
+      </section >
+
+
+      {/* 探索更多 */}
+      {/* <div className='expMore'>
         <button className="btn-expMore"><a href='#'></a>探索更多</button>
-      </div>
+      </div> */}
 
     </main >
 
