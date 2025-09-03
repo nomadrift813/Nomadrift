@@ -20,54 +20,53 @@
         display: block;
         /* 去掉底部空隙 */
     }
+
+    .groupSlogan2 {
+        position: absolute;
+        /* 疊在圖片上 */
+        top: 50%;
+        /* 垂直置中 */
+        left: 50%;
+        /* 水平置中 */
+        transform: translate(-50%, -50%);
+        /* 修正偏移，真正置中 */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 13px;
+
+        h3,
+        h2 {
+            color: #fff;
+            text-align: center;
+            line-height: 150%;
+        }
+
+        h3 {
+            font-family: $en;
+            font-size: $f-s-sm2;
+            font-weight: $f-w-4;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-family: $family-tc;
+            font-size: $f-s-xl;
+            font-weight: $f-w-5;
+            letter-spacing: 4px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: #fff;
+        }
+    }
 }
 
-.groupSlogan2 {
-    position: absolute;
-    /* 疊在圖片上 */
-    top: 50%;
-    /* 垂直置中 */
-    left: 50%;
-    /* 水平置中 */
-    transform: translate(-50%, -50%);
-    /* 修正偏移，真正置中 */
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 13px;
-
-    h3,
-    h2 {
-        color: #fff;
-        text-align: center;
-        line-height: 150%;
-    }
-
-    h3 {
-        font-family: $en;
-        font-size: 22px;
-        font-weight: $f-w-4;
-        letter-spacing: $spacing-xxs;
-    }
-
-    h2 {
-        font-family: $family-tc;
-        font-size: $f-s-xxl;
-        font-weight: $f-w-5;
-        letter-spacing: $spacing-xs;
-    }
-
-    .line {
-        width: 60px;
-        height: 1px;
-        background: #fff;
-    }
-}
-
-// 內文資訊區
-
+// 內文資訊
 #groupInfo {
     display: flex;
     // flex-direction: column;
@@ -104,12 +103,6 @@
     }
 
     .info_img {
-        // position: absolute;
-        // /* 絕對定位 */
-        // left: 150px;
-        // /* 距離左邊 150px */
-        // top: 391px;
-        // /* 距離上邊 391px */
         width: 441px;
         height: 400px;
         flex-shrink: 0;
@@ -125,19 +118,6 @@
             width: 352.8px;
             height: 320px;
         }
-
-        // // 圖片*0.7
-        // @media ($mediaMd) {
-        //     width: 441px;
-        //     height: 400px;
-        // }
-
-        // // 圖片*0.6
-        // @media ($mediaSm) {
-        //     width: 441px;
-        //     height: 400px;
-        // }
-
     }
 
     img {
@@ -200,7 +180,6 @@
         align-items: center;
         gap: 8px;
         padding: 5px 30px;
-        // width: 100%;
         justify-content: center;
         align-items: center;
 
@@ -216,13 +195,16 @@
         &:hover {
             background: #e0e0e0;
         }
+
+        @media ($mediaSm) {
+            width: 100%;
+        }
     }
 
     .join {
         display: flex;
         padding: 5px 30px;
         gap: 8px;
-        // width: 100%;
         justify-content: center;
         align-items: center;
 
@@ -242,13 +224,15 @@
             width: 8.5px;
             height: 15.5px;
         }
+
+        @media ($mediaSm) {
+            width: 100%;
+        }
     }
 }
 
 // 活動說明
 #activity-content {
-
-
     .content-title {
         display: flex;
         /* 建議打開 flex，讓子元素好控制 */
@@ -294,13 +278,13 @@
             font-family: $family-tc;
             font-size: $f-s-xl;
             font-weight: $f-w-5;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
         }
 
         .line {
             width: 60px;
             height: 1px;
-            background: $primary1;
+            background: $primary2;
         }
 
         p {
@@ -338,87 +322,87 @@
         padding: 0px 50px;
         gap: 15%;
     }
-}
 
-.organizer-info {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 
-    h3 {
-        font-family: $family-tc;
-        font-size: $f-s-lg;
-        line-height: 100%;
-        letter-spacing: 2px;
+    .organizer-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        h3 {
+            font-family: $family-tc;
+            font-size: $f-s-lg;
+            line-height: 100%;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #7A7872;
+            font-family: $family-tc;
+            font-size: $f-s-sm;
+            line-height: 100%;
+            letter-spacing: 2px;
+        }
     }
 
-    p {
-        color: #7A7872;
-        font-family: $family-tc;
-        font-size: $f-s-sm;
-        line-height: 100%;
-        letter-spacing: 2px;
-    }
-}
+    .participants {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
 
-.participants {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+        h3 {
+            font-family: $family-tc;
+            font-size: $f-s-lg;
+            line-height: 100%;
+            letter-spacing: 2px;
+        }
 
-    h3 {
-        font-family: $family-tc;
-        font-size: $f-s-lg;
-        line-height: 100%;
-        letter-spacing: 2px;
-    }
-
-    p {
-        color: #7A7872;
-        font-family: $family-tc;
-        font-size: $f-s-sm;
-        line-height: 100%;
-        letter-spacing: 2px;
-    }
-}
-
-
-.people-img {
-    display: flex;
-    width: 80px;
-
-    border-radius: 999px;
-    border: 2px solid $white;
-
-    @media ($mediaSm) {
-        width: 60px;
-    }
-}
-
-.join-people {
-    display: flex;
-    align-items: center;
-
-    @media ($mediaSm) {
-        width: 60px;
+        p {
+            color: #7A7872;
+            font-family: $family-tc;
+            font-size: $f-s-sm;
+            line-height: 100%;
+            letter-spacing: 2px;
+        }
     }
 
-    .people-img2 {
+    .people-img {
         display: flex;
         width: 80px;
 
         border-radius: 999px;
         border: 2px solid $white;
-        margin-left: -40px;
 
         @media ($mediaSm) {
             width: 60px;
-            margin-left: -30px;
         }
     }
 
-    .people-img2 img:first-child {
-        margin-left: 0;
+    .join-people {
+        display: flex;
+        align-items: center;
+
+        @media ($mediaSm) {
+            width: 60px;
+        }
+
+        .people-img2 {
+            display: flex;
+            width: 80px;
+
+            border-radius: 999px;
+            border: 2px solid $white;
+            margin-left: -40px;
+
+            @media ($mediaSm) {
+                width: 60px;
+                margin-left: -30px;
+            }
+        }
+
+        .people-img2 img:first-child {
+            margin-left: 0;
+        }
     }
 }
 
@@ -464,6 +448,11 @@
         padding: 16px 0px;
         align-items: center;
         border-bottom: 1px solid $primary2;
+
+        @media ($mediaSm) {
+            gap: 24px;
+            padding: 12px 0px;
+        }
     }
 
     .comment-content {
@@ -475,9 +464,12 @@
     .commenter-photo {
         display: flex;
         width: 72px;
-
         border-radius: 999px;
         border: 2px solid $white;
+
+        @media ($mediaSm) {
+            width: 60px;
+        }
     }
 
 
@@ -489,6 +481,10 @@
         font-size: $f-s-sm2;
         line-height: 150%;
         letter-spacing: 1px;
+
+        @media ($mediaSm) {
+            font-size: $f-s-sm;
+        }
     }
 
     p {
@@ -497,7 +493,11 @@
         font-family: $family-tc;
         font-size: $f-s-md;
         line-height: 150%;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
+
+        @media ($mediaSm) {
+            font-size: $f-s-sm2;
+        }
     }
 
     .input {
@@ -515,234 +515,228 @@
     padding: 0px 150px;
     margin-top: 80px;
     gap: 32px;
-}
 
-.more-activities-title {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    background: $background1;
-    z-index: 1;
+    .more-activities-title {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        background: $background1;
+        z-index: 1;
 
-    h3,
-    h2 {
+        h3,
+        h2 {
+            text-align: center;
+            line-height: 150%;
+        }
+
+        h3 {
+            color: $primary2;
+            font-family: $en;
+            font-size: 22px;
+            font-weight: $f-w-4;
+            letter-spacing: $spacing-xxs;
+        }
+
+        h2 {
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-xxl;
+            font-weight: $f-w-5;
+            letter-spacing: $spacing-xs;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: $primary2;
+        }
+    }
+
+    .more-activities-cards {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+
+        element.style {
+            --pause-on-hover: running;
+            --pause-on-click: paused;
+            --width: 100% --transform: none;
+        }
+    }
+
+
+    // 更多揪團：用輪播Carousel
+
+    .carousel {
+        width: 100%;
+        padding: 0 40px;
+    }
+
+    .carousel-title-en {
+        font-family: $en;
+        font-size: $f-s-sm2;
+        color: $primary2;
+        text-align: center;
+        letter-spacing: 2px;
+        line-height: 150%;
+    }
+
+    .carousel .line {
+        width: 60px;
+        height: 1px;
+        background: $primary2;
+        margin: 10px auto;
+    }
+
+    .carousel-title {
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-xl;
+        font-weight: $f-w-5;
+        letter-spacing: 4px;
         text-align: center;
         line-height: 150%;
     }
 
-    h3 {
-        color: $primary2;
-        font-family: $en;
-        font-size: 22px;
-        font-weight: $f-w-4;
-        letter-spacing: $spacing-xxs;
+    .carousel-viewport {
+        overflow: hidden;
+        border-radius: 14px;
+        position: relative;
+        background: $background1;
     }
 
-    h2 {
-        color: $text;
-        font-family: $family-tc;
-        font-size: $f-s-xxl;
-        font-weight: $f-w-5;
-        letter-spacing: $spacing-xs;
+    .carousel-track {
+        display: flex;
+        gap: 30px;
+        /* 卡片間距 */
+        will-change: transform;
     }
 
-    .line {
-        width: 60px;
-        height: 1px;
-        background: $primary2;
+    .carousel-set {
+        display: flex;
+        gap: 30px;
+        margin: 30px 0px;
+        align-items: center;
+        /* 與 .carousel-track 保持一致 */
     }
-}
 
-.more-activities-cards {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    align-items: center;
-
-    element.style {
-        --pause-on-hover: running;
-        --pause-on-click: paused;
-        --width: 100% --transform: none;
+    /* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
+    .carousel-card {
+        flex: 0 0 calc((100% - 3 * 30px) / 4);
     }
+
+    @media ($mediaLg) {
+        .carousel-card {
+            flex: 0 0 calc((100% - 3*30px) / 4);
+        }
+    }
+
+    @media ($mediaMd) {
+        .carousel-card {
+            flex: 0 0 calc((100% - 3*30px) / 4);
+        }
+    }
+
+    /* 可選：GroupCard 在輪播裡的微互動（若根節點 class 不同可刪或改） */
+    .carousel-card .group-card {
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .carousel-card .group-card:hover {
+        transform: translateY(-2px);
+    }
+
+    /* 使用者偏好：若系統開啟減少動畫，讓 rAF 邏輯可切換（需在 React 內配合加上 is-reduced） */
+    @media (prefers-reduced-motion: reduce) {
+        .carousel.is-reduced .carousel-track {
+            transition: none !important;
+        }
+    }
+
 }
 
 // 發起揪團
-
-/* ===== Carousel (更多揪團) ===== */
-/* 放在 #more-activities 區塊後方 */
-
-.carousel {
-    width: 100%;
-    padding: 0 40px;
-}
-
-.carousel-title-en {
-    font-family: $en;
-    font-size: $f-s-sm2;
-    color: $primary2;
-    text-align: center;
-    letter-spacing: 2px;
-    line-height: 150%;
-
-}
-
-.carousel .line {
-    width: 60px;
-    height: 1px;
-    background: $primary2;
-    margin: 10px auto;
-}
-
-.carousel-title {
-    color: $text;
-    font-family: $family-tc;
-    font-size: $f-s-xl;
-    font-weight: $f-w-5;
-    letter-spacing: 4px;
-    text-align: center;
-    line-height: 150%;
-}
-
-.carousel-viewport {
-    overflow: hidden;
-    border-radius: 14px;
-    position: relative;
-    background: $background1;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 30px;
-    /* 卡片間距 */
-    will-change: transform;
-}
-
-.carousel-set {
-    display: flex;
-    gap: 30px;
-    margin: 30px 0px;
-    align-items: center;
-    /* 與 .carousel-track 保持一致 */
-}
-
-/* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
-.carousel-card {
-    flex: 0 0 calc((100% - 3 * 30px) / 4);
-    /* 5 欄時扣掉 4 個間距 */
-}
-
-@media (max-width: $mediaLg) {
-    .carousel-card {
-        flex: 0 0 calc((100% - 2*30px) / 3);
-    }
-
-    /* 4 欄 */
-}
-
-@media (max-width: $mediaMd) {
-    .carousel-card {
-        flex: 0 0 calc((100% - 30px) / 2);
-    }
-
-    /* 3 欄 */
-}
-
-/* 可選：GroupCard 在輪播裡的微互動（若根節點 class 不同可刪或改） */
-.carousel-card .group-card {
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.carousel-card .group-card:hover {
-    transform: translateY(-2px);
-}
-
-/* 使用者偏好：若系統開啟減少動畫，讓 rAF 邏輯可切換（需在 React 內配合加上 is-reduced） */
-@media (prefers-reduced-motion: reduce) {
-    .carousel.is-reduced .carousel-track {
-        transition: none !important;
-    }
-}
-
-.createGroup-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    margin-top: 16px;
-
-    h2 {
-        color: $primary2;
-        font-family: $family-tc;
-        font-size: $f-s-md;
-        letter-spacing: 2px;
-    }
-
-    .line {
-        width: 60px;
-        height: 1px;
-        background: $primary2;
-    }
-
-    button {
-        color: $primary1;
-        text-align: center;
-        margin-top: 5px;
-        /* 中文/大標 */
-        font-family: $family-tc;
-        font-size: $f-s-lg;
-        font-weight: $f-w-5;
-        line-height: 150%;
-        letter-spacing: 2px;
-
+#createGroup {
+    .createGroup-title {
         display: flex;
-        padding: 8px 40px;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        border-radius: 999px;
-        background: $accent;
+        gap: 24px;
+        margin-top: 16px;
 
-        /* 上下飄移動畫 */
-        animation: floatUpDown 3s ease-in-out infinite;
+        h2 {
+            color: $primary2;
+            font-family: $family-tc;
+            font-size: $f-s-md;
+            letter-spacing: 2px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: $primary2;
+        }
+
+        .btn2-create {
+            color: $primary1;
+            text-align: center;
+            margin-bottom: 40px;
+            /* 中文/大標 */
+            font-family: $family-tc;
+            font-size: $f-s-lg;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            letter-spacing: 2px;
+
+            display: flex;
+            padding: 8px 40px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 999px;
+            background: $accent;
+
+            /* 上下飄移動畫 */
+            animation: floatUpDown 3s ease-in-out infinite;
+        }
+
+        /* hover 時：加上旋轉動畫，只跑一次 */
+        button:hover {
+            animation: floatUpDown 3s ease-in-out infinite, rotateShake 0.5s ease-in-out 1;
+        }
+
+        /* keyframes: 上下飄移 */
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* keyframes: 左右旋轉 */
+        @keyframes rotateShake {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-5deg);
+            }
+
+            75% {
+                transform: rotate(5deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
     }
-
-    /* hover 時：加上旋轉動畫，只跑一次 */
-    button:hover {
-        animation: floatUpDown 3s ease-in-out infinite, rotateShake 0.5s ease-in-out 1;
-    }
-
-    /* keyframes: 上下飄移 */
-    @keyframes floatUpDown {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-6px);
-        }
-    }
-
-    /* keyframes: 左右旋轉 */
-    @keyframes rotateShake {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        25% {
-            transform: rotate(-5deg);
-        }
-
-        75% {
-            transform: rotate(5deg);
-        }
-
-        100% {
-            transform: rotate(0deg);
-        }
-    }
-
-
 }
