@@ -1,11 +1,10 @@
-import React from 'react'
-import '../sass/css/member-city.min.css'
+import '../sass/css/member-save.min.css'
 import { Link } from 'react-router-dom'
 
-const MemberCity = () => {
+const MemberSave = () => {
     return (
         <main>
-            <section id="member-city">
+            <section id="member-save">
                 <header>
                     <ul>
                         <li><Link to="/member">會員資料</Link></li>
@@ -17,7 +16,7 @@ const MemberCity = () => {
                 </header>
                 <div className='m-all-box'>
                     <div className='m-d-title'>
-                        <p>收藏國家</p>
+                        <p>收藏文章</p>
                         {/* <span></span> */}
                     </div>
 
@@ -31,4 +30,4 @@ const MemberCity = () => {
     )
 }
 
-export default MemberCity
+export default MemberSave

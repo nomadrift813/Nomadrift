@@ -5,12 +5,14 @@ import Location from "./pages/Location"
 import Group from "./pages/Group"
 import Group2 from "./pages/Group2"
 import Group3 from "./pages/Group3"
-import CalendarInput from "./component/CalendarInput"
-import TimeInput from "./component/TimeInput"
 import GroupCard from "./component/GroupCard"
 import Diary from "./pages/Diary"
 import Diary2 from "./pages/Diary2"
 import Member from "./pages/Member-data"
+import MemberCity from "./pages/Member-city"
+import MemberDiary from "./pages/Member-diary"
+import MemberSave from "./pages/Member-save"
+import MemberGroup from "./pages/Member-group"
 import Location2 from "./pages/Location-2"
 import Location3 from "./pages/Location-3"
 import Log from "./component/Log"
@@ -29,22 +31,22 @@ const MyApp = () => {
         <Route path='/group2' element={<Group2 />}></Route>
         <Route path='/group3' element={<Group3 />}></Route>
         <Route path='/GroupCardStyle' element={<GroupCard />}></Route>
-        <Route path='/CalendarInputStyle' element={<CalendarInput />}></Route>
-        <Route path='/TimeInputStyle' element={<TimeInput />}></Route>
         <Route path='/diary' element={<Diary />}></Route>
         <Route path='/diary2' element={<Diary2 />}></Route>
         <Route path='/location2' element={<Location2 />}></Route>
         <Route path='/location3' element={<Location3 />}></Route>
         <Route path='/member' element={<Member />}></Route>
+        <Route path='/memberCity' element={<MemberCity />}></Route>
+        <Route path='/memberdiary' element={<MemberDiary />}></Route>
+        <Route path='/membersave' element={<MemberSave />}></Route>
+        <Route path='/membergroup' element={<MemberGroup />}></Route>
         <Route path='/log' element={<Log />}></Route>
         <Route path='/sign' element={<Sign />}></Route>
-
 
       </Routes>
       <Footer />
     </div>
   )
 }
-
 
 export default MyApp

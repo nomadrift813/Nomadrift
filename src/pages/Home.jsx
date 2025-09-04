@@ -1,4 +1,4 @@
-import '../sass/scss/home.scss'
+import '../sass/css/home.min.css'
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 
@@ -8,32 +8,32 @@ const Home = () => {
   // 淡入淡出
   const [show, setShow] = useState(true);
   useEffect(() => {
-  const update = () => {
-    const cutoff = Math.round(window.innerHeight * 0.35); // 35% 視窗高
-    setShow(window.scrollY <= cutoff);
-  };
-  update(); // 進頁面先判斷一次
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-  return () => {
-    window.removeEventListener("scroll", update);
-    window.removeEventListener("resize", update);
-  };
-}, []);
+    const update = () => {
+      const cutoff = Math.round(window.innerHeight * 0.35); // 35% 視窗高
+      setShow(window.scrollY <= cutoff);
+    };
+    update(); // 進頁面先判斷一次
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   return (
     <main>
       <section id="homebanner">
-       
-          <div className={`homeslogan ${show ? "fade-in" : "fade-out"}`}>
-            <h2>在世界的浪潮中，自由前行</h2>
 
-            <button className="home-b-form" type="button">
-              <span>Start</span>
-              <img src="./img-Home/home-s-right.svg" alt="" />
-            </button>
-          </div>
-    
+        <div className={`homeslogan ${show ? "fade-in" : "fade-out"}`}>
+          <h2>在世界的浪潮中，自由前行</h2>
+
+          <button className="home-b-form" type="button">
+            <span>Start</span>
+            <img src="./img-Home/home-s-right.svg" alt="" />
+          </button>
+        </div>
+
 
         <p className='banner-side-word'>floating your own way</p>
         <div className="homescroll">
@@ -50,7 +50,6 @@ const Home = () => {
       </section>
 
       <section id='homeadvantages'>
-
         <header>
           <p className='h-t-1'><span>From</span> Taiwan to the World</p>
           <p className='h-t-2'>

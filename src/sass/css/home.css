@@ -305,6 +305,19 @@ body {
   height: 100%;
   -o-object-position: center;
      object-position: center;
+  animation: floatIcon 2s ease-in-out infinite;
+}
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  /* 上下位移 */
+  100% {
+    transform: translateY(0);
+  }
 }
 #homebanner .banner-line {
   position: absolute;
