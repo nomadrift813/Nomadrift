@@ -155,8 +155,7 @@ button {
   display: block;
   /* 去掉底部空隙 */
 }
-
-.groupSlogan2 {
+#groupBanner2 .groupSlogan2 {
   position: absolute;
   /* 疊在圖片上 */
   top: 50%;
@@ -171,25 +170,25 @@ button {
   align-items: center;
   gap: 13px;
 }
-.groupSlogan2 h3,
-.groupSlogan2 h2 {
+#groupBanner2 .groupSlogan2 h3,
+#groupBanner2 .groupSlogan2 h2 {
   color: #fff;
   text-align: center;
   line-height: 150%;
 }
-.groupSlogan2 h3 {
+#groupBanner2 .groupSlogan2 h3 {
   font-family: "Inter";
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
 }
-.groupSlogan2 h2 {
+#groupBanner2 .groupSlogan2 h2 {
   font-family: "Noto Sans TC";
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 500;
-  letter-spacing: 10px;
+  letter-spacing: 4px;
 }
-.groupSlogan2 .line {
+#groupBanner2 .groupSlogan2 .line {
   width: 60px;
   height: 1px;
   background: #fff;
@@ -306,6 +305,11 @@ button {
 #groupInfo .pm:hover {
   background: #e0e0e0;
 }
+@media (max-width:640px) {
+  #groupInfo .pm {
+    width: 100%;
+  }
+}
 #groupInfo .join {
   display: flex;
   padding: 5px 30px;
@@ -325,6 +329,11 @@ button {
 #groupInfo .join img {
   width: 8.5px;
   height: 15.5px;
+}
+@media (max-width:640px) {
+  #groupInfo .join {
+    width: 100%;
+  }
 }
 
 #activity-content .content-title {
@@ -374,12 +383,12 @@ button {
   font-family: "Noto Sans TC";
   font-size: 32px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 #activity-content .content-title .line {
   width: 60px;
   height: 1px;
-  background: #41453D;
+  background: #737B6B;
 }
 #activity-content .content-title p {
   color: #7A7872;
@@ -418,67 +427,63 @@ button {
     gap: 15%;
   }
 }
-
-.organizer-info {
+#people-info .organizer-info {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-.organizer-info h3 {
+#people-info .organizer-info h3 {
   font-family: "Noto Sans TC";
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 2px;
 }
-.organizer-info p {
+#people-info .organizer-info p {
   color: #7A7872;
   font-family: "Noto Sans TC";
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 2px;
 }
-
-.participants {
+#people-info .participants {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-.participants h3 {
+#people-info .participants h3 {
   font-family: "Noto Sans TC";
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 2px;
 }
-.participants p {
+#people-info .participants p {
   color: #7A7872;
   font-family: "Noto Sans TC";
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 2px;
 }
-
-.people-img {
+#people-info .people-img {
   display: flex;
   width: 80px;
   border-radius: 999px;
   border: 2px solid #fff;
 }
 @media (max-width:640px) {
-  .people-img {
+  #people-info .people-img {
     width: 60px;
   }
 }
-
-.join-people {
+#people-info .join-people {
   display: flex;
   align-items: center;
 }
 @media (max-width:640px) {
-  .join-people {
+  #people-info .join-people {
     width: 60px;
   }
 }
-.join-people .people-img2 {
+#people-info .join-people .people-img2 {
   display: flex;
   width: 80px;
   border-radius: 999px;
@@ -486,12 +491,12 @@ button {
   margin-left: -40px;
 }
 @media (max-width:640px) {
-  .join-people .people-img2 {
+  #people-info .join-people .people-img2 {
     width: 60px;
     margin-left: -30px;
   }
 }
-.join-people .people-img2 img:first-child {
+#people-info .join-people .people-img2 img:first-child {
   margin-left: 0;
 }
 
@@ -539,6 +544,12 @@ button {
   align-items: center;
   border-bottom: 1px solid #737B6B;
 }
+@media (max-width:640px) {
+  #activity-comments .comment {
+    gap: 24px;
+    padding: 12px 0px;
+  }
+}
 #activity-comments .comment-content {
   display: flex;
   flex-direction: column;
@@ -550,6 +561,11 @@ button {
   border-radius: 999px;
   border: 2px solid #fff;
 }
+@media (max-width:640px) {
+  #activity-comments .commenter-photo {
+    width: 60px;
+  }
+}
 #activity-comments .commenter-name {
   align-self: stretch;
   color: #7A7872;
@@ -558,13 +574,23 @@ button {
   line-height: 150%;
   letter-spacing: 1px;
 }
+@media (max-width:640px) {
+  #activity-comments .commenter-name {
+    font-size: 16px;
+  }
+}
 #activity-comments p {
   align-self: stretch;
   color: #41453D;
   font-family: "Noto Sans TC";
   font-size: 20px;
   line-height: 150%;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+}
+@media (max-width:640px) {
+  #activity-comments p {
+    font-size: 18px;
+  }
 }
 #activity-comments .input {
   font-size: 20px;
@@ -579,9 +605,11 @@ button {
   padding: 0px 150px;
   margin-top: 80px;
   gap: 32px;
+  /* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
+  /* 可選：GroupCard 在輪播裡的微互動（若根節點 class 不同可刪或改） */
+  /* 使用者偏好：若系統開啟減少動畫，讓 rAF 邏輯可切換（需在 React 內配合加上 is-reduced） */
 }
-
-.more-activities-title {
+#more-activities .more-activities-title {
   position: static;
   display: flex;
   flex-direction: column;
@@ -590,51 +618,46 @@ button {
   background: #F4F1E5;
   z-index: 1;
 }
-.more-activities-title h3,
-.more-activities-title h2 {
+#more-activities .more-activities-title h3,
+#more-activities .more-activities-title h2 {
   text-align: center;
   line-height: 150%;
 }
-.more-activities-title h3 {
+#more-activities .more-activities-title h3 {
   color: #737B6B;
   font-family: "Inter";
   font-size: 22px;
   font-weight: 400;
   letter-spacing: 5px;
 }
-.more-activities-title h2 {
+#more-activities .more-activities-title h2 {
   color: #201811;
   font-family: "Noto Sans TC";
   font-size: 36px;
   font-weight: 500;
   letter-spacing: 10px;
 }
-.more-activities-title .line {
+#more-activities .more-activities-title .line {
   width: 60px;
   height: 1px;
   background: #737B6B;
 }
-
-.more-activities-cards {
+#more-activities .more-activities-cards {
   display: flex;
   gap: 40px;
   justify-content: center;
   align-items: center;
 }
-.more-activities-cards element.style {
+#more-activities .more-activities-cards element.style {
   --pause-on-hover: running;
   --pause-on-click: paused;
   --width: 100% --transform: none;
 }
-
-/* ===== Carousel (更多揪團) ===== */
-/* 放在 #more-activities 區塊後方 */
-.carousel {
+#more-activities .carousel {
   width: 100%;
   padding: 0 40px;
 }
-
-.carousel-title-en {
+#more-activities .carousel-title-en {
   font-family: "Inter";
   font-size: 18px;
   color: #737B6B;
@@ -642,15 +665,13 @@ button {
   letter-spacing: 2px;
   line-height: 150%;
 }
-
-.carousel .line {
+#more-activities .carousel .line {
   width: 60px;
   height: 1px;
   background: #737B6B;
   margin: 10px auto;
 }
-
-.carousel-title {
+#more-activities .carousel-title {
   color: #201811;
   font-family: "Noto Sans TC";
   font-size: 32px;
@@ -659,63 +680,51 @@ button {
   text-align: center;
   line-height: 150%;
 }
-
-.carousel-viewport {
+#more-activities .carousel-viewport {
   overflow: hidden;
   border-radius: 14px;
   position: relative;
   background: #F4F1E5;
 }
-
-.carousel-track {
+#more-activities .carousel-track {
   display: flex;
   gap: 30px;
   /* 卡片間距 */
   will-change: transform;
 }
-
-.carousel-set {
+#more-activities .carousel-set {
   display: flex;
   gap: 30px;
   margin: 30px 0px;
   align-items: center;
   /* 與 .carousel-track 保持一致 */
 }
-
-/* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
-.carousel-card {
+#more-activities .carousel-card {
   flex: 0 0 calc((100% - 90px) / 4);
-  /* 5 欄時扣掉 4 個間距 */
 }
-
-@media (max-width: max-width:970px) {
-  .carousel-card {
-    flex: 0 0 calc((100% - 60px) / 3);
+@media (max-width:970px) {
+  #more-activities .carousel-card {
+    flex: 0 0 calc((100% - 90px) / 4);
   }
-  /* 4 欄 */
 }
-@media (max-width: max-width:820px) {
-  .carousel-card {
-    flex: 0 0 calc((100% - 30px) / 2);
+@media (max-width:820px) {
+  #more-activities .carousel-card {
+    flex: 0 0 calc((100% - 90px) / 4);
   }
-  /* 3 欄 */
 }
-/* 可選：GroupCard 在輪播裡的微互動（若根節點 class 不同可刪或改） */
-.carousel-card .group-card {
+#more-activities .carousel-card .group-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-.carousel-card .group-card:hover {
+#more-activities .carousel-card .group-card:hover {
   transform: translateY(-2px);
 }
-
-/* 使用者偏好：若系統開啟減少動畫，讓 rAF 邏輯可切換（需在 React 內配合加上 is-reduced） */
 @media (prefers-reduced-motion: reduce) {
-  .carousel.is-reduced .carousel-track {
+  #more-activities .carousel.is-reduced .carousel-track {
     transition: none !important;
   }
 }
-.createGroup-title {
+
+#createGroup .createGroup-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -725,21 +734,21 @@ button {
   /* keyframes: 上下飄移 */
   /* keyframes: 左右旋轉 */
 }
-.createGroup-title h2 {
+#createGroup .createGroup-title h2 {
   color: #737B6B;
   font-family: "Noto Sans TC";
   font-size: 20px;
   letter-spacing: 2px;
 }
-.createGroup-title .line {
+#createGroup .createGroup-title .line {
   width: 60px;
   height: 1px;
   background: #737B6B;
 }
-.createGroup-title button {
+#createGroup .createGroup-title .btn2-create {
   color: #41453D;
   text-align: center;
-  margin-top: 5px;
+  margin-bottom: 40px;
   /* 中文/大標 */
   font-family: "Noto Sans TC";
   font-size: 24px;
@@ -755,7 +764,7 @@ button {
   /* 上下飄移動畫 */
   animation: floatUpDown 3s ease-in-out infinite;
 }
-.createGroup-title button:hover {
+#createGroup .createGroup-title button:hover {
   animation: floatUpDown 3s ease-in-out infinite, rotateShake 0.5s ease-in-out 1;
 }
 @keyframes floatUpDown {

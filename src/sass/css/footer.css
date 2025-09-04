@@ -154,7 +154,6 @@ footer .ocean {
   bottom: 0;
   left: 0;
   right: 0;
-  overflow-x: hidden;
 }
 footer .wave {
   background: url("../../../public/img-Footer/waves.svg");
@@ -186,16 +185,43 @@ footer .wave:nth-of-type(3) {
     transform: translateX(-50%);
   }
 }
-footer ul.Sitemap {
+footer .boat {
+  width: 80px;
+  position: relative;
+  left: 1250px;
+  bottom: 44px;
+  animation: boat 3s linear infinite;
+}
+@keyframes boat {
+  0% {
+    margin-top: 0.25em;
+    transform: rotate(-4deg);
+  }
+  40% {
+    transform: rotate(6deg);
+    margin-top: -0.5em;
+  }
+  65% {
+    transform: rotate(-8deg);
+    margin-top: -0.125em;
+  }
+  100% {
+    transform: rotate(-4deg);
+    margin-top: 0.25em;
+  }
+}
+
+ul.Sitemap {
   display: flex;
   justify-content: center;
-  padding: 20px 50px;
+  padding: 20px 50px 20px 90px;
   background-color: #41453D;
+  gap: 20px;
 }
-footer ul.Sitemap a {
+ul.Sitemap a {
   color: #F4F1E5;
 }
-footer ul.Sitemap .frame1 {
+ul.Sitemap .frame1 {
   display: flex;
   width: 140px;
   height: 20px;
@@ -208,7 +234,7 @@ footer ul.Sitemap .frame1 {
   border: 1px solid #F4F1E5;
   background: #F4F1E5;
 }
-footer ul.Sitemap .frame2 {
+ul.Sitemap .frame2 {
   display: flex;
   width: 100px;
   height: 20px;
@@ -219,26 +245,27 @@ footer ul.Sitemap .frame2 {
   border: 1px solid #F4D000;
   background: #F4D000;
 }
-footer ul.Sitemap ul {
+ul.Sitemap ul {
   font-size: 12px;
   font-weight: 200;
   line-height: 20px;
   align-items: center;
 }
-footer ul.Sitemap li {
+ul.Sitemap li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 180px;
   gap: 8px;
 }
-footer h4 {
+
+h4 {
   display: flex;
   justify-content: center;
   background-color: #201811;
   color: #F4F1E5;
 }
-footer h4 span {
+h4 span {
   font-size: 12px;
   font-weight: 300;
   padding: 10px 0px;

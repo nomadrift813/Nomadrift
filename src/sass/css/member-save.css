@@ -139,7 +139,7 @@ button {
   cursor: pointer;
 }
 
-#member-diary {
+#member-save {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -150,7 +150,7 @@ button {
   gap: 185px;
 }
 @media (max-width:1255px) {
-  #member-diary {
+  #member-save {
     padding-top: 0px;
     padding-left: 50px;
     align-items: center;
@@ -158,12 +158,12 @@ button {
   }
 }
 @media (max-width:640px) {
-  #member-diary {
+  #member-save {
     padding-top: 150px;
     align-items: flex-start;
   }
 }
-#member-diary header ul {
+#member-save header ul {
   display: flex;
   flex-direction: column;
   width: 145px;
@@ -174,7 +174,7 @@ button {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
 }
-#member-diary header ul li a {
+#member-save header ul li a {
   color: #C5C5C5;
   font-family: "Noto Sans TC";
   font-size: 18px;
@@ -184,21 +184,21 @@ button {
   border-bottom: 1px solid #C5C5C5;
   transition: all 0.25s ease;
 }
-#member-diary header ul:not(:hover) li:nth-child(3) a {
+#member-save header ul:not(:hover) li:nth-child(4) a {
   color: #201811;
   border-bottom: 1px solid #201811;
 }
-#member-diary header ul li:hover a {
+#member-save header ul li:hover a {
   color: #201811;
   border-bottom: 1px solid #201811;
 }
-#member-diary .m-all-box .m-d-title {
+#member-save .m-all-box .m-d-title {
   border-bottom: 1px dashed #201811;
   margin-bottom: 32px;
   padding-bottom: 7px;
   margin-right: calc(50% - 50vw);
 }
-#member-diary .m-all-box .m-d-title p {
+#member-save .m-all-box .m-d-title p {
   color: #201811;
   text-align: start;
   font-family: "Inter";
