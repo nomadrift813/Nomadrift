@@ -1,46 +1,183 @@
 @use 'reset';
 @use 'var' as *;
 
-// 大標Slogan
-#create-group {
-    .create-group-Slogan {
-        position: static;
+
+
+
+.groupBanner3 {
+    margin: 100px 0px;
+}
+
+
+
+
+// 頁面標題區域
+#groupSlogan3 {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: $background1;
+    z-index: 1;
+
+
+    h3,
+    h2 {
+        text-align: center;
+        line-height: 150%;
+    }
+
+
+    h3 {
+        color: $primary2;
+        font-family: $en;
+        font-size: $f-s-sm2;
+        font-weight: $f-w-4;
+        letter-spacing: 2px;
+    }
+
+
+    h2 {
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-xl;
+        font-weight: $f-w-5;
+        letter-spacing: 4px;
+    }
+
+
+    .line {
+        width: 60px;
+        height: 1px;
+        background: $primary2;
+    }
+}
+
+
+// 活動基本資訊區域
+// 表單大標
+#basic-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+    border: solid 5px red;
+
+    .header-title {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        background: $background1;
-        z-index: 1;
-        margin-top: 120px;
-
-        h3,
-        h2 {
-            text-align: center;
-            line-height: 150%;
-        }
-
-        h3 {
-            color: $primary2;
-            font-family: $en;
-            font-size: $f-s-sm2;
-            font-weight: $f-w-4;
-            letter-spacing: 2px;
-        }
+        align-items: baseline;
+        gap: 16px;
+        // padding-left: 16px;
+        // border-left: solid 4px $primary1;
 
         h2 {
             color: $text;
             font-family: $family-tc;
-            font-size: $f-s-xl;
-            font-weight: $f-w-5;
-            letter-spacing: 4px;
+            font-size: $f-s-lg;
+            line-height: 150%;
+            letter-spacing: 2px;
+            padding-left: 16px;
+            border-left: solid 4px $primary1;
         }
 
-        .line {
-            width: 60px;
-            height: 1px;
-            background: $primary2;
+        p {
+            color: $primary2;
+            font-family: $family-tc;
+            font-size: $f-s-sm;
+            line-height: 150%;
+            letter-spacing: 1px;
+        }
+    }
+
+
+    // 白底表單1
+    .form1-fields {
+        display: flex;
+        padding: 40px 100px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        border-radius: 20px;
+        background: #F8F8F8;
+
+
+        // 表格共用
+        .group-category {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            align-self: stretch;
+        }
+
+        .category-title {
+            align-self: stretch;
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-md;
+            line-height: 150%;
+            letter-spacing: 2px;
+        }
+
+        // 表格共用
+
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 1.4;
+            font-weight: 400;
+            /* 外觀 */
+            padding: 12px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            background: #efefef;
+            /* 動畫 */
+            transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+
+
+        }
+
+
+        /* Placeholder 顏色 */
+        .date-input::placeholder {
+            color: #9ca3af;
+            /* gray-400 */
+        }
+
+
+        /* Hover*/
+        .date-input:hover {
+            border: 1px solid $primary2;
+            /* gray-300 */
+        }
+
+
+        /* Focus */
+        .date-input:focus {
+            outline: none;
+            border: 1px solid $accent;
+        }
+    }
+
+
+    .g3-btns {
+        display: flex;
+        gap: 24px;
+
+
+        .active-btn {
+            display: flex;
+            padding: 5px 30px;
+            justify-content: center;
+            align-items: center;
+            color: $primary1;
+            font-size: $f-s-sm;
+            border-radius: 99px;
+            border: solid 1px $primary1;
         }
     }
 }
-
-// 想揪什麼團

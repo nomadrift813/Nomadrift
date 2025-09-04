@@ -1,50 +1,126 @@
 import '../sass/scss/group3.scss'
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import CalendarInput from '../component/CalendarInput'
+import TimeInput from '../component/TimeInput'
 
 const Group3 = () => {
+    // 日曆輸入框
+    const [singleDate, setSingleDate] = useState('');
+    const [rangeDate, setRangeDate] = useState('');
+    const [eventDate, setEventDate] = useState('');
+
+    const handleSingleDateChange = (date) => {
+        setSingleDate(date);
+        console.log('單日選擇:', date);
+    };
+
+    const handleRangeDateChange = (range) => {
+        setRangeDate(range);
+        console.log('區間選擇:', range);
+    };
+
+    const handleEventDateChange = (date) => {
+        setEventDate(date);
+        console.log('活動日期:', date);
+    };
+    // 日曆輸入框
+
+
+    // 時間輸入框
+    const handleEventTimeChange = (time) => {   // << 新增 handler
+        setEventTime(time);
+        console.log('活動時間:', time);
+    };
+    // 時間輸入框
+
+
     return (
         <main>
-
-            {/* 大標Slogan */}
-            <section id='create-group'>
-                <div className='create-group-Slogan'>
-                    <h3>Right now! Start!</h3>
+            <div className="groupBanner3">
+                {/* 頁面標題區域 */}
+                <section id="groupSlogan3">
+                    <h3>Plan It Your Way, Find Your Crew!</h3>
                     <div className="line"></div>
-                    <h2>發起揪團吧！</h2>
-                    </div>
-            </section>
+                    <h2>發起你的專屬揪團!</h2>
+                    <div className="title-underline"></div>
+                </section>
 
-            {/* 想揪什麼團 */}
-            <form class="form-container" id="createGroupForm"/>
-            
-            <div class="form-group">
-                <label class="form-label">想揪甚麼團<span class="required">*</span></label>
-                <div class="category-options">
-                    <div class="category-option">
-                        <input type="radio" id="food" name="category" value="找吃飯夥伴" required/>
-                        <label for="food">找吃飯夥伴</label>
+
+                {/* 活動基本資訊區域 */}
+                {/* 表單大標 */}
+                <section id="basic-info">
+                    <div className='header-title'>
+                        <h2>活動基本資訊</h2>
+                        <p>簡單幾步，就能號召志同道合的遊牧夥伴！</p>
                     </div>
-                    <div class="category-option">
-                        <input type="radio" id="work" name="category" value="找工作夥伴" required/>
-                        <label for="work">找工作夥伴</label>
+
+                    {/* 白底表單1 */}
+                    <div className='form1-fields'>
+                        {/* 揪團類型選擇 */}
+                        <label className='group-category' > {/*htmlFor=""*/}
+                            <h3 className='category-title'>想揪甚麼團?</h3>
+                            {/* 按鈕類型選擇 */}
+                            <div className='g3-btns'>
+                                <button className='active-btn'>找吃飯夥伴</button>
+                                <button className='active-btn'>找工作夥伴</button>
+                                <button className='active-btn'>找踩點夥伴</button>
+                                <button className='active-btn'>找合租室友</button>
+                                <button className='active-btn'>找Chill伴</button>
+                            </div>
+                        </label>
+
+
+                        {/* 活動日期 */}
+                        <label className='group-category' >
+                            <CalendarInput
+                                title="活動日期"
+                                placeholder="決定哪天要一起玩吧！"
+                                rangePlaceholder="選擇活動日期"
+                                allowRange={true}
+                                value={rangeDate}
+                                onChange={handleRangeDateChange}
+                            />
+                        </label>
+
+                        {/* 活動時間 */}
+                        <label className='group-category' >
+                            <CalendarInput
+                                title="活動時間"
+                                placeholder="請選擇活動時間"
+                                rangePlaceholder="選擇活動日期"
+                                allowRange={true}
+                                value={rangeDate}
+                                onChange={handleRangeDateChange}
+                            />
+                        </label>
+
+                        {/* 集合地點 */}
+                        <label className='group-category' > {/*htmlFor=""*/}
+                            <h3 className='category-title'>集合地點</h3>
+                            {/* 按鈕類型選擇 */}
+                            <input
+                                type="text"
+                                placeholder='例如：台北信義區' />
+                        </label>
+
+                        {/*報名截止日 */}
+                        <label className='group-category' >
+                            <CalendarInput
+                                title="報名截止日期"
+                                placeholder="請選擇截止日期"
+                                rangePlaceholder="選擇日期"
+                                allowRange={true}
+                                value={rangeDate}
+                                onChange={handleRangeDateChange}
+                            />
+                        </label>
+
                     </div>
-                    <div class="category-option">
-                        <input type="radio" id="explore" name="category" value="找踩點夥伴" required/>
-                        <label for="explore">找踩點夥伴</label>
-                    </div>
-                    <div class="category-option">
-                        <input type="radio" id="roommate" name="category" value="找合租室友" required/>
-                        <label for="roommate">找合租室友</label>
-                    </div>
-                    <div class="category-option">
-                        <input type="radio" id="chill" name="category" value="找chill伴" required/>
-                        <label for="chill">找chill伴</label>
-                    </div>
-                </div>
-                <div class="error-message">請選擇一個類型</div>
+                </section>
             </div>
         </main>
-    )
-}
-export default Group3
+    );
+};
+
+export default Group3;
