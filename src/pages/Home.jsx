@@ -1,4 +1,4 @@
-import '../sass/css/home.min.css'
+import '../sass/scss/home.scss'
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 
@@ -66,8 +66,55 @@ const Home = () => {
           <article><figure><img src="./img-Home/advico-4.svg" alt="" /></figure><h3>快速揪團</h3><p>一鍵開團<br />
             立刻找到同行夥伴</p></article>
         </div>
-
       </section>
+
+      <svg class="wave-svg" viewBox="0 0 240 60" preserveAspectRatio="none">
+        <defs>
+          {/* <!-- 大弧度 --> */}
+          <path id="segBig"
+            d="M0,30 
+           C40,0  40,60  80,30
+           C120,0 120,60 160,30
+           C200,0 200,60 240,30
+           V60 H0 Z"/>
+
+          {/* <!-- 中弧度 --> */}
+          <path id="segMid"
+            d="M0,30 
+           C30,10 30,50 60,30
+           C90,10 90,50 120,30
+           C150,10 150,50 180,30
+           C210,10 210,50 240,30"/>
+
+          {/* <!-- 小弧度 --> */}
+          <path id="segSmall"
+            d="M0,30 
+           C20,20 20,40 40,30
+           C60,20 60,40 80,30
+           C100,20 100,40 120,30
+           C140,20 140,40 160,30
+           C180,20 180,40 200,30
+           C220,20 220,40 240,30"/>
+        </defs>
+
+        {/* <!-- 大弧度底色 --> */}
+        <g class="move fill big">
+          <use href="#segBig" x="0" />
+          <use href="#segBig" x="239" />
+        </g>
+
+        {/* <!-- 中弧度線條 --> */}
+        <g class="move stroke mid">
+          <use href="#segMid" x="0" />
+          <use href="#segMid" x="239" />
+        </g>
+
+        {/* <!-- 小弧度線條 --> */}
+        <g class="move stroke small">
+          <use href="#segSmall" x="0" />
+          <use href="#segSmall" x="239" />
+        </g>
+      </svg>
 
       <section id='homelocation'>
         <header>
@@ -138,8 +185,13 @@ const Home = () => {
           <p className='h-g-block1'>讓你在異鄉，也有同路人～</p>
           <p className='h-g-block2'>一個人沒動力？一起就有趣！!</p>
         </div>
-        <div className="h-g-botton-wrap">
-          <p className='h-g-botton'>Get together Get together</p>
+        <div class="h-g-botton-wrap">
+          <div class="h-g-track">
+            <span class="h-g-item">&nbsp;Get together Get together</span>
+            <span class="h-g-item" aria-hidden="true">&nbsp;Get together Get together</span>
+            <span class="h-g-item" aria-hidden="true">&nbsp;Get together Get together</span>
+            <span class="h-g-item" aria-hidden="true">&nbsp;Get together Get together</span>
+          </div>
         </div>
         <p className='h-g-side-word-1'>nice to me you</p>
         <figure className='h-group-line'><img src="./img-Home/group-line.svg" alt="" /></figure>
@@ -179,7 +231,7 @@ const Home = () => {
             </div>
           </article>
           <button className='home-all-spot'>
-            <Link to="/diary">所有日記</Link>
+            <Link to="/diary" >所有日記</Link>
           </button>
         </div>
 
