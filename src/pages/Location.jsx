@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 import '../sass/scss/location.scss'
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 
 const Location = () => {
@@ -130,8 +135,9 @@ const Location = () => {
           </article>
         </Link>
 
-          {/* 所有卡片 */}
-          <article className='asiaCard'>
+        {/* 所有卡片 */}
+        <article className='asiaCard'>
+
             {/* 亞洲卡片1 */}
               <Link to="/location2">
                 <section className='country'>
@@ -161,61 +167,62 @@ const Location = () => {
               </Link>
 
             {/* 亞洲卡片2 */}
-            <Link to="/location2">
-              <section className='country'>
-                <div className='p1-sel'>
-                  <figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure>
-                  <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                </div>
-                <article className='loc-info'>
-                  <h2>尼泊爾</h2>
-                  <p className='loc-text'>位於喜馬拉雅山腳下，是宗教與歷史重鎮，擁有眾多佛教與印度教寺廟，文化深厚、街道熱鬧，是前往登山與探索尼泊爾文化的門戶。</p>
-                  <div className='wi-st'>
-                    <ul>
-                      <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                    </ul>
-                    <figure className='stars'>
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                    </figure>
+              <Link to="/location2">
+                <section className='country'>
+                  <div className='p1-sel'>
+                    <figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure>
+                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
                   </div>
-                  <span>15000 /月</span>
-                </article>
-                <div className='color-block'></div>
-              </section>
-            </Link>
+                  <article className='loc-info'>
+                    <h2>尼泊爾</h2>
+                    <p className='loc-text'>位於喜馬拉雅山腳下，是宗教與歷史重鎮，擁有眾多佛教與印度教寺廟，文化深厚、街道熱鬧，是前往登山與探索尼泊爾文化的門戶。</p>
+                    <div className='wi-st'>
+                      <ul>
+                        <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                      </ul>
+                      <figure className='stars'>
+                        <img src="./img-Location/Star1.svg" alt="" />
+                        <img src="./img-Location/Star1.svg" alt="" />
+                        <img src="./img-Location/Star1.svg" alt="" />
+                        <img src="./img-Location/Star1.svg" alt="" />
+                        <img src="./img-Location/Star2.svg" alt="" />
+                      </figure>
+                    </div>
+                    <span>15000 /月</span>
+                  </article>
+                  <div className='color-block'></div>
+                </section>
+              </Link>
 
             {/* 亞洲卡片3 */}
-            <Link to="/location2">
-              <section className='country'>
-                <div className='p1-sel'>
-                  <figure className='loc-p1'><img src="./img-Location/Israel.jpg" alt="" /></figure>
-                  <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                </div>
-                <article className='loc-info'>
-                  <h2>以色列</h2>
-                  <p className='loc-text'>融合古老宗教文化與現代科技創新，以耶路撒冷與特拉維夫聞名。</p>
-                  <div className='wi-st'>
-                    <ul>
-                      <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                    </ul>
-                    <figure className='stars'>
-                      <img src="./img-Location/Star1.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                      <img src="./img-Location/Star2.svg" alt="" />
-                    </figure>
+              <Link to="/location2">
+                <section className='country'>
+                  <div className='p1-sel'>
+                    <figure className='loc-p1'><img src="./img-Location/Israel.jpg" alt="" /></figure>
+                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
                   </div>
-                  <span>15000 /月</span>
-                </article>
-                <div className='color-block'></div>
-              </section>
-            </Link>
-          </article>
+                  <article className='loc-info'>
+                    <h2>以色列</h2>
+                    <p className='loc-text'>融合古老宗教文化與現代科技創新，以耶路撒冷與特拉維夫聞名。</p>
+                    <div className='wi-st'>
+                      <ul>
+                        <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                      </ul>
+                      <figure className='stars'>
+                        <img src="./img-Location/Star1.svg" alt="" />
+                        <img src="./img-Location/Star2.svg" alt="" />
+                        <img src="./img-Location/Star2.svg" alt="" />
+                        <img src="./img-Location/Star2.svg" alt="" />
+                        <img src="./img-Location/Star2.svg" alt="" />
+                      </figure>
+                    </div>
+                    <span>15000 /月</span>
+                  </article>
+                  <div className='color-block'></div>
+                </section>
+              </Link>
+
+        </article>
 
         {/* 更多按鈕 */}
         <button><a href='#'></a>View more</button>
