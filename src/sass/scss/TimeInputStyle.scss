@@ -1,7 +1,6 @@
 @use 'reset';
-@use 'var' as *; // 帶入你自訂的：$accent, $background1, $text, $primary1, ...
 
-// DatePickerInput.scss
+// TimeInputStyle.scss
 $primary-color: #f4c430;
 $primary-hover: #e6b82a;
 $primary-active: #d4a624;
@@ -16,19 +15,20 @@ $border-color: #f4c430;
 $shadow-color: rgba(0, 0, 0, 0.1);
 $required-color: #ef4444;
 $range-hint-bg: #e0f2fe;
-
-/* 若你的 var.scss 也定義了字體/字級，以下可替換為對應變數 */
-$family-tc: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif !default;
-$f-s-md: 16px !default;
-$f-s-sm: 14px !default;
+$family-tc: "Noto Sans TC";
+$f-s-md: 20px;
+$f-s-sm: 16px;
+$text: #201811;
 
 .time-picker-container {
     display: flex;
-    width: 100%;
+    width: 100%; // 填滿父元素
     position: relative;
     flex-direction: column;
     gap: 8px;
+    // border: solid 5px rgb(98, 0, 255);
 
+    // 活動時間標題
     .title-section {
         .title {
             align-self: stretch;
@@ -45,25 +45,26 @@ $f-s-sm: 14px !default;
         }
     }
 
+    // 活動時間輸入框
     .input-wrapper {
         position: relative;
         display: flex;
         width: 100%;
 
         .time-input {
-            width: 100%;
+            width: 100%; // 填滿父元素
             box-sizing: border-box;
             font-size: $f-s-sm;
             line-height: 1.4;
             font-weight: 400;
             padding: 12px 40px 12px 14px;
-            border: 2px solid $border-color;
+            border: 2px solid #CCC;
             border-radius: 12px;
-            background: $white;
-            color: $text-primary;
+            background: white;
+            color: $text; //輸入完成後的字顏色
             cursor: pointer;
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-
+            
             &::placeholder {
                 color: $text-placeholder;
             }
@@ -75,7 +76,7 @@ $f-s-sm: 14px !default;
             &:focus {
                 outline: none;
                 border-color: $primary-active;
-                box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+                box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
             }
 
             &:disabled {
@@ -94,19 +95,14 @@ $f-s-sm: 14px !default;
             height: 20px;
             color: $text-secondary;
             pointer-events: none;
-
-            // 類 disabled 視覺：當 input:disabled
-            .time-input:disabled+& {
-                opacity: 0.5;
-            }
         }
 
         .time-picker-container-dropdown {
             position: absolute;
             top: 100%;
-            left: 0;
-            right: 0;
-            background: $white;
+            left: 30%;
+            right: 30%;
+            background: white;
             border: 2px solid $border-color;
             border-radius: 12px;
             box-shadow: 0 10px 25px -3px $shadow-color, 0 4px 6px -2px $shadow-color;
@@ -129,6 +125,7 @@ $f-s-sm: 14px !default;
                 }
             }
 
+            // 新增：區間選擇提示
             .range-hint {
                 background: $range-hint-bg;
                 color: $text-primary;
@@ -172,7 +169,7 @@ $f-s-sm: 14px !default;
                     .time-nav-btn {
                         padding: 8px;
                         border: none;
-                        background: rgba($primary-color, 0.1);
+                        background: rgba(255, 255, 255, 0.2);
                         border-radius: 6px;
                         cursor: pointer;
                         color: $text-primary;
@@ -182,7 +179,7 @@ $f-s-sm: 14px !default;
                         transition: background-color 0.15s ease;
 
                         &:hover {
-                            background: rgba($primary-color, 0.2);
+                            background: rgba(255, 255, 255, 0.4);
                         }
 
                         .nav-icon {
@@ -253,9 +250,15 @@ $f-s-sm: 14px !default;
             }
         }
     }
+
+    .field-hint {
+        margin-top: 6px;
+        font-size: 12px;
+        color: $required-color; // 與其他組件的提示紅一致
+    }
 }
 
-/* 響應式 */
+// 響應式設計
 @media (max-width: 768px) {
     .time-picker-container {
         .input-wrapper {

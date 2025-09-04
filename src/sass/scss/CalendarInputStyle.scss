@@ -1,7 +1,7 @@
 @use 'reset';
-@use 'var' as *;
 
-// DatePickerInput.scss
+
+// CalendarInputStyle.scss
 $primary-color: #f4c430;
 $primary-hover: #e6b82a;
 $primary-active: #d4a624;
@@ -16,6 +16,10 @@ $border-color: #f4c430;
 $shadow-color: rgba(0, 0, 0, 0.1);
 $required-color: #ef4444;
 $range-hint-bg: #e0f2fe;
+$family-tc: "Noto Sans TC";
+$f-s-md: 20px;
+$f-s-sm: 16px;
+$text: #201811;
 
 .date-picker-container {
     display: flex;
@@ -29,7 +33,7 @@ $range-hint-bg: #e0f2fe;
     .title-section {
         .title {
             align-self: stretch;
-            color: $text;
+            color: $text-primary;
             font-family: $family-tc;
             font-size: $f-s-md;
             line-height: 150%;
@@ -55,7 +59,7 @@ $range-hint-bg: #e0f2fe;
             line-height: 1.4;
             font-weight: 400;
             padding: 12px 40px 12px 14px;
-            border: 2px solid $border-color;
+            border: 2px solid #ccc;
             border-radius: 12px;
             background: white;
             color: $text; //輸入完成後的字顏色
