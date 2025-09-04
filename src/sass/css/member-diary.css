@@ -139,88 +139,72 @@ button {
   cursor: pointer;
 }
 
-#sign {
+#member-information {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #F4F1E5;
+  padding-top: 166px;
+  padding-left: 225px;
+  gap: 185px;
+}
+@media (max-width:1255px) {
+  #member-information {
+    padding-top: 0px;
+    padding-left: 50px;
+    align-items: center;
+    gap: 50px;
+  }
+}
+@media (max-width:640px) {
+  #member-information {
+    padding-top: 150px;
+    align-items: flex-start;
+  }
+}
+#member-information header ul {
   display: flex;
   flex-direction: column;
+  width: 145px;
+  height: 304px;
+  padding: 30px 10px;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 100px;
-  width: 526px;
-  height: 542px;
   border-radius: 20px;
-  background-color: #fff;
-  padding: 40px 65px 25px 65px;
+  background: rgba(255, 255, 255, 0.5);
 }
-#sign h1 {
-  text-align: center;
-  margin-bottom: 45px;
-  color: #201811;
+#member-information header ul li a {
+  color: #C5C5C5;
   font-family: "Noto Sans TC";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-}
-#sign form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-}
-#sign form .sign-f-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  width: 390px;
-  height: 33px;
-  padding: 8px 15px;
-  align-self: stretch;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.1);
-}
-#sign form .sign-f-row label {
-  width: 75px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: #201811;
-  font-family: "Noto Sans TC";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-  border-right: 1px solid #BDBDBB;
-  padding-right: 10px;
-  height: 20px;
-}
-#sign form .sign-f-row input {
-  border: none;
-  background-color: transparent;
-  color: #201811;
-  font-family: "Noto Sans TC";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-}
-#sign form button {
-  display: flex;
-  padding: 5px 30px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 99px;
-  background-color: #F4D000;
-  border: none;
-  color: #201811;
-  font-family: "Noto Sans TC";
-  font-size: 16px;
-  font-style: normal;
+  font-size: 18px;
   font-weight: 400;
   line-height: 150%;
-  letter-spacing: 2px;
-  margin-top: 10px;
+  letter-spacing: 1.8px;
+  border-bottom: 1px solid #C5C5C5;
+  transition: all 0.25s ease;
 }
-#sign p {
-  margin-top: 25px;
+#member-information header ul:not(:hover) li:first-child a {
+  color: #201811;
+  border-bottom: 1px solid #201811;
+}
+#member-information header ul li:hover a {
+  color: #201811;
+  border-bottom: 1px solid #201811;
+}
+#member-information .m-all-box .m-d-title {
+  border-bottom: 1px dashed #201811;
+  margin-bottom: 32px;
+  padding-bottom: 7px;
+  margin-right: calc(50% - 50vw);
+}
+#member-information .m-all-box .m-d-title p {
+  color: #201811;
+  text-align: start;
+  font-family: "Inter";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: 1.2px;
 }

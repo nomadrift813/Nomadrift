@@ -85,15 +85,32 @@
             }
 
             button {
+                // display: flex;
+                // width: 170px;
+                // height: 51px;
+                // padding: 10px 14px;
+                // justify-content: center;
+                // align-items: center;
+
+                // border-radius: 999px;
+                // background: $accent;
+
                 display: flex;
-                width: 170px;
-                height: 51px;
-                padding: 10px 14px;
+                padding: 5px 30px;
                 justify-content: center;
                 align-items: center;
+                border-radius: 99px;
+                background-color: $accent;
+                border: none;
 
-                border-radius: 999px;
-                background: $accent;
+                
+                color: $text;
+                font-family: "Noto Sans TC";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                letter-spacing: 2px;
             }
         }
     }
@@ -105,14 +122,15 @@
         gap: 15px;
         margin-top: 38px;
 
+
         button {
             width: 120px;
             height: 51px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50px;
-            border: 1px solid rgba(76, 74, 74, 0.50);
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            // border-radius: 50px;
+            // border: 1px solid rgba(76, 74, 74, 0.50);
             gap: 5px;
 
             color: #000;
@@ -123,6 +141,15 @@
             font-weight: 400;
 
             line-height: 100%;
+
+
+            display: flex;
+            padding: 5px 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99px;
+            border: none;
+            border: 1px solid rgba(76, 74, 74, 0.50);
 
 
             &:nth-of-type(1) img {
