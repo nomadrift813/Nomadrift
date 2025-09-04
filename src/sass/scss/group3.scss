@@ -1,0 +1,46 @@
+@use 'reset';
+@use 'var' as *;
+
+// 大標Slogan
+#create-group {
+    .create-group-Slogan {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        background: $background1;
+        z-index: 1;
+        margin-top: 120px;
+
+        h3,
+        h2 {
+            text-align: center;
+            line-height: 150%;
+        }
+
+        h3 {
+            color: $primary2;
+            font-family: $en;
+            font-size: $f-s-sm2;
+            font-weight: $f-w-4;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-xl;
+            font-weight: $f-w-5;
+            letter-spacing: 4px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: $primary2;
+        }
+    }
+}
+
+// 想揪什麼團

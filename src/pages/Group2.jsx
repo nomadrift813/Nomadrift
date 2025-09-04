@@ -96,13 +96,13 @@ const Group2 = () => {
     const groupCardData = [
         {
             id: 1,
-            image: "./img-Group/dinner.jpg",
-            signupCount: 6,
-            date: "2025/09/20",
-            time: "19:00",
-            location: "曼谷",
-            title: "一起征服米其林",
-            description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。",
+            image: "./img-Group/fireworks.jpeg",
+            signupCount: 8,
+            date: "2025/09/30",
+            time: "20:00",
+            location: "首爾",
+            title: "屋頂談心",
+            description: "心情不好，找不到好地方，好酒友，我們舉辦了一個專門給想一起看夜景，一起喝酒玩遊戲的屋頂聚會，現場提供超款桌遊跟特製調酒，別怕尷尬",
             detailLink: "/group2",
         },
         {
@@ -237,7 +237,7 @@ const Group2 = () => {
                 </div>
             </section>
 
-             {/* 留言區 */}
+            {/* 留言區 */}
             <section id='activity-comments'>
                 <h3>留言區</h3>
                 {/* Sherry */}
@@ -290,7 +290,7 @@ const Group2 = () => {
                 <div className="createGroup-title">
                     <h2>沒有喜歡的團？</h2>
                     <div className="line"></div>
-                    <button>發起揪團</button>
+                    <Link to="/group3" className="btn2-create">發起揪團</Link>
                 </div>
             </section>
         </main>

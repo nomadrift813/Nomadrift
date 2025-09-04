@@ -4,13 +4,15 @@ import '../sass/scss/footer.scss'
 const Footer = () => {
   return (
     <footer>
-      <nav>
-        {/* waves */}
+      {/* waves */}
         <div className="ocean">
           <div className="wave"></div>
           <div className="wave"></div>
           <div className="wave"></div>
+          {/* boat */}
+          <img className='boat' src="../../../public/img-Footer/boat.svg" alt="" />
         </div>
+      <nav>
         <ul className="Sitemap">
           <li>
             <a href="#">關於我們</a>
