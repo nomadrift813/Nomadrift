@@ -162,10 +162,12 @@ button {
 }
 #topbar .navmenu {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding-right: 62px;
+  gap: 120px;
   list-style: none;
   margin: 0;
-  padding: 0 120px;
   flex-direction: row;
   flex-wrap: nowrap;
 }

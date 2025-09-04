@@ -130,11 +130,20 @@ a {
   text-decoration: none;
 }
 
+/* 重置按鈕 */
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
 .diaAll2 {
   background-image: url("../img/diary-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  width: 100%;
 }
 
 #diary-discover2 {
@@ -263,7 +272,6 @@ a {
   border-radius: 50%;
 }
 .diaArticleSection2 .diaArticle2 .d-member2 p {
-  font-weight: 600;
   font-size: 16px;
 }
 .diaArticleSection2 .diaArticle2 .d-text-card2 {
@@ -305,7 +313,7 @@ a {
   color: #aaa;
   font-size: 0.8rem;
 }
-.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 .h-d-date {
+.diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 .h-d-date2 {
   background-color: #fff;
   border-radius: 12px;
   padding: 1.5px 9px;
@@ -323,4 +331,4 @@ a {
 }
 .diaArticleSection2 .diaArticle2 .d-text-card2 .d-sign2 figure img:hover {
   transform: scale(1.1);
-}/*# sourceMappingURL=diary2.css.map */
+}

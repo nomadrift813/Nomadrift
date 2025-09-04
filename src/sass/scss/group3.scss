@@ -1,46 +1,204 @@
 @use 'reset';
 @use 'var' as *;
 
-// 大標Slogan
-#create-group {
-    .create-group-Slogan {
-        position: static;
+.group3 {
+    margin: 100px 0px;
+}
+
+// 頁面標題區域
+#groupSlogan3 {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: $background1;
+    margin-bottom: 16px;
+
+    h3,
+    h2 {
+        text-align: center;
+        line-height: 150%;
+    }
+
+    h3 {
+        color: $primary2;
+        font-family: $en;
+        font-size: $f-s-sm2;
+        font-weight: $f-w-4;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-xl;
+        font-weight: $f-w-5;
+        letter-spacing: 4px;
+    }
+
+    .line {
+        width: 60px;
+        height: 1px;
+        background: $primary2;
+    }
+}
+
+// 活動基本資訊區域
+#basic-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 24px;
+    // 移除調試用邊框
+    // border: solid 5px red;
+
+    .header-title {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        background: $background1;
-        z-index: 1;
-        margin-top: 120px;
-
-        h3,
-        h2 {
-            text-align: center;
-            line-height: 150%;
-        }
-
-        h3 {
-            color: $primary2;
-            font-family: $en;
-            font-size: $f-s-sm2;
-            font-weight: $f-w-4;
-            letter-spacing: 2px;
-        }
+        align-items: baseline;
+        gap: 16px;
+        margin-left: 50px;
 
         h2 {
             color: $text;
             font-family: $family-tc;
-            font-size: $f-s-xl;
-            font-weight: $f-w-5;
-            letter-spacing: 4px;
+            font-size: $f-s-lg;
+            line-height: 150%;
+            letter-spacing: 2px;
+            padding-left: 16px;
+            border-left: solid 4px $primary1;
         }
 
-        .line {
-            width: 60px;
-            height: 1px;
-            background: $primary2;
+        p {
+            color: $primary2;
+            font-family: $family-tc;
+            font-size: $f-s-sm;
+            line-height: 150%;
+            letter-spacing: 1px;
+        }
+    }
+
+    // 白底表單1
+    .form1-fields {
+        display: flex;
+        padding: 40px 150px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        border-radius: 20px;
+        background: #F8F8F8;
+
+        // 表格共用樣式
+        .group-category {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            align-self: stretch;
+            // 移除與組件樣式衝突的舊樣式，讓組件本身的樣式生效
+
+            // 揪團類型標題樣式
+            .category-title {
+                align-self: stretch;
+                color: $text;
+                font-family: $family-tc;
+                font-size: $f-s-md;
+                line-height: 150%;
+                letter-spacing: 2px;
+            }
+        }
+
+        // 揪團按鈕樣式
+        .g3-btns {
+            display: flex;
+            gap: 24px;
+
+            .active-btn {
+                display: flex;
+                padding: 5px 30px;
+                justify-content: center;
+                align-items: center;
+                color: $primary1;
+                font-size: $f-s-sm;
+                border-radius: 99px;
+                border: solid 1px $primary1;
+                background: transparent;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background: $primary1;
+                    color: white;
+                }
+            }
+        }
+
+        // 移除可能與組件樣式衝突的通用 input 樣式
+        // 讓各組件使用自己的樣式
+    }
+}
+
+// 響應式設計
+@media (max-width: 768px) {
+    .groupBanner3 {
+        margin: 50px 0px;
+    }
+
+    #basic-info {
+        .form1-fields {
+            padding: 30px 20px;
+            gap: 24px;
+
+            .g3-btns {
+                flex-wrap: wrap;
+                gap: 16px;
+
+                .active-btn {
+                    padding: 4px 20px;
+                    font-size: 14px;
+                }
+            }
         }
     }
 }
 
-// 想揪什麼團
+@media (max-width: 480px) {
+    .groupBanner3 {
+        margin: 30px 0px;
+    }
+}
+
+
+#detail-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 24px;
+
+    .detail-act-title {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-left: 50px;
+
+        h2 {
+            color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-lg;
+            line-height: 150%;
+            letter-spacing: 2px;
+            padding-left: 16px;
+            border-left: solid 4px $primary1;
+        }
+
+        p {
+            color: $primary2;
+            font-family: $family-tc;
+            font-size: $f-s-sm;
+            line-height: 150%;
+            letter-spacing: 1px;
+        }
+    }
+
+}

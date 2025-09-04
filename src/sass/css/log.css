@@ -214,13 +214,19 @@ button {
 }
 #log form article button {
   display: flex;
-  width: 170px;
-  height: 51px;
-  padding: 10px 14px;
+  padding: 5px 30px;
   justify-content: center;
   align-items: center;
-  border-radius: 999px;
-  background: #F4D000;
+  border-radius: 99px;
+  background-color: #F4D000;
+  border: none;
+  color: #201811;
+  font-family: "Noto Sans TC";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 2px;
 }
 #log .log-buttom-box {
   display: flex;
@@ -232,11 +238,6 @@ button {
 #log .log-buttom-box button {
   width: 120px;
   height: 51px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  border: 1px solid rgba(76, 74, 74, 0.5);
   gap: 5px;
   color: #000;
   font-family: "Inter";
@@ -244,6 +245,13 @@ button {
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+  display: flex;
+  padding: 5px 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 99px;
+  border: none;
+  border: 1px solid rgba(76, 74, 74, 0.5);
 }
 #log .log-buttom-box button:nth-of-type(1) img {
   width: 27px;

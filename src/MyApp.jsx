@@ -9,11 +9,16 @@ import GroupCard from "./component/GroupCard"
 import Diary from "./pages/Diary"
 import Diary2 from "./pages/Diary2"
 import Member from "./pages/Member-data"
+import MemberCity from "./pages/Member-city"
+import MemberDiary from "./pages/Member-diary"
+import MemberSave from "./pages/Member-save"
+import MemberGroup from "./pages/Member-group"
 import Location2 from "./pages/Location-2"
 import Location3 from "./pages/Location-3"
 import Log from "./component/Log"
 import Sign from "./component/Sign"
 import { Route, Routes } from "react-router-dom"
+
 
 const MyApp = () => {
   return (
@@ -31,6 +36,10 @@ const MyApp = () => {
         <Route path='/location2' element={<Location2 />}></Route>
         <Route path='/location3' element={<Location3 />}></Route>
         <Route path='/member' element={<Member />}></Route>
+        <Route path='/memberCity' element={<MemberCity />}></Route>
+        <Route path='/memberdiary' element={<MemberDiary />}></Route>
+        <Route path='/membersave' element={<MemberSave />}></Route>
+        <Route path='/membergroup' element={<MemberGroup />}></Route>
         <Route path='/log' element={<Log />}></Route>
         <Route path='/sign' element={<Sign />}></Route>
 

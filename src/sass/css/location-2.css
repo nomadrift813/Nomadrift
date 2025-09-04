@@ -149,15 +149,17 @@ main {
 #disDes {
   display: flex;
   width: 100%;
-  padding: 120px 50px 80px 50px;
+  padding: 120px 50px 60px 50px;
   justify-content: center;
-  gap: 500px;
+  flex-direction: column;
+  gap: 14px;
 }
 #disDes header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 15px;
 }
 #disDes header .l-t-1 {
@@ -182,10 +184,19 @@ main {
   line-height: 150%;
   letter-spacing: 10.8px;
 }
+#disDes .theCity {
+  color: #737B6B;
+  text-align: center;
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
 
 #allInfo {
   display: flex;
-  width: 1440px;
+  width: 100%;
   justify-content: center;
   align-items: center;
   gap: 26px;
@@ -245,7 +256,7 @@ main {
 #allInfo .allContent .locContent .locTitle h2 {
   color: #201811;
   font-family: "Inter";
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 3.6px;
@@ -362,6 +373,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 15px;
   padding: 100px 50px 50px 50px;
 }
@@ -386,4 +398,133 @@ main {
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 10.8px;
+}
+#moreDes .moreCards {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0px 50px 100px 50px;
+}
+#moreDes .moreCards .cards {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+#moreDes .moreCards .cards .country {
+  background-color: #fff;
+  position: relative;
+}
+#moreDes .moreCards .cards .country:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+  transform: translateY(-8px) scale(1.02);
+  transition: all 0.2s 0s;
+}
+#moreDes .moreCards .cards .country:hover .color-block {
+  width: 270px;
+  height: 8px;
+  background-color: #F4D000;
+}
+#moreDes .moreCards .cards .country .p1-sel {
+  display: flex;
+}
+#moreDes .moreCards .cards .country .p1-sel .loc-p1 {
+  display: flex;
+  width: 270px;
+  height: 180px;
+}
+#moreDes .moreCards .cards .country .p1-sel .select {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+#moreDes .moreCards .cards .country .loc-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+#moreDes .moreCards .cards .country .loc-info h2 {
+  display: flex;
+  width: 230px;
+  color: #201811;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#moreDes .moreCards .cards .country .loc-info .loc-text {
+  display: -webkit-box;
+  width: 230px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  color: #737B6B;
+  text-overflow: ellipsis;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+#moreDes .moreCards .cards .country .loc-info .wi-st {
+  display: flex;
+  width: 230px;
+  align-items: center;
+  gap: 3px;
+  border-bottom: 1px solid;
+  padding-bottom: 12px;
+}
+#moreDes .moreCards .cards .country .loc-info .wi-st ul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 100;
+  width: auto;
+}
+#moreDes .moreCards .cards .country .loc-info .wi-st ul img {
+  width: 20px;
+  height: 14px;
+}
+#moreDes .moreCards .cards .country .loc-info .wi-st ul p {
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+}
+#moreDes .moreCards .cards .country .loc-info .wi-st .stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+}
+#moreDes .moreCards .cards .country .loc-info .wi-st .stars img {
+  align-self: stretch;
+  width: 20px;
+  height: 20px;
+}
+#moreDes .moreCards .cards .country .loc-info span {
+  display: flex;
+  width: 230px;
+  color: #41453D;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#moreDes .moreCards .cards .country .color-block {
+  width: 270px;
+  height: 8px;
+  background-color: #41453D;
+}
+#moreDes .moreCards .left,
+#moreDes .moreCards .right {
+  width: 60px;
+  height: 60px;
 }
