@@ -243,8 +243,8 @@ const TimeInput = ({
     return (
         <div className="time-picker-container">
             {title && (
-                <div className="title-section">
-                    <h2 className="title">
+                <div className="timeInput-title-section">
+                    <h2 className="timeInput-title">
                         {title}
                         {required && <span className="required-asterisk">*</span>}
                     </h2>
