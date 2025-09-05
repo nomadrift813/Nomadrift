@@ -20,16 +20,21 @@ const Group3 = () => {
     // 提示訊息（當結束 < 開始時）
     const [timeHint, setTimeHint] = useState('');
 
+    // 第二區塊輸入框（⚠️ 必須在最外層宣告）
+    const [activityTitle, setActivityTitle] = useState('');
+    const [activityContent, setActivityContent] = useState('');
+    const [uploadedFiles, setUploadedFiles] = useState([]);
+
     // 將時間字串轉成分鐘（支援 24h "HH:MM" 與 12h "AM 9:05"）
     const toMinutes = (timeStr) => {
         if (!timeStr) return null;
 
-        // 12h: "AM 9:05" / "PM 12:30"
-        const m12 = timeStr.match(/^(AM|PM)\s(\d{1,2}):(\d{2})$/);
+        // 12h: "AM 9:05" / "PM 12:30"（大小寫不敏感、允許多一格空白）
+        const m12 = timeStr.match(/^\s*(AM|PM)\s+(\d{1,2}):(\d{2})\s*$/i);
         if (m12) {
             let h = parseInt(m12[2], 10);
             const min = parseInt(m12[3], 10);
-            const period = m12[1];
+            const period = m12[1].toUpperCase();
             if (period === 'AM') h = (h === 12 ? 0 : h);
             else h = (h === 12 ? 12 : h + 12);
             return h * 60 + min;
@@ -42,7 +47,6 @@ const Group3 = () => {
             const min = parseInt(parts[1], 10);
             if (Number.isFinite(h) && Number.isFinite(min)) return h * 60 + min;
         }
-
         return null;
     };
 
@@ -86,7 +90,7 @@ const Group3 = () => {
 
     return (
         <main>
-            <div className="group3">
+            <div className="groupBanner3">
                 {/* 頁面標題區域 */}
                 <section id="groupSlogan3">
                     <h3>Plan It Your Way, Find Your Crew!</h3>
@@ -103,7 +107,7 @@ const Group3 = () => {
                     </div>
 
                     <div className='form1-fields'>
-                        {/* 揪團類型選擇 */}
+                        {/* 揪團類型選擇（目前皆為示意 active） */}
                         <label className='group-category'>
                             <h3 className='category-title'>想揪甚麼團?</h3>
                             <div className='g3-btns'>
@@ -122,6 +126,7 @@ const Group3 = () => {
                                 placeholder="決定哪天要一起玩吧！"
                                 value={singleDate}
                                 onChange={handleSingleDateChange}
+                                required={true}
                             />
                         </label>
 
@@ -132,6 +137,7 @@ const Group3 = () => {
                                 placeholder="選擇開始時間"
                                 value={eventStartTime}
                                 onChange={handleEventStartTimeChange}
+                                required={true}
                             />
                         </label>
 
@@ -142,6 +148,7 @@ const Group3 = () => {
                                 placeholder="選擇結束時間"
                                 value={eventEndTime}
                                 onChange={handleEventEndTimeChange}
+                                required={true}
                             />
                             {!!timeHint && (
                                 <p className="field-hint" style={{ marginTop: 6, fontSize: 12, color: '#EF4444' }}>
@@ -157,12 +164,8 @@ const Group3 = () => {
                                 placeholder="例如：台北信義區"
                                 value={location}
                                 onChange={setLocation}
-                                icon={
-                                    <svg className="location-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                    </svg>
-                                }
-                                // hint="請填寫集合地點" // 需要提示時再傳
+                                showLocationIcon
+                                required={true}
                             />
                         </label>
 
@@ -173,17 +176,60 @@ const Group3 = () => {
                                 placeholder="選擇截止日期"
                                 value={deadlineDate}
                                 onChange={handleDeadlineDateChange}
+                                required={true}
                             />
                         </label>
                     </div>
                 </section>
 
-                {/* 第2表單 */}
-                <section id='detail-info'>
-                    <div className='detail-act-title'>
-                        <h2>活動內容</h2>
-                        <p>想衝浪、寫作、打球、還是找人一起喝咖啡？通通都可以揪!</p>
+                {/* 第二區塊:活動詳細資訊區塊 */}
+                <section id="detail-info">
+                    <div className='detail-info-header-title'>
+                        <h2>活動詳細內容</h2>
+                        <p>想衝浪、寫作、打球、還是想找人一起喝咖啡？通通都可以揪！</p>
                     </div>
+
+                    {/* 白底表單2 */}
+                    <div className='form2-fields'>
+                        {/* 活動標題 */}
+                        <label className='group-category'>
+                            <G3InputLabel
+                                title="活動標題"
+                                placeholder="一句話說明拼團主題（例如：台早島早晨傳教共工日）"
+                                value={activityTitle}
+                                onChange={setActivityTitle}
+                                required={true}
+                            />
+                        </label>
+
+                        {/* 活動詳細內容 */}
+                        <label className='group-category'>
+                            <G3InputLabel
+                                title="活動詳細內容"
+                                placeholder="請輸入：行程安排/活動流程 吸引更多人參加！"
+                                value={activityContent}
+                                onChange={setActivityContent}
+                                isTextarea={true}
+                                maxLength={1000}
+                                required={true}
+                            />
+                        </label>
+
+                        {/* 上傳照片 */}
+                        <label className='group-category'>
+                            <G3InputLabel
+                                title="上傳照片"
+                                value={uploadedFiles}
+                                onChange={setUploadedFiles}
+                                isFileUpload={true}
+                            />
+                        </label>
+                    </div>
+
+                    {/* 完成按鈕 */}
+                    <section id="createSuccessful-btn">
+                        <button className="successful-btn">完成建立</button>
+                    </section>
 
                 </section>
             </div>

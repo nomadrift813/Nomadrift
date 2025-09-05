@@ -216,8 +216,8 @@ const CalendarInput = ({
     return (
         <div className="date-picker-container">
             {title && (
-                <div className="title-section">
-                    <h2 className="title">
+                <div className="calendarInput-title-section">
+                    <h2 className="calendarInput-title">
                         {title}
                         {required && <span className="required-asterisk">*</span>}
                     </h2>
