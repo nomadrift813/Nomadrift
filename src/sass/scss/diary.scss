@@ -2,12 +2,297 @@
 @use 'var' as *;
 
 .diaAll {
-
     background-image: url('../img/diary-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
 }
+
+/* 發文區塊 - 新鮮事? */
+.diaPost {
+    display: flex;
+    width: 360px;
+    padding: 35px;
+    cursor: pointer;
+
+
+    .member {
+        width: 30px;
+        height: 30px;
+        background-color: #333;
+        border-radius: 50%;
+    }
+
+    .input-placeholder {
+        padding-left: 12px;
+        font-size: $f-s-sm;
+        color: #7A7872;
+        width: 207px;
+        border-bottom: 1px solid #333;
+    }
+
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+
+/* 彈出視窗疊層 */
+.post-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 彈出視窗內容 */
+.post-modal-content {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* 關閉視窗按鈕樣式 */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: 200;
+    color: #999;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $accent;
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .member-avatar {
+        width: 30px;
+        height: 30px;
+        background-color: #bbb;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .member-name {
+        font-weight: bold;
+        color: $primary2;
+        font-size: $f-s-sm;
+    }
+}
+
+.post-title {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 0 0 15px;
+    font-size: $f-s-sm;
+    margin-bottom: 10px;
+    resize: none;
+    font-family: $family-tc;
+    color: #333;
+
+    &:focus {
+        outline: none;
+        border-color: $primary1;
+    }
+}
+
+.post-textarea {
+    width: 100%;
+    min-height: 230px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: $f-s-sm;
+    resize: vertical;
+    margin-bottom: 20px;
+    font-family: $family-tc;
+    color: #333;
+
+    &:focus {
+        outline: none;
+        border-color: $primary1;
+    }
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left-controls {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        span {
+            font-size: $f-s-xs;
+            color: $primary2;
+            cursor: pointer;
+        }
+
+        .date-input {
+            display: flex;
+            background-color: #fff;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            padding: 1.5px 12px;
+            color: #aaa;
+            font-size: $f-s-xs;
+        }
+
+        .location-input {
+            width: 120px;
+            border: 1px solid #ddd;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1.5px 12px;
+            color: #aaa;
+            font-size: $f-s-xs;
+        }
+
+        img {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+    }
+
+    .location-date {
+        display: flex;
+        gap: 5px;
+        font-size: $f-s-xs;
+        color: #777;
+
+
+        .location,
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .location-icon {
+            display: flex;
+        }
+    }
+
+    .publish-btn {
+        background-color: $primary1;
+        color: $background1;
+        border: none;
+        border-radius: 20px;
+        padding: 5px 15px;
+        font-size: $f-s-xs;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: $accent;
+        }
+    }
+}
+
+/* 圖片上傳按鈕樣式 */
+.upload-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1.5px 12px;
+    font-size: 0.8rem;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        font-size: $f-s-sm;
+        color: #aaa;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+/* 圖片預覽區塊 */
+.image-preview {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; // 讓子元素可以絕對定位
+    cursor: pointer; // 讓使用者知道可以點擊
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+/* 移除照片按鈕樣式 */
+.remove-image-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute; // 絕對定位到右上角
+    top: 5px;
+    right: 5px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
 
 #diary-discover {
     display: flex;
@@ -21,25 +306,25 @@
         align-items: baseline;
         padding: 70px 0 0 16px;
         gap: 15px;
-    }
 
+        h2 {
+            color: $primary2;
+            font-family: $en;
+            font-size: $f-s-xxl;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 4.4px;
+        }
 
-    .title-large {
-        color: $primary2;
-        font-family: $en;
-        font-size: $f-s-xxl;
-        font-weight: $f-w-4;
-        line-height: 150%;
-        letter-spacing: 4.4px;
-    }
-
-    .title-small {
-        color: $primary2;
-        font-family: $en;
-        font-size: $f-s-xs;
-        font-weight: $f-w-4;
-        line-height: 150%;
-        letter-spacing: 4.4px;
+        span {
+            padding-left: 10px;
+            color: $primary2;
+            font-family: $en;
+            font-size: $f-s-xs;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 4.4px;
+        }
     }
 
 
@@ -78,6 +363,12 @@
         border-radius: 100px;
         background: $primary1;
 
+        &:hover {
+            background: $accent;
+        }
+
+        cursor: pointer; // 讓使用者知道可以點擊
+
         li {
             display: flex;
             color: $background1;
@@ -89,6 +380,7 @@
             line-height: 150%;
             letter-spacing: 2px;
 
+
         }
 
         img {
@@ -96,6 +388,7 @@
             height: 15px;
 
         }
+
     }
 }
 
@@ -115,41 +408,24 @@
     max-width: 1007px;
     width: 100%;
 
-    .diaPost {
-        padding: 24px;
-
-        .d-member {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
-
-
-            div {
-                width: 30px;
-                height: 30px;
-                background-color: #333;
-                border-radius: 50%;
-            }
-
-            p {
-                font-size: $f-s-sm;
-                color: #7A7872;
-                width: 207px;
-                border-bottom: 1px solid #333;
-            }
-        }
-
-    }
 
     .diaArticleSection1 {
         display: flex;
         justify-content: space-between;
-        padding: 1.5rem;
-        gap: 2rem;
+        padding: 35px;
+        gap: 5rem;
         font-family: 'Helvetica Neue', sans-serif;
         color: #333;
         border-bottom: 1px solid #333;
+
+        &:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all .3s 0s;
+            border-top-right-radius: 60px;
+             transform: translateY(0.1px) scale(1.02);
+
+
+        }
 
         .p1-sel {
             order: 2;
@@ -166,6 +442,7 @@
                     object-fit: cover;
                     display: block;
                 }
+
             }
         }
 
@@ -211,7 +488,7 @@
                         -webkit-line-clamp: 4;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
-                        text-overflow: ellipsis; //省略
+                        text-overflow: ellipsis;
                         font-size: $f-s-sm;
                         color: #555;
                         line-height: 1.6;
@@ -276,3 +553,540 @@
         }
     }
 }
+
+// @use 'reset';
+// @use 'var' as *;
+
+// .diaAll {
+//     background-image: url('../img/diary-bg.png');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 100%;
+// }
+
+// /* 發文區塊 - 新鮮事? */
+// .diaPost {
+//     display: flex;
+//     width: 360px;
+//     padding: 24px;
+//     cursor: pointer;
+
+
+//     .member {
+//         width: 30px;
+//         height: 30px;
+//         background-color: #333;
+//         border-radius: 50%;
+//     }
+
+//     .input-placeholder {
+//         padding-left: 12px;
+//         font-size: $f-s-sm;
+//         color: #7A7872;
+//         width: 207px;
+//         border-bottom: 1px solid #333;
+//     }
+
+
+//     img {
+//         width: 24px;
+//         height: 24px;
+//     }
+// }
+
+
+
+// /* 彈出視窗疊層 */
+// .post-modal-overlay {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.5);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     z-index: 1000;
+// }
+
+// /* 彈出視窗內容 */
+// .post-modal-content {
+//     background-color: #fff;
+//     border-radius: 15px;
+//     width: 90%;
+//     max-width: 550px;
+//     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+//     padding: 25px;
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+// }
+
+// /* 關閉視窗按鈕樣式 */
+// .close-btn {
+//     background: none;
+//     border: none;
+//     font-size: 30px;
+//     font-weight: 200;
+//     color: #999;
+//     cursor: pointer;
+//     position: absolute;
+//     top: 20px;
+//     right: 25px;
+//     transition: color 0.2s ease;
+
+//     &:hover {
+//         color: $accent;
+//     }
+// }
+
+// .modal-header {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 20px;
+
+//     .member-avatar {
+//         width: 30px;
+//         height: 30px;
+//         background-color: #bbb;
+//         border-radius: 50%;
+//         margin-right: 15px;
+//     }
+
+//     .member-name {
+//         font-weight: bold;
+//         color: $primary2;
+//         font-size: $f-s-sm;
+//     }
+// }
+
+// .post-title {
+//     width: 100%;
+//     height: 50px;
+//     border: 1px solid #ddd;
+//     border-radius: 10px;
+//     padding: 10px 0 0 15px;
+//     font-size: $f-s-sm;
+//     margin-bottom: 10px;
+//     resize: none;
+//     font-family: $family-tc;
+//     color: #333;
+
+//     &:focus {
+//         outline: none;
+//         border-color: $primary1;
+//     }
+// }
+
+// .post-textarea {
+//     width: 100%;
+//     min-height: 230px;
+//     border: 1px solid #ddd;
+//     border-radius: 10px;
+//     padding: 15px;
+//     font-size: $f-s-sm;
+//     resize: vertical;
+//     margin-bottom: 20px;
+//     font-family: $family-tc;
+//     color: #333;
+
+//     &:focus {
+//         outline: none;
+//         border-color: $primary1;
+//     }
+// }
+
+// .modal-footer {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     .left-controls {
+//         display: flex;
+//         align-items: center;
+//         gap: 5px;
+
+//         span {
+//             font-size: $f-s-xs;
+//             color: $primary2;
+//             cursor: pointer;
+//         }
+
+//         .date-input {
+//             display: flex;
+//             background-color: #fff;
+//             border-radius: 12px;
+//             border: 1px solid #ddd;
+//             padding: 1.5px 12px;
+//             color: #aaa;
+//             font-size: $f-s-xs;
+//         }
+
+//         .location-input {
+//             width: 120px;
+//             border: 1px solid #ddd;
+//             background-color: #ffffff;
+//             border-radius: 12px;
+//             padding: 1.5px 12px;
+//             color: #aaa;
+//             font-size: $f-s-xs;
+//         }
+
+//         img {
+//             width: 15px;
+//             height: 15px;
+//             cursor: pointer;
+//         }
+//     }
+
+//     .location-date {
+//         display: flex;
+//         gap: 5px;
+//         font-size: $f-s-xs;
+//         color: #777;
+
+
+//         .location,
+//         .date {
+//             display: flex;
+//             align-items: center;
+//             gap: 5px;
+//         }
+
+//         img {
+//             width: 20px;
+//             height: 20px;
+//         }
+//         .location-icon{
+//             display: flex;
+//         }
+//     }
+
+//     .publish-btn {
+//         background-color: $primary1;
+//         color: $background1;
+//         border: none;
+//         border-radius: 20px;
+//         padding: 5px 15px;
+//         font-size: $f-s-xs;
+//         cursor: pointer;
+//         transition: background-color 0.2s ease;
+
+//         &:hover {
+//             background-color: $accent;
+//         }
+//     }
+// }
+
+// /* 圖片上傳按鈕樣式 */
+// .upload-btn {
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     border: 1px solid #ddd;
+//     border-radius: 12px;
+//     padding: 1.5px 12px;
+//     font-size: 0.8rem;
+
+//     img {
+//         width: 24px;
+//         height: 24px;
+//     }
+
+//     span {
+//         font-size: $f-s-sm;
+//         color: #aaa;
+
+//         &:hover {
+//             color: $accent;
+//         }
+//     }
+// }
+
+// /* 圖片預覽區塊 */
+// .image-preview {
+//     margin-bottom: 20px;
+//     border-radius: 10px;
+//     overflow: hidden;
+//     max-height: 200px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative; // 讓子元素可以絕對定位
+//     cursor: pointer; // 讓使用者知道可以點擊
+
+//     img {
+//         width: 100%;
+//         height: auto;
+//         display: block;
+//         object-fit: cover;
+//     }
+// }
+
+// /* 移除照片按鈕樣式 */
+// .remove-image-btn {
+//     background-color: rgba(0, 0, 0, 0.5);
+//     border: none;
+//     border-radius: 50%;
+//     color: white;
+//     font-size: 20px;
+//     height: 25px;
+//     width: 25px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     cursor: pointer;
+//     position: absolute; // 絕對定位到右上角
+//     top: 5px;
+//     right: 5px;
+//     transition: background-color 0.2s ease;
+
+//     &:hover {
+//         background-color: rgba(0, 0, 0, 0.7);
+//     }
+// }
+
+
+// #diary-discover {
+//     display: flex;
+//     width: 100%;
+//     flex-direction: column;
+//     background-color: $background1;
+//     padding: 50px 50px 0 50px;
+
+//     .d-t-title {
+//         display: flex;
+//         align-items: baseline;
+//         padding: 70px 0 0 16px;
+//         gap: 15px;
+
+//         h2 {
+//             color: $primary2;
+//             font-family: $en;
+//             font-size: $f-s-xxl;
+//             font-weight: $f-w-4;
+//             line-height: 150%;
+//             letter-spacing: 4.4px;
+//         }
+
+//         span {
+//             padding-left: 10px;
+//             color: $primary2;
+//             font-family: $en;
+//             font-size: $f-s-xs;
+//             font-weight: $f-w-4;
+//             line-height: 150%;
+//             letter-spacing: 4.4px;
+//         }
+//     }
+
+
+//     header {
+//         width: 100%;
+//         align-items: flex-start;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         justify-content: center;
+//         gap: 15px;
+//         padding: 50px 50px 0 50px;
+//     }
+// }
+
+// .diaDrop {
+//     flex: 0 0 180px;
+//     display: flex;
+//     max-width: 1440px;
+//     padding: 50px 1rem;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 12px;
+//     flex-direction: column;
+
+//     ul {
+//         width: 100%;
+//         max-width: 140px;
+//         display: flex;
+//         padding: 4px 24px;
+//         justify-content: center;
+//         align-items: center;
+//         gap: 5px;
+//         flex: 100;
+
+//         border-radius: 100px;
+//         background: $primary1;
+
+//         li {
+//             display: flex;
+//             color: $background1;
+//             text-align: center;
+//             font-family: $family-tc;
+//             font-size: $f-s-sm;
+//             font-style: normal;
+//             font-weight: 400;
+//             line-height: 150%;
+//             letter-spacing: 2px;
+
+//         }
+
+//         img {
+//             width: 15px;
+//             height: 15px;
+
+//         }
+//     }
+// }
+
+
+
+// .diaContent {
+//     display: flex;
+//     align-items: flex-start;
+//     gap: 3rem;
+//     padding-bottom: 2rem 3rem;
+//     padding: 20px 0 0 0;
+// }
+
+// #diary-article {
+//     flex: 1;
+//     padding: 2rem;
+//     max-width: 1007px;
+//     width: 100%;
+
+
+//     .diaArticleSection1 {
+//         display: flex;
+//         justify-content: space-between;
+//         padding: 1.5rem;
+//         gap: 2rem;
+//         font-family: 'Helvetica Neue', sans-serif;
+//         color: #333;
+//         border-bottom: 1px solid #333;
+
+//         .p1-sel {
+//             order: 2;
+
+//             .dia-p1 {
+//                 width: 274px;
+//                 height: 223px;
+//                 border-top-right-radius: 60px;
+//                 overflow: hidden;
+
+//                 img {
+//                     width: 100%;
+//                     height: 100%;
+//                     object-fit: cover;
+//                     display: block;
+//                 }
+//             }
+//         }
+
+//         .diaArticle1 {
+//             flex: 1;
+//             display: flex;
+//             flex-direction: column;
+
+//             .d-member {
+//                 display: flex;
+//                 align-items: center;
+//                 gap: 0.5rem;
+//                 margin-bottom: 0.8rem;
+
+//                 div {
+//                     width: 30px;
+//                     height: 30px;
+//                     background-color: #333;
+//                     border-radius: 50%;
+//                 }
+
+//                 p {
+//                     font-weight: 600;
+//                     font-size: $f-s-sm;
+//                 }
+//             }
+
+//             .d-text-card {
+//                 display: flex;
+//                 flex-direction: column;
+
+
+//                 .d-text {
+//                     .d-tit {
+//                         font-size: $f-s-md;
+//                         font-weight: bold;
+//                         margin-bottom: 0.8rem;
+
+//                     }
+
+//                     .d-word {
+//                         display: -webkit-box;
+//                         -webkit-line-clamp: 4;
+//                         -webkit-box-orient: vertical;
+//                         overflow: hidden;
+//                         text-overflow: ellipsis;
+//                         font-size: $f-s-sm;
+//                         color: #555;
+//                         line-height: 1.6;
+//                         margin-bottom: 0.8rem;
+
+//                     }
+//                 }
+
+//                 .d-sign {
+//                     display: flex;
+//                     align-items: center;
+//                     gap: 1rem;
+//                     flex-wrap: wrap;
+//                     font-size: 0.8rem;
+//                     color: #999;
+
+//                     .d-locaion {
+//                         display: flex;
+//                         align-items: center;
+//                         gap: 0.4rem;
+
+//                         img {
+//                             width: 25px;
+//                             height: 25px;
+//                         }
+
+//                     }
+
+//                     .h-d-loc {
+//                         background-color: #fff;
+//                         border-radius: 12px;
+//                         padding: 1.5px 12px;
+//                         color: #aaa;
+//                         font-size: 0.8rem;
+//                     }
+
+//                     .h-d-date {
+//                         background-color: #fff;
+//                         border-radius: 12px;
+//                         padding: 1.5px 9px;
+//                         color: #aaa;
+//                         font-size: 0.8rem;
+
+//                     }
+
+//                     figure {
+//                         margin: 0;
+//                         cursor: pointer;
+
+//                         img {
+//                             width: 20px;
+//                             height: 20px;
+//                             transition: transform 0.2s;
+
+//                             &:hover {
+//                                 transform: scale(1.1);
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
