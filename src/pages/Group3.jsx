@@ -20,16 +20,17 @@ const Group3 = () => {
     // 提示訊息（當結束 < 開始時）
     const [timeHint, setTimeHint] = useState('');
 
-    // 第二區塊輸入框（⚠️ 必須在最外層宣告）
+    // 第二區塊輸入框
     const [activityTitle, setActivityTitle] = useState('');
     const [activityContent, setActivityContent] = useState('');
-    const [uploadedFiles, setUploadedFiles] = useState([]);
+    // 單一檔案或 null
+    const [uploadedFile, setUploadedFile] = useState(null);
 
     // 將時間字串轉成分鐘（支援 24h "HH:MM" 與 12h "AM 9:05"）
     const toMinutes = (timeStr) => {
         if (!timeStr) return null;
 
-        // 12h: "AM 9:05" / "PM 12:30"（大小寫不敏感、允許多一格空白）
+        // 12h: "AM 9:05" / "PM 12:30"（大小寫不敏感、允許多空白）
         const m12 = timeStr.match(/^\s*(AM|PM)\s+(\d{1,2}):(\d{2})\s*$/i);
         if (m12) {
             let h = parseInt(m12[2], 10);
@@ -107,7 +108,7 @@ const Group3 = () => {
                     </div>
 
                     <div className='form1-fields'>
-                        {/* 揪團類型選擇（目前皆為示意 active） */}
+                        {/* 揪團類型選擇（示意） */}
                         <label className='group-category'>
                             <h3 className='category-title'>想揪甚麼團?</h3>
                             <div className='g3-btns'>
@@ -126,7 +127,6 @@ const Group3 = () => {
                                 placeholder="決定哪天要一起玩吧！"
                                 value={singleDate}
                                 onChange={handleSingleDateChange}
-                                required={true}
                             />
                         </label>
 
@@ -137,7 +137,6 @@ const Group3 = () => {
                                 placeholder="選擇開始時間"
                                 value={eventStartTime}
                                 onChange={handleEventStartTimeChange}
-                                required={true}
                             />
                         </label>
 
@@ -148,7 +147,6 @@ const Group3 = () => {
                                 placeholder="選擇結束時間"
                                 value={eventEndTime}
                                 onChange={handleEventEndTimeChange}
-                                required={true}
                             />
                             {!!timeHint && (
                                 <p className="field-hint" style={{ marginTop: 6, fontSize: 12, color: '#EF4444' }}>
@@ -165,7 +163,6 @@ const Group3 = () => {
                                 value={location}
                                 onChange={setLocation}
                                 showLocationIcon
-                                required={true}
                             />
                         </label>
 
@@ -176,7 +173,6 @@ const Group3 = () => {
                                 placeholder="選擇截止日期"
                                 value={deadlineDate}
                                 onChange={handleDeadlineDateChange}
-                                required={true}
                             />
                         </label>
                     </div>
@@ -211,26 +207,19 @@ const Group3 = () => {
                                 onChange={setActivityContent}
                                 isTextarea={true}
                                 maxLength={1000}
-                                required={true}
                             />
                         </label>
 
-                        {/* 上傳照片 */}
+                        {/* 上傳照片（單張） */}
                         <label className='group-category'>
                             <G3InputLabel
                                 title="上傳照片"
-                                value={uploadedFiles}
-                                onChange={setUploadedFiles}
+                                value={uploadedFile ? [uploadedFile] : []}              // 傳入陣列（最多一張）
+                                onChange={(files) => setUploadedFile(files?.[0] ?? null)} // 收陣列→取第一張
                                 isFileUpload={true}
                             />
                         </label>
                     </div>
-
-                    {/* 完成按鈕 */}
-                    <section id="createSuccessful-btn">
-                        <button className="successful-btn">完成建立</button>
-                    </section>
-
                 </section>
             </div>
         </main>
