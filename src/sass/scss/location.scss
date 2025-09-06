@@ -89,9 +89,11 @@
 
      .bPath {
          display: flex;
-         position: absolute;
-         bottom: 80px;
+        //  position: absolute;
+        //  bottom: 80px;
          width: 100%;
+         height: auto;
+         padding-top: 400px;
      }
 
      .hotLoc {
@@ -100,6 +102,7 @@
          gap: 80px;
          position: absolute;
          bottom: 0;
+         padding: 0 100px;
 
          .hotCard-1,
          .hotCard-2,
@@ -143,8 +146,8 @@
 
              .h-l-1 {
                  display: flex;
-                 // width: 220px;
-                 height: 340px;
+                 max-width: 100%;
+                 height: auto;
                  transform: rotate(3.741deg);
                  aspect-ratio: 11/15;
                  margin-bottom: -140px;
@@ -152,6 +155,8 @@
                  border-radius: 5px;
                  border: 5px solid #FFF;
                  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+
+                 //  @media ($mediaMd) {}
 
                  &:hover {
                      box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
@@ -162,11 +167,11 @@
 
              .h-l-2 {
                  display: flex;
-                 // width: 220px;
-                 height: 340px;
+                 max-width: 100%;
+                 height: auto;
                  transform: rotate(-6.03deg);
                  aspect-ratio: 11/15;
-                 margin-bottom: 120px;
+                 margin-bottom: 90px;
 
                  border-radius: 5px;
                  border: 5px solid #FFF;
@@ -181,8 +186,8 @@
 
              .h-l-3 {
                  display: flex;
-                 // width: 220px;
-                 height: 340px;
+                 max-width: 100%;
+                 height: auto;
                  transform: rotate(4.568deg);
                  aspect-ratio: 11/15;
                  margin-bottom: -290px;
@@ -200,8 +205,8 @@
 
              .h-l-4 {
                  display: flex;
-                 // width: 220px;
-                 height: 340px;
+                 max-width: 100%;
+                 height: auto;
                  transform: rotate(-5.724deg);
                  aspect-ratio: 11/15;
                  margin-bottom: -120px;
@@ -221,7 +226,7 @@
 
  }
 
- // 探索所有地點
+ // 探索所有地點選單
  #discover {
      display: flex;
      width: 100%;
@@ -309,12 +314,7 @@
  }
 
  // 各大洲區卡片
- #globalAsia,
- #globalEurope,
- #globalNA,
- #globalLA,
- #globalAfrica,
- #globalOceania {
+ #global {
      display: flex;
      width: 100%;
      justify-content: center;
@@ -324,12 +324,7 @@
      position: relative;
 
      // 各大洲區
-     .asia,
-     .europe,
-     .northA,
-     .latinA,
-     .africa,
-     .oceania {
+     .continent{
          display: flex;
          flex-direction: column;
          justify-content: center;
@@ -356,12 +351,7 @@
      }
 
      // 各大洲卡片
-     .asiaCard,
-     .europeCard,
-     .northACard,
-     .latinACard,
-     .africaCard,
-     .oceaniaCard {
+     .conCards {
          display: flex;
          align-items: center;
          gap: 32px;
@@ -441,7 +431,7 @@
                      align-items: center;
                      gap: 3px;
 
-                     border-bottom: 1px solid;
+                     border-bottom: 1px solid #737B6B ;
                      padding-bottom: 12px;
 
                      ul {

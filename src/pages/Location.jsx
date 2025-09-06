@@ -1,9 +1,41 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from "react";
 
 import '../sass/scss/location.scss'
 
 
 const Location = () => {
+
+   useEffect(() => {
+    // 點擊 menu 連結平滑捲動
+    const menuLinks = document.querySelectorAll(".locDrop li");
+    menuLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        // 僅處理內部 anchor，不阻止 react-router 的 Link
+        if (link.getAttribute("href")?.startsWith("#")) {
+          e.preventDefault();
+          const targetId = link.getAttribute("href");
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            window.scrollTo({
+              top: targetEl.offsetTop,
+              behavior: "smooth"
+            });
+          }
+        }
+      });
+    });
+
+    // 清除事件監聽，避免 memory leak
+    return () => {
+      menuLinks.forEach(link => {
+        link.replaceWith(link.cloneNode(true));
+      });
+    };
+  }, []);
+
+
+
   return (
     <main>
       {/* 熱門地點 banner */}
@@ -82,56 +114,45 @@ const Location = () => {
         </header>
         <div className='locDrop'>
           <ul>
-            <Link to="/location3">
-              <li>亞洲</li>
-            </Link>
+            <li>亞洲</li>
             <img src="./img-Location/smScroll.svg" alt="" />
           </ul>
           <ul>
-            <Link to="/location3">
-              <li>歐洲</li>
-            </Link>
+            <li>歐洲</li>
             <img src="./img-Location/smScroll.svg" alt="" />
           </ul>
           <ul>
-            <Link to="/location3">
-              <li>北美洲</li>
-            </Link>
+            <li>北美洲</li>
             <img src="./img-Location/smScroll.svg" alt="" />
           </ul>
           <ul>
-            <Link to="/location3">
-              <li>中南美洲</li>
-            </Link>
+            <li>中南美洲</li>
             <img src="./img-Location/smScroll.svg" alt="" />
           </ul>
           <ul>
-            <Link to="/location3">
-              <li>非洲</li>
-            </Link>
+            <li>非洲</li>
             <img src="./img-Location/smScroll.svg" alt="" />
           </ul>
           <ul>
-            <Link to="/location3">
-              <li>大洋洲</li>
-            </Link>
+            <li>大洋洲</li>
             <img src="./img-Location/smScroll.svg" alt="" />
           </ul>
         </div>
       </section>
 
+
       {/* 亞洲區 */}
-      <section id='globalAsia'>
+      <section id='global'>
         {/* 亞洲 */}
         <Link to="/location3">
-          <article className='asia'>
+          <article className='continent'>
             <figure><img src="./img-Location/Asia.png" alt="" /></figure>
             <h2>亞洲</h2>
           </article>
         </Link>
 
         {/* 所有卡片 */}
-        <article className='asiaCard'>
+        <article className='conCards'>
 
           {/* 亞洲卡片1 */}
           <Link to="/location2">
@@ -224,16 +245,16 @@ const Location = () => {
       </section >
 
       {/* 歐洲區 */}
-      < section id='globalEurope' >
+      < section id='global' >
         {/* 歐洲 */}
         <Link Link to="/location3" >
-          <article className='europe' >
+          <article className='continent' >
             <figure><img src="./img-Location/Europe.png" alt="" /></figure>
             <h2>歐洲</h2>
           </article >
         </Link >
         {/* 所有卡片 */}
-        < article className='europeCard' >
+        < article className='conCards' >
           {/* 歐洲卡片1 */}
           <Link Link to="/location2" >
             <section className='country' >
@@ -321,16 +342,16 @@ const Location = () => {
       </section >
 
       {/* 北美洲區 */}
-      < section id='globalNA' >
+      < section id='global' >
         {/* 北美洲 */}
         <Link Link to="/location3" >
-          <article className='northA' >
+          <article className='continent' >
             <figure><img src="./img-Location/North America.png" alt="" /></figure>
             <h2>北美洲</h2>
           </article >
         </Link >
         {/* 所有卡片 */}
-        < article className='northACard' >
+        < article className='conCards' >
           {/* 北美洲卡片1 */}
           <Link Link to="/location2" >
             <section className='country' >
@@ -419,16 +440,16 @@ const Location = () => {
       </section >
 
       {/* 中南美洲區 */}
-      < section id='globalLA' >
+      < section id='global' >
         {/* 中南美洲 */}
         <Link Link to="/location3" >
-          <article className='latinA' >
+          <article className='continent' >
             <figure><img src="./img-Location/Central America.jpg" alt="" /></figure>
             <h2>中南美洲</h2>
           </article >
         </Link >
         {/* 所有卡片 */}
-        < article className='latinACard' >
+        < article className='conCards' >
           {/* 中南美洲卡片1 */}
           <Link Link to="/location2" >
             <section className='country' >
@@ -517,16 +538,16 @@ const Location = () => {
       </section >
 
       {/* 非洲區 */}
-      < section id='globalAfrica' >
+      < section id='global' >
         {/* 非洲 */}
         <Link Link to="/location3" >
-          <article className='africa' >
+          <article className='continent' >
             <figure><img src="./img-Location/Africa.jpg" alt="" /></figure>
             <h2>非洲</h2>
           </article >
         </Link >
         {/* 所有卡片 */}
-        < article className='africaCard' >
+        < article className='conCards' >
           {/* 非洲卡片1 */}
           <Link Link to="/location2" >
             <section className='country' >
@@ -615,16 +636,16 @@ const Location = () => {
       </section >
 
       {/* 大洋洲區 */}
-      < section id='globalOceania' >
+      < section id='global' >
         {/* 大洋洲 */}
         <Link Link to="/location3" >
-          <article className='oceania' >
+          <article className='continent' >
             <figure><img src="./img-Location/Oceania.jpg" alt="" /></figure>
             <h2>大洋洲</h2>
           </article >
         </Link >
         {/* 所有卡片 */}
-        < article className='oceaniaCard' >
+        < article className='conCards' >
           {/* 大洋洲卡片1 */}
           <Link Link to="/location2" >
             <section className='country' >

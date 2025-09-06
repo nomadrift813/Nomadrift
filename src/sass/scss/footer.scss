@@ -17,7 +17,7 @@ footer {
         bottom: 0;
         left: 0;
         right: 0;
-        // overflow-x: hidden;
+        overflow-x: hidden;
     }
 
     .wave {
@@ -56,16 +56,63 @@ footer {
         }
     }
 
-    .boat {
-        width: 80px;
-        position: relative;
-        left: 1250px;
-        bottom: 44px;
+    // .boat {
+    //     display: flex;
+    //     position: fixed;
+    //     width: auto;
+    //     height: 72px;
+    //     right: 80px;
+    //     bottom: 184px;
+    //     padding: 0 50px;
 
-        animation: boat 3s linear infinite;
+    //     animation: boat 3s linear infinite;
+    // }
+
+    // @keyframes boat {
+    //     0% {
+    //         margin-top: 0.25em;
+    //         transform: rotate(-4deg);
+    //     }
+
+    //     40% {
+    //         transform: rotate(6deg);
+    //         margin-top: -0.5em;
+    //     }
+
+    //     65% {
+    //         transform: rotate(-8deg);
+    //         margin-top: -0.125em;
+    //     }
+
+    //     100% {
+    //         transform: rotate(-4deg);
+    //         margin-top: 0.25em;
+    //     }
+    // }
+
+}
+
+#gotop {
+        width: auto;
+        height: 72px;
+        right: 80px;
+        bottom: 184px;
+        padding: 0 50px;
+        border: none;
+
+        display: flex;
+        position: fixed;
+        cursor: pointer;
+        // z-index: 999;
+
+        animation: gotop 3s linear infinite;
+
+        &:hover {
+            stroke: #F4D000;
+        }
     }
 
-    @keyframes boat {
+    @keyframes gotop {
         0% {
             margin-top: 0.25em;
             transform: rotate(-4deg);
@@ -86,7 +133,6 @@ footer {
             margin-top: 0.25em;
         }
     }
-}
 
 ul.Sitemap {
     display: flex;
