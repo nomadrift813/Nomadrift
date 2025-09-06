@@ -1,63 +1,55 @@
-import { Link } from "react-router-dom"
-import "../sass/scss/log.scss"
+import { useNavigate } from "react-router-dom";
+import "../sass/scss/log.scss";
 
-const Log = () => {
-    return (
-        <main>
-            <section id="log" >
-                <form
-                    name="logform"
-                    id="logform"
-                    method="post"
-                    acceptCharset="UTF-8"
-                >
-                    <h1>會員登入</h1>
+const Log = ({ onSuccess, onSwitch }) => {
+  const navigate = useNavigate();
 
-                    <article>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: 驗證 / API
+    onSuccess?.();           // 關閉彈窗
+    navigate("/member");     // 導去會員中心
+  };
 
-                        <div className="log-f-box">
-                            <div className="log-f-row">
-                                <label htmlFor="m-l-account">帳號</label>
-                                <input
-                                    type="text"
-                                    name="m-l-account"
-                                    id="m-l-account"
-                                    title="帳號欄位"
-                                    autoComplete="username"
-                                    required
-                                    autoFocus
-                                />
-                            </div>
+  return (
+    <main>
+      <section id="log">
+        <div className="auth-inner">
+          <form id="logform" method="post" onSubmit={handleSubmit}>
+            <h1>會員登入</h1>
 
-                            <div className="log-f-row">
-                                <label htmlFor="password1">密碼</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password1"
-                                    title="密碼欄位"
-                                    required
-                                    autoComplete="current-password"
-                                />
-                            </div>
-
-                        </div>
-
-                        <Link to="/member" id="loginNav"><button type="submit">登入</button></Link>
-
-                    </article>
-
-                </form>
-                
-                <div className="log-buttom-box">
-                    <button><img src="./img-log/apple.svg" alt="" />Apple</button>
-                    <button><img src="./img-log/google.svg" alt="" />Google</button>
-                    <button><img src="./img-log/facebook.svg" alt="" />Facebook</button>
+            <article>
+              <div className="log-f-box">
+                <div className="log-f-row">
+                  <label htmlFor="m-l-account">帳號</label>
+                  <input type="text" id="m-l-account" title="帳號欄位" autoComplete="username" required autoFocus />
                 </div>
-                <p>還不是會員? <Link to="/sign">馬上註冊</Link></p>
-            </section>
-        </main>
-    )
-}
 
-export default Log
+                <div className="log-f-row">
+                  <label htmlFor="password1">密碼</label>
+                  <input type="password" id="password1" title="密碼欄位" required autoComplete="current-password" />
+                </div>
+              </div>
+
+              <button type="submit">登入</button>
+            </article>
+          </form>
+
+          <div className="log-buttom-box">
+            <button type="button"><img src="./img-log/apple.svg" alt="" />Apple</button>
+            <button type="button"><img src="./img-log/google.svg" alt="" />Google</button>
+            <button type="button"><img src="./img-log/facebook.svg" alt="" />Facebook</button>
+          </div>
+
+          <p>還不是會員？{" "}
+            <a href="#" onClick={(e) => { e.preventDefault(); onSwitch?.(); }}>
+              馬上註冊
+            </a>
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Log;
