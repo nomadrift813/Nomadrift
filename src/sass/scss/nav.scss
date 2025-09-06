@@ -100,3 +100,145 @@
 
 
 }
+
+/* ===== 基本覆蓋：全螢幕暗幕 + 背景模糊 ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .35);
+  backdrop-filter: blur(6px);
+}
+
+/* Modal 外殼改成透明容器：不用白底，不影響你原本卡片 */
+.modal-content {
+  position: relative;
+  padding: 0;
+  /* 白底與內距交給 #log/#sign 自己 */
+  background: transparent;
+  /* 透明，保留你原卡片外觀 */
+  box-shadow: none;
+  /* 陰影也交給 #log/#sign */
+}
+
+/* 右上角 X */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ===== 讓 #log/#sign 在 Modal 內維持你原本的卡片樣式 ===== */
+/* 1) 置中 + 去掉頁面版 margin-top/固定高度 */
+.modal-content #log,
+.modal-content #sign {
+  margin: 0 auto;
+  /* 置中 */
+  height: auto;
+  /* 不固定高度，避免壓扁 */
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
+  /* 加回漂亮陰影 */
+}
+
+/* 2) 完整保留你原來的卡片外觀與內距（直接沿用你的設定） */
+.modal-content #log {
+  width: 526px;
+  border-radius: 20px;
+  background-color: $white;
+  padding: 50px 65px 30px 65px;
+  /* 和你頁面版一致 */
+  /* 可選：想固定高度才加，否則讓內容自適應 */
+  /* min-height: 500px; */
+}
+
+.modal-content #sign {
+  width: 526px;
+  border-radius: 20px;
+  background-color: $white;
+  padding: 40px 65px 25px 65px;
+  /* 和你頁面版一致 */
+  /* min-height: 542px; */
+}
+
+/* 3) 讓 main/section 不再撐外距（避免多一層 margin） */
+.modal-content main,
+.modal-content section {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* =====（可選，但建議）微調：避免標籤換行、欄位更穩 ===== */
+
+/* 登入：每列填滿寬度，label 不換行 */
+.modal-content #log .log-f-box {
+  width: 100%;
+}
+
+.modal-content #log .log-f-row {
+  width: 100%;
+}
+
+.modal-content #log .log-f-row label {
+  white-space: nowrap;
+  flex: 0 0 88px;
+  /* label 寬些，避免斷行 */
+}
+
+.modal-content #log .log-f-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* 註冊：同樣處理（避免你剛遇到的 "會員名\n稱" 斷行） */
+.modal-content #sign .sign-f-row {
+  width: 100%;
+}
+
+.modal-content #sign .sign-f-row label {
+  white-space: nowrap;
+  flex: 0 0 88px;
+}
+
+.modal-content #sign .sign-f-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* 日期欄位避免瀏覽器預設擠版（可選） */
+.modal-content #sign .sign-f-row input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 28px;
+}
+
+.modal-content #sign .sign-f-row input::-webkit-calendar-picker-indicator {
+  opacity: .75;
+  cursor: pointer;
+}
+
+.modal-content #sign .auth-inner,
+.modal-content #log .auth-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 水平置中所有子元素 */
+}
+
+/* 提示文字置中顯示 */
+.modal-content #sign p,
+.modal-content #log p {
+  align-self: center;    /* 避免被 flex 拉到左邊 */
+  text-align: center;
+  width: 100%;           /* 讓文字真的在整列中間 */
+  margin-top: 16px;
+}

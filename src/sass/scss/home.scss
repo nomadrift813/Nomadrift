@@ -1,9 +1,7 @@
 @use 'reset';
 @use 'var' as *;
 
-
-// 共用區
-
+/* ========== 共用 ========== */
 body {
     overflow-x: hidden;
 }
@@ -13,96 +11,65 @@ body {
     text-align: center;
     font-family: $en;
     font-size: 22px;
-    font-style: normal;
     font-weight: $f-w-4;
     line-height: 150%;
     letter-spacing: $spacing-xxs;
     white-space: nowrap;
-
 }
 
 .h-t-2 {
     color: $primary1;
     font-family: $family-tc;
     font-size: $f-s-xxl;
-    font-style: normal;
     font-weight: $f-w-5;
     line-height: 150%;
-    /* 54px */
     letter-spacing: $spacing-xs;
     white-space: nowrap;
-
 }
 
 .home-all-spot {
     display: flex;
-    padding: 5px 30px; //暫改
+    padding: 5px 30px;
     justify-content: center;
     align-items: center;
-
     border-radius: 99px;
     background-color: $primary1;
     border: none;
 }
 
-
-
-// banner區
+/* ========== Banner ========== */
 #homebanner {
     position: relative;
     width: 100%;
     height: 130vh;
     display: flex;
-
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background:
-        linear-gradient(180deg,
-            rgba(65, 69, 61, 0) 75.48%,
-            #41453D 100%),
+        linear-gradient(180deg, rgba(65, 69, 61, 0) 75.48%, #41453D 100%),
         url("/img-Home/HomeBanner.jpg") center/cover no-repeat;
-    //  background-attachment: fixed; //固定背景
     overflow-x: hidden;
-    /* ← 你之前寫在 .homeslogan，請移到這裡 */
     overflow-y: visible;
 
-
-
-
-
     .homeslogan {
-
         position: fixed;
         inset: 0;
-        /* top/right/bottom/left = 0 */
         margin: auto;
-        /* 在可用空間中居中 */
-        // width: min(571px, 92vw);
-        /* 小螢幕不超出 */
         height: max-content;
-        /* 讓 margin:auto 能計算垂直置中 */
         text-align: center;
         z-index: 2;
-
-
         opacity: 0;
-        transition: opacity 0.3s ease;
-
+        transition: opacity .3s ease;
         display: flex;
         width: 571px;
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        // margin-bottom: 100px;
 
         @media ($mediaSm) {
             padding: 50px;
-
         }
-
-
-
 
         &.fade-in {
             opacity: 1;
@@ -117,10 +84,9 @@ body {
             color: $white;
             font-family: $family-tc;
             text-align: center;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.80);
+            text-shadow: 0 0 20px rgba(0, 0, 0, .80);
             font-weight: 500;
             letter-spacing: $spacing-xs;
-
         }
 
         .home-b-form {
@@ -130,15 +96,12 @@ body {
             justify-content: space-between;
             align-items: center;
             align-self: stretch;
-
             border-radius: 999px;
             border: 1px solid $white;
-            background: rgba(244, 241, 229, 0.50);
+            background: rgba(244, 241, 229, .5);
             color: $text;
-            // 字體
             font-family: $en;
             font-size: 22px;
-            font-style: normal;
             font-weight: 400;
             line-height: 150%;
             letter-spacing: 5px;
@@ -151,27 +114,20 @@ body {
                 padding: 8px 16px;
             }
 
-
-
             img {
                 width: 24px;
                 height: 24px;
-
             }
 
             span {
                 font-family: $en;
                 font-size: 22px;
-                font-style: normal;
                 font-weight: $f-w-4;
                 line-height: 150%;
                 letter-spacing: 5px;
             }
         }
-
-
     }
-
 
     .banner-side-word {
         position: absolute;
@@ -179,13 +135,10 @@ body {
         top: 360px;
         writing-mode: vertical-rl;
         white-space: nowrap;
-
         color: $white;
-
         text-align: center;
         font-family: $en;
         font-size: $spacing-md;
-        font-style: normal;
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
@@ -215,16 +168,15 @@ body {
 
         @keyframes floatIcon {
             0% {
-                transform: translateY(0);
+                transform: translateY(0)
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-10px)
             }
 
-            /* 上下位移 */
             100% {
-                transform: translateY(0);
+                transform: translateY(0)
             }
         }
     }
@@ -233,8 +185,6 @@ body {
         position: absolute;
         top: 300px;
         right: 10px;
-
-        flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -242,7 +192,6 @@ body {
         overflow: clip;
 
         img {
-
             display: block;
             max-width: 100%;
             height: auto;
@@ -256,7 +205,6 @@ body {
         max-width: 100%;
 
         img {
-
             display: block;
             max-width: 100%;
             height: auto;
@@ -264,7 +212,7 @@ body {
     }
 }
 
-//優勢區
+/* ========== 優勢區 ========== */
 #homeadvantages {
     width: 100%;
     height: 20vh;
@@ -275,8 +223,6 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: -60px;
-
-
 
     @media ($mediaXl) {
         flex-direction: column;
@@ -290,7 +236,6 @@ body {
         height: 60vh;
         gap: 50px;
     }
-
 
     header {
         display: flex;
@@ -309,7 +254,6 @@ body {
             border-bottom: 1px solid $white;
             padding-bottom: 10px;
         }
-
     }
 
     .h-a-boxs {
@@ -317,7 +261,6 @@ body {
         justify-content: space-between;
         align-items: center;
         gap: 60px;
-
         width: 40%;
         flex: 1;
         z-index: 1;
@@ -328,7 +271,6 @@ body {
             gap: 16px;
         }
 
-
         article {
             display: flex;
             flex-direction: column;
@@ -336,7 +278,6 @@ body {
             justify-content: center;
             gap: 16px;
 
-            // width: 160px;
             &:nth-child(1) {
                 margin-top: -100px;
 
@@ -391,7 +332,6 @@ body {
                 text-align: center;
                 font-family: $en;
                 font-size: 20px;
-                font-style: normal;
                 font-weight: 600;
                 line-height: 100%;
                 letter-spacing: 2px;
@@ -400,30 +340,25 @@ body {
 
             p {
                 color: $white;
-
                 text-align: center;
                 font-family: $en;
                 font-size: 14px;
-                font-style: normal;
                 font-weight: 400;
                 line-height: 150%;
                 letter-spacing: 1.12px;
                 white-space: nowrap;
-
             }
-
         }
     }
-
 }
 
+/* ========== 波浪 (原樣) ========== */
 .wave-svg {
     width: 100%;
     height: 20vh;
     display: block;
-    transform: scaleY(-1) scaleX(-1); // 倒置貼上緣
-    overflow: hidden; // 保險：裁掉溢出
-    // 可選：更穩的邊緣渲染
+    transform: scaleY(-1) scaleX(-1);
+    overflow: hidden;
     shape-rendering: geometricPrecision;
 
     @media ($mediaXl) {
@@ -451,16 +386,14 @@ body {
         }
     }
 
-    // 只改中弧度那條的顏色
     .move.mid.stroke use {
         stroke: #737B6B;
     }
 
-    // 動畫：水平滑動（位移剛好一段 240px）
     .move {
-        animation: slide 70s linear infinite; // 底層預設
+        animation: slide 70s linear infinite;
         will-change: transform;
-        transform: translateZ(0); // 渲染更穩
+        transform: translateZ(0);
     }
 
     .move.mid {
@@ -478,16 +411,11 @@ body {
     to {
         transform: translateX(-240px);
     }
-
-    // 一段寬
 }
 
-
-// 地點區
+/* ========== 地點區（原樣） ========== */
 #homelocation {
-
     width: 100%;
-    // height: 115vh;
     padding: 42px 50px 0 50px;
     position: relative;
     display: flex;
@@ -497,13 +425,9 @@ body {
 
     @media ($mediaSm) {
         gap: 100px;
-
     }
 
-
-
     header {
-
         display: flex;
         flex-direction: column;
 
@@ -511,7 +435,6 @@ body {
             border-bottom: 1px solid $primary1;
             padding-bottom: 8px;
         }
-
 
         .homenext {
             display: flex;
@@ -522,9 +445,8 @@ body {
             margin-right: 100px;
 
             @media ($mediaSm) {
-                margin-right: 0px;
+                margin-right: 0;
             }
-
         }
 
         .popularcity {
@@ -538,23 +460,19 @@ body {
             @media ($mediaMd) {
                 margin-left: 50px;
                 margin-top: 30px;
-
             }
 
             @media ($mediaSm) {
                 margin-left: -20px;
             }
 
-
-
             p {
                 font-family: $family-en;
                 font-size: 96px;
-                font-style: normal;
                 font-weight: $f-w-4;
                 line-height: 100%;
-                opacity: 0.6;
-                background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0.00) 113.51%);
+                opacity: .6;
+                background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0) 113.51%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -562,12 +480,8 @@ body {
                 @media ($mediaSm) {
                     font-size: 56px;
                 }
-
-
             }
         }
-
-
     }
 
     .home-lo-boxs {
@@ -576,34 +490,25 @@ body {
         justify-content: flex-start;
         align-items: flex-end;
         padding: 80px 100px 0;
-        gap: 30px; //暫改
-
+        gap: 30px;
         margin-top: -160px;
 
         @media ($mediaSm) {
-
             padding: 0;
         }
 
-
         .home-city-grid {
             width: 78%;
-            //   margin: 0;                         
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 180px 153px 153px;
-            grid-template-areas:
-                "a a b"
-                "c d b"
-                "e f g";
+            grid-template-areas: "a a b" "c d b" "e f g";
             gap: 12px;
-
 
             &:not(:hover)>img:nth-child(2) {
                 filter: grayscale(0%) contrast(100%) brightness(100%);
             }
         }
-
 
         .home-city-grid>img {
             width: 100%;
@@ -611,21 +516,15 @@ body {
             object-fit: cover;
             border-radius: 12px;
             display: block;
-            // position: center;
-
             filter: grayscale(100%) contrast(80%) brightness(90%);
-            transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: filter .3s ease, transform .3s ease, box-shadow .3s ease;
 
             &:hover {
                 filter: grayscale(0%) contrast(100%) brightness(100%);
                 transform: scale(1.005);
                 box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
             }
-
-
         }
-
-
 
         .home-city-grid>img:nth-child(1) {
             grid-area: a;
@@ -655,22 +554,14 @@ body {
             grid-area: g;
         }
 
-
-        .home-all-spot {
-
-            a {
-
-
-                color: $white;
-                font-family: $family-tc;
-                font-size: $spacing-md;
-                font-style: normal;
-                font-weight: $f-w-4;
-                line-height: 150%;
-                letter-spacing: 2px;
-            }
+        .home-all-spot a {
+            color: $white;
+            font-family: $family-tc;
+            font-size: $spacing-md;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 2px;
         }
-
     }
 
     .h-1-side-word-1 {
@@ -680,13 +571,10 @@ body {
         writing-mode: vertical-lr;
         transform: rotate(180deg);
         white-space: nowrap;
-
         color: $primary1;
-
         text-align: center;
         font-family: $en;
         font-size: $spacing-md;
-        font-style: normal;
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
@@ -702,13 +590,10 @@ body {
         bottom: 100px;
         writing-mode: vertical-rl;
         white-space: nowrap;
-
         color: $primary1;
-
         text-align: center;
         font-family: "Inter";
         font-size: $spacing-md;
-        font-style: normal;
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
@@ -719,11 +604,9 @@ body {
         top: 440px;
         left: 180px;
         display: block;
-
         z-index: 1;
         pointer-events: none;
         overflow: visible;
-
 
         @media ($mediaSm) {
             display: none;
@@ -734,11 +617,10 @@ body {
             height: 100%;
             object-position: center;
         }
-
     }
 }
 
-//揪團區
+/* ========== 揪團區（含滑入＋淡入，且保留旋轉） ========== */
 #homegroup {
     position: relative;
     width: 100%;
@@ -751,13 +633,9 @@ body {
     background-color: $background1;
     overflow: visible;
 
-
     @media ($mediaMd) {
         justify-content: center;
     }
-
-
-
 
     header {
         display: flex;
@@ -774,20 +652,16 @@ body {
         .h-t-2 {
             color: $text;
         }
-
     }
 
     .h-l-text {
         display: flex;
         justify-content: flex-start;
-        /* 靠左 */
         align-items: flex-start;
         width: 100%;
         gap: 150px;
         padding-left: 150px;
         padding-top: 70px;
-
-
 
         @media ($mediaXl) {
             flex-direction: column;
@@ -796,13 +670,10 @@ body {
         }
 
         .h-g-pic {
-
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0;
-
-
 
             figure {
                 border: 5px solid $white;
@@ -819,26 +690,27 @@ body {
                 }
             }
 
+            /* 把原本 rotate 改成 CSS 變數，與 reveal 的 translateX 相容 */
             .h-g-p-1 {
                 width: 159.209px;
                 height: 106.113px;
-                transform: rotate(-6.904deg);
                 z-index: 1;
                 margin-right: -110px;
                 margin-top: 290px;
+                --tilt-rotate: rotate(-6.904deg);
 
                 @media ($mediaSm) {
                     width: 100px;
                     height: 70px;
                     margin-top: 100px;
-                    margin-right: 0px;
+                    margin-right: 0;
                 }
             }
 
             .h-g-p-2 {
                 width: 492.651px;
                 height: 328.434px;
-                transform: rotate(4.139deg);
+                --tilt-rotate: rotate(4.139deg);
 
                 @media ($mediaSm) {
                     width: 300px;
@@ -849,15 +721,14 @@ body {
             .h-g-p-3 {
                 width: 210.076px;
                 height: 140.05px;
-                transform: rotate(-3.236deg);
                 margin-left: -90px;
                 margin-top: -280px;
+                --tilt-rotate: rotate(-3.236deg);
 
                 @media ($mediaSm) {
                     display: none;
                 }
             }
-
         }
 
         ul {
@@ -879,7 +750,6 @@ body {
             }
 
             li {
-
                 span {
                     color: $text;
                     display: flex;
@@ -888,11 +758,10 @@ body {
                     gap: 5px;
                     font-family: $family-tc;
                     font-size: $f-s-md;
-                    font-style: normal;
                     font-weight: $f-w-4;
                     line-height: 150%;
                     letter-spacing: 2px;
-                    opacity: 0.3;
+                    opacity: .3;
                     transition: opacity .25s ease;
                 }
 
@@ -905,22 +774,22 @@ body {
 
                 &:hover {
                     span {
-                        opacity: 1;
+                        opacity: 1
                     }
 
                     img {
-                        opacity: 1;
+                        opacity: 1
                     }
                 }
             }
 
             &:not(:hover)>li:first-child {
                 span {
-                    opacity: 1;
+                    opacity: 1
                 }
 
                 img {
-                    opacity: 1;
+                    opacity: 1
                 }
             }
         }
@@ -929,23 +798,16 @@ body {
             margin-left: -20px;
 
             a {
-
                 color: $white;
                 font-family: $family-tc;
                 font-size: $spacing-md;
-                font-style: normal;
                 font-weight: $f-w-4;
                 line-height: 150%;
                 letter-spacing: 2px;
             }
         }
-
-
-
     }
 
-
-    /* 膠囊和大字之間的距離 */
     .h-g-tags {
         display: flex;
         flex-direction: column;
@@ -953,15 +815,12 @@ body {
         justify-content: center;
         gap: 20px;
         width: 100%;
-        // padding-right: 150px;
-        // padding-left: 800px;
         margin-right: 280px;
         margin-top: -50px;
 
         @media ($mediaMd) {
             display: none;
         }
-
 
         @media ($mediaXl) {
             margin-right: 150px;
@@ -972,43 +831,34 @@ body {
 
     .h-g-block1 {
         display: inline-flex;
-        // align-self: flex-end;
         transform: rotate(-1.822deg);
         padding: 12px 40px;
         justify-content: center;
         align-items: center;
         gap: 10px;
-
         border-radius: 10px;
         background: $white;
-
         color: $primary1;
         font-family: "Noto Sans TC";
         font-size: 20px;
-        font-style: normal;
         font-weight: 400;
         line-height: 150%;
         letter-spacing: 2px;
         white-space: nowrap;
-
     }
 
     .h-g-block2 {
-        // align-self: flex-start;
         display: inline-flex;
         transform: rotate(1.951deg);
         padding: 12px 40px;
         justify-content: center;
         align-items: center;
         gap: 10px;
-
         border-radius: 10px;
         background-color: $accent;
-
         color: $text;
         font-family: $family-tc;
         font-size: 20px;
-        font-style: normal;
         font-weight: 400;
         line-height: 150%;
         letter-spacing: 2px;
@@ -1022,15 +872,15 @@ body {
         right: 0;
         bottom: -10px;
         width: 100%;
-        overflow: hidden; // 把左右裁掉
+        overflow: hidden;
 
         .h-g-track {
-            display: inline-flex; // 兩份內容橫排
+            display: inline-flex;
             white-space: nowrap;
             will-change: transform;
             transform: translate3d(0, 0, 0);
             animation: hMarquee 100s linear infinite;
-            gap: 0; // 明確消除間距
+            gap: 0;
         }
 
         .h-g-item {
@@ -1038,13 +888,9 @@ body {
             margin: 0;
             padding: 0;
             line-height: 1;
-
-            // 字型/大小
             font-family: $family-en;
             font-weight: 400;
             font-size: clamp(56px, 8vw, 120px);
-
-            // 文字漸層（放在有文字的元素上）
             opacity: .6;
             background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0) 113.51%);
             background-clip: text;
@@ -1055,21 +901,17 @@ body {
 
     @keyframes hMarquee {
         from {
-            transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0)
         }
 
         to {
-            transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0)
         }
     }
 
     .h-g-botton {
-
-
         display: inline-block;
-        /* 讓寬度等於文字本身 */
         white-space: nowrap;
-        /* 不換行 */
         pointer-events: none;
         font-family: $family-en;
         font-size: clamp(56px, 8vw, 120px);
@@ -1090,13 +932,10 @@ body {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
     white-space: nowrap;
-
     color: $primary1;
-
     text-align: center;
     font-family: $en;
     font-size: $spacing-md;
-    font-style: normal;
     font-weight: 300;
     line-height: 150%;
     letter-spacing: $spacing-xxs;
@@ -1111,7 +950,6 @@ body {
     top: 320px;
     right: 120px;
     display: block;
-
     z-index: 1;
     pointer-events: none;
     overflow: visible;
@@ -1120,80 +958,61 @@ body {
         display: none;
     }
 
-
     img {
         width: 100%;
         height: 100%;
         object-position: center;
     }
-
 }
 
-
-
-
-
-// 日記區
+/* ========== 漂日記（原樣） ========== */
 #homediary {
     width: 100%;
     height: 100vh;
     position: relative;
     background-color: $background1;
-
-
     background-image: url("../../../public/img-Home/diary-bg.jpg");
     background-size: contain;
-    background-position: bottom;
     background-position: bottom center;
     background-repeat: no-repeat;
-
 
     position: relative;
     padding: 80px 150px 285px 150px;
     display: grid;
     justify-content: center;
-
     grid-template-columns: minmax(200px, 700px) auto 1fr;
-
     grid-template-rows: auto 1fr;
-    grid-template-areas: "pics . title"
-        "pics . article";
+    grid-template-areas: "pics . title" "pics . article";
     align-items: start;
+    margin-bottom: -60px;
 
     @media ($mediaXl) {
-        padding: 80px 80px 285px 0px;
+        padding: 80px 80px 285px 0;
     }
 
     @media ($mediaSm) {
         padding: 80px 50px 285px 20px;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
-        grid-template-areas:
-            "title"
-            "pics"
-            "article";
+        grid-template-areas: "title" "pics" "article";
         justify-items: flex-end;
     }
 
     header {
         grid-area: title;
-
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 13px;
 
-        // padding: 90px 150px;
         span {
             border-bottom: 1px solid $primary1;
             padding-bottom: 8px;
         }
-
     }
 
     .h-d-article-box {
         grid-area: article;
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -1202,11 +1021,10 @@ body {
         @media ($mediaSm) {
             align-items: center;
             padding: 0 50px;
-            margin-top: 0px;
+            margin-top: 0;
         }
 
         article {
-
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -1214,7 +1032,6 @@ body {
 
             @media ($mediaSm) {
                 margin-top: -230px;
-
             }
 
             .h-d-member {
@@ -1233,10 +1050,9 @@ body {
                     color: $text;
                     font-family: $en;
                     font-size: 16px;
-                    font-style: normal;
                     font-weight: 600;
                     line-height: 130%;
-                    letter-spacing: 0.8px;
+                    letter-spacing: .8px;
                 }
             }
 
@@ -1244,37 +1060,30 @@ body {
                 display: flex;
                 flex-direction: column;
                 gap: 30px;
+            }
 
+            .h-d-text {
+                display: flex;
+                flex-direction: column;
+                gap: 13px;
 
-
-
-                .h-d-text {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 13px;
-
-                    .h-d-tit {
-                        color: $text;
-                        font-family: $family-tc;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 150%;
-                        letter-spacing: 2px;
-                    }
-
-                    .h-d-word {
-                        color: $text;
-                        font-family: $family-tc;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 150%;
-                        letter-spacing: 1.6px;
-                    }
-
+                .h-d-tit {
+                    color: $text;
+                    font-family: $family-tc;
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 150%;
+                    letter-spacing: 2px;
                 }
 
+                .h-d-word {
+                    color: $text;
+                    font-family: $family-tc;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 150%;
+                    letter-spacing: 1.6px;
+                }
             }
 
             .h-d-sign {
@@ -1284,11 +1093,9 @@ body {
 
                 p {
                     color: $text;
-
                     text-align: center;
                     font-family: $family-tc;
                     font-size: 14px;
-                    font-style: normal;
                     font-weight: 400;
                     line-height: 100%;
                 }
@@ -1312,11 +1119,8 @@ body {
                         align-items: center;
                         flex-shrink: 0;
                         white-space: nowrap;
-
                         border-radius: 999px;
-                        background-color: rgba(255, 255, 255, 0.50);
-
-
+                        background-color: rgba(255, 255, 255, .5);
                     }
                 }
 
@@ -1327,9 +1131,8 @@ body {
                     align-items: center;
                     color: #201811;
                     white-space: nowrap;
-
                     border-radius: 999px;
-                    background: rgba(255, 255, 255, 0.50);
+                    background: rgba(255, 255, 255, .5);
                 }
 
                 img {
@@ -1340,7 +1143,6 @@ body {
                     align-items: center;
                 }
             }
-
         }
 
         .home-all-spot {
@@ -1350,7 +1152,6 @@ body {
                 color: $text;
                 font-family: $family-tc;
                 font-size: $spacing-md;
-                font-style: normal;
                 font-weight: $f-w-4;
                 line-height: 150%;
                 letter-spacing: 2px;
@@ -1360,10 +1161,9 @@ body {
 
     .h-d-pics {
         grid-area: pics;
-
         position: relative;
         width: 100%;
-        height: 500px; // 可依設計稿調整
+        height: 500px;
 
         @media ($mediaXl) {
             margin-left: -50px;
@@ -1371,9 +1171,8 @@ body {
 
         img {
             position: absolute;
-            box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, 0.25);
+            box-shadow: 6px 6px 4px 0 rgba(0, 0, 0, .25);
             object-fit: cover;
-
         }
 
         img:nth-child(1) {
@@ -1384,9 +1183,7 @@ body {
 
             @media ($mediaXl) {
                 display: none;
-
             }
-
         }
 
         img:nth-child(2) {
@@ -1417,10 +1214,9 @@ body {
                 width: 180px;
                 height: 250px;
                 left: 200px;
-                top: 0px;
+                top: 0;
             }
         }
-
     }
 
     .h-d-side-word {
@@ -1429,13 +1225,10 @@ body {
         top: 415px;
         writing-mode: vertical-rl;
         white-space: nowrap;
-
         color: $primary1;
-
         text-align: center;
         font-family: $en;
         font-size: $spacing-md;
-        font-style: normal;
         font-weight: 300;
         line-height: 150%;
         letter-spacing: $spacing-xxs;
@@ -1448,7 +1241,7 @@ body {
     .h-d-boat {
         position: absolute;
         left: 150px;
-        bottom: 0px;
+        bottom: 0;
 
         img {
             display: block;
@@ -1458,3 +1251,58 @@ body {
         }
     }
 }
+
+/* ========== 可重複的滑入＋淡入（重點） ========== */
+/* 將 translateX 與（可選）旋轉用變數合併，避免 transform 互相覆蓋 */
+.reveal {
+    /* 不要寫 --reveal-x: 0; 會蓋掉位移類別 */
+    --tilt: 0deg;
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0), 0, 0) rotate(var(--tilt));
+    transition: opacity .8s ease, transform .8s ease;
+    will-change: opacity, transform;
+}
+
+/* 進場時把位移歸 0 才會滑入 */
+.reveal.in {
+    opacity: 1;
+    --reveal-x: 0;
+}
+
+/* 位移工具類（左右距離可自行增減） */
+.reveal-left-60 {
+    --reveal-x: -60px;
+}
+
+.reveal-left-120 {
+    --reveal-x: -120px;
+}
+
+.reveal-left-200 {
+    --reveal-x: -200px;
+}
+
+.reveal-right-60 {
+    --reveal-x: 60px;
+}
+
+.reveal-right-120 {
+    --reveal-x: 120px;
+}
+
+.reveal-right-200 {
+    --reveal-x: 200px;
+}
+
+
+.reveal-left-500 {
+    --reveal-x: -500px;
+}
+
+.reveal-left-300 {
+    --reveal-x: -300px;
+}
+
+.h-g-p-1 { --tilt: -6.904deg; }
+.h-g-p-2 { --tilt:  4.139deg; }
+.h-g-p-3 { --tilt: -3.236deg; }
