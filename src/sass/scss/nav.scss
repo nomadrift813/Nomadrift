@@ -8,7 +8,7 @@
   width: 100%;
   height: 65px;
   display: grid;
-  grid-template-columns: 220px 1fr 180px;
+  grid-template-columns: minmax(150px, 220px) 1fr minmax(150px, 180px);
   align-items: center;
   padding: 0 50px;
   z-index: 999;
@@ -18,50 +18,93 @@
   backdrop-filter: blur(20px);
   box-shadow: 2px 2px 5px var(--alpha-b-20), inset -1px -1px 1px var(--alpha-w-40);
 
+  // 中等螢幕尺寸調整
+  @media (max-width: 1200px) {
+    grid-template-columns: minmax(120px, 200px) 1fr minmax(140px, 160px);
+    padding: 0 30px;
+  }
+
+  // 小螢幕調整
+  @media (max-width: 820px) {
+    grid-template-columns: minmax(80px, 120px) 1fr minmax(130px, 150px);
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  // 極小螢幕
+  @media (max-width: 600px) {
+    grid-template-columns: 80px 1fr 120px;
+    padding: 0 15px;
+  }
+
   .logo {
     display: flex;
     align-items: center;
-  }
+    justify-content: flex-start;
 
+    img {
+      max-width: 100%;
+      height: auto;
+      transition: all 0.3s ease;
+    }
+  }
 
   .navmenu {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 62px;
-    gap: 120px;
+    gap: clamp(20px, 8vw, 120px); // 動態間距
     list-style: none;
     margin: 0;
+    padding: 0;
     flex-direction: row;
     flex-wrap: nowrap;
 
-    @media ($mediaMd) {
-      padding: 0 50px;
+    @media (max-width: 1200px) {
+      gap: clamp(15px, 6vw, 80px);
     }
 
-  }
+    @media (max-width: 820px) {
+      gap: clamp(10px, 4vw, 40px);
+    }
 
+    @media (max-width: 600px) {
+      gap: clamp(8px, 3vw, 20px);
+    }
+
+    li {
+      flex-shrink: 0; // 防止文字被壓縮
+      white-space: nowrap; // 防止文字換行
+    }
+  }
 
   .navlogs {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    gap: 16px;
+    gap: clamp(8px, 2vw, 16px); // 動態間距
     list-style: none;
     margin: 0;
     padding: 0;
     flex-wrap: nowrap;
 
-
-
     li {
       display: inline-flex;
-      /* 只跟內容一樣寬 */
       flex: 0 0 auto;
-      /* 不伸展、不縮小 */
       width: auto;
-      padding: 4px 24px;
+      min-width: fit-content; // 確保按鈕有足夠寬度
+      padding: clamp(3px, 1vw, 4px) clamp(12px, 3vw, 24px); // 動態內距
       border-radius: 999px;
+      white-space: nowrap; // 防止按鈕文字換行
+
+      button {
+        white-space: nowrap;
+        border: none;
+        background: transparent;
+        font-size: clamp(14px, 2vw, 16px); // 動態字體大小
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
     }
 
     .navlog {
@@ -72,6 +115,10 @@
       font-family: $family-tc;
       color: $text;
 
+      button {
+        color: $text;
+        font-family: $family-tc;
+      }
     }
 
     .navsign {
@@ -81,24 +128,43 @@
       border: 1px solid $accent;
       background-color: $accent;
       color: #ffffff;
+
+      button {
+        color: #ffffff;
+        font-family: $family-tc;
+      }
     }
   }
 
   a {
     color: $text;
     font-family: $family-tc;
-    font-size: 18px;
+    font-size: clamp(14px, 2.5vw, 18px); // 動態字體大小
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    letter-spacing: 2px;
+    letter-spacing: clamp(1px, 0.3vw, 2px); // 動態字間距
     display: inline-flex;
     flex: 0 0 auto;
     width: auto;
+    text-decoration: none;
+    white-space: nowrap; // 防止連結文字換行
+    transition: all 0.3s ease;
 
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
-
+  // 極小螢幕時隱藏部分導航項目（可選）
+  @media (max-width: 480px) {
+    .navmenu {
+      li:nth-child(2) {
+        // 隱藏中間項目
+        display: none;
+      }
+    }
+  }
 }
 
 /* ===== 基本覆蓋：全螢幕暗幕 + 背景模糊 ===== */
@@ -117,11 +183,8 @@
 .modal-content {
   position: relative;
   padding: 0;
-  /* 白底與內距交給 #log/#sign 自己 */
   background: transparent;
-  /* 透明，保留你原卡片外觀 */
   box-shadow: none;
-  /* 陰影也交給 #log/#sign */
 }
 
 /* 右上角 X */
@@ -139,46 +202,33 @@
 }
 
 /* ===== 讓 #log/#sign 在 Modal 內維持你原本的卡片樣式 ===== */
-/* 1) 置中 + 去掉頁面版 margin-top/固定高度 */
 .modal-content #log,
 .modal-content #sign {
   margin: 0 auto;
-  /* 置中 */
   height: auto;
-  /* 不固定高度，避免壓扁 */
   box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
-  /* 加回漂亮陰影 */
 }
 
-/* 2) 完整保留你原來的卡片外觀與內距（直接沿用你的設定） */
 .modal-content #log {
-  width: 526px;
+  width: min(526px, 90vw); // 響應式寬度
   border-radius: 20px;
   background-color: $white;
-  padding: 50px 65px 30px 65px;
-  /* 和你頁面版一致 */
-  /* 可選：想固定高度才加，否則讓內容自適應 */
-  /* min-height: 500px; */
+  padding: clamp(30px, 5vw, 50px) clamp(35px, 6vw, 65px) clamp(20px, 3vw, 30px);
 }
 
 .modal-content #sign {
-  width: 526px;
+  width: min(526px, 90vw); // 響應式寬度
   border-radius: 20px;
   background-color: $white;
-  padding: 40px 65px 25px 65px;
-  /* 和你頁面版一致 */
-  /* min-height: 542px; */
+  padding: clamp(25px, 4vw, 40px) clamp(35px, 6vw, 65px) clamp(15px, 3vw, 25px);
 }
 
-/* 3) 讓 main/section 不再撐外距（避免多一層 margin） */
 .modal-content main,
 .modal-content section {
   margin: 0;
   padding: 0;
   width: 100%;
 }
-
-/* =====（可選，但建議）微調：避免標籤換行、欄位更穩 ===== */
 
 /* 登入：每列填滿寬度，label 不換行 */
 .modal-content #log .log-f-box {
@@ -191,8 +241,7 @@
 
 .modal-content #log .log-f-row label {
   white-space: nowrap;
-  flex: 0 0 88px;
-  /* label 寬些，避免斷行 */
+  flex: 0 0 clamp(60px, 10vw, 88px); // 動態標籤寬度
 }
 
 .modal-content #log .log-f-row input {
@@ -200,14 +249,14 @@
   min-width: 0;
 }
 
-/* 註冊：同樣處理（避免你剛遇到的 "會員名\n稱" 斷行） */
+/* 註冊：同樣處理 */
 .modal-content #sign .sign-f-row {
   width: 100%;
 }
 
 .modal-content #sign .sign-f-row label {
   white-space: nowrap;
-  flex: 0 0 88px;
+  flex: 0 0 clamp(60px, 10vw, 88px);
 }
 
 .modal-content #sign .sign-f-row input {
@@ -215,7 +264,6 @@
   min-width: 0;
 }
 
-/* 日期欄位避免瀏覽器預設擠版（可選） */
 .modal-content #sign .sign-f-row input[type="date"] {
   appearance: none;
   -webkit-appearance: none;
@@ -231,14 +279,13 @@
 .modal-content #log .auth-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;   /* 水平置中所有子元素 */
+  align-items: center;
 }
 
-/* 提示文字置中顯示 */
 .modal-content #sign p,
 .modal-content #log p {
-  align-self: center;    /* 避免被 flex 拉到左邊 */
+  align-self: center;
   text-align: center;
-  width: 100%;           /* 讓文字真的在整列中間 */
+  width: 100%;
   margin-top: 16px;
 }

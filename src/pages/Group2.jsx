@@ -151,6 +151,41 @@ const Group2 = () => {
         },
     ];
 
+    // --- 新增：留言狀態 ---
+    const [comments, setComments] = useState([
+        {
+            name: "Sherry",
+            text: "哇～夜市行程聽起來也太讚了吧！可惜那天有事走不開😭",
+            photo: "./img-Group/people/Commenter (1).jpg",
+        },
+        {
+            name: "Eason",
+            text: "我超愛逛夜市耶！饒河真的推推！！",
+            photo: "./img-Group/people/Commenter (2).jpg",
+        },
+        {
+            name: "Jason",
+            text: "團主的揪團超棒！希望下次能跟到！",
+            photo: "./img-Group/people/Commenter (3).jpg",
+        },
+    ]);
+    const [newComment, setNewComment] = useState("");
+
+    const handleAddComment = (e) => {
+        e.preventDefault();
+        const text = newComment.trim();
+        if (!text) return;
+        setComments(prev => [
+            ...prev,
+            {
+                name: "Andy Chen",
+                text,
+                photo: "./img-Group/people/People-(10).jpg",
+            },
+        ]);
+        setNewComment("");
+    };
+
     return (
         <main>
             {/* Banner區 */}
@@ -173,7 +208,7 @@ const Group2 = () => {
                     <div className="activity-introduction">
                         <li>
                             <h3>活動類型</h3>
-                            <p>#吃飯探索 #美食旅遊 #認識朋友</p>
+                            <p>#找吃飯夥伴 #找踩點夥伴</p>
                         </li>
 
                         <li>
@@ -214,7 +249,6 @@ const Group2 = () => {
                 </div>
             </article>
 
-
             {/* 發起人+報名人數 */}
             <section id="people-info">
                 <div className="organizer-info">
@@ -240,40 +274,36 @@ const Group2 = () => {
             {/* 留言區 */}
             <section id='activity-comments'>
                 <h3>留言區</h3>
-                {/* Sherry */}
-                <div className='comment'>
-                    <img className="commenter-photo" src="./img-Group/people/Commenter (1).jpg" alt="" />
-                    <div className='comment-content'>
-                        <p className='commenter-name'>Sherry</p>
-                        <p>哇～夜市行程聽起來也太讚了吧！可惜那天有事走不開😭</p>
+
+                {/* 既有留言（動態渲染） */}
+                {comments.map((c, idx) => (
+                    <div className='comment' key={`c-${idx}`}>
+                        <img className="commenter-photo" src={c.photo} alt="" />
+                        <div className='comment-content'>
+                            <p className='commenter-name'>{c.name}</p>
+                            <p>{c.text}</p>
+                        </div>
                     </div>
-                </div>
-                {/* Eason */}
-                <div className='comment'>
-                    <img className="commenter-photo" src="./img-Group/people/Commenter (2).jpg" alt="" />
-                    <div className='comment-content'>
-                        <p className='commenter-name'>Eason</p>
-                        <p>我超愛逛夜市耶！饒河真的推推！！</p>
-                    </div>
-                </div>
-                {/* Jason */}
-                <div className='comment'>
-                    <img className="commenter-photo" src="./img-Group/people/Commenter (3).jpg" alt="" />
-                    <div className='comment-content'>
-                        <p className='commenter-name'>Jason</p>
-                        <p>團主的揪團超棒！希望下次能跟到！</p>
-                    </div>
-                </div>
-                {/* Andy Chen */}
+                ))}
+
+                {/* Andy Chen：輸入框 → 可新增留言 */}
                 <div className='comment'>
                     <img className="commenter-photo" src="./img-Group/people/People-(10).jpg" alt="" />
                     <div className='comment-content'>
                         <p className='commenter-name'>Andy Chen</p>
-                        <p className='input'>我要留言</p>
+                        <form className='comment-input-row' onSubmit={handleAddComment}>
+                            <textarea
+                                className='input'
+                                type="text"
+                                placeholder="我要留言"
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                                aria-label="新增留言內容"
+                            />
+                            <button type="submit" className="btn-add-comment">送出</button>
+                        </form>
                     </div>
                 </div>
-
-
             </section>
 
             {/* 更多揪團：用輪播 */}
