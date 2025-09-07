@@ -1,7 +1,25 @@
+import React, { useRef } from "react";
 import { Link } from 'react-router-dom'
 import '../sass/scss/location-2.scss'
 
 const Location2 = () => {
+
+    // 卡片左右滑動
+    const cardsRef = useRef(null);
+    // 單張卡片寬度（270px）+ gap（28px）
+    const cardWidth = 270 + 28;
+
+    const scrollLeft = () => {
+        if (cardsRef.current) {
+            cardsRef.current.scrollLeft -= 300; // 每次往左滑 300px
+        }
+    };
+    const scrollRight = () => {
+        if (cardsRef.current) {
+            cardsRef.current.scrollLeft += 300; // 每次往右滑 300px
+        }
+    };
+
     return (
         <main>
             {/* 標題-探索地點 */}
@@ -13,13 +31,13 @@ const Location2 = () => {
                     <p className='l-t-1'>Discover<span> De</span>stination</p>
                     <p className='l-t-2'>探索地點</p>
                 </header>
-                 <p className='theCity'>亞洲-泰國-清邁</p>
+                <p className='theCity'>亞洲-泰國-清邁</p>
             </section>
 
             {/* <img className='pathArrow' src="pathArrow.svg" alt="" /> */}
 
             {/* 內容-探索地點 */}
-            <section id='allInfo'> 
+            <section id='allInfo'>
                 {/* 地點照片 */}
                 <figure className='allPic'>
                     <img className='picXl' src="./img-Location/p01.jpeg" alt="" />
@@ -86,11 +104,14 @@ const Location2 = () => {
                 </header>
 
                 <div className='moreCards'>
-                    <img className='left' src="./img-Location/left.svg" alt="" />
-                    < article className='cards' >
-                        {/* 卡片1 */}
+                    <button className='left' onClick={scrollLeft}>
+                        <img src="./img-Location/left.svg" alt="" />
+                    </button>
+
+                    < article className='cards' ref={cardsRef}>
+                        {/* 卡片1 義大利 */}
                         <Link to="/location2">
-                            <section section className='country' >
+                            <section className='country' >
                                 <div className='p1-sel'>
                                     <figure className='loc-p1'><img src="./img-Location/Italy.jpg" alt="" /></figure>
                                     <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -115,9 +136,9 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section >
                         </Link>
-                        {/* 卡片2 */}
+                        {/* 卡片2 加拿大 */}
                         <Link to="/location2">
-                            <section section className='country' >
+                            <section className='country' >
                                 <div className='p1-sel'>
                                     <figure className='loc-p1'><img src="./img-Location/Canada.jpg" alt="" /></figure>
                                     <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -142,8 +163,7 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section >
                         </Link>
-
-                        {/* 卡片3 */}
+                        {/* 卡片3 尼泊爾 */}
                         <Link to="/location2">
                             <section className='country'>
                                 <div className='p1-sel'>
@@ -170,11 +190,9 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section>
                         </Link>
-
-
-                        {/* 卡片4 */}
+                        {/* 卡片4 西班牙 */}
                         <Link to="/location2">
-                            <section section className='country' >
+                            <section className='country' >
                                 <div className='p1-sel'>
                                     <figure className='loc-p1'><img src="./img-Location/Spain.jpg" alt="" /></figure>
                                     <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
@@ -199,8 +217,68 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section >
                         </Link>
+
+                        {/* 卡片5 阿根廷 */}
+                        <Link to="/location2" >
+                            <section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Argentina.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>阿根廷</h2>
+                                    <p className='loc-text'>以熱情和對探戈、足球的熱愛而著稱，擁有悠久的歐洲移民歷史，並在文化、經濟和政治上是拉丁美洲的重要國家。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link >
+
+                        {/* 卡片6 摩洛哥 */}
+                        <Link to="/location2" >
+                            <section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Morocco.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>摩洛哥</h2>
+                                    <p className='loc-text'>擁有獨特多樣的地貌，包括地中海沿岸、大西洋、撒哈拉沙漠和綿延的阿特拉斯山脈，使其成為受歡迎的旅遊目的地，特別是以「北非花園」的稱號著稱。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link >
+
                     </article >
-                    <img className='right' src="./img-Location/right.svg" alt="" />
+
+                    <button className='right' onClick={scrollRight}>
+                        <img src="./img-Location/right.svg" alt="" />
+                    </button>
                 </div>
 
             </section>

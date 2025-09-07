@@ -89,8 +89,8 @@
 
      .bPath {
          display: flex;
-        //  position: absolute;
-        //  bottom: 80px;
+         //  position: absolute;
+         //  bottom: 80px;
          width: 100%;
          height: auto;
          padding-top: 400px;
@@ -324,7 +324,7 @@
      position: relative;
 
      // 各大洲區
-     .continent{
+     .continent {
          display: flex;
          flex-direction: column;
          justify-content: center;
@@ -354,18 +354,23 @@
      .conCards {
          display: flex;
          align-items: center;
-         gap: 32px;
+         //  gap: 20px;
          z-index: 1;
-         margin-left: -40px;
+         margin-left: -150px;
+
+         width: 70%;
+         height: 100%;
 
          .country {
+             width: 270px;
              background-color: $white;
              position: relative;
+             transition: all 0.3s ease;
 
              &:hover {
                  box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
                  transform: translateY(-8px) scale(1.02);
-                 transition: all .2s 0s;
+                 //  transition: all .2s 0s;
 
                  .color-block {
                      width: 270px;
@@ -431,7 +436,7 @@
                      align-items: center;
                      gap: 3px;
 
-                     border-bottom: 1px solid #737B6B ;
+                     border-bottom: 1px solid #737B6B;
                      padding-bottom: 12px;
 
                      ul {
@@ -491,34 +496,84 @@
          }
      }
 
-     // 更多按鈕
-     button {
-         display: flex;
-         height: 32px;
-         padding: 10px 14px;
-         justify-content: flex-end;
-         align-items: center;
-         position: absolute;
-         right: 100px;
-         bottom: 80px;
+     .mySwiper {
+         width: 100%;
+         height: 100%;
 
-         color: $text;
-         font-family: $en;
-         font-size: $f-s-xs;
-         font-weight: $f-w-4;
-         line-height: 100%;
+         .swiper-slide {
+             text-align: center;
+             font-size: 18px;
+             background: none;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+         }
 
-         border-radius: 999px;
-         background: $accent;
-         border: none;
+         .swiper-button-next,
+         .swiper-button-prev {
+             color: #f4cf00 !important;
+             opacity: 0.5;
 
-         &:hover {
-             box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-             transition: all .2s 0s;
+             &:hover {
+                 color: #f4cf00 !important;
+                 opacity: 1;
+             }
+         }
+
+         .swiper-button-next {
+             right: 1px;
+         }
+
+         .swiper-button-prev {
+             left: 1px;
+         }
+
+         @media (max-width: 760px) {
+             .swiper-button-next {
+                 right: 20px;
+                 transform: rotate(90deg);
+             }
+
+             .swiper-button-prev {
+                 left: 20px;
+                 transform: rotate(90deg);
+             }
          }
      }
 
+     .swiper {
+         padding-top: 30px;
+         padding-bottom: 30px;
+     }
+
+     // 更多按鈕
+         .viewMore {
+             display: flex;
+             height: 32px;
+             padding: 10px 14px;
+             justify-content: flex-end;
+             align-items: center;
+             position: absolute;
+             right: 120px;
+             bottom: 80px;
+
+             color: $text;
+             font-family: $en;
+             font-size: $f-s-xs;
+             font-weight: $f-w-4;
+             line-height: 100%;
+
+             border-radius: 999px;
+             background: $accent;
+             border: none;
+
+             &:hover {
+                 box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+                 transition: all .2s 0s;
+             }
+         }
  }
+
 
 
  // 探索更多

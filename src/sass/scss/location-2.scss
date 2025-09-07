@@ -312,13 +312,30 @@ main {
     .moreCards {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 28px;
         padding: 0px 50px 100px 50px;
+
+        // 限制整個卡片展示區的最大寬度
+        max-width: 1600px; // 可以依需求調整
+        margin: 0 auto;
 
         .cards {
             display: flex;
             align-items: center;
             gap: 28px;
+
+            overflow-x: auto; // 允許水平滾動
+            scroll-behavior: smooth; // 點擊時平滑滾動
+
+            // 限制在按鈕之間的寬度
+            width: 1164px; // ← 這裡就是限制「在兩個按鈕中間的寬度」
+            padding: 10px 0;
+
+            // 隱藏捲軸（可選）
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             .country {
                 background-color: $white;
@@ -393,7 +410,7 @@ main {
                         align-items: center;
                         gap: 3px;
 
-                        border-bottom: 1px solid #737B6B ;
+                        border-bottom: 1px solid #737B6B;
                         padding-bottom: 12px;
 
                         ul {
@@ -457,6 +474,33 @@ main {
         .right {
             width: 60px;
             height: 60px;
+        }
+
+        /* 平板 */
+        @media (max-width: 1024px) {
+            .cards {
+                width: 700px; // 顯示 2 張卡片
+            }
+
+            .left,
+            .right {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* 手機 */
+        @media (max-width: 768px) {
+            .cards {
+                width: 300px; // 顯示 1 張卡片
+                gap: 16px;
+            }
+
+            .left,
+            .right {
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 }
