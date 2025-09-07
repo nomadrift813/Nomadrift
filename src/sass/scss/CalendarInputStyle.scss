@@ -1,5 +1,5 @@
 @use 'reset';
-
+@use 'var' as *;
 
 // CalendarInputStyle.scss
 $primary-color: #f4c430;
@@ -53,6 +53,7 @@ $text: #201811;
         width: 100%;
 
         .date-input {
+            
             width: 100%; // 填滿父元素
             box-sizing: border-box;
             font-size: $f-s-sm;
@@ -312,19 +313,19 @@ $text: #201811;
 }
 
 // 響應式設計
-@media (max-width: 768px) {
+@media ($mediaMd) {
     .date-picker-container {
         .input-wrapper {
             .calendar-container {
-                left: -10px;
-                right: -10px;
+                left: 50px;
+                right: 50px;
                 margin-top: 8px;
             }
         }
     }
 }
 
-@media (max-width: 480px) {
+@media ($mediaSm) {
     .date-picker-container {
         .input-wrapper {
             .date-input {

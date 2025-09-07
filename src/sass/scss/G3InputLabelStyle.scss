@@ -20,49 +20,83 @@ $f-s-md: 20px;
 $f-s-sm: 16px;
 $text: #201811;
 
+/* 容器 */
 .text-input-container {
     display: flex;
-    width: 100%; // 填滿父元素
-    position: relative;
+    width: 100%;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 
-    // 活動標題
     .inputLabel-title-section {
-        .inputLabel-title {
-            align-self: stretch;
-            color: $text-primary;
-            font-family: $family-tc;
-            font-size: $f-s-md;
-            line-height: 150%;
-            letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+    }
 
-            .required-asterisk {
-                color: $required-color;
-                margin-left: 4px;
-            }
+    .inputLabel-title {
+        color: $text-primary;
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        line-height: 150%;
+        letter-spacing: 2px;
+
+        .required-asterisk {
+            color: $required-color;
+            margin-left: 4px;
         }
     }
 
-    // 活動輸入框
+    /* 文字輸入 / Textarea */
     .input-wrapper {
         position: relative;
         display: flex;
         width: 100%;
 
         .text-input {
-            width: 100%; // 填滿父元素
+            width: 100%;
             box-sizing: border-box;
             font-size: $f-s-sm;
             line-height: 1.4;
             font-weight: 400;
             padding: 12px 40px 12px 14px;
-            border: 2px solid #ccc;
+            border: 2px solid #CCC;
             border-radius: 12px;
             background: white;
-            color: $text; //輸入完成後的字顏色
-            cursor: pointer;
+            color: $text-primary;
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+            &::placeholder {
+                color: $text-placeholder;
+            }
+
+            &:hover:not(:disabled) {
+                border-color: $primary-hover;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $primary-active;
+                box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+            }
+
+            &:disabled {
+                background: #f5f5f5;
+                cursor: not-allowed;
+                color: $text-disabled;
+            }
+        }
+
+        .text-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: $f-s-sm;
+            line-height: 1.6;
+            padding: 12px 14px;
+            border: 2px solid #CCC;
+            border-radius: 12px;
+            background: white;
+            color: $text-primary;
+            resize: vertical;
+            min-height: 96px;
 
             &::placeholder {
                 color: $text-placeholder;
@@ -98,234 +132,106 @@ $text: #201811;
     }
 
     .field-hint {
-        margin-top: 6px;
-        font-size: 12px;
-        color: $required-color; // 與 TimeInput 的提示紅一致
+        color: $text-secondary;
+        font-size: 13px;
     }
 }
 
-// Textarea 樣式
-.text-textarea {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: $f-s-sm;
-    line-height: 1.4;
-    font-weight: 400;
-    padding: 12px 14px;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    background: white;
-    color: $text;
-    cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    resize: vertical;
-    min-height: 100px;
-    font-family: inherit;
-
-    &::placeholder {
-        color: $text-placeholder;
-    }
-
-    &:hover:not(:disabled) {
-        border-color: $primary-hover;
-    }
-
-    &:focus {
-        outline: none;
-        border-color: $primary-active;
-        box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
-    }
-
-    &:disabled {
-        background: #f5f5f5;
-        cursor: not-allowed;
-        color: $text-disabled;
-    }
-}
-
-// 檔案上傳區域樣式
+/* 檔案上傳區域樣式：同時支援 .file-upload-area 與 .upload-area（供 JSX 使用） */
 .file-upload-area {
     border: 3px dashed #ccc;
+    width: 100%;
     border-radius: 12px;
     padding: 40px 20px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
     background: white;
-    min-height: 200px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 12px;
 
     &:hover {
         border-color: $primary-hover;
         background: $background-light;
     }
 
-    &.drag-active {
-        border-color: $primary-active;
-        background: $background-light;
-        box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
-    }
-
-    // 當有檔案時，調整樣式
     &.has-files {
-        padding: 20px;
-        min-height: auto;
+        padding: 16px;
+        border-color: $border-color;
+        background: #fff;
     }
 
-    .upload-icon {
-        width: 48px;
-        height: 48px;
-        color: $text-secondary;
-        margin-bottom: 8px;
-    }
+    .upload-area {
+        .upload-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            color: $text-secondary;
+        }
 
-    .upload-text {
-        font-size: $f-s-sm;
-        color: $text-primary;
-        margin: 0;
-        font-weight: 400;
-    }
+        .upload-text {
+            font-size: $f-s-sm;
+            color: #333;
+            margin: 0;
+            font-weight: 400;
+        }
 
-    .upload-hint {
-        font-size: 16px;
-        color: #ccc;
-        margin: 0;
-        line-height: 1.4;
+        .upload-hint {
+            font-size: 12px;
+            color: #ccc;
+            margin: 0;
+            line-height: 1.4;
+        }
     }
 }
 
-// 照片預覽網格
-.image-preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    width: 100%;
-    max-width: 100%;
 
-    .image-preview-item {
-        position: relative;
-        aspect-ratio: 4/3;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #f5f5f5;
 
-        .preview-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+/* 照片預覽（單張） */
+.image-preview {
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
 
-        .remove-image-btn {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: rgba(0, 0, 0, 0.6);
-            border: none;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            opacity: 0.8;
-
-            &:hover {
-                opacity: 1;
-                background: rgba(239, 68, 68, 0.8);
-                transform: scale(1.1);
-            }
-        }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // display: block;
     }
 
-    .add-more-btn {
-        aspect-ratio: 4/3;
-        border: 2px dashed #ddd;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        background: #f9f9f9;
-        color: $text-secondary;
-        transition: all 0.2s ease;
+    .remove-image-btn {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        place-items: center;
         cursor: pointer;
+        transition: all 0.2s ease;
 
         &:hover {
-            border-color: $primary-hover;
-            background: $background-light;
-            color: $text-primary;
+            background: rgba(239, 68, 68, 0.85);
+            transform: translateY(-1px);
         }
 
-        .add-icon {
-            width: 32px;
-            height: 32px;
-        }
-
-        span {
-            font-size: 14px;
-            font-weight: 500;
+        &:active {
+            transform: translateY(0);
         }
     }
 }
 
-// 已選擇檔案預覽（舊版，保留以防其他地方使用）
-.selected-files {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 12px;
-
-    .file-preview {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 12px;
-        background: $background-light;
-        border-radius: 8px;
-        border: 1px solid #e5e5e5;
-
-        .file-name {
-            font-size: 14px;
-            color: $text-primary;
-            flex: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .remove-file {
-            background: none;
-            border: none;
-            color: $text-secondary;
-            cursor: pointer;
-            padding: 4px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            &:hover {
-                background: rgba(239, 68, 68, 0.1);
-                color: $required-color;
-            }
-        }
-    }
-}
-
-// 響應式設計
+/* 響應式 */
 @media (max-width: 768px) {
     .text-input-container {
-        .file-upload-area {
+
+        .file-upload-area,
+        .upload-area {
             padding: 30px 15px;
             min-height: 160px;
 
@@ -344,88 +250,6 @@ $text: #201811;
 
             .upload-hint {
                 font-size: 13px;
-            }
-        }
-
-        .image-preview-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 8px;
-
-            .add-more-btn {
-                .add-icon {
-                    width: 24px;
-                    height: 24px;
-                }
-
-                span {
-                    font-size: 12px;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .text-input-container {
-        .input-wrapper {
-            .text-input {
-                padding: 10px 36px 10px 12px;
-                font-size: 14px;
-            }
-
-            .location-icon {
-                right: 10px;
-                width: 18px;
-                height: 18px;
-            }
-        }
-
-        .file-upload-area {
-            padding: 24px 12px;
-            min-height: 140px;
-
-            &.has-files {
-                padding: 12px;
-            }
-
-            .upload-icon {
-                width: 36px;
-                height: 36px;
-            }
-
-            .upload-text {
-                font-size: 14px;
-            }
-
-            .upload-hint {
-                font-size: 12px;
-            }
-        }
-
-        .single-image-preview {
-            .image-preview-item {
-                max-width: 200px;
-
-                .remove-image-btn {
-                    width: 18px;
-                    height: 18px;
-                    top: 4px;
-                    right: 4px;
-                }
-            }
-
-            .replace-hint {
-                font-size: 12px;
-            }
-        }
-
-        .selected-files {
-            .file-preview {
-                padding: 6px 10px;
-
-                .file-name {
-                    font-size: 13px;
-                }
             }
         }
     }

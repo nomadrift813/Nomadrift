@@ -8,6 +8,13 @@ import TimeInput from '../component/TimeInput'
 import G3InputLabel from '../component/G3InputLabel'
 
 const Group3 = () => {
+    // 按鈕區
+    // 1) 在檔案最上方的 useState 區塊加上：
+    const [selectedCategory, setSelectedCategory] = useState('');
+    // 2) 用一個陣列來 render 五顆 pill（也能保留你原本的五個 <button>，重點是 className / aria-pressed / onClick）
+    const categories = ['找吃飯夥伴', '找工作夥伴', '找踩點夥伴', '找合租室友', '找Chill伴'];
+
+
     // 活動日期（單日）
     const [singleDate, setSingleDate] = useState('');
     // 報名截止日（單日）
@@ -23,14 +30,11 @@ const Group3 = () => {
     // 第二區塊輸入框
     const [activityTitle, setActivityTitle] = useState('');
     const [activityContent, setActivityContent] = useState('');
-    // 單一檔案或 null
-    const [uploadedFile, setUploadedFile] = useState(null);
+    // 上傳的圖片檔案 - 採用 Diary.jsx 風格
+    const [uploadedImage, setUploadedImage] = useState(null);
 
-    // 將時間字串轉成分鐘（支援 24h "HH:MM" 與 12h "AM 9:05"）
     const toMinutes = (timeStr) => {
         if (!timeStr) return null;
-
-        // 12h: "AM 9:05" / "PM 12:30"（大小寫不敏感、允許多空白）
         const m12 = timeStr.match(/^\s*(AM|PM)\s+(\d{1,2}):(\d{2})\s*$/i);
         if (m12) {
             let h = parseInt(m12[2], 10);
@@ -40,8 +44,6 @@ const Group3 = () => {
             else h = (h === 12 ? 12 : h + 12);
             return h * 60 + min;
         }
-
-        // 24h: "HH:MM"
         const parts = timeStr.split(':');
         if (parts.length === 2) {
             const h = parseInt(parts[0], 10);
@@ -51,7 +53,6 @@ const Group3 = () => {
         return null;
     };
 
-    // 自動檢查：若結束時間早於開始時間 → 自動調整並提示
     useEffect(() => {
         if (!eventStartTime || !eventEndTime) {
             setTimeHint('');
@@ -59,7 +60,6 @@ const Group3 = () => {
         }
         const s = toMinutes(eventStartTime);
         const e = toMinutes(eventEndTime);
-
         if (s != null && e != null && e < s) {
             setEventEndTime(eventStartTime);
             setTimeHint('結束時間早於開始時間，已自動調整為相同時間。');
@@ -68,25 +68,9 @@ const Group3 = () => {
         }
     }, [eventStartTime, eventEndTime]);
 
-    // Handlers
-    const handleSingleDateChange = (date) => {
-        setSingleDate(date);
-        console.log('單日選擇:', date);
-    };
-
-    const handleDeadlineDateChange = (date) => {
-        setDeadlineDate(date);
-        console.log('報名截止日:', date);
-    };
-
-    const handleEventStartTimeChange = (time) => {
-        setEventStartTime(time);
-        console.log('活動開始時間:', time);
-    };
-
-    const handleEventEndTimeChange = (time) => {
-        setEventEndTime(time);
-        console.log('活動結束時間:', time);
+    // 處理圖片上傳，採用 Diary.jsx 的邏輯
+    const handleImageUpload = (file) => {
+        setUploadedImage(file);
     };
 
     return (
@@ -107,16 +91,67 @@ const Group3 = () => {
                         <p>簡單幾步，就能號召志同道合的遊牧夥伴！</p>
                     </div>
 
+                    {/* 白底表單1 */}
                     <div className='form1-fields'>
-                        {/* 揪團類型選擇（示意） */}
-                        <label className='group-category'>
-                            <h3 className='category-title'>想揪甚麼團?</h3>
-                            <div className='g3-btns'>
-                                <button className='active-btn'>找吃飯夥伴</button>
-                                <button className='active-btn'>找工作夥伴</button>
-                                <button className='active-btn'>找踩點夥伴</button>
-                                <button className='active-btn'>找合租室友</button>
-                                <button className='active-btn'>找Chill伴</button>
+
+                        {/* 按鈕區塊 */}
+                        <label className="group-category">
+                            <h3 className="category-title">想揪甚麼團?</h3>
+                            <div className="g3-btns">
+                                <button
+                                    className={`g3-active-btn ${selectedCategory === '找吃飯夥伴' ? 'is-active' : ''}`}
+                                    aria-pressed={selectedCategory === '找吃飯夥伴'}
+                                    onClick={() =>
+                                        setSelectedCategory((prev) => (prev === '找吃飯夥伴' ? '' : '找吃飯夥伴'))
+                                    }
+                                    type="button"
+                                >
+                                    找吃飯夥伴
+                                </button>
+
+                                <button
+                                    className={`g3-active-btn ${selectedCategory === '找工作夥伴' ? 'is-active' : ''}`}
+                                    aria-pressed={selectedCategory === '找工作夥伴'}
+                                    onClick={() =>
+                                        setSelectedCategory((prev) => (prev === '找工作夥伴' ? '' : '找工作夥伴'))
+                                    }
+                                    type="button"
+                                >
+                                    找工作夥伴
+                                </button>
+
+                                <button
+                                    className={`g3-active-btn ${selectedCategory === '找踩點夥伴' ? 'is-active' : ''}`}
+                                    aria-pressed={selectedCategory === '找踩點夥伴'}
+                                    onClick={() =>
+                                        setSelectedCategory((prev) => (prev === '找踩點夥伴' ? '' : '找踩點夥伴'))
+                                    }
+                                    type="button"
+                                >
+                                    找踩點夥伴
+                                </button>
+
+                                <button
+                                    className={`g3-active-btn ${selectedCategory === '找合租室友' ? 'is-active' : ''}`}
+                                    aria-pressed={selectedCategory === '找合租室友'}
+                                    onClick={() =>
+                                        setSelectedCategory((prev) => (prev === '找合租室友' ? '' : '找合租室友'))
+                                    }
+                                    type="button"
+                                >
+                                    找合租室友
+                                </button>
+
+                                <button
+                                    className={`g3-active-btn ${selectedCategory === '找Chill伴' ? 'is-active' : ''}`}
+                                    aria-pressed={selectedCategory === '找Chill伴'}
+                                    onClick={() =>
+                                        setSelectedCategory((prev) => (prev === '找Chill伴' ? '' : '找Chill伴'))
+                                    }
+                                    type="button"
+                                >
+                                    找Chill伴
+                                </button>
                             </div>
                         </label>
 
@@ -126,7 +161,7 @@ const Group3 = () => {
                                 title="活動日期"
                                 placeholder="決定哪天要一起玩吧！"
                                 value={singleDate}
-                                onChange={handleSingleDateChange}
+                                onChange={setSingleDate}
                             />
                         </label>
 
@@ -136,7 +171,7 @@ const Group3 = () => {
                                 title="活動開始時間"
                                 placeholder="選擇開始時間"
                                 value={eventStartTime}
-                                onChange={handleEventStartTimeChange}
+                                onChange={setEventStartTime}
                             />
                         </label>
 
@@ -146,7 +181,7 @@ const Group3 = () => {
                                 title="活動預計結束時間"
                                 placeholder="選擇結束時間"
                                 value={eventEndTime}
-                                onChange={handleEventEndTimeChange}
+                                onChange={setEventEndTime}
                             />
                             {!!timeHint && (
                                 <p className="field-hint" style={{ marginTop: 6, fontSize: 12, color: '#EF4444' }}>
@@ -172,7 +207,7 @@ const Group3 = () => {
                                 title="報名截止日"
                                 placeholder="選擇截止日期"
                                 value={deadlineDate}
-                                onChange={handleDeadlineDateChange}
+                                onChange={setDeadlineDate}
                             />
                         </label>
                     </div>
@@ -180,7 +215,7 @@ const Group3 = () => {
 
                 {/* 第二區塊:活動詳細資訊區塊 */}
                 <section id="detail-info">
-                    <div className='detail-info-header-title'>
+                    <div className='header-title'>
                         <h2>活動詳細內容</h2>
                         <p>想衝浪、寫作、打球、還是想找人一起喝咖啡？通通都可以揪！</p>
                     </div>
@@ -194,7 +229,7 @@ const Group3 = () => {
                                 placeholder="一句話說明拼團主題（例如：台早島早晨傳教共工日）"
                                 value={activityTitle}
                                 onChange={setActivityTitle}
-                                required={true}
+                                required
                             />
                         </label>
 
@@ -205,21 +240,25 @@ const Group3 = () => {
                                 placeholder="請輸入：行程安排/活動流程 吸引更多人參加！"
                                 value={activityContent}
                                 onChange={setActivityContent}
-                                isTextarea={true}
+                                isTextarea
                                 maxLength={1000}
                             />
                         </label>
 
-                        {/* 上傳照片（單張） */}
+                        {/* 上傳照片（單張，採用 Diary 風格） */}
                         <label className='group-category'>
                             <G3InputLabel
                                 title="上傳照片"
-                                value={uploadedFile ? [uploadedFile] : []}              // 傳入陣列（最多一張）
-                                onChange={(files) => setUploadedFile(files?.[0] ?? null)} // 收陣列→取第一張
-                                isFileUpload={true}
+                                value={uploadedImage}
+                                onChange={handleImageUpload}
+                                isFileUpload
                             />
                         </label>
                     </div>
+                </section>
+
+                <section id='createSuccessful-btn'>
+                    <button className='successful-btn'>完成建立</button>
                 </section>
             </div>
         </main>

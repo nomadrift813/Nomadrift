@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import "../sass/scss/TimeInputStyle.scss";
 import { ChevronUp, ChevronDown, Clock } from 'lucide-react';
 
+// 時間樣式
 const TimeInput = ({
     value = '',
     onChange,
