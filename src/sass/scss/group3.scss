@@ -320,14 +320,16 @@
 }
 
 .success-modal h2 {
+    font-family: $family-tc;
     font-size: 24px;
     font-weight: 600;
-    color: #111827;
+    color: $text;
     margin-bottom: 8px;
     margin: 0 0 8px 0;
 }
 
 .success-modal p {
+    font-family: $family-tc;
     font-size: 16px;
     color: #6B7280;
     margin-bottom: 32px;
@@ -335,13 +337,13 @@
 }
 
 .modal-close-btn {
+    font-family: $family-tc;
     background:$accent;
-    color: white;
+    color: $text;
     border: none;
-    border-radius: 8px;
-    padding: 12px 32px;
+    border-radius: 99px;
+    padding: 8px 30px;
     font-size: 16px;
-    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
     min-width: 120px;

@@ -55,7 +55,7 @@ $text: #201811;
         .text-input {
             width: 100%;
             box-sizing: border-box;
-            font-size: $f-s-xs;
+            font-size: $f-s-sm;
             line-height: 1.4;
             font-weight: 400;
             padding: 12px 40px 12px 14px;
@@ -64,6 +64,10 @@ $text: #201811;
             background: white;
             color: $text-primary;
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+            @media ($mediaSm) {
+                font-size: $f-s-xs;
+            }
 
             &::placeholder {
                 color: $text-placeholder;
@@ -89,7 +93,7 @@ $text: #201811;
         .text-textarea {
             width: 100%;
             box-sizing: border-box;
-            font-size: $f-s-xs;
+            font-size: $f-s-sm;
             line-height: 1.6;
             padding: 12px 14px;
             border: 2px solid #CCC;
@@ -98,6 +102,10 @@ $text: #201811;
             color: $text-primary;
             resize: vertical;
             min-height: 96px;
+
+            @media ($mediaSm) {
+                font-size: $f-s-xs;
+            }
 
             &::placeholder {
                 color: $text-placeholder;

@@ -2,6 +2,7 @@ import '../sass/scss/group3.scss'
 import '../sass/scss/CalendarInputStyle.scss'
 import '../sass/scss/TimeInputStyle.scss'
 import '../sass/scss/G3InputLabelStyle.scss'
+import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import CalendarInput from '../component/CalendarInput'
 import TimeInput from '../component/TimeInput'
@@ -138,6 +139,7 @@ const Group3 = () => {
                                 placeholder="決定哪天要一起玩吧！"
                                 value={singleDate}
                                 onChange={setSingleDate}
+                                required
                             />
                         </label>
 
@@ -148,6 +150,7 @@ const Group3 = () => {
                                 placeholder="選擇開始時間"
                                 value={eventStartTime}
                                 onChange={setEventStartTime}
+                                required
                             />
                         </label>
 
@@ -158,6 +161,7 @@ const Group3 = () => {
                                 placeholder="選擇結束時間"
                                 value={eventEndTime}
                                 onChange={setEventEndTime}
+                                required
                             />
                             {!!timeHint && (
                                 <p className="field-hint" style={{ marginTop: 6, fontSize: 12, color: '#EF4444' }}>
@@ -174,6 +178,7 @@ const Group3 = () => {
                                 value={location}
                                 onChange={setLocation}
                                 showLocationIcon
+                                required
                             />
                         </label>
 
@@ -184,6 +189,7 @@ const Group3 = () => {
                                 placeholder="選擇截止日期"
                                 value={deadlineDate}
                                 onChange={setDeadlineDate}
+                                required
                             />
                         </label>
                     </div>
@@ -218,6 +224,7 @@ const Group3 = () => {
                                 onChange={setActivityContent}
                                 isTextarea
                                 maxLength={1000}
+                                required
                             />
                         </label>
 
@@ -228,6 +235,7 @@ const Group3 = () => {
                                 value={uploadedImage}
                                 onChange={handleImageUpload}
                                 isFileUpload
+                                required
                             />
                         </label>
                     </div>
@@ -247,14 +255,14 @@ const Group3 = () => {
                         <div className="modal-content">
                             <div className="success-icon">
                                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                    <circle cx="30" cy="30" r="30" fill="#F4D000"/>
-                                    <path d="M18 30L26 38L42 22" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <circle cx="30" cy="30" r="30" fill="#F4D000" />
+                                    <path d="M18 30L26 38L42 22" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
                             <h2>發布成功</h2>
                             <p>你的活動已成功發布！</p>
                             <button className="modal-close-btn" onClick={closeModal}>
-                                確定
+                                <Link to="/group">確定</Link>
                             </button>
                         </div>
                     </div>
