@@ -8,12 +8,15 @@ import TimeInput from '../component/TimeInput'
 import G3InputLabel from '../component/G3InputLabel'
 
 const Group3 = () => {
-    // 按鈕區
-    // 1) 在檔案最上方的 useState 區塊加上：
-    const [selectedCategory, setSelectedCategory] = useState('');
-    // 2) 用一個陣列來 render 五顆 pill（也能保留你原本的五個 <button>，重點是 className / aria-pressed / onClick）
+    // 按鈕區（複選）
+    const [selectedCategories, setSelectedCategories] = useState([]);
     const categories = ['找吃飯夥伴', '找工作夥伴', '找踩點夥伴', '找合租室友', '找Chill伴'];
 
+    const toggleCategory = (label) => {
+        setSelectedCategories((prev) =>
+            prev.includes(label) ? prev.filter((x) => x !== label) : [...prev, label]
+        );
+    };
 
     // 活動日期（單日）
     const [singleDate, setSingleDate] = useState('');
@@ -32,6 +35,9 @@ const Group3 = () => {
     const [activityContent, setActivityContent] = useState('');
     // 上傳的圖片檔案 - 採用 Diary.jsx 風格
     const [uploadedImage, setUploadedImage] = useState(null);
+
+    // 彈窗狀態
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     const toMinutes = (timeStr) => {
         if (!timeStr) return null;
@@ -73,6 +79,16 @@ const Group3 = () => {
         setUploadedImage(file);
     };
 
+    // 處理完成建立按鈕點擊
+    const handleCreateSuccess = () => {
+        setShowSuccessModal(true);
+    };
+
+    // 關閉彈窗
+    const closeModal = () => {
+        setShowSuccessModal(false);
+    };
+
     return (
         <main>
             <div className="groupBanner3">
@@ -98,60 +114,20 @@ const Group3 = () => {
                         <label className="group-category">
                             <h3 className="category-title">想揪甚麼團?</h3>
                             <div className="g3-btns">
-                                <button
-                                    className={`g3-active-btn ${selectedCategory === '找吃飯夥伴' ? 'is-active' : ''}`}
-                                    aria-pressed={selectedCategory === '找吃飯夥伴'}
-                                    onClick={() =>
-                                        setSelectedCategory((prev) => (prev === '找吃飯夥伴' ? '' : '找吃飯夥伴'))
-                                    }
-                                    type="button"
-                                >
-                                    找吃飯夥伴
-                                </button>
-
-                                <button
-                                    className={`g3-active-btn ${selectedCategory === '找工作夥伴' ? 'is-active' : ''}`}
-                                    aria-pressed={selectedCategory === '找工作夥伴'}
-                                    onClick={() =>
-                                        setSelectedCategory((prev) => (prev === '找工作夥伴' ? '' : '找工作夥伴'))
-                                    }
-                                    type="button"
-                                >
-                                    找工作夥伴
-                                </button>
-
-                                <button
-                                    className={`g3-active-btn ${selectedCategory === '找踩點夥伴' ? 'is-active' : ''}`}
-                                    aria-pressed={selectedCategory === '找踩點夥伴'}
-                                    onClick={() =>
-                                        setSelectedCategory((prev) => (prev === '找踩點夥伴' ? '' : '找踩點夥伴'))
-                                    }
-                                    type="button"
-                                >
-                                    找踩點夥伴
-                                </button>
-
-                                <button
-                                    className={`g3-active-btn ${selectedCategory === '找合租室友' ? 'is-active' : ''}`}
-                                    aria-pressed={selectedCategory === '找合租室友'}
-                                    onClick={() =>
-                                        setSelectedCategory((prev) => (prev === '找合租室友' ? '' : '找合租室友'))
-                                    }
-                                    type="button"
-                                >
-                                    找合租室友
-                                </button>
-
-                                <button
-                                    className={`g3-active-btn ${selectedCategory === '找Chill伴' ? 'is-active' : ''}`}
-                                    aria-pressed={selectedCategory === '找Chill伴'}
-                                    onClick={() =>
-                                        setSelectedCategory((prev) => (prev === '找Chill伴' ? '' : '找Chill伴'))
-                                    }
-                                    type="button"
-                                >
-                                    找Chill伴
-                                </button>
+                                {categories.map((label) => {
+                                    const isActive = selectedCategories.includes(label);
+                                    return (
+                                        <button
+                                            key={label}
+                                            className={`g3-active-btn ${isActive ? 'is-active' : ''}`}
+                                            aria-pressed={isActive}
+                                            onClick={() => toggleCategory(label)}
+                                            type="button"
+                                        >
+                                            {label}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </label>
 
@@ -258,9 +234,33 @@ const Group3 = () => {
                 </section>
 
                 <section id='createSuccessful-btn'>
-                    <button className='successful-btn'>完成建立</button>
+                    <button className='successful-btn' onClick={handleCreateSuccess}>
+                        完成建立
+                    </button>
                 </section>
             </div>
+
+            {/* 成功彈窗 */}
+            {showSuccessModal && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="success-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-content">
+                            <div className="success-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                    <circle cx="30" cy="30" r="30" fill="#F4D000"/>
+                                    <path d="M18 30L26 38L42 22" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </div>
+                            <h2>發布成功</h2>
+                            <p>你的活動已成功發布！</p>
+                            <button className="modal-close-btn" onClick={closeModal}>
+                                確定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </main>
     );
 };
