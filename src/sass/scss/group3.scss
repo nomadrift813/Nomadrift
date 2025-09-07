@@ -2,12 +2,12 @@
 @use 'var' as *;
 
 .groupBanner3 {
-    margin: 100px 0px;
+    margin-top: 100px;
 }
 
 // 頁面標題區域
 #groupSlogan3 {
-    position: static;
+    // position: static;
     display: flex;
     margin-top: 50px;
     flex-direction: column;
@@ -270,18 +270,17 @@
         color: $primary1;
         text-align: center;
         margin-bottom: 40px;
-        /* 中文/大標 */
         font-family: $family-tc;
-        font-size: $f-s-lg;
-        font-weight: $f-w-5;
+        font-size: $f-s-md;
+        font-weight: $f-w-4;
         line-height: 150%;
         letter-spacing: 2px;
 
         display: flex;
-        padding: 8px 40px;
+        padding: 5px 30px;
         justify-content: center;
         align-items: center;
-        border-radius: 999px;
+        border-radius: 99px;
         background: $accent;
     }
 }

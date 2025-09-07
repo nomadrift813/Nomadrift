@@ -202,7 +202,7 @@ const Group3 = () => {
                         <label className='group-category'>
                             <G3InputLabel
                                 title="活動標題"
-                                placeholder="一句話說明拼團主題（例如：台早島早晨傳教共工日）"
+                                placeholder="一句話說明揪團主題（例如：一起去峇里島海邊做瑜珈!）"
                                 value={activityTitle}
                                 onChange={setActivityTitle}
                                 required
