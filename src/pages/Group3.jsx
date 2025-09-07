@@ -2,13 +2,15 @@ import '../sass/scss/group3.scss'
 import '../sass/scss/CalendarInputStyle.scss'
 import '../sass/scss/TimeInputStyle.scss'
 import '../sass/scss/G3InputLabelStyle.scss'
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import CalendarInput from '../component/CalendarInput'
 import TimeInput from '../component/TimeInput'
 import G3InputLabel from '../component/G3InputLabel'
 
 const Group3 = () => {
+    const navigate = useNavigate();
+
     // 按鈕區（複選）
     const [selectedCategories, setSelectedCategories] = useState([]);
     const categories = ['找吃飯夥伴', '找工作夥伴', '找踩點夥伴', '找合租室友', '找Chill伴'];
@@ -85,9 +87,30 @@ const Group3 = () => {
         setShowSuccessModal(true);
     };
 
-    // 關閉彈窗
+    // 關閉彈窗並傳遞數據到 Group 頁面
     const closeModal = () => {
         setShowSuccessModal(false);
+        
+        // 準備新活動的數據
+        const newActivity = {
+            id: Date.now(), // 使用時間戳作為唯一 ID
+            image: uploadedImage ? URL.createObjectURL(uploadedImage) : null,
+            signupCount: 0, // 新建立的活動報名人數為 0
+            date: singleDate,
+            time: eventStartTime,
+            location: location,
+            title: activityTitle,
+            description: activityContent,
+            detailLink: "/group2", // 預設詳情頁面
+            tags: selectedCategories,
+            deadlineDate: deadlineDate,
+            endTime: eventEndTime
+        };
+
+        // 使用 navigate 的 state 傳遞數據，而不是 localStorage
+        navigate('/group', { 
+            state: { newActivity } 
+        });
     };
 
     return (
@@ -262,7 +285,7 @@ const Group3 = () => {
                             <h2>發布成功</h2>
                             <p>你的活動已成功發布！</p>
                             <button className="modal-close-btn" onClick={closeModal}>
-                                <Link to="/group">確定</Link>
+                                確定
                             </button>
                         </div>
                     </div>

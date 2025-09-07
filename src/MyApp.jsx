@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Nav from "./component/Nav";
 import Footer from "./component/Footer";
@@ -23,6 +23,15 @@ import Log from "./component/Log";
 import Sign from "./component/Sign";
 import Modal from "./component/Modal";
 
+// ⭐ 新增 ScrollToTop
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" }); // "smooth" 會平滑捲動
+  }, [pathname]);
+  return null;
+}
+
 const MyApp = () => {
   const [authOpen, setAuthOpen] = useState(false);
   const [authType, setAuthType] = useState(null); // 'login' | 'register'
@@ -34,6 +43,9 @@ const MyApp = () => {
   return (
     <div className="wrap">
       <Nav onOpenAuth={openAuth} />
+
+{/* ⭐ 新增 ScrollToTop */}
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -68,3 +80,4 @@ const MyApp = () => {
 };
 
 export default MyApp;
+
