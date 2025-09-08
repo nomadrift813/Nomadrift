@@ -104,14 +104,16 @@ const Sign = ({ onSuccess, onSwitch }) => {
               />
             </div>
 
-            <button type="submit">立刻加入</button>
+            <button className="sign-join-btn" type="submit">立刻加入</button>
           </form>
 
-          <p>你是會員？{" "}
-            <a href="#" onClick={(e) => { e.preventDefault(); onSwitch?.(); }}>
-              登入
-            </a>
-          </p>
+          <div className="sign-text-outline">
+            <p>你是會員？{" "}
+              <a href="#" onClick={(e) => { e.preventDefault(); onSwitch?.(); }}>
+                登入
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </main>
