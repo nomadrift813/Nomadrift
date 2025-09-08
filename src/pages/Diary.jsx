@@ -168,7 +168,7 @@ const initialPosts = [
     id: 15,
     author: 'Linda Wang',
     title: '哥斯大黎加的生態奇遇',
-    content: '哥斯大黎加的雨林，是個充滿生命力的神奇之地。我參加了一個當地的生態導覽，在濃密的樹林裡，導遊胡安帶我們認識了各種奇特的動植物。他對這片土地的熱愛與了解，讓我深受感動。我們聊到了當地人對環境保護的努力，以及他們與大自然和諧共處的生活方式。當我們在雨林深處看到一隻稀有的樹懶時，胡安的眼中閃爍著驕傲與喜悅。他分享的故事，讓我意識到這片雨林不僅是個景點，更是許多人賴以生存的家園。這次的旅程，讓我結識了一位知識淵博又充滿熱情的導遊朋友，也讓我對生態保育有了更深的體會。',
+    content: '哥斯大黎加的雨林，是個充滿生命力的神奇之地。我參加了一個當地的生態導覽，在濃密的樹林裡，導遊胡安帶我們認識了各種奇特的動植物。他對這片土地的熱愛與了解，讓我深受感動。我們聊到了當地人對環境保護的努力，以及他們與大自然和諧共處的生活方式。當我們在雨林深處看到一隻稀有的樹懶時，胡安的眼中閃爍著驕傲與喜悅。他分享的故事，讓我意識到這片雨林不僅是個景點，更是許多人賴以生存的家園。這次的旅程，讓我結識了一位知識淵博又充滿熱情、才華的朋友，也讓我對生態保育有了更深的體會。',
     imgSrc: './img-diary/diary-15.jpg',
     location: '塔里科勒斯 / 哥斯大黎加',
     date: 'Feb, 22 2026',
@@ -210,15 +210,12 @@ const Diary = () => {
   const [newPostLocation, setNewPostLocation] = useState('台北/ 台灣');
   const [newPostDate, setNewPostDate] = useState(new Date().toISOString().substring(0, 10));
 
-
   const [activeCategory, setActiveCategory] = useState('全部日記');
   
-
   const filteredPosts = activeCategory === '全部日記' 
     ? posts 
     : posts.filter(post => post.category === activeCategory);
 
- 
   const [visibleCount, setVisibleCount] = useState(5);
 
   const handleOpenModal = () => {
@@ -263,13 +260,11 @@ const Diary = () => {
       location: newPostLocation,
       date: formatDate(newPostDate),
       liked: false,
-      // 將新發布的日記分類設為當前選定的分類
       category: activeCategory,
     };
 
     setPosts([newPost, ...posts]);
     handleCloseModal();
-    // 新增文章後，重新計算 visibleCount
     setVisibleCount(filteredPosts.length + 1);
   };
 
@@ -279,22 +274,17 @@ const Diary = () => {
     ));
   };
   
-  // --- 調整: 點擊「更多日記」時執行的函式 ---
   const handleLoadMore = () => {
     setVisibleCount(prevCount => prevCount + 6);
   };
 
-  // --- 調整: 檢查是否還有更多文章可以載入 ---
   const hasMoreArticles = visibleCount < filteredPosts.length;
 
-  // --- 修改: 處理分類點擊的函式 ---
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName);
-    // 重設 visibleCount，每次切換分類都從頭開始顯示
     setVisibleCount(5);
   };
   
-  // 新增一個類別陣列，方便渲染
   const categories = ['全部日記', '亞洲', '歐洲', '北美洲', '中南美洲', '非洲', '大洋洲'];
 
 
@@ -302,149 +292,151 @@ const Diary = () => {
     <main>
       <section className="diaAll">
         <section id='diary-discover'>
-          {/* 調整標題，使其動態顯示當前分類 */}
-          <div className='d-t-title'>
-            <h2>漂日記<span>{activeCategory} ------------</span></h2>
-          </div>
-          <section className='diaContent'>
-            <div className='diaDrop'>
-              {/* 使用 .map 來動態渲染分類列表 */}
-              {categories.map((category, index) => (
-                <ul 
-                  key={index}
-                  className={`${category === activeCategory ? 'active' : ''} slide-up-item`}
-                  onClick={() => handleCategoryClick(category)}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <li>{category}</li>
-                  <img src="./img-diary/icon-right.png" alt="" />
-                </ul>
-              ))}
+          {/* 背景圖片容器 - 專門負責背景樣式 */}
+          <div className="title-bg-container"></div>
+          {/* 內容容器 - 負責所有內容排版 */}
+          <div className="title-content-wrapper">
+            <div className='d-t-title'>
+              <h2>漂日記<span>{activeCategory} ------------</span></h2>
+        <p>A diary beyond borders</p>
             </div>
-            <section id='diary-article'>
-              <section className="diaPost" onClick={handleOpenModal}>
-                <div className="member"></div>
-                <p className="input-placeholder">新鮮事?</p>
-                <button className="share-btn">
-                  <img src="./img-diary/open-in-new.svg" alt="Share" />
-                </button>
-              </section>
-
-              {showModal && (
-                <div className="post-modal-overlay">
-                  <div className="post-modal-content" onClick={(e) => e.stopPropagation()}>
-                    <div className="modal-header">
-                      <div className="member-avatar"></div>
-                      <span className="member-name">Jun cheng</span>
-                      <button className="close-btn" onClick={handleCloseModal}>&times;</button>
-                    </div>
-                    {imagePreview && (
-                      <div className="image-preview" onClick={() => document.getElementById('file-upload').click()}>
-                        <img src={imagePreview} alt="預覽" />
-                        <button className="remove-image-btn" onClick={(e) => { e.stopPropagation(); handleRemoveImage(); }}>&times;</button>
-                      </div>
-                    )}
-                    <textarea
-                      placeholder="標題"
-                      className="post-title"
-                      value={newPostTitle}
-                      onChange={(e) => setNewPostTitle(e.target.value)}
-                    ></textarea>
-                    <textarea
-                      placeholder="有什麼事想分享到漂日記?"
-                      className="post-textarea"
-                      value={newPostContent}
-                      onChange={(e) => setNewPostContent(e.target.value)}
-                    ></textarea>
-                    <div className="modal-footer">
-                      <div className="left-controls">
-                        <label htmlFor="file-upload" className="upload-btn">
-                          <img src="./img-diary/upphoto.png" alt="上傳照片" /><span>上傳照片</span>
-                        </label>
-                        <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
-                        <div className="location-date">
-                          <div className="location-icon">
-                            <img src="./img-Home/location.svg" alt="位置圖示" />
-                            <input
-                              type="text"
-                              className="location-input"
-                              value={newPostLocation}
-                              onChange={(e) => setNewPostLocation(e.target.value)}
-                            />
-                          </div>
-                          <input
-                            type="date"
-                            className="date-input"
-                            value={newPostDate}
-                            onChange={(e) => setNewPostDate(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <button className="publish-btn" onClick={handlePublishPost}>發布</button>
-                    </div>
-                  </div>
-                </div>
-              )}
- {/* --- 修改：渲染篩選後的文章陣列 --- */}
-              {filteredPosts.slice(0, visibleCount).map((post, index) => (
-                <Link to="/diary2" key={post.id}>
-                  {/* 新增 article-slide-in class 並設定 animationDelay */}
-                  <section 
-                    className='diaArticleSection1 article-slide-in'
+            <section className='diaContent'>
+              <div className='diaDrop'>
+                {categories.map((category, index) => (
+                  <ul 
+                    key={index}
+                    className={`${category === activeCategory ? 'active' : ''} slide-up-item`}
+                    onClick={() => handleCategoryClick(category)}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    {post.imgSrc && (
-                      <div className='p1-sel'>
-                        <figure className='dia-p1'><img src={post.imgSrc} alt="" /></figure>
-                      </div>
-                    )}
-                    <article className='diaArticle1'>
-                      <div className='d-member'>
-                        <div></div>
-                        <p>{post.author}</p>
-                      </div>
-                      <div className='d-text-card' >
-                        <div className='d-text'>
-                          <p className='d-tit'>{post.title}</p>
-                          <p className='d-word'>
-                            {post.content.split('\n').map((line, lineIndex) => (
-                              <React.Fragment key={lineIndex}>
-                                {line}
-                                {lineIndex < post.content.split('\n').length - 1 && <br />}
-                              </React.Fragment>
-                            ))}
-                          </p>
-                        </div>
-                        <div className='d-sign'>
-                          <div className='d-locaion'>
-                            <figure><img src="./img-Home/location.svg" alt="" /></figure>
-                            <p className='h-d-loc'>{post.location}</p>
-                          </div>
-                          <p className='h-d-date'>{post.date}</p>
-                          <figure className='like-button' onClick={(e) => { e.preventDefault(); handleLike(post.id); }}>
-                            <img src={post.liked ? "./img-diary/heart.svg" : "./img-Home/heart.svg"} alt="愛心圖示" />
-                          </figure>
-                          <figure><img src="./img-Home/chat.svg" alt="" /></figure>
-                          <figure><img src="./img-Home/save.svg" alt="" /></figure>
-                        </div>
-                      </div>
-                    </article>
-                  </section>
-                </Link>
-              ))}
-
-              {hasMoreArticles && (
-                <div className='load-more'>
-                  <button
-                    className='load-more-btn'
-                    onClick={handleLoadMore}
-                  >
-                    更多日記
+                    <li>{category}</li>
+                    <img src="./img-diary/icon-right.png" alt="" />
+                  </ul>
+                ))}
+              </div>
+              <section id='diary-article'>
+                <section className="diaPost" onClick={handleOpenModal}>
+                  <div className="member"></div>
+                  <p className="input-placeholder">新鮮事?</p>
+                  <button className="share-btn">
+                    <img src="./img-diary/open-in-new.svg" alt="Share" />
                   </button>
-                </div>
-              )}
+                </section>
+
+                {showModal && (
+                  <div className="post-modal-overlay">
+                    <div className="post-modal-content" onClick={(e) => e.stopPropagation()}>
+                      <div className="modal-header">
+                        <div className="member-avatar"></div>
+                        <span className="member-name">Jun cheng</span>
+                        <button className="close-btn" onClick={handleCloseModal}>&times;</button>
+                      </div>
+                      {imagePreview && (
+                        <div className="image-preview" onClick={() => document.getElementById('file-upload').click()}>
+                          <img src={imagePreview} alt="預覽" />
+                          <button className="remove-image-btn" onClick={(e) => { e.stopPropagation(); handleRemoveImage(); }}>&times;</button>
+                        </div>
+                      )}
+                      <textarea
+                        placeholder="標題"
+                        className="post-title"
+                        value={newPostTitle}
+                        onChange={(e) => setNewPostTitle(e.target.value)}
+                      ></textarea>
+                      <textarea
+                        placeholder="有什麼事想分享到漂日記?"
+                        className="post-textarea"
+                        value={newPostContent}
+                        onChange={(e) => setNewPostContent(e.target.value)}
+                      ></textarea>
+                      <div className="modal-footer">
+                        <div className="left-controls">
+                          <label htmlFor="file-upload" className="upload-btn">
+                            <img src="./img-diary/upphoto.png" alt="上傳照片" /><span>上傳照片</span>
+                          </label>
+                          <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
+                          <div className="location-date">
+                            <div className="location-icon">
+                              <img src="./img-Home/location.svg" alt="位置圖示" />
+                              <input
+                                type="text"
+                                className="location-input"
+                                value={newPostLocation}
+                                onChange={(e) => setNewPostLocation(e.target.value)}
+                              />
+                            </div>
+                            <input
+                              type="date"
+                              className="date-input"
+                              value={newPostDate}
+                              onChange={(e) => setNewPostDate(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                        <button className="publish-btn" onClick={handlePublishPost}>發布</button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {filteredPosts.slice(0, visibleCount).map((post, index) => (
+                  <Link to="/diary2" key={post.id}>
+                    <section 
+                      className='diaArticleSection1 article-slide-in'
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      {post.imgSrc && (
+                        <div className='p1-sel'>
+                          <figure className='dia-p1'><img src={post.imgSrc} alt="" /></figure>
+                        </div>
+                      )}
+                      <article className='diaArticle1'>
+                        <div className='d-member'>
+                          <div></div>
+                          <p>{post.author}</p>
+                        </div>
+                        <div className='d-text-card' >
+                          <div className='d-text'>
+                            <p className='d-tit'>{post.title}</p>
+                            <p className='d-word'>
+                              {post.content.split('\n').map((line, lineIndex) => (
+                                <React.Fragment key={lineIndex}>
+                                  {line}
+                                  {lineIndex < post.content.split('\n').length - 1 && <br />}
+                                </React.Fragment>
+                              ))}
+                            </p>
+                          </div>
+                          <div className='d-sign'>
+                            <div className='d-locaion'>
+                              <figure><img src="./img-Home/location.svg" alt="" /></figure>
+                              <p className='h-d-loc'>{post.location}</p>
+                            </div>
+                            <p className='h-d-date'>{post.date}</p>
+                            <figure className='like-button' onClick={(e) => { e.preventDefault(); handleLike(post.id); }}>
+                              <img src={post.liked ? "./img-diary/heart.svg" : "./img-Home/heart.svg"} alt="愛心圖示" />
+                            </figure>
+                            <figure><img src="./img-Home/chat.svg" alt="" /></figure>
+                            <figure><img src="./img-Home/save.svg" alt="" /></figure>
+                          </div>
+                        </div>
+                      </article>
+                    </section>
+                  </Link>
+                ))}
+
+                {hasMoreArticles && (
+                  <div className='load-more'>
+                    <button
+                      className='load-more-btn'
+                      onClick={handleLoadMore}
+                    >
+                      更多日記
+                    </button>
+                  </div>
+                )}
+              </section>
             </section>
-          </section>
+          </div>
         </section>
         <figure className='dia-p1'><img src="./img-diary/b-photo.png" alt="" /></figure>
       </section>
