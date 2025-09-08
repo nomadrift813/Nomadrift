@@ -141,6 +141,7 @@
                      font-weight: $f-w-4;
                      line-height: 150%;
                      letter-spacing: 2px;
+                     white-space: nowrap;
                  }
              }
 
@@ -272,6 +273,7 @@
 
      .locDrop {
          display: flex;
+         flex-wrap: wrap;
          width: 100%;
          padding: 50px 150px 24px 150px;
          justify-content: center;
@@ -295,6 +297,7 @@
 
 
              li {
+                 display: flex;
                  color: $white;
                  text-align: center;
                  font-family: $family-tc;
@@ -303,6 +306,7 @@
                  font-weight: $f-w-4;
                  line-height: 150%;
                  letter-spacing: 2px;
+                 white-space: nowrap;
              }
 
              img {
@@ -314,7 +318,12 @@
  }
 
  // 各大洲區卡片
- #global {
+ #global1,
+ #global2,
+ #global3,
+ #global4,
+ #global5,
+ #global6 {
      display: flex;
      width: 100%;
      justify-content: center;
@@ -547,31 +556,31 @@
      }
 
      // 更多按鈕
-         .viewMore {
-             display: flex;
-             height: 32px;
-             padding: 10px 14px;
-             justify-content: flex-end;
-             align-items: center;
-             position: absolute;
-             right: 120px;
-             bottom: 80px;
+     .viewMore {
+         display: flex;
+         height: 32px;
+         padding: 10px 14px;
+         justify-content: flex-end;
+         align-items: center;
+         position: absolute;
+         right: 120px;
+         bottom: 80px;
 
-             color: $text;
-             font-family: $en;
-             font-size: $f-s-xs;
-             font-weight: $f-w-4;
-             line-height: 100%;
+         color: $text;
+         font-family: $en;
+         font-size: $f-s-xs;
+         font-weight: $f-w-4;
+         line-height: 100%;
 
-             border-radius: 999px;
-             background: $accent;
-             border: none;
+         border-radius: 999px;
+         background: $accent;
+         border: none;
 
-             &:hover {
-                 box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-                 transition: all .2s 0s;
-             }
+         &:hover {
+             box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+             transition: all .2s 0s;
          }
+     }
  }
 
 

@@ -94,6 +94,7 @@
 
 .locDrop3 {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     padding: 80px 150px 80px 150px;
     justify-content: center;
@@ -116,6 +117,7 @@
         }
 
         li {
+            display: flex;
             color: $white;
             text-align: center;
             font-family: $family-tc;
@@ -124,6 +126,7 @@
             font-weight: $f-w-4;
             line-height: 150%;
             letter-spacing: 2px;
+            white-space: nowrap;
         }
 
         img {

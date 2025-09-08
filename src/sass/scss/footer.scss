@@ -6,7 +6,9 @@ footer {
     justify-content: space-between;
     flex-direction: column;
     margin-top: auto;
-    // background-color: #41453D;
+    position: relative;
+
+    z-index: 100;
 
     /* waves */
     .ocean {
@@ -18,6 +20,8 @@ footer {
         left: 0;
         right: 0;
         overflow-x: hidden;
+
+        z-index: 1; // waves 層
     }
 
     .wave {
@@ -56,83 +60,72 @@ footer {
         }
     }
 
-    // .boat {
-    //     display: flex;
-    //     position: fixed;
-    //     width: auto;
-    //     height: 72px;
-    //     right: 80px;
-    //     bottom: 184px;
-    //     padding: 0 50px;
-
-    //     animation: boat 3s linear infinite;
-    // }
-
-    // @keyframes boat {
-    //     0% {
-    //         margin-top: 0.25em;
-    //         transform: rotate(-4deg);
-    //     }
-
-    //     40% {
-    //         transform: rotate(6deg);
-    //         margin-top: -0.5em;
-    //     }
-
-    //     65% {
-    //         transform: rotate(-8deg);
-    //         margin-top: -0.125em;
-    //     }
-
-    //     100% {
-    //         transform: rotate(-4deg);
-    //         margin-top: 0.25em;
-    //     }
-    // }
-
-}
-
-#gotop {
+    .boat {
+        position: absolute; // 相對 footer 定位
+        right: 80px;
+        bottom: 180px;
         width: auto;
         height: 72px;
-        right: 80px;
-        bottom: 184px;
         padding: 0 50px;
-        border: none;
 
-        display: flex;
-        position: fixed;
-        cursor: pointer;
-        // z-index: 999;
+        animation: boat 3s linear infinite;
+        z-index: 10; // 確保在最上層
 
-        animation: gotop 3s linear infinite;
+        svg path {
+            stroke: #ffffff;
+            transition: stroke 0.3s ease;
+        }
 
-        &:hover {
-            stroke: #F4D000;
+        // hover 顏色變黃
+        &:hover svg path {
+            stroke: #f4d000;
+        }
+
+        // 隱藏文字
+        .scroll-text {
+            position: absolute;
+            bottom: 100%;
+            /* 在 button 上方 */
+            left: 50%;
+            transform: translateX(-50%);
+            background: $primary1;
+            color: #fff;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        // hover 顯示文字
+        &:hover .scroll-text {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-6px);
         }
     }
 
-    @keyframes gotop {
+    @keyframes boat {
         0% {
-            margin-top: 0.25em;
-            transform: rotate(-4deg);
+            transform: translateY(4px) rotate(-4deg);
         }
 
         40% {
-            transform: rotate(6deg);
-            margin-top: -0.5em;
+            transform: translateY(-8px) rotate(6deg);
         }
 
         65% {
-            transform: rotate(-8deg);
-            margin-top: -0.125em;
+            transform: translateY(-2px) rotate(-8deg);
         }
 
         100% {
-            transform: rotate(-4deg);
-            margin-top: 0.25em;
+            transform: translateY(4px) rotate(-4deg);
         }
     }
+
+}
+
 
 ul.Sitemap {
     display: flex;
