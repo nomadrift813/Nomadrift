@@ -217,7 +217,6 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section >
                         </Link>
-
                         {/* 卡片5 阿根廷 */}
                         <Link to="/location2" >
                             <section className='country' >
@@ -245,7 +244,6 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section >
                         </Link >
-
                         {/* 卡片6 摩洛哥 */}
                         <Link to="/location2" >
                             <section className='country' >
@@ -273,7 +271,114 @@ const Location2 = () => {
                                 <div className='color-block'></div>
                             </section >
                         </Link >
-
+                        {/* 卡片7 以色列 */}
+                        <Link to="/location2">
+                            <section className='country'>
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Israel.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>以色列</h2>
+                                    <p className='loc-text'>融合古老宗教文化與現代科技創新，以耶路撒冷與特拉維夫聞名。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section>
+                        </Link>
+                        {/* 卡片8 荷蘭 */}
+                        <Link to="/location2" >
+                            <section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Netherlands.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>荷蘭</h2>
+                                    <p className='loc-text'>以風車、鬱金香、運河和自行車文化著稱。首都阿姆斯特丹充滿藝術氣息，是自由、多元且環保的現代化國家。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link >
+                        {/* 卡片9 美國 */}
+                        <Link to="/location2" >
+                            <section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/US.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>美國</h2>
+                                    <p className='loc-text'>擁融合多元文化，擁有自由女神、中央公園、時代廣場等地標，是全球金融、藝術與時尚重鎮，節奏快速，活力十足。</p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link >
+                        {/* 卡片10 哥倫比亞 */}
+                        <Link to="/location2" >
+                            <section className='country' >
+                                <div className='p1-sel'>
+                                    <figure className='loc-p1'><img src="./img-Location/Colombia.jpg" alt="" /></figure>
+                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                                </div>
+                                <article className='loc-info'>
+                                    <h2>哥倫比亞</h2>
+                                    <p className='loc-text'>以多元文化著稱，擁有豐富的咖啡、寶石和製造業，也是拉丁美洲重要的文化和經濟中心之一。 </p>
+                                    <div className='wi-st'>
+                                        <ul>
+                                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                                        </ul>
+                                        <figure className='stars'>
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star1.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                            <img src="./img-Location/Star2.svg" alt="" />
+                                        </figure>
+                                    </div>
+                                    <span>15000 /月</span>
+                                </article>
+                                <div className='color-block'></div>
+                            </section >
+                        </Link >
                     </article >
 
                     <button className='right' onClick={scrollRight}>
