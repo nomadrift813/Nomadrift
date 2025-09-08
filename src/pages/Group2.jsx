@@ -159,7 +159,7 @@ const Group2 = () => {
             photo: "./img-Group/people/Commenter (1).jpg",
         },
         {
-            name: "Eason",
+            name: "Scoot",
             text: "我超愛逛夜市耶！饒河真的推推！！",
             photo: "./img-Group/people/Commenter (2).jpg",
         },
