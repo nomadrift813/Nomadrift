@@ -7,6 +7,55 @@ const Home = () => {
 
   const wrapRef = useRef(null);   // 給 IntersectionObserver 用
 
+
+  // 可重複進出視窗的捲動動畫（優勢區淡入；Group 左右滑入＋淡入）
+  // 滑入淡入（只針對 .reveal）
+  useEffect(() => {
+    const root = wrapRef.current;
+    if (!root) return;
+
+    const els = root.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      entries => {
+        entries.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting) target.classList.add('in');
+          else target.classList.remove('in');
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    els.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  // 線條（.h-location-line 與 .h-group-line）進出場時重新畫
+  useEffect(() => {
+    const root = wrapRef.current;
+    if (!root) return;
+
+    const targets = root.querySelectorAll('.h-location-line, .h-group-line');
+    if (!targets.length) return;
+
+    const io = new IntersectionObserver(
+      entries => {
+        entries.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting) {
+            // 先移除再強制 reflow，確保每次進場都從 0 開始
+            target.classList.remove('play');
+            void target.offsetWidth;
+            target.classList.add('play');
+          } else {
+            target.classList.remove('play');
+          }
+        });
+      },
+      { threshold: 0.25, rootMargin: '0px 0px -20% 0px' }
+    );
+
+    targets.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
   // 淡入淡出（Hero）
   const [show, setShow] = useState(true);
   useEffect(() => {
@@ -70,7 +119,62 @@ const Home = () => {
         </div>
 
         <div className="banner-line">
-          <img src="./img-Home/banner-line.svg" alt="" />
+          <svg
+            className="b-line"
+            viewBox="0 0 1280 641"
+            preserveAspectRatio="xMaxYMin meet"
+            aria-hidden="true"
+          >
+            <defs>
+              {/* 開口箭頭（跟前面一樣），會沿路徑方向自動旋轉 */}
+              <marker id="bArrow"
+                viewBox="0 0 10 10"
+                refX="9" refY="5"
+                markerWidth="10" markerHeight="10"
+                orient="auto"
+                markerUnits="userSpaceOnUse">
+                <path d="M0,1 L9,5 L0,9"
+                  fill="none"
+                  stroke="context-stroke"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </marker>
+
+              {/* 白色畫筆遮罩：用較粗的筆，讓箭頭也被露出 */}
+              <mask id="bReveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="641">
+                <rect x="0" y="0" width="1280" height="641" fill="black" />
+                <path
+                  className="b-wipe"
+                  d="M1268.3 7.15837C1237.66 21.299 1149.16 57.0041 1040.28 86.6994C904.178 123.819 798.123 107.91 776.912 86.6994C755.701 65.4885 755.701 26.6018 821.102 7.15837C886.502 -12.285 944.832 23.0666 943.064 54.883C941.297 86.6994 943.064 334.077 643.057 360.269C332.737 387.361 128.21 426.075 64.5775 484.405C13.6712 531.069 -9.66082 606.368 6.24739 639.952"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="16"          /* ↑ 夠粗，最後端的箭頭才會被露出 */
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  pathLength="1"
+                  strokeDasharray="1"
+                  strokeDashoffset="1"
+                >
+                  <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.8s" begin="0s" fill="freeze" />
+                </path>
+              </mask>
+            </defs>
+
+            {/* 虛線主體（不動），靠遮罩露出；加上箭頭 */}
+            <path
+              d="M1268.3 7.15837C1237.66 21.299 1149.16 57.0041 1040.28 86.6994C904.178 123.819 798.123 107.91 776.912 86.6994C755.701 65.4885 755.701 26.6018 821.102 7.15837C886.502 -12.285 944.832 23.0666 943.064 54.883C941.297 86.6994 943.064 334.077 643.057 360.269C332.737 387.361 128.21 426.075 64.5775 484.405C13.6712 531.069 -9.66082 606.368 6.24739 639.952"
+              fill="none"
+              stroke="#e0ded3ff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeDasharray="8 10"       /* 想更密可改 6 8 / 5 6 */
+              vectorEffect="non-scaling-stroke"
+              markerEnd="url(#bArrow)"
+              mask="url(#bReveal)"
+            />
+          </svg>
         </div>
 
         <div className="homeboat-b">
@@ -178,8 +282,53 @@ const Home = () => {
             <Link to="/location">更多地點</Link>
           </button>
 
-          <div className='h-location-line'>
-            <img src="./img-Home/location-line.svg" alt="" />
+          <div className="h-location-line">
+            <svg viewBox="0 0 160 575" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                {/* 開口箭頭（像你圖一），會跟著路徑方向旋轉 */}
+                <marker id="locArrow"
+                  viewBox="0 0 12 12"
+                  refX="11" refY="6"
+                  markerWidth="12" markerHeight="12"
+                  orient="auto" markerUnits="userSpaceOnUse">
+                  <path d="M1,2 L11,6 L1,10"
+                    fill="none"
+                    stroke="context-stroke"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </marker>
+
+                {/* 遮罩：白色「畫筆」只負責把虛線擦出來 */}
+                <mask id="locReveal" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="575">
+                  <rect x="0" y="0" width="160" height="575" fill="black" />
+                  <path className="loc-wipe"
+                    d="M150 8 C 38 150, 20 315, 58 435 C 102 535, 145 565, 150 568"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    pathLength="1"
+                    stroke-dasharray="1"
+                    stroke-dashoffset="1" />
+                </mask>
+              </defs>
+
+              {/* 真正的虛線（不動），靠遮罩露出 */}
+              <path
+                d="M150 8 C 38 150, 20 315, 58 435 C 102 535, 145 565, 150 568"
+                fill="none"
+                stroke="#737B6B"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-dasharray="5 4"
+                marker-end="url(#locArrow)"
+                vectorEffect="non-scaling-stroke"
+                mask="url(#locReveal)"
+              />
+            </svg>
           </div>
         </div>
 
@@ -255,7 +404,35 @@ const Home = () => {
           </div>
         </div>
         <p className='h-g-side-word-1'>nice to me you</p>
-        <figure className='h-group-line'><img src="./img-Home/group-line.svg" alt="" /></figure>
+        <div className="h-group-line">
+          <svg viewBox="0 0 474 614" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="grpArrow" viewBox="0 0 10 10"
+                refX="9" refY="5" markerWidth="10" markerHeight="10"
+                orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,1 L9,5 L0,9"
+                  fill="none" stroke="context-stroke"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </marker>
+
+              <mask id="grpReveal" maskUnits="userSpaceOnUse" x="0" y="0" width="474" height="614">
+                <rect x="0" y="0" width="474" height="614" fill="black" />
+                <path className="grp-wipe"
+                  d="M189 1.5C473 142 348.5 464 0.56958 612.595"
+                  fill="none" stroke="white" strokeWidth="12"
+                  strokeLinecap="round" strokeLinejoin="round"
+                  pathLength="1" />
+              </mask>
+            </defs>
+
+            <path
+              d="M189 1.5C473 142 348.5 464 0.56958 612.595"
+              fill="none" stroke="#737B6B" strokeWidth="2"
+              strokeLinecap="round" strokeLinejoin="round"
+              strokeDasharray="5 4" vectorEffect="non-scaling-stroke"
+              markerEnd="url(#grpArrow)" mask="url(#grpReveal)" />
+          </svg>
+        </div>
       </section>
 
       <section id='homediary'>
