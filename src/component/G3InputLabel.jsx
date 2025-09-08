@@ -12,6 +12,7 @@ const G3InputLabel = ({
     name,
     maxLength,
     type = 'text',
+    className = '',   // 接收 className prop
     hint = '',
     isTextarea = false,
     isFileUpload = false,     // 單張上傳（Diary風）
@@ -63,11 +64,11 @@ const G3InputLabel = ({
                     {imagePreview ? (
                         <div className="image-preview" onClick={() => fileInputRef.current?.click()}>
                             <img src={imagePreview} alt="預覽" />
-                            <button 
-                                className="remove-image-btn" 
-                                onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleRemoveImage(); 
+                            <button
+                                className="remove-image-btn"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleRemoveImage();
                                 }}
                                 type="button"
                             >
@@ -151,6 +152,24 @@ const G3InputLabel = ({
             </div>
 
             {!!hint && <p className="field-hint">{hint}</p>}
+        </div>
+    );
+    return (
+        <div className={`g3-input-label ${className}`}> {/* 應用 className */}
+            <label htmlFor={name}>
+                {title}
+                {required && <span className="required">*</span>}
+            </label>
+            <input
+                id={name}
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                required={required}
+                {...props}
+            />
         </div>
     );
 };

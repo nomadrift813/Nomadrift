@@ -188,7 +188,7 @@ const Group = () => {
         <div className='groupSlogan'>
           <h3>Work, Travel, Connect Together.</h3>
           <div className="line"></div>
-          <h2>一個人沒動力？一起就有趣！</h2>
+          <h2>揪團活動</h2>
           <Link to="/group3" className="btn-create">發起揪團</Link>
           <figure className="locScroll">
             <img src="./img-Location/scroll.svg" alt="icon" />

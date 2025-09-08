@@ -2,29 +2,20 @@
 @use 'var' as *;
 
 #log {
-
-    margin-top: 100px;
-    width: 526px;
-    height: 500px;
-    border-radius: 20px;
-    background-color: $white;
-    padding: 50px 65px 30px 65px;
-
+    padding: 0px;
     form {
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 20px;
         justify-content: flex-start;
         align-items: center;
 
         h1 {
             color: $text;
-
             text-align: center;
             font-family: $family-tc;
             font-size: 24px;
             font-style: normal;
-            font-weight: 400;
             line-height: 100%;
         }
 
@@ -33,68 +24,57 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 20px;
 
             .log-f-box {
                 display: flex;
                 flex-direction: column;
                 gap: 18px;
-                justify-content: flex-start;
                 align-items: center;
 
-                .log-f-row {
+                // 針對包裝的 G3InputLabel 樣式
+                .log-input-custom {
                     display: flex;
-                    height: 51px;
-                    padding: 10px 30px;
-                    justify-content: center;
-                    align-items: center;
-                    align-self: stretch;
-
-                    border-radius: 999px;
-                    background: rgba(0, 0, 0, 0.10);
-
-                    label {
+                    width: 100%;
+                    
+                    // 修改 G3InputLabel 內部的樣式
+                    .text-input-container {
                         display: flex;
-                        justify-content: center;
+                        flex-direction: row !important;  // 水平排列
                         align-items: center;
-                        color: $text;
-                        font-family: $family-tc;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 100%;
-                        border-right: 1px solid #BDBDBB;
-                        padding-right: 20px;
-                        height: 30px;
-                    }
+                        gap: 0px;
+                        width: 100%;
 
-                    input {
-                        margin-left: 10px;
-                        border: none;
-                        background-color: transparent;
+                        .inputLabel-title-section {
+                            flex-shrink: 0;  // title 不壓縮
+                            min-width: 60px; // 確保 title 有固定寬度
+                            
+                            .inputLabel-title {
+                                font-family: $family-tc;
+                                font-weight: 500;
+                                font-size: 16px !important;  // 縮小 2px (原本 20px)
+                                margin: 0;
+                                white-space: nowrap; // 防止 title 換行
+                            }
+                        }
 
-                        color: $text;
-                        font-family: $family-tc;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 100%;
-                        ;
+                        .input-wrapper {
+                            flex: 1;  // input 占剩餘空間
+                            
+                            .text-input {
+                                display: flex;
+                                font-family: $family-tc;
+                                width: 100%;
+                                padding: 5px 5px;
+                                border-radius:12px;
+                                font-size: 14px !important;
+                            }
+                        }
                     }
                 }
             }
 
             button {
-                // display: flex;
-                // width: 170px;
-                // height: 51px;
-                // padding: 10px 14px;
-                // justify-content: center;
-                // align-items: center;
-
-                // border-radius: 999px;
-                // background: $accent;
-
                 display: flex;
                 padding: 5px 30px;
                 justify-content: center;
@@ -103,54 +83,43 @@
                 background-color: $accent;
                 border: none;
 
-                
                 color: $text;
                 font-family: "Noto Sans TC";
                 font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
                 line-height: 150%;
                 letter-spacing: 2px;
             }
         }
     }
 
-    .log-buttom-box {
+    .other-login {
+        padding-top: 16px;
+        font-size: $f-s-xs;
+        color: #9ca3af;
+    }
+
+    .log-button-box {
         display: flex;
+        // width: 100%;
         justify-content: space-between;
         align-items: center;
-        gap: 15px;
-        margin-top: 38px;
-
+        gap: 8px;
+        margin: 8px;
 
         button {
-            width: 120px;
-            height: 51px;
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
-            // border-radius: 50px;
-            // border: 1px solid rgba(76, 74, 74, 0.50);
-            gap: 5px;
-
-            color: #000;
-
-            font-family: $en;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-
-            line-height: 100%;
-
-
             display: flex;
-            padding: 5px 30px;
+            padding: 5px 24px;
+            gap: 4px;
+            color: #000;
+            font-family: $en;
+            font-size: 14px;
+            font-style: normal;
+            line-height: 150%;
             justify-content: center;
             align-items: center;
             border-radius: 99px;
             border: none;
             border: 1px solid rgba(76, 74, 74, 0.50);
-
 
             &:nth-of-type(1) img {
                 width: 27px;
@@ -160,35 +129,28 @@
             &:nth-of-type(2) img {
                 width: 21px;
                 height: 21px;
-
             }
 
             &:nth-of-type(3) img {
                 width: 20px;
                 height: 20px;
             }
-
         }
-
     }
-
 
     p {
         text-align: center;
-        margin-top: 30px;
         color: $text;
-
         font-family: $family-tc;
         font-size: 16px;
         font-style: normal;
-        font-weight: 400;
         line-height: 100%;
+        margin-bottom: 8px;
 
         a {
             font-family: $family-tc;
-            font-size: 16px;
+            font-size: 14px;
             font-style: normal;
-            font-weight: 400;
             line-height: 100%;
         }
     }

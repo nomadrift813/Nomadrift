@@ -287,7 +287,7 @@ const Group2 = () => {
                 ))}
 
                 {/* Andy Chen：輸入框 → 可新增留言 */}
-                <div className='comment'>
+                <div className='comment-user'>
                     <img className="commenter-photo" src="./img-Group/people/People-(10).jpg" alt="" />
                     <div className='comment-content'>
                         <p className='commenter-name'>Andy Chen</p>

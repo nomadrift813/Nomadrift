@@ -73,6 +73,7 @@
     align-items: center;
 
     .activity-main {
+        font-family: $family-tc;
         display: flex;
         align-items: flex-end;
         gap: 52px;
@@ -142,8 +143,8 @@
             // 文字樣式
             color: #fff;
             font-family: $family-tc;
-            font-size: $spacing-md;
-            font-weight: $f-w-4;
+            font-size: $f-s-sm2;
+            font-weight: $f-w-3;
             letter-spacing: 2px;
 
             //  按鈕樣式
@@ -168,23 +169,26 @@
     }
 
     .activity-btn {
+        
         display: flex;
         gap: 32px;
-        justify-content: center;
+        // justify-content: center;
         align-items: center;
         margin-top: 8px;
+        
     }
 
     .pm {
+        font-family: $family-tc;
+        letter-spacing: 2px;
         display: flex;
         align-items: center;
-        gap: 8px;
         padding: 5px 30px;
         justify-content: center;
         align-items: center;
 
         color: $text;
-        font-size: $f-s-md;
+        font-size: $f-s-sm2;
         border-radius: 999px;
 
         border: 1px solid #7A7872;
@@ -210,7 +214,7 @@
 
         background-color: $accent;
         color: $text;
-        font-size: $f-s-md;
+        font-size: $f-s-sm2;
         border-radius: 999px;
 
         cursor: pointer;
@@ -221,6 +225,7 @@
         }
 
         img {
+            margin-top: 3px;
             width: 8.5px;
             height: 15.5px;
         }
@@ -455,6 +460,19 @@
         }
     }
 
+    .comment-user {
+        display: flex;
+        gap: 32px;
+        width: 100%;
+        padding: 16px 0px;
+        align-items: center;
+
+        @media ($mediaSm) {
+            gap: 24px;
+            padding: 12px 0px;
+        }
+    }
+
     .comment-content {
         display: flex;
         flex-direction: column;
@@ -542,6 +560,7 @@
         height: 32px;
         /* 固定高度 */
         justify-content: center;
+        align-items: center;
         display: inline-flex;
         padding: 4px 14px;
         border-radius: 99px;
