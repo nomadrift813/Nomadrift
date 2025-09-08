@@ -1,15 +1,66 @@
 @use 'reset';
 @use 'var' as *;
 
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100px);
+        /* 從右邊 100px 處開始 */
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        /* 結束在原始位置 */
+        opacity: 1;
+    }
+}
+
+.slide-up-item {
+    opacity: 0;
+    animation-name: slideIn;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveArrow {
+    0% {
+        transform: translateX(0);
+        /* 箭頭在原始位置 */
+    }
+
+    50% {
+        transform: translateX(8px);
+        /* 箭頭向右移動 5px */
+    }
+
+    100% {
+        transform: translateX(0);
+        /* 箭頭回到原始位置 */
+    }
+}
+
 .diaAll2 {
 
     background-image: url('../img/diary-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
+    margin-bottom: -60px;
 }
 
-#diary-discover2{
+#diary-discover2 {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -60,7 +111,7 @@
     flex: 0 0 180px;
     display: flex;
     max-width: 1440px;
-    padding: 50px 1rem;
+    padding: 67px 1rem;
     justify-content: center;
     align-items: center;
     gap: 12px;
@@ -68,23 +119,32 @@
 
     ul {
         width: 100%;
-        max-width: 140px;
+        max-width: 148px;
         display: flex;
-        padding: 4px 24px;
+        padding: 5px 20px;
         justify-content: center;
         align-items: center;
-        gap: 5px;
         flex: 100;
 
         border-radius: 100px;
         background: $primary1;
+        background: $primary1;
+        animation: slideIn 0.6s ease-out forwards;
+
+
+        &:hover {
+            background: $accent;
+        }
+
+        cursor: pointer; // 讓使用者知道可以點擊
+
 
         li {
             display: flex;
-            color: $background1;
+            color: #fff;
             text-align: center;
             font-family: $family-tc;
-            font-size: $f-s-sm;
+            font-size: $f-s-md;
             font-style: normal;
             font-weight: 400;
             line-height: 150%;
@@ -93,146 +153,172 @@
         }
 
         img {
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
 
         }
     }
 }
 
+.next-post-btn {
+    position: absolute; // 關鍵：使用絕對定位
+    top: 50%; // 將按鈕頂部移到父元素的垂直中心點
+    right: 20px; // 距離父元素右側 20px
+    transform: translateY(-50%); // 關鍵：向上平移按鈕自身高度的一半，實現垂直居中
+    z-index: 10; // 確保按鈕在其他元素上方
+    animation: moveArrow 1.5s ease-in-out infinite;
 
+    &:hover {
+
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+}
 
 .diaContent2 {
     display: flex;
     align-items: flex-start;
     gap: 10rem;
     padding: 20px 0 0 0;
+    position: relative;
 }
 
 
 
-    .diaArticleSection2 {
-        padding:50px 24px 24px 24px;
-        font-family: 'Helvetica Neue', sans-serif;
-        color: #333;
-        border-bottom: 1px solid #333;
-        max-width: 870px;
-            width: 100%;
+.diaArticleSection2 {
+    padding: 67px 24px 24px 24px;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+    border-bottom: 1px solid #333;
+    max-width: 870px;
+    width: 100%;
+    animation: slideInFromRight 0.8s ease-out forwards;
+    /* 應用動畫 */
+    opacity: 0;
+    /* 確保動畫開始前是隱藏的 */
 
-        .p1-sel2 {
-            order: 2;
+    .p1-sel2 {
+        order: 2;
 
-            .dia-p2 {
-                border-top-right-radius: 100px;
-                overflow: hidden;
-                
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  
-                }
+        .dia-p2 {
+            border-top-right-radius: 100px;
+            max-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+
             }
         }
+    }
 
-        .diaArticle2 {
-            flex: 1;
+    .diaArticle2 {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .d-member2 {
+            padding: 24px 0 0 0;
             display: flex;
-            flex-direction: column;
-            
-            .d-member2 {
-                padding: 24px 0 0 0;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                margin-bottom: 0.8rem;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
 
-                div {
-                    width: 30px;
-                    height: 30px;
-                    background-color: #333;
-                    border-radius: 50%;
-                }
-                p{
-                    font-size: $f-s-sm;
-                }
-
+            div {
+                width: 30px;
+                height: 30px;
+                background-color: #333;
+                border-radius: 50%;
             }
 
-            .d-text-card2 {
+            p {
+                font-size: $f-s-sm;
+            }
+
+        }
+
+        .d-text-card2 {
+            display: flex;
+            flex-direction: column;
+
+
+            .d-text2 {
+                .d-tit2 {
+                    font-size: $f-s-md;
+                    font-weight: bold;
+                    margin-bottom: 0.8rem;
+
+                }
+
+                .d-word2 {
+                    font-size: $f-s-sm;
+                    color: #555;
+                    line-height: 1.6;
+                    margin-bottom: 0.8rem;
+
+                }
+            }
+
+            .d-sign2 {
                 display: flex;
-                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+                font-size: 0.8rem;
+                color: #999;
 
+                .d-locaion2 {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem;
 
-                .d-text2 {
-                    .d-tit2 {
-                        font-size: $f-s-md;
-                        font-weight: bold;
-                        margin-bottom: 0.8rem;
-
-                    }
-
-                    .d-word2 {
-                        font-size: $f-s-sm;
-                        color: #555;
-                        line-height: 1.6;
-                        margin-bottom: 0.8rem;
-
+                    img {
+                        width: 25px;
+                        height: 25px;
                     }
                 }
 
-                .d-sign2 {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-                    flex-wrap: wrap;
+                .h-d-loc2 {
+                    background-color: #fff;
+                    border-radius: 12px;
+                    padding: 1.5px 12px;
+                    color: #aaa;
                     font-size: 0.8rem;
-                    color: #999;
+                }
 
-                    .d-locaion2 {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.4rem;
+                .h-d-date2 {
+                    background-color: #fff;
+                    border-radius: 12px;
+                    padding: 1.5px 9px;
+                    color: #aaa;
+                    font-size: 0.8rem;
 
-                        img {
-                            width: 25px;
-                            height: 25px;
-                        }
-                    }
+                }
 
-                    .h-d-loc2{
-                        background-color: #fff;
-                        border-radius: 12px;
-                        padding: 1.5px 12px;
-                        color: #aaa;
-                        font-size: 0.8rem;
-                    }
+                figure {
+                    margin: 0;
+                    cursor: pointer;
 
-                    .h-d-date2 {
-                        background-color: #fff;
-                        border-radius: 12px;
-                        padding: 1.5px 9px;
-                        color: #aaa;
-                        font-size: 0.8rem;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        transition: transform 0.2s;
 
-                    }
-
-                    figure {
-                        margin: 0;
-                        cursor: pointer;
-
-                        img {
-                            width: 20px;
-                            height: 20px;
-                            transition: transform 0.2s;
-
-                            &:hover {
-                                transform: scale(1.1);
-                            }
+                        &:hover {
+                            transform: scale(1.1);
                         }
                     }
                 }
             }
         }
     }
+}

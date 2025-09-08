@@ -1,83 +1,112 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../sass/scss/diary2.scss'
 
+
+const posts = [
+    {
+        id: 1,
+        title: '今天和新朋友一起吃了咖哩飯🍛',
+        member: 'Eddie Chen',
+        text: '來大阪一週，終於鼓起勇氣在平台上發了一個吃飯揪團。</br>原本以為可能沒人回應，結果居然有兩位同樣在這裡漂泊的朋友回我訊息。</br>一個是剛從東京來的工程師，另一位是畫插畫的自由接案者。</br>我們約在一間家庭式的小咖哩店見面，從點餐開始就話題不斷，邊吃邊笑，分享各自的旅程和「一個人吃飯」的尷尬瞬間。</br>吃完我們還走去附近的河邊散步，一起拍了合照。我突然理解了什麼叫「一起就有趣」，那不只是陪伴，而是一種默契的打開，讓人生在異地也能有些溫度。<br />—<br />#日本 #大阪 #咖哩飯 #新朋友 #漂泊',
+        location: '大阪/ 日本',
+        date: 'Apr,03 2025',
+        imageUrl: './img-diary/diary-1.jpg'
+    },
+    {
+        id: 2,
+        title: '🧑‍💻 第一次在國外 co-work，竟然有點感動',
+        member: 'Amy Wu',
+        text: '我一直覺得自己是那種可以一個人好好工作的人，不需要太多社交。</br>但今天在清邁的一家咖啡廳發了 co-work 揪團，來了三個人，有設計師、工程師、還有一位在寫論文的學生。</br>我們沒多說話，各自戴上耳機、打開電腦，就開始了一整個下午的安靜工作。</br>但那種「身邊有人也在努力」的感覺，真的有一種莫名的安定感。中間一起點了飲料，聊了幾句工作遇到的難題，突然覺得自己不那麼孤單。</br>結束前我們互加了聯絡方式，下週決定再來試試新的共辦空間。</br>這種小小的連結，竟然讓我今天超有生產力。<br />—<br /> #清邁 #co-work #生產力 #連結',
+        location: '清邁/ 泰國',
+        date: 'Jun,10 2025',
+        imageUrl: './img-diary/diary-2.jpg'
+    },
+    {
+        id: 3,
+        title: '🎲 今天和網友玩桌遊到凌晨三點',
+        member: 'Ting',
+        text: '本來只是想找個地方 chill 一下，結果一進門就被拉進一局狼人殺。</br>一開始大家還很拘謹，結果越玩越開，吵到老闆都來看我們是怎樣了。</br>我從沒想過，語言不同、背景不同，靠一場遊戲居然也能拉近距離。</br>回家的路上我竟然有點捨不得，還忍不住問他們「聖誕節你們在哪？」原來認識朋友有時不需要理由，只要你願意一起玩。<br />—<br />#遊戲 #桌遊 #新朋友 #深夜食堂',
+        location: '葡萄牙/ 里斯本',
+        date: 'Jul,14 2025',
+        imageUrl: './img-diary/diary-5.png'
+    }
+];
+
 const Diary2 = () => {
+    const [isLiked, setIsLiked] = useState(false);
+    const [currentPostIndex, setCurrentPostIndex] = useState(0);
+
+    const handleLikeClick = () => {
+        setIsLiked(!isLiked);
+    };
+
+    const handleNextPost = () => {
+        setCurrentPostIndex((prevIndex) => (prevIndex + 1) % posts.length);
+        setIsLiked(false); // 每次換文章時，將愛心狀態重置為未點擊
+    };
+
+    const currentPost = posts[currentPostIndex];
+
     return (
         <main>
-            {/* 發文 */}
-            {/* 探索所有地點 */}
             <section className="diaAll2">
                 <section id='diary-discover2'>
                     <div className='d-t-title2'>
                         <span className='title-large2'>漂日記</span>
-                        <span className='title-small2'>亞洲/東南亞  ------------</span>
+                        <span className='title-small2'>亞洲 ------------</span>
                     </div>
                     <section className='diaContent2'>
                         <div className='diaDrop2'>
-                            <ul>
-                                <li>亞洲</li><img src="./img-diary/icon-right.png" alt="" />
-                            </ul>
-                            <ul>
-                                <li>歐洲</li><img src="./img-diary/icon-right.png" alt="" />
-                            </ul>
-                            <ul>
-                                <li>北美洲</li><img src="./img-diary/icon-right.png" alt="" />
-                            </ul>
-                            <ul>
-                                <li>中南美洲</li><img src="./img-diary/icon-right.png" alt="" />
-                            </ul>
-                            <ul>
-                                <li>非洲</li><img src="./img-diary/icon-right.png" alt="" />
-                            </ul>
-                            <ul>
-                                <li>大洋洲</li><img src="./img-diary/icon-right.png" alt="" />
-                            </ul>
+                            <Link to="/diary">
+                                <ul>
+                                    <li>回上一頁</li><img src="./img-diary/back.svg" alt="" />
+                                </ul>
+                            </Link>
                         </div>
-                        {/* 文章區 */}
-                        <section className='diaArticleSection2'>
+
+                        {/* 這裡加上了 key={currentPost.id} */}
+                        <section className='diaArticleSection2' key={currentPost.id}>
                             <div className='p1-sel2'>
-                                <figure className='dia-p2'><img src="./img-diary/d2-photo.jpg" alt="" /></figure>
+                                <figure className='dia-p2'><img src={currentPost.imageUrl} alt="" /></figure>
                             </div>
                             <article className='diaArticle2'>
                                 <div className='d-member2'>
                                     <div></div>
-                                    <p>Eddie Chen</p>
+                                    <p>{currentPost.member}</p>
                                 </div>
                                 <div className='d-text-card2' >
                                     <div className='d-text2'>
-                                        <p className='d-tit2'>📖 週末日記｜海灘上的營火夜，好像回到青春那一頁</p>
-                                        <p className='d-word2'>
-                                            昨天真的過了一個超級難忘的晚上。朋友們約了一起去白沙灣參加了一場海邊營火聚會，本來只是想放鬆一下、看看海，結果整個晚上完全超出我的期待。<br/>
-                                            我們大概五點左右就到了，太陽還沒下山，海風輕輕吹著，感覺整個人都放鬆下來。沙灘上早就擺好了幾張躺椅和野餐墊，中心是一個圓形的鐵製火盆，旁邊堆著木材。大家陸續到齊後，開始一起升火。雖然只是簡單的活動，但那種一起動手、一邊聊天的感覺真的很溫暖。<br/>
-                                            火升起來的那一刻，好像整個氣氛都變了。火光照在大家的臉上，有人開始彈吉他，有人烤著棉花糖，笑聲此起彼落。我還記得某個朋友用力烤焦了香腸，然後還堅持自己吃掉那根“黑炭版”的，笑到我們肚子都痛。<br/>
-                                            吃的部分也很棒，我們準備了一些輕食和飲料，也有幾個人帶了特別的手作點心來分享。大家坐成一圈，有時候聊旅行、有時候談生活，也有人靜靜看著火出神。我特別喜歡那個瞬間，沒有手機、沒有壓力，只有一群人單純地享受眼前這個夜晚。<br/>
-                                            大約九點多，星星慢慢出現了。我們關掉音響，改成大家輪流說故事，甚至玩起了童年玩過的「真心話大冒險」。雖然有點幼稚，但那種純粹的快樂好像真的很久沒感受到了。<br/>
-                                            回家的路上雖然有點冷，但心裡是暖的。這次的營火派對，真的讓我重新體會到朋友相聚的珍貴，以及大自然帶來的療癒感。希望以後能有更多這種放鬆又開心的活動，也很期待下一次再和大家一起坐在沙灘上，看火光跳動、看星星閃爍。<br/>
-                                            —<br/>
-                                           📷#海邊日記 #營火派對 #友情萬歲 #白沙灣的夜晚 #生活的療癒時刻<br/>
-                                           </p>
+                                        <p className='d-tit2'>{currentPost.title}</p>
+                                        <p className='d-word2' dangerouslySetInnerHTML={{ __html: currentPost.text }} />
                                     </div>
 
                                     <div className='d-sign2'>
                                         <div className='d-locaion2'>
                                             <figure><img src="./img-Home/location.svg" alt="" /></figure>
-                                            <p className='h-d-loc2'>新北/ 台灣</p>
+                                            <p className='h-d-loc2'>{currentPost.location}</p>
                                         </div>
-                                        <p className='h-d-date2'>Jun,10 2025</p>
-                                        <figure><img src="./img-Home/heart.svg" alt="" /></figure>
+                                        <p className='h-d-date2'>{currentPost.date}</p>
+                                        <figure onClick={handleLikeClick}>
+                                            <img src={isLiked ? "./img-diary/heart.svg" : "./img-Home/heart.svg"} alt="like" />
+                                        </figure>
                                         <figure><img src="./img-Home/chat.svg" alt="" /></figure>
                                         <figure><img src="./img-Home/save.svg" alt="" /></figure>
                                     </div>
                                 </div>
                             </article>
                         </section>
+
+                        <button className='next-post-btn' onClick={handleNextPost}>
+                            <img src="./img-diary/right.svg" alt="Share" />
+                        </button>
                     </section>
                 </section>
 
                 <figure className='dia-p2'><img src="./img-diary/b-photo.png" alt="" /></figure>
             </section>
         </main>
-
-    )
+    );
 }
 
-export default Diary2
+export default Diary2;
