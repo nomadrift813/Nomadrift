@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
+  const [hvalue, setHvalue] = useState("");
+
   const wrapRef = useRef(null);   // 給 IntersectionObserver 用
 
   // 淡入淡出（Hero）
@@ -30,7 +32,7 @@ const Home = () => {
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-           const el = entry.target;
+          const el = entry.target;
           if (entry.isIntersecting) el.classList.add('in');
           else el.classList.remove('in');
         });
@@ -50,10 +52,16 @@ const Home = () => {
       <section id="homebanner">
         <div className={`homeslogan ${show ? "fade-in" : "fade-out"}`}>
           <h2>在世界的浪潮中，自由前行</h2>
-          <button className="home-b-form" type="button">
-            <span>Start</span>
+
+          <div className={`home-b-form ${hvalue ? "typing" : ""}`}>
+            <input
+              type="text"
+              placeholder="Start"
+              value={hvalue}
+              onChange={(e) => setHvalue(e.target.value)}
+            />
             <img src="./img-Home/home-s-right.svg" alt="" />
-          </button>
+          </div>
         </div>
 
         <p className='banner-side-word'>floating your own way</p>
@@ -102,11 +110,11 @@ const Home = () => {
       <svg className="wave-svg" viewBox="0 0 240 60" preserveAspectRatio="none">
         <defs>
           <path id="segBig"
-            d="M0,30 C40,0 40,60 80,30 C120,0 120,60 160,30 C200,0 200,60 240,30 V60 H0 Z"/>
+            d="M0,30 C40,0 40,60 80,30 C120,0 120,60 160,30 C200,0 200,60 240,30 V60 H0 Z" />
           <path id="segMid"
-            d="M0,30 C30,10 30,50 60,30 C90,10 90,50 120,30 C150,10 150,50 180,30 C210,10 210,50 240,30"/>
+            d="M0,30 C30,10 30,50 60,30 C90,10 90,50 120,30 C150,10 150,50 180,30 C210,10 210,50 240,30" />
           <path id="segSmall"
-            d="M0,30 C20,20 20,40 40,30 C60,20 60,40 80,30 C100,20 100,40 120,30 C140,20 140,40 160,30 C180,20 180,40 200,30 C220,20 220,40 240,30"/>
+            d="M0,30 C20,20 20,40 40,30 C60,20 60,40 80,30 C100,20 100,40 120,30 C140,20 140,40 160,30 C180,20 180,40 200,30 C220,20 220,40 240,30" />
         </defs>
 
         <g className="move fill big">
@@ -137,15 +145,35 @@ const Home = () => {
 
         <div className='home-lo-boxs'>
           <figure className="home-city-grid">
-            <img src="./img-Home/location-1.jpg" alt="" />
-            <img src="./img-Home/location-2.jpg" alt="" />
-            <img src="./img-Home/location-3.jpg" alt="" />
-            <img src="./img-Home/location-4.jpg" alt="" />
-            <img src="./img-Home/location-5.jpg" alt="" />
-            <img src="./img-Home/location-6.jpg" alt="" />
-            <img src="./img-Home/location-7.jpg" alt="" />
+            <div className="h-city">
+              <img src="./img-Home/location-1.jpg" alt="奧克蘭" />
+              <span className="h-cityname">奧克蘭</span>
+            </div>
+            <div className="h-city">
+              <img src="./img-Home/location-2.jpg" alt="峇里島" />
+              <span className="h-cityname">峇里島</span>
+            </div>
+            <div className="h-city">
+              <img src="./img-Home/location-3.jpg" alt="曼谷" />
+              <span className="h-cityname">曼谷</span>
+            </div>
+            <div className="h-city">
+              <img src="./img-Home/location-4.jpg" alt="里斯本" />
+              <span className="h-cityname">里斯本</span>
+            </div>
+            <div className="h-city">
+              <img src="./img-Home/location-5.jpg" alt="墨西哥城" />
+              <span className="h-cityname">墨西哥城</span>
+            </div>
+            <div className="h-city">
+              <img src="./img-Home/location-6.jpg" alt="柏林" />
+              <span className="h-cityname">柏林</span>
+            </div>
+            <div className="h-city">
+              <img src="./img-Home/location-7.jpg" alt="紐約" />
+              <span className="h-cityname">紐約</span>
+            </div>
           </figure>
-
           <button className='home-all-spot'>
             <Link to="/location">更多地點</Link>
           </button>
@@ -168,16 +196,46 @@ const Home = () => {
         <div className='h-l-text'>
           <div className='h-g-pic'>
             {/* Group：保留旋轉 + 左右滑入 */}
-            <figure className="h-g-p-1 reveal reveal-left-200"><img src="./img-Home/group1.jpg" alt="" /></figure>
-            <figure className='h-g-p-2 reveal reveal-right-120'><img src="./img-Home/group2.jpeg" alt="" /></figure>
+            <figure className="h-g-p-1 reveal reveal-left-120"><img src="./img-Home/group1.jpg" alt="" /></figure>
+            <figure className='h-g-p-2 reveal reveal-right-60'><img src="./img-Home/group2.jpeg" alt="" /></figure>
             <figure className='h-g-p-3 reveal reveal-right-200'><img src="./img-Home/group3.jpeg" alt="" /></figure>
           </div>
           <ul>
-            <li><span>找吃飯夥伴<img src="./img-Home/home-s-right.svg" alt="" /></span></li>
-            <li><span>找工作夥伴<img src="./img-Home/home-s-right.svg" alt="" /></span></li>
-            <li><span>找踩點夥伴<img src="./img-Home/home-s-right.svg" alt="" /></span></li>
-            <li><span>找合租室友<img src="./img-Home/home-s-right.svg" alt="" /></span></li>
-            <li><span>找 Chill 伴<img src="./img-Home/home-s-right.svg" alt="" /></span></li>
+            <li>
+              <Link to="/group?filter=找吃飯夥伴">
+                <span>
+                  找吃飯夥伴 <img src="./img-Home/home-s-right.svg" alt="" />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/group?filter=找工作夥伴">
+                <span>
+                  找工作夥伴 <img src="./img-Home/home-s-right.svg" alt="" />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/group?filter=找踩點夥伴">
+                <span>
+                  找踩點夥伴 <img src="./img-Home/home-s-right.svg" alt="" />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/group?filter=找合租室友">
+                <span>
+                  找合租室友 <img src="./img-Home/home-s-right.svg" alt="" />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/group?filter=找Chill伴">
+                <span>
+                  找 Chill 伴 <img src="./img-Home/home-s-right.svg" alt="" />
+                </span>
+              </Link>
+            </li>
             <button className='home-all-spot'>
               <Link to="/group">所有活動</Link>
             </button>
@@ -185,8 +243,8 @@ const Home = () => {
         </div>
 
         <div className="h-g-tags">
-          <p className='h-g-block1'>讓你在異鄉，也有同路人～</p>
-          <p className='h-g-block2'>一個人沒動力？一起就有趣！!</p>
+          <p className='h-g-block1 hover-fun'>讓你在異鄉，也有同路人～</p>
+          <p className='h-g-block2 hover-fun'>一個人沒動力？一起就有趣！!</p>
         </div>
         <div className="h-g-botton-wrap">
           <div className="h-g-track">
@@ -238,12 +296,12 @@ const Home = () => {
         </div>
 
         <figure className='h-d-pics'>
-          <img  className="reveal reveal-left-300" src="./img-Home/diary-1.jpg" alt="" />
-          <img  className="reveal reveal-left-120" src="./img-Home/diary-2.jpg" alt="" />
+          <img className="reveal reveal-left-300" src="./img-Home/diary-1.jpg" alt="" />
+          <img className="reveal reveal-left-120" src="./img-Home/diary-2.jpg" alt="" />
           <img className="reveal reveal-left-60" src="./img-Home/diary-3.jpg" alt="" />
         </figure>
         <p className='h-d-side-word'>mood ...</p>
-        <figure className='h-d-boat'><img src="./img-Home/diary-boat.svg" alt="" /></figure>
+        {/* <figure className='h-d-boat'><img src="./img-Home/diary-boat.svg" alt="" /></figure> */}
       </section>
     </main>
   )
