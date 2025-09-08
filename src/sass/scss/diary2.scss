@@ -66,6 +66,9 @@
     flex-direction: column;
     background-color: $background1;
     padding: 50px 50px 0 50px;
+    background-image: url('../img-diary/World Map.png');
+    background-position:top; /* 讓圖片置中 */
+    background-repeat: no-repeat; /* 避免圖片重複 */
 
     .d-t-title2 {
         display: flex;
@@ -192,13 +195,14 @@
     padding: 67px 24px 24px 24px;
     font-family: 'Helvetica Neue', sans-serif;
     color: #333;
-    border-bottom: 1px solid #333;
     max-width: 870px;
     width: 100%;
     animation: slideInFromRight 0.8s ease-out forwards;
     /* 應用動畫 */
     opacity: 0;
     /* 確保動畫開始前是隱藏的 */
+    border-bottom: none; /*移除這條線，改到裡面*/
+
 
     .p1-sel2 {
         order: 2;
@@ -245,80 +249,148 @@
             }
 
         }
+    }
+}
+/* 調整這裡的結構來包含新加的 d-text-card-wrapper */
+.d-text-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-        .d-text-card2 {
-            display: flex;
-            flex-direction: column;
+.d-text2 {
+    .d-tit2 {
+        font-size: $f-s-md;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+    }
+
+    .d-word2 {
+        font-size: $f-s-sm;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+    }
+}
+
+.d-sign2 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: #999;
+    padding-bottom: 15px; // 留言區前的間距
+    margin-bottom: 15px; // 留言區前的間距
+    border-bottom: 1px solid #ccc; // 底部線條
 
 
-            .d-text2 {
-                .d-tit2 {
-                    font-size: $f-s-md;
-                    font-weight: bold;
-                    margin-bottom: 0.8rem;
+    .d-locaion2 {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
 
-                }
+        img {
+            width: 25px;
+            height: 25px;
+        }
+    }
 
-                .d-word2 {
-                    font-size: $f-s-sm;
-                    color: #555;
-                    line-height: 1.6;
-                    margin-bottom: 0.8rem;
+    .h-d-loc2 {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 1.5px 12px;
+        color: #aaa;
+        font-size: 0.8rem;
+    }
 
-                }
-            }
+    .h-d-date2 {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 1.5px 9px;
+        color: #aaa;
+        font-size: 0.8rem;
+    }
 
-            .d-sign2 {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                flex-wrap: wrap;
-                font-size: 0.8rem;
-                color: #999;
+    figure {
+        margin: 0;
+        cursor: pointer;
 
-                .d-locaion2 {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.4rem;
+        img {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.2s;
 
-                    img {
-                        width: 25px;
-                        height: 25px;
-                    }
-                }
-
-                .h-d-loc2 {
-                    background-color: #fff;
-                    border-radius: 12px;
-                    padding: 1.5px 12px;
-                    color: #aaa;
-                    font-size: 0.8rem;
-                }
-
-                .h-d-date2 {
-                    background-color: #fff;
-                    border-radius: 12px;
-                    padding: 1.5px 9px;
-                    color: #aaa;
-                    font-size: 0.8rem;
-
-                }
-
-                figure {
-                    margin: 0;
-                    cursor: pointer;
-
-                    img {
-                        width: 20px;
-                        height: 20px;
-                        transition: transform 0.2s;
-
-                        &:hover {
-                            transform: scale(1.1);
-                        }
-                    }
-                }
+            &:hover {
+                transform: scale(1.1);
             }
         }
+    }
+}
+/* 新增留言區樣式 */
+
+.comment-section-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 10px; // 避免滾動條擋住內容
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.comment-item {
+    display: flex;
+    gap: 5px;
+    line-height: 1.5;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-text {
+    color: #555;
+}
+
+.comment-input-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.comment-input-area input {
+    flex: 1;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: $f-s-sm;
+    &:focus {
+        outline: none;
+        border-color: $primary1;
+    }
+}
+
+.comment-input-area button {
+    background-color: $primary1;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: $f-s-sm;
+    transition: background-color 0.3s;
+    &:hover {
+        background-color: darken($primary1, 10%);
     }
 }
