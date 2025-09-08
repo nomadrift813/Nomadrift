@@ -3,66 +3,71 @@
 
 // 動畫
 @keyframes slideIn {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .slide-up-item {
-  opacity: 0;
-  animation-name: slideIn;
-  animation-duration: 0.6s;
-  animation-fill-mode: forwards;
+    opacity: 0;
+    animation-name: slideIn;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
 }
 
 
 /* Add this to your diary.scss file */
 @keyframes scaleIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .post-modal-overlay {
-  /* ... (其他現有樣式) ... */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    /* ... (其他現有樣式) ... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .post-modal-content {
-  /* ... (其他現有樣式) ... */
-  animation: scaleIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  transform: scale(0.8); /* 確保動畫開始時的初始大小 */
+    /* ... (其他現有樣式) ... */
+    animation: scaleIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    transform: scale(0.8);
+    /* 確保動畫開始時的初始大小 */
 }
 
 @keyframes slideInFromRight {
-  0% {
-    transform: translateX(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .article-slide-in {
-  animation-name: slideInFromRight;
-  animation-duration: 0.6s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  margin-bottom: 20px; /* 增加一點間距以配合效果 */
+    animation-name: slideInFromRight;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    margin-bottom: 20px;
+    /* 增加一點間距以配合效果 */
 }
 
 // 日記首頁背景
@@ -375,6 +380,32 @@
     }
 }
 
+.title-bg-container {
+    position: absolute;
+    /* 絕對定位，將其疊在內容下方 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    /* 控制圖片高度 */
+    background-image: url('../img-diary/World Map.png');
+    background-position: center top;
+    /* 圖片置中對齊頂部 */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* 讓圖片填滿容器且不變形 */
+    z-index: 1;
+    /* 確保在內容下方 */
+}
+
+.title-content-wrapper {
+    position: relative;
+    /* 確保內容在背景圖上方 */
+    z-index: 2;
+    /* 確保在背景圖上方 */
+    padding-top: 50px;
+    /* 根據背景圖高度調整，避免內容與背景圖重疊 */
+}
 
 #diary-discover {
     display: flex;
@@ -383,11 +414,16 @@
     background-color: $background1;
     padding: 50px 50px 0 50px;
 
+
+
+
     .d-t-title {
         display: flex;
-        align-items: baseline;
-        padding: 70px 0 0 16px;
+        flex-direction: column;
+        /* 將排列方向改為垂直 */
+        padding: 15px 0 0 16px;
         gap: 15px;
+        /* 可以用來調整 h2 和 p 之間的間距 */
 
         h2 {
             color: $primary2;
@@ -396,7 +432,19 @@
             font-weight: $f-w-4;
             line-height: 150%;
             letter-spacing: 4.4px;
+            position: relative;
+            z-index: 3;
         }
+
+        p {
+            color: $primary2;
+            /* 假設你希望它與 h2 同色，可根據需求調整 */
+            font-family: $en;
+            font-size: $f-s-sm;
+            /* 假設你希望它字體小一點 */
+            letter-spacing: 2px;
+        }
+
 
         span {
             padding-left: 15px;
@@ -496,7 +544,7 @@
     font-weight: 400;
     line-height: 150%;
     letter-spacing: 2px;
-     cursor: pointer;
+    cursor: pointer;
 
     &:hover {
         background: $accent;
@@ -509,7 +557,7 @@
     align-items: flex-start;
     gap: 6rem;
     padding-bottom: 2rem 3rem;
-    padding: 20px 0 0 0;
+    padding: 50px 0 0 0;
 }
 
 #diary-article {

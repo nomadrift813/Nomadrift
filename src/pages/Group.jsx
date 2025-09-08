@@ -7,10 +7,11 @@ const Group = () => {
   // state + handler
   const [activeFilter, setActiveFilter] = useState('全部活動');
   const [userActivities, setUserActivities] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(12); // 初始顯示 12 張
   const location = useLocation();
 
   const handleFilterClick = (tag, e) => {
-    e.preventDefault?.();           // 避免 <a href="#"> 跳到頁首
+    e?.preventDefault?.();      // 避免 <a href="#"> 跳到頁首
     setActiveFilter(tag);
   };
 
@@ -31,7 +32,7 @@ const Group = () => {
     return <GroupCard {...props} />;
   };
 
-  // 預設的靜態活動數據
+  // 預設的靜態活動數據（原本 12 張）
   const staticActivities = [
     {
       key: "night-market",
@@ -41,7 +42,7 @@ const Group = () => {
       time: "18:00",
       location: "台灣",
       title: "逛饒河夜市",
-      description: "來去饒河夜市走走吧！集合好之後就一起逛...",
+      description: "來去饒河夜市走走吧！集合好之後就一起逛，先買個剛出爐的胡椒餅，再來一杯冰冰涼涼的仙草茶，邊吃邊聊超chill～一路上想停哪就停哪，看到什麼想吃就買，沒有SOP、也不用趕行程，就是數位遊牧者聚在一起隨興散步，順便認識新朋友。燈火通明、人聲熱鬧，美食香氣一路陪伴，聊工作、聊旅行、聊生活，輕鬆自在到不想回家，快來加入我們，用夜市的熱鬧氛圍開啟一個超好玩的夜晚吧！",
       detailLink: "/group2",
       tags: ["找吃飯夥伴", "找踩點夥伴"],
     },
@@ -53,7 +54,7 @@ const Group = () => {
       time: "19:00",
       location: "曼谷",
       title: "一起征服米其林",
-      description: "這次我們把筆電和咖啡廳先放一邊...",
+      description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。⏰",
       detailLink: "/group2",
       tags: ["找吃飯夥伴"],
     },
@@ -63,7 +64,7 @@ const Group = () => {
       time: "13:00",
       location: "泰國",
       title: "死了都要愛-聯誼活動",
-      description: "活著如果不愛，那不如死了算...",
+      description: "活著如果不愛，那不如死了算，人在異國就是要來談場轟轟烈烈的戀愛，目前想約8男8女，想來場美式戀愛的朋友們快來。",
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
@@ -75,13 +76,13 @@ const Group = () => {
       time: "7:00",
       location: "黃金海岸",
       title: "來衝個早浪",
-      description: "一起早起去海邊，踩著第一道陽光下水衝浪...",
+      description: "一起早起去海邊，踩著第一道陽光下水衝浪，滑幾道舒服的浪，讓身體醒過來，心也跟著放鬆。衝完再找間早餐店，好好開啟這一天，給生活一點鹹鹹的、自由的味道。",
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
     {
       key: "beer-pong",
-      image: "./img-Group/beer-pong.jpeg",
+      image: "./img-Group/beer-pong.jpg",
       signupCount: 4,
       date: "2025/09/25",
       time: "17:00",
@@ -155,6 +156,21 @@ const Group = () => {
       tags: ["找工作夥伴"],
     },
     {
+      key: "photography-tour",
+      image: "./img-Group/photography-tour.jpg",
+      signupCount: 9,
+      date: "2025/11/05",
+      time: "10:00",
+      location: "清邁",
+      title: "古城攝影散步",
+      description: `這趟攝影散步將帶領大家穿梭於清邁古城的巷弄與寺廟。帶上你的相機或手機，
+一起捕捉光影下的金色佛塔、手工市集的繽紛布料，以及街頭巷尾的咖啡館日常。
+導遊同時也是專業攝影師，會指導構圖技巧與打光小撇步。
+行程最後，我們會到河畔的餐廳聚會，把每個人的作品投影出來分享，互相交流拍攝心得。`,
+      detailLink: "/group2",
+      tags: ["找踩點夥伴"],
+    },
+    {
       key: "rooftop-talk",
       image: "./img-Group/fireworks.jpeg",
       signupCount: 8,
@@ -178,8 +194,94 @@ const Group = () => {
 人數限制10人，當天每個人帶自己喜歡的食材來參加，請在報名時就填寫在報名表上，大家快來參加，叫朋友一起來!`,
       detailLink: "/group2",
       tags: ["找吃飯夥伴", "找Chill伴"],
+    },
+{
+      key: "mountain-hiking",
+      image: "./img-Group/hiking.jpg",
+      signupCount: 7,
+      date: "2025/10/20",
+      time: "06:30",
+      location: "阿里山",
+      title: "日出健行體驗",
+      description: `集合於阿里山森林遊樂區，大家會一起搭乘小火車到祝山觀日平台，
+看著第一道陽光穿透雲海，這份震撼很難用言語形容。接著我們會進行約 2 小時的健行路線，
+沿途有高大的神木、古老的檜木棧道和滿滿芬多精。行程最後安排在山腰的小茶館休息，
+大家可以分享彼此的旅遊故事，喝杯阿里山高山茶，享受森林的靜謐氛圍。`,
+      detailLink: "/group2",
+      tags: ["找Chill伴", "找踩點夥伴"],
+    },
+    {
+      key: "cooking-class",
+      image: "./img-Group/cooking.jpg",
+      signupCount: 12,
+      date: "2025/09/18",
+      time: "15:00",
+      location: "東京",
+      title: "和食料理教室",
+      description: `這場料理課程將由專業的日式料理師傅帶領，從挑選食材、處理魚肉，
+到最後擺盤的細節，每個步驟都能學到滿滿技巧。參加者可以親手製作壽司、天婦羅與味噌湯，
+過程中還能學到日本飲食文化的小知識。最後大家會圍坐在一起享用自己的成果，
+搭配老師準備的清酒，邊聊天邊交流料理心得，絕對是一個充滿互動感和成就感的午後。`,
+      detailLink: "/group2",
+      tags: ["找吃飯夥伴"],
+    },
+    {
+      key: "language-exchange",
+      image: "./img-Group/language-exchange.jpg",
+      signupCount: 20,
+      date: "2025/09/27",
+      time: "19:30",
+      location: "台北",
+      title: "語言交換之夜",
+      description: `這是一場聚集世界各地旅人的語言交換活動。每位參加者會拿到一張小卡，
+上面寫著自己想練習的語言，現場會安排不同的交流桌，大家每隔 15 分鐘就會輪換一次，
+確保能和不同背景的人對話。不論你是想練習英文、日文，還是分享中文，
+這裡都能找到合適的夥伴。活動現場還會準備輕食與飲品，讓交流氛圍更輕鬆自在。`,
+      detailLink: "/group2",
+      tags: ["找工作夥伴", "找Chill伴"],
+    },
+    {
+      key: "boardGames-night",
+      image: "./img-Group/boardGames.jpg",
+      signupCount: 15,
+      date: "2025/09/29",
+      time: "18:30",
+      location: "新加坡",
+      title: "桌遊狂歡之夜",
+      description: `這是一場專為桌遊愛好者準備的聚會，從輕鬆的小品遊戲如「誰是臥底」，
+到需要策略腦力的大型桌遊如「卡坦島」與「七大奇蹟」，現場應有盡有。
+我們會分組進行，每局遊戲結束後還會抽獎送出小禮物，保持滿滿驚喜。
+不管你是高手還是新手，都能在這裡找到適合的遊戲伙伴，度過一個熱鬧又放鬆的夜晚。`,
+      detailLink: "/group2",
+      tags: ["找Chill伴"],
     }
+
   ];
+
+  // 合併用戶活動 + 靜態活動（用戶活動會在最前面）
+  const baseActivities = [...userActivities, ...staticActivities];
+
+  // 依篩選結果過濾
+  const filtered = baseActivities.filter(a =>
+    activeFilter === '全部活動' || (a.tags || []).includes(activeFilter)
+  );
+
+  // 讓「更多活動」按鈕每次都再顯示 12 張卡片：
+  // 當 filtered 不足 visibleCount，就用原本順序重複補齊，再截斷到 visibleCount。
+  const getPagedActivities = () => {
+    if (filtered.length === 0) return [];
+    const result = [];
+    while (result.length < visibleCount) {
+      result.push(...filtered);
+    }
+    return result.slice(0, visibleCount);
+  };
+
+  const handleViewMore = () => {
+    setVisibleCount(prev => prev + 12); // 每按一次就增加 12 張
+  };
+
+  const pagedActivities = getPagedActivities();
 
   return (
     <main>
@@ -197,9 +299,8 @@ const Group = () => {
       </section>
 
       {/* 內容區 */}
-
-      {/* 主標題 */}
       <section id="group-content">
+        {/* 主標題 */}
         <div className="g-content-title">
           <h3>Travel solo, connect together!</h3>
           <div className="line"></div>
@@ -268,47 +369,38 @@ const Group = () => {
 
         {/* 所有卡片合輯 */}
         <div className='cards-container'>
-
-          {/* 渲染用戶建立的活動（顯示在最上方） */}
-          {userActivities.map((activity) => (
-            <FilterableCard
-              key={activity.id}
-              activeFilter={activeFilter}
-              image={activity.image}
-              signupCount={activity.signupCount}
-              date={activity.date}
-              time={activity.time}
-              location={activity.location}
-              title={activity.title}
-              description={activity.description}
-              detailLink={activity.detailLink}
-              tags={activity.tags}
-              onJoin={() => console.log("加入活動")}
-            />
-          ))}
-
-          {/* 渲染靜態活動 */}
-          {staticActivities.map((activity) => (
-            <FilterableCard
-              key={activity.key}
-              activeFilter={activeFilter}
-              image={activity.image}
-              signupCount={activity.signupCount}
-              date={activity.date}
-              time={activity.time}
-              location={activity.location}
-              title={activity.title}
-              description={activity.description}
-              detailLink={activity.detailLink}
-              tags={activity.tags}
-              onJoin={() => console.log("加入活動")}
-            />
-          ))}
-
+          {pagedActivities.length === 0 ? (
+            <p style={{ textAlign: 'center', width: '100%' }}>目前沒有符合條件的活動</p>
+          ) : (
+            pagedActivities.map((activity, idx) => (
+              <FilterableCard
+                key={(activity.key || activity.id || 'activity') + '-' + idx} // 保證重複時 key 仍唯一
+                activeFilter={activeFilter}
+                image={activity.image}
+                signupCount={activity.signupCount}
+                date={activity.date}
+                time={activity.time}
+                location={activity.location}
+                title={activity.title}
+                description={activity.description}
+                detailLink={activity.detailLink}
+                tags={activity.tags}
+                onJoin={() => console.log("加入活動")}
+              />
+            ))
+          )}
         </div>
 
+        <div className='g1-view-more'>
+          <button
+            className='view-more-group-btn'
+            onClick={handleViewMore}
+          >
+            更多活動
+          </button>
+        </div>
       </section>
-    </main >
+    </main>
   )
 }
 

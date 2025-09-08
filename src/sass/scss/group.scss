@@ -263,6 +263,7 @@
         @media ($mediaSm) {
             column-count: 1;
         }
+
         // 手機 1 欄
     }
 
@@ -277,5 +278,34 @@
         display: block; // 在欄中當作獨立方塊
         width: 100%; // 吃滿欄寬
         margin: 0 0 24px; // 卡片之間的直向距離
+    }
+}
+
+.g1-view-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .view-more-group-btn {
+        // 按鈕樣式
+        display: flex;
+        padding: 5px 30px;
+        border-radius: 99px;
+        background: $accent;
+
+        // 字樣式
+        color: $text;
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        font-style: normal;
+        font-weight: $f-w-4;
+        line-height: 150%;
+        letter-spacing: 2px;
+
+        transition: .15s ease;
+
+        &:hover {
+            background: #e7c300;
+        }
     }
 }

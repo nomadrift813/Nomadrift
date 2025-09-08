@@ -159,7 +159,7 @@ const Group2 = () => {
             photo: "./img-Group/people/Commenter (1).jpg",
         },
         {
-            name: "Eason",
+            name: "Scoot",
             text: "我超愛逛夜市耶！饒河真的推推！！",
             photo: "./img-Group/people/Commenter (2).jpg",
         },
@@ -180,7 +180,7 @@ const Group2 = () => {
             {
                 name: "Andy Chen",
                 text,
-                photo: "./img-Group/people/People-(10).jpg",
+                photo: "./img-Group/people/People-(11).jpg",
             },
         ]);
         setNewComment("");
@@ -281,14 +281,14 @@ const Group2 = () => {
                         <img className="commenter-photo" src={c.photo} alt="" />
                         <div className='comment-content'>
                             <p className='commenter-name'>{c.name}</p>
-                            <p>{c.text}</p>
+                            <p >{c.text}</p>
                         </div>
                     </div>
                 ))}
 
                 {/* Andy Chen：輸入框 → 可新增留言 */}
                 <div className='comment-user'>
-                    <img className="commenter-photo" src="./img-Group/people/People-(10).jpg" alt="" />
+                    <img className="commenter-photo" src="./img-Group/people/People-(11).jpg" alt="" />
                     <div className='comment-content'>
                         <p className='commenter-name'>Andy Chen</p>
                         <form className='comment-input-row' onSubmit={handleAddComment}>
