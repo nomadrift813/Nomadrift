@@ -273,7 +273,7 @@
         h3 {
             color: $primary2;
             font-family: $en;
-            font-size: $f-s-sm2;
+            font-size: $f-s-sm;
             font-weight: $f-w-4;
             letter-spacing: 2px;
         }
@@ -281,7 +281,7 @@
         h2 {
             color: $text;
             font-family: $family-tc;
-            font-size: $f-s-xl;
+            font-size: $f-s-lg;
             font-weight: $f-w-5;
             letter-spacing: 4px;
         }
@@ -295,7 +295,7 @@
         p {
             color: #7A7872;
             font-family: $family-tc;
-            font-size: $f-s-md;
+            font-size: $f-s-sm2;
             font-weight: $f-w-4;
             letter-spacing: 2px;
         }
@@ -336,7 +336,7 @@
 
         h3 {
             font-family: $family-tc;
-            font-size: $f-s-lg;
+            font-size: $f-s-md;
             line-height: 100%;
             letter-spacing: 2px;
         }
@@ -346,7 +346,7 @@
             font-family: $family-tc;
             font-size: $f-s-sm;
             line-height: 100%;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
     }
 
@@ -357,7 +357,7 @@
 
         h3 {
             font-family: $family-tc;
-            font-size: $f-s-lg;
+            font-size: $f-s-md;
             line-height: 100%;
             letter-spacing: 2px;
         }
@@ -367,7 +367,7 @@
             font-family: $family-tc;
             font-size: $f-s-sm;
             line-height: 100%;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
     }
 
@@ -440,7 +440,7 @@
 
     h3 {
         font-family: $family-tc;
-        font-size: $f-s-lg;
+        font-size: $f-s-md;
         line-height: 100%;
         letter-spacing: 2px;
     }
@@ -498,7 +498,7 @@
 
         color: #7A7872;
         font-family: $family-tc;
-        font-size: $f-s-sm2;
+        font-size: $f-s-sm;
         line-height: 150%;
         letter-spacing: 1px;
 
@@ -511,13 +511,9 @@
         align-self: stretch;
         color: #41453D;
         font-family: $family-tc;
-        font-size: $f-s-md;
+        font-size: $f-s-sm2;
         line-height: 150%;
         letter-spacing: 1px;
-
-        @media ($mediaSm) {
-            font-size: $f-s-sm2;
-        }
     }
 
     /* 輸入列（Andy 的輸入區） */
@@ -595,7 +591,7 @@
     display: flex;
     flex-direction: column;
     padding: 0px 150px;
-    margin-top: 80px;
+    margin-top: 50px;
     gap: 32px;
 
     .more-activities-title {
