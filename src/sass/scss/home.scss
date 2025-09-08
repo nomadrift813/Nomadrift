@@ -96,35 +96,62 @@ body {
             justify-content: space-between;
             align-items: center;
             align-self: stretch;
+
             border-radius: 999px;
-            border: 1px solid $white;
+            border: 2px solid $white;
             background: rgba(244, 241, 229, .5);
+
             color: $text;
             font-family: $en;
             font-size: 22px;
             font-weight: 400;
             line-height: 150%;
             letter-spacing: 5px;
+
             overflow: clip;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
             @media ($mediaSm) {
-                height: $spacing-xl;
+                height: 35px;
                 align-self: center;
                 gap: 160px;
                 padding: 8px 16px;
             }
 
-            img {
-                width: 24px;
-                height: 24px;
-            }
-
-            span {
+            input {
+                flex: 1;
+                border: none;
+                background: transparent;
+                color: $text;
                 font-family: $en;
                 font-size: 22px;
                 font-weight: $f-w-4;
                 line-height: 150%;
                 letter-spacing: 5px;
+                outline: none;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+                &::placeholder {
+                    color: rgba(0, 0, 0, .6);
+                }
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
+
+            /* focus 時高亮 */
+            &:focus-within {
+                border-color: #FFD700;
+                box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+            }
+
+            /* 🔑 打字中也保持高亮 */
+            &.typing {
+                border-color: #FFD700;
+                box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
             }
         }
     }
@@ -215,7 +242,7 @@ body {
 /* ========== 優勢區 ========== */
 #homeadvantages {
     width: 100%;
-    height: 20vh;
+    height: 30vh;
     background-color: $primary1;
     padding: 0 80px 130px 150px;
     gap: 80px;
@@ -227,13 +254,13 @@ body {
     @media ($mediaXl) {
         flex-direction: column;
         padding: 0 80px 130px 100px;
-        height: 45vh;
+        height: 50vh;
     }
 
     @media ($mediaSm) {
         flex-direction: column;
         padding: 0 50px 130px 80px;
-        height: 60vh;
+        height: 65vh;
         gap: 50px;
     }
 
@@ -253,6 +280,7 @@ body {
         span {
             border-bottom: 1px solid $white;
             padding-bottom: 10px;
+            margin-right: 0.5em;
         }
     }
 
@@ -502,57 +530,120 @@ body {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 180px 153px 153px;
-            grid-template-areas: "a a b" "c d b" "e f g";
+            grid-template-areas:
+                "a a b"
+                "c d b"
+                "e f g";
             gap: 12px;
-
-            &:not(:hover)>img:nth-child(2) {
-                filter: grayscale(0%) contrast(100%) brightness(100%);
-            }
         }
 
-        .home-city-grid>img {
+        /* 每格外層，讓 overlay 能定位 */
+        .home-city-grid>.h-city {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* 圖片：預設全黑白 */
+        .home-city-grid>.h-city img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px;
             display: block;
+
             filter: grayscale(100%) contrast(80%) brightness(90%);
             transition: filter .3s ease, transform .3s ease, box-shadow .3s ease;
-
-            &:hover {
-                filter: grayscale(0%) contrast(100%) brightness(100%);
-                transform: scale(1.005);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
-            }
         }
 
-        .home-city-grid>img:nth-child(1) {
+
+        .h-cityname {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(.98);
+            color: #fff;
+            font-family: $family-tc;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, .45);
+            pointer-events: none;
+            white-space: nowrap;
+
+
+            opacity: 0;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+
+        .home-city-grid>.h-city:hover img {
+            filter: grayscale(0%) contrast(100%) brightness(100%);
+            transform: scale(1.005);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+        }
+
+        .home-city-grid>.h-city:hover .h-cityname {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+
+        .home-city-grid:not(:hover)>.h-city:nth-child(2) img {
+            filter: grayscale(0%) contrast(100%) brightness(100%);
+        }
+
+        .home-city-grid:not(:hover)>.h-city:nth-child(2) .h-cityname {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+
+        .home-city-grid>.h-city::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .45) 70%);
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .home-city-grid>.h-city:hover::before {
+            opacity: 1;
+        }
+
+        .home-city-grid:not(:hover)>.h-city:nth-child(2)::before {
+            opacity: 1;
+        }
+
+
+        .home-city-grid>.h-city:nth-child(1) {
             grid-area: a;
         }
 
-        .home-city-grid>img:nth-child(2) {
+        .home-city-grid>.h-city:nth-child(2) {
             grid-area: b;
         }
 
-        .home-city-grid>img:nth-child(3) {
+        .home-city-grid>.h-city:nth-child(3) {
             grid-area: c;
         }
 
-        .home-city-grid>img:nth-child(4) {
+        .home-city-grid>.h-city:nth-child(4) {
             grid-area: d;
         }
 
-        .home-city-grid>img:nth-child(5) {
+        .home-city-grid>.h-city:nth-child(5) {
             grid-area: e;
         }
 
-        .home-city-grid>img:nth-child(6) {
+        .home-city-grid>.h-city:nth-child(6) {
             grid-area: f;
         }
 
-        .home-city-grid>img:nth-child(7) {
+        .home-city-grid>.h-city:nth-child(7) {
             grid-area: g;
         }
+
 
         .home-all-spot a {
             color: $white;
@@ -827,43 +918,80 @@ body {
             margin-top: -250px;
             z-index: 1;
         }
-    }
 
-    .h-g-block1 {
-        display: inline-flex;
-        transform: rotate(-1.822deg);
-        padding: 12px 40px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        border-radius: 10px;
-        background: $white;
-        color: $primary1;
-        font-family: "Noto Sans TC";
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 2px;
-        white-space: nowrap;
-    }
 
-    .h-g-block2 {
-        display: inline-flex;
-        transform: rotate(1.951deg);
-        padding: 12px 40px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        border-radius: 10px;
-        background-color: $accent;
-        color: $text;
-        font-family: $family-tc;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 2px;
-        white-space: nowrap;
-        margin-right: 200px;
+        .h-g-block1 {
+            --rot: -1.822deg;
+            display: inline-flex;
+            padding: 12px 40px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 10px;
+            background: $white;
+            color: $primary1;
+            font-family: "Noto Sans TC";
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 2px;
+            white-space: nowrap;
+
+            /* 套互動效果 */
+            @extend .hover-fun;
+        }
+
+        .h-g-block2 {
+            --rot: 1.951deg;
+            display: inline-flex;
+            padding: 12px 40px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 10px;
+            background-color: $accent;
+            color: $text;
+            font-family: $family-tc;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            margin-right: 200px;
+
+            /* 套互動效果 */
+            @extend .hover-fun;
+        }
+
+        /* 共用互動效果 */
+        .hover-fun {
+            cursor: pointer;
+            will-change: transform, box-shadow, filter;
+            transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+
+            /* 平常漂浮 + 保留角度 */
+            animation: floatY 4s ease-in-out infinite;
+        }
+
+        @keyframes floatY {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(var(--rot));
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(var(--rot));
+            }
+        }
+
+        /* hover → 停止漂浮，固定放大+提亮+陰影，也保留角度 */
+        .hover-fun:hover {
+            animation: none;
+            transform: translateY(-6px) scale(1.05) rotate(var(--rot));
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+            filter: brightness(1.05) saturate(1.1);
+        }
     }
 
     .h-g-botton-wrap {
@@ -1303,6 +1431,14 @@ body {
     --reveal-x: -300px;
 }
 
-.h-g-p-1 { --tilt: -6.904deg; }
-.h-g-p-2 { --tilt:  4.139deg; }
-.h-g-p-3 { --tilt: -3.236deg; }
+.h-g-p-1 {
+    --tilt: -6.904deg;
+}
+
+.h-g-p-2 {
+    --tilt: 4.139deg;
+}
+
+.h-g-p-3 {
+    --tilt: -3.236deg;
+}
