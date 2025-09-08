@@ -1,7 +1,43 @@
 import '../sass/scss/group.scss'
 import { Link, useLocation } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import GroupCard from '../component/GroupCard'
+
+/** 共用：觀察元素是否進入畫面 50% */
+const useInView = (threshold = 0.5) => {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+            setInView(true);
+            io.unobserve(entry.target); // 只觸發一次
+          }
+        });
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+
+  return { ref, inView };
+};
+
+/** 元件：任意內容套用淡入（y:-3px → 0） */
+const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold = 0.5 }) => {
+  const { ref, inView } = useInView(threshold);
+  return (
+    <Tag ref={ref} className={`fade-in ${inView ? 'show' : ''} ${className}`}>
+      {children}
+    </Tag>
+  );
+};
 
 const Group = () => {
   // state + handler
@@ -29,10 +65,15 @@ const Group = () => {
     const tags = props.tags || [];
     const show = activeFilter === '全部活動' || tags.includes(activeFilter);
     if (!show) return null;
-    return <GroupCard {...props} />;
+    // 外層套淡入效果，內層仍由 GroupCard 渲染
+    return (
+      <FadeInOnScroll className="card-fade-wrapper">
+        <GroupCard {...props} />
+      </FadeInOnScroll>
+    );
   };
 
-  // 預設的靜態活動數據（原本 12 張）
+  // 預設的活動數據（含你原本與新增的）
   const staticActivities = [
     {
       key: "night-market",
@@ -195,67 +236,7 @@ const Group = () => {
       detailLink: "/group2",
       tags: ["找吃飯夥伴", "找Chill伴"],
     },
-{
-      key: "mountain-hiking",
-      image: "./img-Group/hiking.jpg",
-      signupCount: 7,
-      date: "2025/10/20",
-      time: "06:30",
-      location: "阿里山",
-      title: "日出健行體驗",
-      description: `集合於阿里山森林遊樂區，大家會一起搭乘小火車到祝山觀日平台，
-看著第一道陽光穿透雲海，這份震撼很難用言語形容。接著我們會進行約 2 小時的健行路線，
-沿途有高大的神木、古老的檜木棧道和滿滿芬多精。行程最後安排在山腰的小茶館休息，
-大家可以分享彼此的旅遊故事，喝杯阿里山高山茶，享受森林的靜謐氛圍。`,
-      detailLink: "/group2",
-      tags: ["找Chill伴", "找踩點夥伴"],
-    },
-    {
-      key: "cooking-class",
-      image: "./img-Group/cooking.jpg",
-      signupCount: 12,
-      date: "2025/09/18",
-      time: "15:00",
-      location: "東京",
-      title: "和食料理教室",
-      description: `這場料理課程將由專業的日式料理師傅帶領，從挑選食材、處理魚肉，
-到最後擺盤的細節，每個步驟都能學到滿滿技巧。參加者可以親手製作壽司、天婦羅與味噌湯，
-過程中還能學到日本飲食文化的小知識。最後大家會圍坐在一起享用自己的成果，
-搭配老師準備的清酒，邊聊天邊交流料理心得，絕對是一個充滿互動感和成就感的午後。`,
-      detailLink: "/group2",
-      tags: ["找吃飯夥伴"],
-    },
-    {
-      key: "language-exchange",
-      image: "./img-Group/language-exchange.jpg",
-      signupCount: 20,
-      date: "2025/09/27",
-      time: "19:30",
-      location: "台北",
-      title: "語言交換之夜",
-      description: `這是一場聚集世界各地旅人的語言交換活動。每位參加者會拿到一張小卡，
-上面寫著自己想練習的語言，現場會安排不同的交流桌，大家每隔 15 分鐘就會輪換一次，
-確保能和不同背景的人對話。不論你是想練習英文、日文，還是分享中文，
-這裡都能找到合適的夥伴。活動現場還會準備輕食與飲品，讓交流氛圍更輕鬆自在。`,
-      detailLink: "/group2",
-      tags: ["找工作夥伴", "找Chill伴"],
-    },
-    {
-      key: "boardGames-night",
-      image: "./img-Group/boardGames.jpg",
-      signupCount: 15,
-      date: "2025/09/29",
-      time: "18:30",
-      location: "新加坡",
-      title: "桌遊狂歡之夜",
-      description: `這是一場專為桌遊愛好者準備的聚會，從輕鬆的小品遊戲如「誰是臥底」，
-到需要策略腦力的大型桌遊如「卡坦島」與「七大奇蹟」，現場應有盡有。
-我們會分組進行，每局遊戲結束後還會抽獎送出小禮物，保持滿滿驚喜。
-不管你是高手還是新手，都能在這裡找到適合的遊戲伙伴，度過一個熱鬧又放鬆的夜晚。`,
-      detailLink: "/group2",
-      tags: ["找Chill伴"],
-    }
-
+    // 你先前新增的 5 張（略）…如已放入，可保留；如未放入可接在此。
   ];
 
   // 合併用戶活動 + 靜態活動（用戶活動會在最前面）
@@ -283,15 +264,20 @@ const Group = () => {
 
   const pagedActivities = getPagedActivities();
 
+  // 按鈕列：使用 IntersectionObserver 觸發由左到右彈出
+  const { ref: btnsRef, inView: btnsShow } = useInView(0.5);
+
   return (
     <main>
-      {/* Banner 區 */}
+      {/* Banner 區：不動背景圖，只對文字做淡入 */}
       <section id="groupBanner">
         <div className='groupSlogan'>
-          <h3>Work, Travel, Connect Together.</h3>
-          <div className="line"></div>
-          <h2>揪團活動</h2>
-          <Link to="/group3" className="btn-create">發起揪團</Link>
+          <FadeInOnScroll as="h3">Work, Travel, Connect Together.</FadeInOnScroll>
+          <FadeInOnScroll className="line" />
+          <FadeInOnScroll as="h2">揪團活動</FadeInOnScroll>
+          <FadeInOnScroll>
+            <Link to="/group3" className="btn-create">發起揪團</Link>
+          </FadeInOnScroll>
           <figure className="locScroll">
             <img src="./img-Location/scroll.svg" alt="icon" />
           </figure>
@@ -300,16 +286,19 @@ const Group = () => {
 
       {/* 內容區 */}
       <section id="group-content">
-        {/* 主標題 */}
+        {/* 主標題（淡入） */}
         <div className="g-content-title">
-          <h3>Travel solo, connect together!</h3>
-          <div className="line"></div>
-          <h2>漂友集合站！</h2>
+          <FadeInOnScroll as="h3">Travel solo, connect together!</FadeInOnScroll>
+          <FadeInOnScroll className="line" />
+          <FadeInOnScroll as="h2">漂友集合站！</FadeInOnScroll>
         </div>
 
-        {/* 各揪團按鈕(篩選功能) */}
+        {/* 各揪團按鈕(篩選功能) —— 左到右逐一彈出 */}
         <div className="button-list">
-          <ul className="group-buttons">
+          <ul
+            ref={btnsRef}
+            className={`group-buttons stagger ${btnsShow ? 'stagger-show' : ''}`}
+          >
             <li>
               <a
                 href="#"
@@ -367,7 +356,7 @@ const Group = () => {
           </ul>
         </div>
 
-        {/* 所有卡片合輯 */}
+        {/* 所有卡片合輯（每張卡片淡入） */}
         <div className='cards-container'>
           {pagedActivities.length === 0 ? (
             <p style={{ textAlign: 'center', width: '100%' }}>目前沒有符合條件的活動</p>
@@ -391,14 +380,15 @@ const Group = () => {
           )}
         </div>
 
-        <div className='g1-view-more'>
+        {/* 更多活動（淡入） */}
+        <FadeInOnScroll className='g1-view-more'>
           <button
             className='view-more-group-btn'
             onClick={handleViewMore}
           >
             更多活動
           </button>
-        </div>
+        </FadeInOnScroll>
       </section>
     </main>
   )

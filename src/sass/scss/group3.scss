@@ -338,7 +338,7 @@
 
 .modal-close-btn {
     font-family: $family-tc;
-    background:$accent;
+    background: $accent;
     color: $text;
     border: none;
     border-radius: 99px;
@@ -350,10 +350,23 @@
 }
 
 .modal-close-btn:hover {
-    background:$accent;
+    background: $accent;
     transform: translateY(-1px);
 }
 
 .modal-close-btn:active {
+    transform: translateY(0);
+}
+
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 2s ease, transform .6s ease;
+    will-change: opacity, transform;
+}
+
+.fade-in.show {
+    opacity: 1;
     transform: translateY(0);
 }

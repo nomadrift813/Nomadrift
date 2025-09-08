@@ -3,74 +3,109 @@ import '../sass/scss/group2.scss'
 import { Link } from "react-router-dom"
 import GroupCard from '../component/GroupCard'
 
-const CardCarousel = ({ items }) => {
-    const containerRef = useRef(null);
-    const trackRef = useRef(null);
-    const [translateX, setTranslateX] = useState(0);
-    const [setWidth, setSetWidth] = useState(0);
+/** 共用：觀察元素是否進入畫面 50%（頁面其他地方會用到；Carousel 不使用） */
+const useInView = (threshold = 0.5) => {
+    const ref = useRef(null);
+    const [inView, setInView] = useState(false);
 
-    // 是否暫停（hover 時為 true）
-    const [isPaused, setIsPaused] = useState(false);
-    const pausedRef = useRef(false);
-    useEffect(() => { pausedRef.current = isPaused; }, [isPaused]);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+                        setInView(true);
+                        io.unobserve(entry.target); // 只觸發一次
+                    }
+                });
+            },
+            { threshold }
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, [threshold]);
+
+    return { ref, inView };
+};
+
+/** 任意內容套用淡入（y:-3px → 0）；Carousel 不用這個 */
+const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold = 0.5 }) => {
+    const { ref, inView } = useInView(threshold);
+    return (
+        <Tag ref={ref} className={`fade-in ${inView ? 'show' : ''} ${className}`}>
+            {children}
+        </Tag>
+    );
+};
+
+/** 修正版：不使用淡入、只負責水平無限輪播 */
+const CardCarousel = ({ items }) => {
+    const viewportRef = useRef(null);
+    const trackRef = useRef(null);
+    const [oneSetWidth, setOneSetWidth] = useState(0);  // 一組卡片的總寬（px）
+    const [x, setX] = useState(0);                      // translateX
+    const pausedRef = useRef(false);                    // 滑入暫停
+    const speedPxPerFrame = 1.0;                        // 速度（可調）
 
     // 產出 3 組一樣的卡片，做無縫循環
-    const tripled = useMemo(() => [items, items, items], [items]);
+    const tripleSets = useMemo(() => [items, items, items], [items]);
 
-    // 計算「單一組」的實際寬度（px）
+    // 量測第一組寬度
     useEffect(() => {
         const calc = () => {
-            if (!containerRef.current) return;
-            const setEl = containerRef.current.querySelector(".carousel-set");
-            if (setEl) setSetWidth(setEl.scrollWidth);
+            if (!trackRef.current) return;
+            const firstSet = trackRef.current.querySelector(".carousel-set");
+            if (firstSet) {
+                const w = firstSet.scrollWidth;
+                if (w !== oneSetWidth) setOneSetWidth(w);
+            }
         };
         calc();
-        const ro = new ResizeObserver(calc);
-        if (containerRef.current) ro.observe(containerRef.current);
-        return () => ro.disconnect();
-    }, [items]);
 
-    // 自動向左位移（hover 時不更新 translateX）
+        const ro = new ResizeObserver(calc);
+        if (trackRef.current) ro.observe(trackRef.current);
+        return () => ro.disconnect();
+    }, [items, oneSetWidth]);
+
+    // 連續位移（hover 暫停）
     useEffect(() => {
-        if (!setWidth) return;
-        const speedPxPerFrame = 1.2; // 速度可自行調整
         let raf;
-        const tick = () => {
-            if (!pausedRef.current) {
-                setTranslateX(prev => {
+        const step = () => {
+            if (!pausedRef.current && oneSetWidth > 0) {
+                setX(prev => {
                     const next = prev - speedPxPerFrame;
-                    // 位移超過「一組寬度」就歸零，無縫接續
-                    if (Math.abs(next) >= setWidth) return 0;
-                    return next;
+                    return Math.abs(next) >= oneSetWidth ? 0 : next;
                 });
             }
-            raf = requestAnimationFrame(tick);
+            raf = requestAnimationFrame(step);
         };
-        raf = requestAnimationFrame(tick);
+        raf = requestAnimationFrame(step);
         return () => cancelAnimationFrame(raf);
-    }, [setWidth]);
+    }, [oneSetWidth]);
 
     return (
-        <div className="carousel" ref={containerRef}>
+        <div className="carousel" ref={viewportRef}>
+            {/* 標題不做淡入，直接顯示 */}
             <h3 className="carousel-title-en">More Fun Together</h3>
-            <div className="line"></div>
+            <div className="line" />
             <h2 className="carousel-title">更多揪團</h2>
 
-            {/* 只要滑鼠在可視區（卡片上）就暫停 */}
+            {/* viewport 不做淡入，track 以 JS 控制位移 */}
             <div
                 className="carousel-viewport"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+                onMouseEnter={() => (pausedRef.current = true)}
+                onMouseLeave={() => (pausedRef.current = false)}
             >
                 <div
                     className="carousel-track"
                     ref={trackRef}
-                    style={{ transform: `translateX(${translateX}px)` }}
+                    style={{ transform: `translateX(${x}px)` }}
                 >
-                    {tripled.map((group, gi) => (
+                    {tripleSets.map((set, gi) => (
                         <div className="carousel-set" key={`set-${gi}`}>
-                            {group.map((card) => (
-                                <div className="carousel-card" key={`card-${gi}-${card.id}`}>
+                            {set.map((card, ci) => (
+                                <div className="carousel-card" key={`card-${gi}-${card.id ?? ci}`}>
                                     <GroupCard
                                         image={card.image}
                                         signupCount={card.signupCount}
@@ -188,51 +223,51 @@ const Group2 = () => {
 
     return (
         <main>
-            {/* Banner區 */}
+            {/* Banner區：不動背景，只讓文字淡入 */}
             <section id="groupBanner2">
                 <img src="./img-Group/g-2-BN.jpg" alt="" />
                 <div className="groupSlogan2">
-                    <h3>Activity theme</h3>
-                    <div className="line"></div>
-                    <h2>一起逛饒河夜市</h2>
+                    <FadeInOnScroll as="h3">Activity theme</FadeInOnScroll>
+                    <FadeInOnScroll className="line" />
+                    <FadeInOnScroll as="h2">一起逛饒河夜市</FadeInOnScroll>
                 </div>
             </section>
 
-            {/* 內文資訊*/}
+            {/* 內文資訊 */}
             <section id="groupInfo">
                 <div className="activity-main">
-                    <figure className="info_img">
+                    <FadeInOnScroll as="figure" className="info_img">
                         <img src="./img-Group/night-market.jpg" alt="" />
-                    </figure>
+                    </FadeInOnScroll>
 
                     <div className="activity-introduction">
-                        <li>
+                        <FadeInOnScroll as="li">
                             <h3>活動類型</h3>
                             <p>#找吃飯夥伴 #找踩點夥伴</p>
-                        </li>
+                        </FadeInOnScroll>
 
-                        <li>
+                        <FadeInOnScroll as="li">
                             <h3>活動時間</h3>
                             <p>2025/ 09/ 12　18:00 ~ 22:00</p>
-                        </li>
+                        </FadeInOnScroll>
 
-                        <li>
+                        <FadeInOnScroll as="li">
                             <h3>集合地點</h3>
                             <p>台灣/ 台北市　捷運松山站 4 號出口</p>
-                        </li>
+                        </FadeInOnScroll>
 
-                        <li>
+                        <FadeInOnScroll as="li">
                             <h3>報名截止日</h3>
                             <p>2025/ 09/ 10　23:59</p>
-                        </li>
+                        </FadeInOnScroll>
 
-                        <div className="activity-btn">
+                        <FadeInOnScroll className="activity-btn">
                             <button className="pm">私訊揪團主</button>
                             <button className="join">
                                 報名參加
                                 <img src="./img-Group/right-arrow.svg" alt="right-arrow" />
                             </button>
-                        </div>
+                        </FadeInOnScroll>
                     </div>
                 </div>
             </section>
@@ -240,23 +275,24 @@ const Group2 = () => {
             {/* 活動說明 */}
             <article id="activity-content">
                 <div className="content-title">
-                    <h3>Activity content</h3>
-                    <div className="line"></div>
-                    <h2>活動說明</h2>
-                    <p>
+                    <FadeInOnScroll as="h3">Activity content</FadeInOnScroll>
+                    <FadeInOnScroll className="line" />
+                    <FadeInOnScroll as="h2">活動說明</FadeInOnScroll>
+                    <FadeInOnScroll as="p">
                         來去饒河夜市走走吧！集合好之後就一起逛，先買個剛出爐的胡椒餅，再來一杯冰冰涼涼的仙草茶，邊吃邊聊超chill～一路上想停哪就停哪，看到什麼想吃就買，沒有SOP、也不用趕行程，就是數位遊牧者聚在一起隨興散步，順便認識新朋友。燈火通明、人聲熱鬧，美食香氣一路陪伴，聊工作、聊旅行、聊生活，輕鬆自在到不想回家，快來加入我們，用夜市的熱鬧氛圍開啟一個超好玩的夜晚吧！
-                    </p>
+                    </FadeInOnScroll>
                 </div>
             </article>
 
             {/* 發起人+報名人數 */}
             <section id="people-info">
-                <div className="organizer-info">
+                <FadeInOnScroll className="organizer-info">
                     <h3>發起人</h3>
                     <p>Peggy Chen</p>
                     <img className="people-img" src="./img-Group/people/organizer.jpg" alt="" />
-                </div>
-                <div className="participants">
+                </FadeInOnScroll>
+
+                <FadeInOnScroll className="participants">
                     <h3>報名人數</h3>
                     <p>7 人已報名</p>
 
@@ -268,26 +304,24 @@ const Group2 = () => {
                         <img className="people-img2" src="./img-Group/people/join-people (5).jpg" alt="" />
                         <img className="people-img2" src="./img-Group/people/join-people (6).jpg" alt="" />
                     </div>
-                </div>
+                </FadeInOnScroll>
             </section>
 
             {/* 留言區 */}
             <section id='activity-comments'>
-                <h3>留言區</h3>
+                <FadeInOnScroll as="h3">留言區</FadeInOnScroll>
 
-                {/* 既有留言（動態渲染） */}
                 {comments.map((c, idx) => (
-                    <div className='comment' key={`c-${idx}`}>
+                    <FadeInOnScroll className='comment' key={`c-${idx}`}>
                         <img className="commenter-photo" src={c.photo} alt="" />
                         <div className='comment-content'>
                             <p className='commenter-name'>{c.name}</p>
-                            <p >{c.text}</p>
+                            <p>{c.text}</p>
                         </div>
-                    </div>
+                    </FadeInOnScroll>
                 ))}
 
-                {/* Andy Chen：輸入框 → 可新增留言 */}
-                <div className='comment-user'>
+                <FadeInOnScroll className='comment-user'>
                     <img className="commenter-photo" src="./img-Group/people/People-(11).jpg" alt="" />
                     <div className='comment-content'>
                         <p className='commenter-name'>Andy Chen</p>
@@ -303,24 +337,22 @@ const Group2 = () => {
                             <button type="submit" className="btn-add-comment">送出</button>
                         </form>
                     </div>
-                </div>
+                </FadeInOnScroll>
             </section>
 
-            {/* 更多揪團：用輪播 */}
+            {/* 更多揪團（Carousel 無淡入） */}
             <section id="more-activities">
-                <div className="more-activities-title">
-                    {/* 原本標題移交給 CardCarousel 內部以統一樣式呈現 */}
-                </div>
-
                 <CardCarousel items={groupCardData} />
             </section>
 
             {/* 發起揪團 */}
             <section id="createGroup">
                 <div className="createGroup-title">
-                    <h2>沒有喜歡的團？</h2>
-                    <div className="line"></div>
-                    <Link to="/group3" className="btn2-create">發起揪團</Link>
+                    <FadeInOnScroll as="h2">沒有喜歡的團？</FadeInOnScroll>
+                    <FadeInOnScroll className="line" />
+                    <FadeInOnScroll>
+                        <Link to="/group3" className="btn2-create">發起揪團</Link>
+                    </FadeInOnScroll>
                 </div>
             </section>
         </main>

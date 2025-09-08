@@ -3,10 +3,46 @@ import '../sass/scss/CalendarInputStyle.scss'
 import '../sass/scss/TimeInputStyle.scss'
 import '../sass/scss/G3InputLabelStyle.scss'
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import CalendarInput from '../component/CalendarInput'
 import TimeInput from '../component/TimeInput'
 import G3InputLabel from '../component/G3InputLabel'
+
+/** 觀察元素是否進入畫面（預設 50% 可見） */
+const useInView = (threshold = 0.5) => {
+    const ref = useRef(null);
+    const [inView, setInView] = useState(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+                        setInView(true);
+                        io.unobserve(entry.target); // 僅觸發一次
+                    }
+                });
+            },
+            { threshold }
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, [threshold]);
+
+    return { ref, inView };
+};
+
+/** 封裝：進入視口觸發 .fade-in.show（translateY(10px)→0, opacity 2s） */
+const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold = 0.5 }) => {
+    const { ref, inView } = useInView(threshold);
+    return (
+        <Tag ref={ref} className={`fade-in ${inView ? 'show' : ''} ${className}`}>
+            {children}
+        </Tag>
+    );
+};
 
 const Group3 = () => {
     const navigate = useNavigate();
@@ -36,7 +72,7 @@ const Group3 = () => {
     // 第二區塊輸入框
     const [activityTitle, setActivityTitle] = useState('');
     const [activityContent, setActivityContent] = useState('');
-    // 上傳的圖片檔案 - 採用 Diary.jsx 風格
+    // 上傳的圖片檔案
     const [uploadedImage, setUploadedImage] = useState(null);
 
     // 彈窗狀態
@@ -77,12 +113,11 @@ const Group3 = () => {
         }
     }, [eventStartTime, eventEndTime]);
 
-    // 處理圖片上傳，採用 Diary.jsx 的邏輯
     const handleImageUpload = (file) => {
         setUploadedImage(file);
     };
 
-    // 處理完成建立按鈕點擊
+    // 完成建立
     const handleCreateSuccess = () => {
         setShowSuccessModal(true);
     };
@@ -90,52 +125,49 @@ const Group3 = () => {
     // 關閉彈窗並傳遞數據到 Group 頁面
     const closeModal = () => {
         setShowSuccessModal(false);
-        
-        // 準備新活動的數據
+
         const newActivity = {
-            id: Date.now(), // 使用時間戳作為唯一 ID
+            id: Date.now(),
             image: uploadedImage ? URL.createObjectURL(uploadedImage) : null,
-            signupCount: 0, // 新建立的活動報名人數為 0
+            signupCount: 0,
             date: singleDate,
             time: eventStartTime,
             location: location,
             title: activityTitle,
             description: activityContent,
-            detailLink: "/group2", // 預設詳情頁面
+            detailLink: "/group2",
             tags: selectedCategories,
             deadlineDate: deadlineDate,
             endTime: eventEndTime
         };
 
-        // 使用 navigate 的 state 傳遞數據，而不是 localStorage
-        navigate('/group', { 
-            state: { newActivity } 
+        navigate('/group', {
+            state: { newActivity }
         });
     };
 
     return (
         <main>
             <div className="groupBanner3">
-                {/* 頁面標題區域 */}
+                {/* 頁面標題區域（只讓文字淡入，不動背景） */}
                 <section id="groupSlogan3">
-                    <h3>Plan It Your Way, Find Your Crew!</h3>
-                    <div className="line"></div>
-                    <h2>發起你的專屬揪團!</h2>
-                    <div className="title-underline"></div>
+                    <FadeInOnScroll as="h3">Plan It Your Way, Find Your Crew!</FadeInOnScroll>
+                    <FadeInOnScroll className="line" />
+                    <FadeInOnScroll as="h2">發起你的專屬揪團!</FadeInOnScroll>
+                    <FadeInOnScroll className="title-underline" />
                 </section>
 
                 {/* 活動基本資訊區域 */}
                 <section id="basic-info">
                     <div className='header-title'>
-                        <h2>活動基本資訊</h2>
-                        <p>簡單幾步，就能號召志同道合的遊牧夥伴！</p>
+                        <FadeInOnScroll as="h2">活動基本資訊</FadeInOnScroll>
+                        <FadeInOnScroll as="p">簡單幾步，就能號召志同道合的遊牧夥伴！</FadeInOnScroll>
                     </div>
 
                     {/* 白底表單1 */}
                     <div className='form1-fields'>
-
                         {/* 按鈕區塊 */}
-                        <label className="group-category">
+                        <FadeInOnScroll as="label" className="group-category">
                             <h3 className="category-title">想揪甚麼團?</h3>
                             <div className="g3-btns">
                                 {categories.map((label) => {
@@ -153,10 +185,10 @@ const Group3 = () => {
                                     );
                                 })}
                             </div>
-                        </label>
+                        </FadeInOnScroll>
 
                         {/* 活動日期（單日） */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <CalendarInput
                                 title="活動日期"
                                 placeholder="決定哪天要一起玩吧！"
@@ -164,10 +196,10 @@ const Group3 = () => {
                                 onChange={setSingleDate}
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
 
                         {/* 活動開始時間 */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <TimeInput
                                 title="活動開始時間"
                                 placeholder="選擇開始時間"
@@ -175,10 +207,10 @@ const Group3 = () => {
                                 onChange={setEventStartTime}
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
 
                         {/* 活動預計結束時間 */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <TimeInput
                                 title="活動預計結束時間"
                                 placeholder="選擇結束時間"
@@ -191,10 +223,10 @@ const Group3 = () => {
                                     {timeHint}
                                 </p>
                             )}
-                        </label>
+                        </FadeInOnScroll>
 
                         {/* 集合地點 */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <G3InputLabel
                                 title="集合地點"
                                 placeholder="例如：台北信義區"
@@ -203,10 +235,10 @@ const Group3 = () => {
                                 showLocationIcon
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
 
                         {/* 報名截止日（單日） */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <CalendarInput
                                 title="報名截止日"
                                 placeholder="選擇截止日期"
@@ -214,21 +246,21 @@ const Group3 = () => {
                                 onChange={setDeadlineDate}
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
                     </div>
                 </section>
 
                 {/* 第二區塊:活動詳細資訊區塊 */}
                 <section id="detail-info">
                     <div className='header-title'>
-                        <h2>活動詳細內容</h2>
-                        <p>想衝浪、寫作、打球、還是想找人一起喝咖啡？通通都可以揪！</p>
+                        <FadeInOnScroll as="h2">活動詳細內容</FadeInOnScroll>
+                        <FadeInOnScroll as="p">想衝浪、寫作、打球、還是想找人一起喝咖啡？通通都可以揪！</FadeInOnScroll>
                     </div>
 
                     {/* 白底表單2 */}
                     <div className='form2-fields'>
                         {/* 活動標題 */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <G3InputLabel
                                 title="活動標題"
                                 placeholder="一句話說明揪團主題（例如：一起去峇里島海邊做瑜珈!）"
@@ -236,10 +268,10 @@ const Group3 = () => {
                                 onChange={setActivityTitle}
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
 
                         {/* 活動詳細內容 */}
-                        <label className='group-category'>
+                        <FadeInOnScroll as="label" className='group-category'>
                             <G3InputLabel
                                 title="活動詳細內容"
                                 placeholder="請輸入：行程安排/活動流程 吸引更多人參加！"
@@ -249,10 +281,10 @@ const Group3 = () => {
                                 maxLength={1000}
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
 
-                        {/* 上傳照片（單張，採用 Diary 風格） */}
-                        <label className='group-category'>
+                        {/* 上傳照片（單張） */}
+                        <FadeInOnScroll as="label" className='group-category'>
                             <G3InputLabel
                                 title="上傳照片"
                                 value={uploadedImage}
@@ -260,22 +292,23 @@ const Group3 = () => {
                                 isFileUpload
                                 required
                             />
-                        </label>
+                        </FadeInOnScroll>
                     </div>
                 </section>
 
+                {/* 完成建立按鈕 */}
                 <section id='createSuccessful-btn'>
-                    <button className='successful-btn' onClick={handleCreateSuccess}>
+                    <FadeInOnScroll as="button" className='successful-btn' onClick={handleCreateSuccess}>
                         完成建立
-                    </button>
+                    </FadeInOnScroll>
                 </section>
             </div>
 
-            {/* 成功彈窗 */}
+            {/* 成功彈窗：直接用 fade-in show（不依賴滾動） */}
             {showSuccessModal && (
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="success-modal" onClick={(e) => e.stopPropagation()}>
-                        <div className="modal-content">
+                        <div className="modal-content fade-in show">
                             <div className="success-icon">
                                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
                                     <circle cx="30" cy="30" r="30" fill="#F4D000" />
