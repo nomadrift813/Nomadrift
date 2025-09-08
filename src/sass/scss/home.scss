@@ -208,7 +208,7 @@ body {
         }
     }
 
-  .banner-line {
+    .banner-line {
         position: absolute;
         top: 300px;
         right: 10px;
@@ -703,7 +703,7 @@ body {
         letter-spacing: $spacing-xxs;
     }
 
-   .h-location-line {
+    .h-location-line {
         position: absolute;
         top: 400px;
         left: 150px;
@@ -1151,6 +1151,7 @@ body {
         stroke-dashoffset: 0;
     }
 }
+
 /* ========== 漂日記（原樣） ========== */
 #homediary {
     width: 100%;
@@ -1225,12 +1226,11 @@ body {
                 align-items: center;
                 gap: 10px;
 
-                div {
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 99px;
-                    background-color: $primary1;
-                }
+                    img {
+                        border-radius: 99px;
+                        width: 30px;
+                        height: 30px;
+                    }
 
                 p {
                     color: $text;

@@ -443,7 +443,7 @@ const Home = () => {
         <div className='h-d-article-box'>
           <article>
             <div className='h-d-member'>
-              <div></div>
+              <img src="./img-Group/people/join-people (5).jpg" alt="" />
               <p>Josh Kuo</p>
             </div>
             <div className='h-d-text-card'>
