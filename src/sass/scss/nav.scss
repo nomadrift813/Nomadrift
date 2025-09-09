@@ -134,6 +134,37 @@
         font-family: $family-tc;
       }
     }
+
+    .navmember {
+
+      button {
+       display: inline-flex;
+       line-height: 1; 
+        padding: 8px 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: $text;
+        font-family: $family-tc;
+        white-space: nowrap;
+        background: transparent;
+        border: 1px solid $text;
+        color: $text;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: clamp(14px, 2vw, 16px);
+        transition: all 0.3s ease;
+
+        /* Hover/Focus 效果與登入一致 */
+      &:hover {
+        background: $accent;
+        border: 1px solid $accent;
+        color: $text;
+      }
+      }
+
+      
+    }
   }
 
   a {
