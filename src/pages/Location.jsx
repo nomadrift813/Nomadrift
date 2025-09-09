@@ -33,7 +33,6 @@ const Location = () => {
   }, []);
 
 
-
   return (
     <main>
       {/* 熱門地點 banner */}
@@ -44,7 +43,10 @@ const Location = () => {
             <p className='l-t-2'>熱門地點</p>
           </div>
           <div className="locScroll">
-            <img src="./img-Location/scrollBlack.svg" alt="" />
+            <svg  className='scrollDown' width="39" height="19" viewBox="0 0 39 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 3.89404L19.5 16.9999L37.5 3.89404" /*stroke="#201811"*/ strokeWidth="3" strokeLinecap="round" />
+              <path d="M6.75 1L19.5 10.4654L32.25 1" /*stroke="#201811"*/ strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </div>
         </div>
 
@@ -203,7 +205,7 @@ const Location = () => {
               <SwiperSlide key={i}>
 
                 {/* 亞洲卡片2 */}
-                <Link Link to="/location2" >
+                <Link to="/location2" >
                   <section className='country'>
                     <div className='p1-sel'>
                       <figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure>
@@ -305,7 +307,7 @@ const Location = () => {
               <SwiperSlide key={i}>
 
                 {/* 亞洲卡片2 */}
-                <Link Link to="/location2" >
+                <Link to="/location2" >
                   <section className='country'>
                     <div className='p1-sel'>
                       <figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure>
@@ -375,9 +377,10 @@ const Location = () => {
         </article>
 
         {/* 更多按鈕 */}
-        <Link to="/location3">
-          <button className='viewMore'> <a href='#'></a>View more</button>
+        <Link to="/location3" className='viewMore'>
+          View more
         </Link>
+
       </section >
 
       {/* 歐洲區 */}
@@ -605,9 +608,10 @@ const Location = () => {
         </article >
 
         {/* 更多按鈕 */}
-        <Link to="/location3">
-          <button className='viewMore'> <a href='#'></a>View more</button>
+        <Link to="/location3" className='viewMore'>
+          View more
         </Link>
+
       </section >
 
       {/* 北美洲區 */}
@@ -834,9 +838,10 @@ const Location = () => {
         </article >
 
         {/* 更多按鈕 */}
-        <Link to="/location3">
-          <button className='viewMore'> <a href='#'></a>View more</button>
+        <Link to="/location3" className='viewMore'>
+          View more
         </Link>
+
       </section >
 
       {/* 中南美洲區 */}
@@ -1064,9 +1069,10 @@ const Location = () => {
         </article >
 
         {/* 更多按鈕 */}
-        <Link to="/location3">
-          <button className='viewMore'> <a href='#'></a>View more</button>
+        <Link to="/location3" className='viewMore'>
+          View more
         </Link>
+
       </section >
 
       {/* 非洲區 */}
@@ -1294,239 +1300,240 @@ const Location = () => {
         </article >
 
         {/* 更多按鈕 */}
-        <Link to="/location3">
-          <button className='viewMore'> <a href='#'></a>View more</button>
+        <Link to="/location3" className='viewMore'>
+          View more
         </Link>
+
       </section >
 
       {/* 大洋洲區 */}
       < section id='global6' >
 
         {/* 大洋洲 */}
-          <Link to="/location3" >
-            <article className='continent' >
-              <figure><img src="./img-Location/Oceania.jpg" alt="" /></figure>
-              <h2>大洋洲</h2>
-            </article >
-          </Link >
-
-          {/* 所有卡片 */}
-          < article className='conCards' >
-            <Swiper
-              modules={[Navigation]}
-              slidesPerView={3}
-              direction={direction}
-              navigation
-              breakpoints={{
-                0: { slidesPerView: 1 },       // 手機
-                640: { slidesPerView: 2 },     // 平板
-                1024: { slidesPerView: 3 },    // 桌機
-              }}
-              className="mySwiper"
-            >
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <SwiperSlide key={i}>
-                  {/* 大洋洲卡片1 */}
-                  <Link to="/location2" >
-                    <section className='country' >
-                      <div className='p1-sel'>
-                        <figure className='loc-p1'><img src="./img-Location/Australia.jpg" alt="" /></figure>
-                        <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                      </div>
-                      <article className='loc-info'>
-                        <h2>澳洲</h2>
-                        <p className='loc-text'>擁有豐富的自然資源，如大堡礁和沙漠景觀，並是袋鼠、無尾熊等特有生物的家園。 </p>
-                        <div className='wi-st'>
-                          <ul>
-                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                          </ul>
-                          <figure className='stars'>
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                          </figure>
-                        </div>
-                        <span>15000 /月</span>
-                      </article>
-                      <div className='color-block'></div>
-                    </section >
-                  </Link >
-                </SwiperSlide>
-              ))}
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <SwiperSlide key={i}>
-                  {/* 大洋洲卡片2 */}
-                  <Link to="/location2" >
-                    <section className='country' >
-                      <div className='p1-sel'>
-                        <figure className='loc-p1'><img src="./img-Location/New Zealand.jpg" alt="" /></figure>
-                        <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                      </div>
-                      <article className='loc-info'>
-                        <h2>紐西蘭</h2>
-                        <p className='loc-text'>以其多樣的自然景觀、純淨的環境聞名，並有著與眾不同的生態系統，被譽為「活的地理教室」和「地球上最後的淨土」。</p>
-                        <div className='wi-st'>
-                          <ul>
-                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                          </ul>
-                          <figure className='stars'>
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                          </figure>
-                        </div>
-                        <span>15000 /月</span>
-                      </article>
-                      <div className='color-block'></div>
-                    </section >
-                  </Link >
-                </SwiperSlide>
-              ))}
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <SwiperSlide key={i}>
-                  {/* 大洋洲卡片3 */}
-                  <Link to="/location2" >
-                    <section className='country' >
-                      <div className='p1-sel'>
-                        <figure className='loc-p1'><img src="./img-Location/Fiji.jpg" alt="" /></figure>
-                        <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                      </div>
-                      <article className='loc-info'>
-                        <h2>斐濟</h2>
-                        <p className='loc-text'>由三百多個大小島嶼組成，以其水清沙幼、珊瑚礁美景及熱帶風光聞名，是世界級的度假勝地。</p>
-                        <div className='wi-st'>
-                          <ul>
-                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                          </ul>
-                          <figure className='stars'>
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                          </figure>
-                        </div>
-                        <span>15000 /月</span>
-                      </article>
-                      <div className='color-block'></div>
-
-                    </section >
-                  </Link >
-                </SwiperSlide>
-              ))}
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <SwiperSlide key={i}>
-                  {/* 大洋洲卡片1 */}
-                  <Link to="/location2" >
-                    <section className='country' >
-                      <div className='p1-sel'>
-                        <figure className='loc-p1'><img src="./img-Location/Australia.jpg" alt="" /></figure>
-                        <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                      </div>
-                      <article className='loc-info'>
-                        <h2>澳洲</h2>
-                        <p className='loc-text'>擁有豐富的自然資源，如大堡礁和沙漠景觀，並是袋鼠、無尾熊等特有生物的家園。 </p>
-                        <div className='wi-st'>
-                          <ul>
-                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                          </ul>
-                          <figure className='stars'>
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                          </figure>
-                        </div>
-                        <span>15000 /月</span>
-                      </article>
-                      <div className='color-block'></div>
-                    </section >
-                  </Link >
-                </SwiperSlide>
-              ))}
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <SwiperSlide key={i}>
-                  {/* 大洋洲卡片2 */}
-                  <Link to="/location2" >
-                    <section className='country' >
-                      <div className='p1-sel'>
-                        <figure className='loc-p1'><img src="./img-Location/New Zealand.jpg" alt="" /></figure>
-                        <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                      </div>
-                      <article className='loc-info'>
-                        <h2>紐西蘭</h2>
-                        <p className='loc-text'>以其多樣的自然景觀、純淨的環境聞名，並有著與眾不同的生態系統，被譽為「活的地理教室」和「地球上最後的淨土」。</p>
-                        <div className='wi-st'>
-                          <ul>
-                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                          </ul>
-                          <figure className='stars'>
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                          </figure>
-                        </div>
-                        <span>15000 /月</span>
-                      </article>
-                      <div className='color-block'></div>
-                    </section >
-                  </Link >
-                </SwiperSlide>
-              ))}
-
-              {Array.from({ length: 1 }).map((_, i) => (
-                <SwiperSlide key={i}>
-                  {/* 大洋洲卡片3 */}
-                  <Link to="/location2" >
-                    <section className='country' >
-                      <div className='p1-sel'>
-                        <figure className='loc-p1'><img src="./img-Location/Fiji.jpg" alt="" /></figure>
-                        <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                      </div>
-                      <article className='loc-info'>
-                        <h2>斐濟</h2>
-                        <p className='loc-text'>由三百多個大小島嶼組成，以其水清沙幼、珊瑚礁美景及熱帶風光聞名，是世界級的度假勝地。</p>
-                        <div className='wi-st'>
-                          <ul>
-                            <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
-                          </ul>
-                          <figure className='stars'>
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star1.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                            <img src="./img-Location/Star2.svg" alt="" />
-                          </figure>
-                        </div>
-                        <span>15000 /月</span>
-                      </article>
-                      <div className='color-block'></div>
-
-                    </section >
-                  </Link >
-                </SwiperSlide>
-              ))}
-
-            </Swiper>
-
+        <Link to="/location3" >
+          <article className='continent' >
+            <figure><img src="./img-Location/Oceania.jpg" alt="" /></figure>
+            <h2>大洋洲</h2>
           </article >
+        </Link >
 
-          {/* 更多按鈕 */}
-          <Link to="/location3">
-            <button className='viewMore'> <a href='#'></a>View more</button>
-          </Link>
+        {/* 所有卡片 */}
+        < article className='conCards' >
+          <Swiper
+            modules={[Navigation]}
+            slidesPerView={3}
+            direction={direction}
+            navigation
+            breakpoints={{
+              0: { slidesPerView: 1 },       // 手機
+              640: { slidesPerView: 2 },     // 平板
+              1024: { slidesPerView: 3 },    // 桌機
+            }}
+            className="mySwiper"
+          >
+
+            {Array.from({ length: 1 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                {/* 大洋洲卡片1 */}
+                <Link to="/location2" >
+                  <section className='country' >
+                    <div className='p1-sel'>
+                      <figure className='loc-p1'><img src="./img-Location/Australia.jpg" alt="" /></figure>
+                      <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                    </div>
+                    <article className='loc-info'>
+                      <h2>澳洲</h2>
+                      <p className='loc-text'>擁有豐富的自然資源，如大堡礁和沙漠景觀，並是袋鼠、無尾熊等特有生物的家園。 </p>
+                      <div className='wi-st'>
+                        <ul>
+                          <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                        </ul>
+                        <figure className='stars'>
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                        </figure>
+                      </div>
+                      <span>15000 /月</span>
+                    </article>
+                    <div className='color-block'></div>
+                  </section >
+                </Link >
+              </SwiperSlide>
+            ))}
+
+            {Array.from({ length: 1 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                {/* 大洋洲卡片2 */}
+                <Link to="/location2" >
+                  <section className='country' >
+                    <div className='p1-sel'>
+                      <figure className='loc-p1'><img src="./img-Location/New Zealand.jpg" alt="" /></figure>
+                      <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                    </div>
+                    <article className='loc-info'>
+                      <h2>紐西蘭</h2>
+                      <p className='loc-text'>以其多樣的自然景觀、純淨的環境聞名，並有著與眾不同的生態系統，被譽為「活的地理教室」和「地球上最後的淨土」。</p>
+                      <div className='wi-st'>
+                        <ul>
+                          <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                        </ul>
+                        <figure className='stars'>
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                        </figure>
+                      </div>
+                      <span>15000 /月</span>
+                    </article>
+                    <div className='color-block'></div>
+                  </section >
+                </Link >
+              </SwiperSlide>
+            ))}
+
+            {Array.from({ length: 1 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                {/* 大洋洲卡片3 */}
+                <Link to="/location2" >
+                  <section className='country' >
+                    <div className='p1-sel'>
+                      <figure className='loc-p1'><img src="./img-Location/Fiji.jpg" alt="" /></figure>
+                      <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                    </div>
+                    <article className='loc-info'>
+                      <h2>斐濟</h2>
+                      <p className='loc-text'>由三百多個大小島嶼組成，以其水清沙幼、珊瑚礁美景及熱帶風光聞名，是世界級的度假勝地。</p>
+                      <div className='wi-st'>
+                        <ul>
+                          <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                        </ul>
+                        <figure className='stars'>
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                        </figure>
+                      </div>
+                      <span>15000 /月</span>
+                    </article>
+                    <div className='color-block'></div>
+
+                  </section >
+                </Link >
+              </SwiperSlide>
+            ))}
+
+            {Array.from({ length: 1 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                {/* 大洋洲卡片1 */}
+                <Link to="/location2" >
+                  <section className='country' >
+                    <div className='p1-sel'>
+                      <figure className='loc-p1'><img src="./img-Location/Australia.jpg" alt="" /></figure>
+                      <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                    </div>
+                    <article className='loc-info'>
+                      <h2>澳洲</h2>
+                      <p className='loc-text'>擁有豐富的自然資源，如大堡礁和沙漠景觀，並是袋鼠、無尾熊等特有生物的家園。 </p>
+                      <div className='wi-st'>
+                        <ul>
+                          <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                        </ul>
+                        <figure className='stars'>
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                        </figure>
+                      </div>
+                      <span>15000 /月</span>
+                    </article>
+                    <div className='color-block'></div>
+                  </section >
+                </Link >
+              </SwiperSlide>
+            ))}
+
+            {Array.from({ length: 1 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                {/* 大洋洲卡片2 */}
+                <Link to="/location2" >
+                  <section className='country' >
+                    <div className='p1-sel'>
+                      <figure className='loc-p1'><img src="./img-Location/New Zealand.jpg" alt="" /></figure>
+                      <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                    </div>
+                    <article className='loc-info'>
+                      <h2>紐西蘭</h2>
+                      <p className='loc-text'>以其多樣的自然景觀、純淨的環境聞名，並有著與眾不同的生態系統，被譽為「活的地理教室」和「地球上最後的淨土」。</p>
+                      <div className='wi-st'>
+                        <ul>
+                          <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                        </ul>
+                        <figure className='stars'>
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                        </figure>
+                      </div>
+                      <span>15000 /月</span>
+                    </article>
+                    <div className='color-block'></div>
+                  </section >
+                </Link >
+              </SwiperSlide>
+            ))}
+
+            {Array.from({ length: 1 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                {/* 大洋洲卡片3 */}
+                <Link to="/location2" >
+                  <section className='country' >
+                    <div className='p1-sel'>
+                      <figure className='loc-p1'><img src="./img-Location/Fiji.jpg" alt="" /></figure>
+                      <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
+                    </div>
+                    <article className='loc-info'>
+                      <h2>斐濟</h2>
+                      <p className='loc-text'>由三百多個大小島嶼組成，以其水清沙幼、珊瑚礁美景及熱帶風光聞名，是世界級的度假勝地。</p>
+                      <div className='wi-st'>
+                        <ul>
+                          <img src="./img-Location/Wifi.svg" alt="" /><p>242Mbps</p>
+                        </ul>
+                        <figure className='stars'>
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star1.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                          <img src="./img-Location/Star2.svg" alt="" />
+                        </figure>
+                      </div>
+                      <span>15000 /月</span>
+                    </article>
+                    <div className='color-block'></div>
+
+                  </section >
+                </Link >
+              </SwiperSlide>
+            ))}
+
+          </Swiper>
+
+        </article >
+
+        {/* 更多按鈕 */}
+        <Link to="/location3" className='viewMore'>
+          View more
+        </Link>
 
       </section >
 

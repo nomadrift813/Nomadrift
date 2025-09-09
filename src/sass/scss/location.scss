@@ -33,9 +33,14 @@
              text-align: center;
              flex-direction: column;
              gap: 10px;
+             color: $text;
+
+             @media (max-width: 1200px) {
+                 color: $white;
+                 text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+             }
 
              .l-t-1 {
-                 color: $text;
                  text-align: center;
                  font-family: $en;
                  font-size: 22px;
@@ -46,7 +51,6 @@
              }
 
              .l-t-2 {
-                 color: $text;
                  text-align: center;
                  font-family: $family-tc;
                  font-size: $f-s-xxl;
@@ -58,15 +62,21 @@
          }
 
          .locScroll {
-             img {
+             .scrollDown {
                  display: flex;
                  justify-content: center;
                  text-align: center;
                  height: 16px;
+                 stroke: $text;
 
                  animation: floatIcon 2s ease-in-out infinite;
-             }
 
+                 @media (max-width: 1200px) {
+                     stroke: $white;
+                     filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.6));
+
+                 }
+             }
          }
      }
 
@@ -332,6 +342,20 @@
      padding: 80px 100px;
      position: relative;
 
+     // ✨ RWD: 調整內邊距 ✨
+     @media ($mediaEx) {
+         padding: 60px 50px;
+     }
+
+     @media ($mediaLg) {
+         padding: 50px 30px;
+     }
+
+     @media ($mediaMd) {
+         flex-direction: column; // 在平板尺寸下改為垂直排列
+         padding: 40px 20px;
+     }
+
      // 各大洲區
      .continent {
          display: flex;
@@ -343,6 +367,20 @@
          img {
              // width: 500px;
              height: 520px;
+
+             // RWD響應式
+             @media ($mediaEx) {
+                 height: 450px;
+             }
+
+             @media ($mediaLg) {
+                 height: 400px;
+             }
+
+             @media ($mediaMd) {
+                 height: auto; // 高度自適應
+                 width: 100%; // 寬度佔滿容器
+             }
          }
 
          h2 {
@@ -356,6 +394,24 @@
              letter-spacing: 14.4px;
              position: absolute;
              left: 50px;
+
+             // RWD: 調整標題位置和字體大小
+             @media ($mediaEx) {
+                 left: 30px;
+             }
+
+             @media ($mediaLg) {
+                 left: 20px;
+                 font-size: $f-s-xxl; // 縮小字體
+             }
+
+             @media ($mediaMd) {
+                 position: relative; // 移除絕對定位，回歸流動
+                 left: 0;
+                 text-align: center;
+                 font-size: $f-s-xl;
+                 margin-top: 20px;
+             }
          }
      }
 
@@ -369,6 +425,23 @@
 
          width: 70%;
          height: 100%;
+
+         // RWD: 調整邊距和寬度
+         @media ($mediaEx) {
+             margin-left: -100px;
+             width: 80%;
+         }
+
+         @media ($mediaLg) {
+             margin-left: -50px;
+             width: 90%;
+         }
+
+         @media ($mediaMd) {
+             margin-left: 0; // 移除負邊距
+             width: 100%; // 寬度佔滿
+             margin-top: 30px; // 增加上邊距與大陸區隔開
+         }
 
          .country {
              width: 270px;
@@ -527,6 +600,11 @@
                  color: #f4cf00 !important;
                  opacity: 1;
              }
+
+             @media ($mediaMd) {
+                 // 在平板尺寸下隱藏導航按鈕
+                 display: none !important;
+             }
          }
 
          .swiper-button-next {
@@ -579,6 +657,25 @@
          &:hover {
              box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
              transition: all .2s 0s;
+         }
+
+         // RWD: 調整更多按鈕位置
+         @media ($mediaXl) {
+             right: 50px;
+             bottom: 50px;
+         }
+
+         @media ($mediaLg) {
+             right: 30px;
+             bottom: 40px;
+         }
+
+         @media ($mediaMd) {
+             position: relative; // 移除絕對定位
+             right: auto;
+             bottom: auto;
+             margin-top: 20px;
+             align-self: flex-end; // 將按鈕靠右
          }
      }
  }

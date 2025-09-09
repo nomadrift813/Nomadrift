@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+
+import React, { useRef , useState } from "react";
 import { Link } from 'react-router-dom'
 import '../sass/scss/location-2.scss'
 
@@ -19,6 +20,10 @@ const Location2 = () => {
             cardsRef.current.scrollLeft += 300; // 每次往右滑 300px
         }
     };
+
+    // select點擊
+    const [active, setActive] = useState(false);
+
 
     return (
         <main>
@@ -53,7 +58,12 @@ const Location2 = () => {
                     <div className='locContent'>
                         <div className='locTitle'>
                             <h2>清邁</h2>
-                            <img src="./img-Location/select.svg" alt="" />
+                            <svg className="select" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                onClick={() => setActive(!active)} // 點擊切換狀態
+                                style={{ cursor: "pointer" }}>
+                                <circle cx="30" cy="30" r="30" fill="none" />
+                                <path d="M18 21.667C18 18.5372 20.5746 16 23.7506 16H36.2494C39.4254 16 42 18.5372 42 21.667V39.215C42 42.368 38.312 44.1337 35.7968 42.185L31.1847 38.6117C30.4895 38.073 29.5105 38.073 28.8153 38.6117L24.2032 42.185C21.688 44.1337 18 42.368 18 39.215V21.667Z" stroke="#1F1F1F" strokeWidth="1.5" fill={active ? "#201811" : "none"}  />
+                            </svg>
                         </div>
                         <div className='wifiStr'>
                             <ul>
