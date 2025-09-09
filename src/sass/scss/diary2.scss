@@ -66,9 +66,6 @@
     flex-direction: column;
     background-color: $background1;
     padding: 50px 50px 0 50px;
-    background-image: url('../img-diary/World Map.png');
-    background-position:top; /* 讓圖片置中 */
-    background-repeat: no-repeat; /* 避免圖片重複 */
 
     .d-t-title2 {
         display: flex;
@@ -110,58 +107,66 @@
     }
 }
 
+
 .diaDrop2 {
-    flex: 0 0 180px;
+    position: relative; // 讓子元素的絕對定位可以參考這個父元素
+    width: 40px; // 設定按鈕容器的寬度
+    height: 40px; // 設定按鈕容器的高度
+    overflow: hidden; // 超出容器的內容會被隱藏
+    background-color: $primary1;
+    transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+    ; // 讓寬度變化有滑動效果
+    justify-content: flex-end;
     display: flex;
-    max-width: 1440px;
-    padding: 67px 1rem;
-    justify-content: center;
     align-items: center;
-    gap: 12px;
-    flex-direction: column;
+    overflow: hidden;
+    border-radius: 25px;
+
+    &:hover {
+        width: 150px; // 滑鼠懸停時，寬度變大
+    }
 
     ul {
-        width: 100%;
-        max-width: 148px;
         display: flex;
-        padding: 5px 20px;
-        justify-content: center;
         align-items: center;
-        flex: 100;
-
-        border-radius: 100px;
-        background: $primary1;
-        background: $primary1;
-        animation: slideIn 0.6s ease-out forwards;
-
-
-        &:hover {
-            background: $accent;
-        }
-
-        cursor: pointer; // 讓使用者知道可以點擊
-
+        list-style: none; // 移除清單的點
+        padding: 0 5px;
+        margin: 0;
 
         li {
-            display: flex;
             color: #fff;
-            text-align: center;
-            font-family: $family-tc;
-            font-size: $f-s-md;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: 2px;
+            white-space: nowrap; // 防止文字換行
+            opacity: 0; // 預設隱藏文字
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; // 文字的淡入和移動效果
+            transform: translateX(50px); // 文字預設位置
+        }
+    }
 
+    // 調整回上一頁的圖片樣式
+    img {
+        width: 30px; // 設定圖片大小
+        height: 30px;
+        margin-left: 0; // 預設沒有間距
+        transition: margin-right 0.3s ease-in-out; // 圖片的滑動效果
+    }
+
+    // 滑鼠懸停時的變化
+    &:hover {
+        ul {
+            li {
+                opacity: 1; // 顯示文字
+                transform: translateX(0); // 將文字移到原始位置
+                margin-right: 10px; // 圖片和文字之間新增間距
+            }
         }
 
         img {
-            width: 20px;
-            height: 20px;
-
+            margin-left: 10px; // 圖片和文字之間新增間距
         }
     }
 }
+
+
 
 .next-post-btn {
     position: absolute; // 關鍵：使用絕對定位
@@ -171,9 +176,23 @@
     z-index: 10; // 確保按鈕在其他元素上方
     animation: moveArrow 1.5s ease-in-out infinite;
 
-    &:hover {
+    &:hover {}
 
+    img {
+        width: 60px;
+        height: 60px;
     }
+}
+
+.next-post-btn2 {
+    position: absolute; // 關鍵：使用絕對定位
+    top: 50%; // 將按鈕頂部移到父元素的垂直中心點
+    left: 20px; // 距離父元素右側 20px
+    transform: translateY(-50%); // 關鍵：向上平移按鈕自身高度的一半，實現垂直居中
+    z-index: 10; // 確保按鈕在其他元素上方
+    animation: moveArrow 1.5s ease-in-out infinite;
+
+    &:hover {}
 
     img {
         width: 60px;
@@ -183,16 +202,17 @@
 
 .diaContent2 {
     display: flex;
-    align-items: flex-start;
-    gap: 10rem;
-    padding: 20px 0 0 0;
+    // align-items: flex-start;
+    // gap: 10rem;
+    // padding: 20px 0 0 0;
     position: relative;
+    justify-content: center;
 }
 
 
 
 .diaArticleSection2 {
-    padding: 67px 24px 24px 24px;
+    display: flex;
     font-family: 'Helvetica Neue', sans-serif;
     color: #333;
     max-width: 870px;
@@ -201,14 +221,33 @@
     /* 應用動畫 */
     opacity: 0;
     /* 確保動畫開始前是隱藏的 */
-    border-bottom: none; /*移除這條線，改到裡面*/
+    border-bottom: none;
+    /*移除這條線，改到裡面*/
 
 
     .p1-sel2 {
-        order: 2;
+        padding: 24px;
+
+        .dia-p2-1 {
+            border-top-left-radius: 100px;
+            max-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                border-top-left-radius: 100px;
+                opacity: 0.3;
+            }
+        }
 
         .dia-p2 {
-            border-top-right-radius: 100px;
+            border-top-left-radius: 100px;
             max-height: 600px;
             display: flex;
             justify-content: center;
@@ -231,12 +270,12 @@
         flex-direction: column;
 
         .d-member2 {
-            padding: 24px 0 0 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 0.8rem;
-            img{
+
+            img {
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
@@ -256,14 +295,13 @@
         }
     }
 }
+
 /* 調整這裡的結構來包含新加的 d-text-card-wrapper */
 .d-text-card-wrapper {
     display: flex;
     flex-direction: column;
     padding: 24px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 550px
 }
 
 .d-text2 {
@@ -335,15 +373,14 @@
         }
     }
 }
+
 /* 新增留言區樣式 */
 
 .comment-section-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: 250px;
     overflow-y: auto;
-    padding-right: 10px; // 避免滾動條擋住內容
 }
 
 .comments-list {
@@ -358,7 +395,8 @@
     line-height: 1.5;
     padding: 8px;
     border-bottom: 1px solid #e1e1e1;
-    img{
+
+    img {
         width: 30px;
         height: 30px;
         border-radius: 50%;
@@ -387,9 +425,10 @@
     border: 1px solid #ddd;
     border-radius: 20px;
     font-size: $f-s-sm;
+
     &:focus {
         outline: none;
-        border-color: $primary1;
+        border-color: $accent;
     }
 }
 
@@ -402,5 +441,9 @@
     cursor: pointer;
     font-size: $f-s-sm;
     transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $accent;
+    }
 
 }

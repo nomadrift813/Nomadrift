@@ -29,7 +29,7 @@ const posts = [
         imageUrl: './img-diary/diary-2.jpg',
         profileImgSrc: './img-Group/people/Commenter (1).jpg',
         comments: [
-            { id: 1, author: 'Peter', text: '</br>這種感覺超棒的！我也試過一次。', avatarUrl: './img-Group/people/join-people (5).jpg' },
+            { id: 1, author: 'Peter', text: '這種感覺超棒的！我也試過一次。', avatarUrl: './img-Group/people/join-people (5).jpg' },
             { id: 2, author: 'Chloe', text: '清邁的咖啡廳真的很適合工作！', avatarUrl: './img-Group/people/join-people (2).jpg' }
         ]
     },
@@ -100,7 +100,7 @@ const CommentSection = ({ comments, isVisible, onAddComment }) => {
 const Diary2 = () => {
     const [isLiked, setIsLiked] = useState(false);
     const [currentPostIndex, setCurrentPostIndex] = useState(0);
-    const [isCommentsVisible, setIsCommentsVisible] = useState(false);
+    const [isCommentsVisible, setIsCommentsVisible] = useState(true);
     // 使用一個物件來儲存每個 post 的留言，key 為 post 的 id
     const [allComments, setAllComments] = useState(
         posts.reduce((acc, post) => ({ ...acc, [post.id]: post.comments || [] }), {})
@@ -110,10 +110,19 @@ const Diary2 = () => {
         setIsLiked(!isLiked);
     };
 
+    // 新增「上一篇」的處理函式
+    const handlePrevPost = () => {
+        setCurrentPostIndex((prevIndex) => 
+            (prevIndex - 1 + posts.length) % posts.length
+        );
+        setIsLiked(false);
+        setIsCommentsVisible(true);
+    };
+
     const handleNextPost = () => {
         setCurrentPostIndex((prevIndex) => (prevIndex + 1) % posts.length);
         setIsLiked(false);
-        setIsCommentsVisible(false);
+        setIsCommentsVisible(true);
     };
 
     const handleCommentClick = () => {
@@ -133,24 +142,31 @@ const Diary2 = () => {
 
     return (
         <main>
+            
             <section className="diaAll2">
                 <section id='diary-discover2'>
+                  
                     <div className='d-t-title2'>
                         <span className='title-large2'>漂日記</span>
                         <span className='title-small2'>亞洲 ------------</span>
                     </div>
-                    <section className='diaContent2'>
-                        <div className='diaDrop2'>
+                    <div className='diaDrop2'>
                             <Link to="/diary">
                                 <ul>
-                                    <li>回上一頁</li><img src="./img-diary/back.svg" alt="" />
+                                    <li>回上一頁</li>
+                                    <img src="./img-diary/back.svg" alt="" />
                                 </ul>
                             </Link>
                         </div>
-
+                    <section className='diaContent2'>
+                        {/* 左側「上一篇」按鈕 */}
+                        <button className='next-post-btn2' onClick={handleNextPost}>
+                            <img src="./img-diary/left.svg" alt="Next" />
+                        </button>
                         <section className='diaArticleSection2' key={currentPost.id}>
                             <div className='p1-sel2'>
                                 <figure className='dia-p2'><img src={currentPost.imageUrl} alt="" /></figure>
+                                <figure className='dia-p2-1'><img src={currentPost.imageUrl} alt="" /></figure>
                             </div>
                             <article className='diaArticle2'>
                                 <div className='d-text-card-wrapper'>
@@ -185,11 +201,14 @@ const Diary2 = () => {
                                     />
                                 </div>
                             </article>
+                            
                         </section>
-
+                        
+                        {/* 右側「下一篇」按鈕 */}
                         <button className='next-post-btn' onClick={handleNextPost}>
-                            <img src="./img-diary/right.svg" alt="Share" />
+                            <img src="./img-diary/right.svg" alt="Next" />
                         </button>
+                        
                     </section>
                 </section>
 
