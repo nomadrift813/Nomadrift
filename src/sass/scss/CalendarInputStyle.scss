@@ -63,7 +63,7 @@ $text: #201811;
             border: 2px solid #ccc;
             border-radius: 12px;
             background: white;
-            color: $text; //輸入完成後的字顏色
+            color: $text; //輸入完成後的字體色
             cursor: pointer;
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
             
@@ -102,13 +102,15 @@ $text: #201811;
         .calendar-container {
             position: absolute;
             top: 100%;
-            left: 30%;
-            right: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            max-width: 90vw;
             background: white;
             border: 2px solid $border-color;
             border-radius: 12px;
             box-shadow: 0 10px 25px -3px $shadow-color, 0 4px 6px -2px $shadow-color;
-            z-index: 50;
+            z-index: 9999; // 提高 z-index 確保不被遮蔽
             margin-top: 4px;
             overflow: hidden;
 
@@ -149,7 +151,7 @@ $text: #201811;
                 }
             }
 
-            // 新增：區間選擇提示
+            // 新增：範圍選擇提示
             .range-hint {
                 background: $range-hint-bg;
                 color: $text-primary;
@@ -241,13 +243,13 @@ $text: #201811;
                         }
                     }
 
-                    // 新增：區間內的日期樣式
+                    // 新增：範圍內的日期樣式
                     &.in-range {
                         background: $background-range;
                         color: $text-primary;
                     }
 
-                    // 新增：區間開始日期樣式
+                    // 新增：範圍開始日期樣式
                     &.range-start {
                         background: $primary-color;
                         color: $text-primary;
@@ -266,7 +268,7 @@ $text: #201811;
                         }
                     }
 
-                    // 新增：區間結束日期樣式
+                    // 新增：範圍結束日期樣式
                     &.range-end {
                         background: $primary-color;
                         color: $text-primary;
@@ -317,8 +319,7 @@ $text: #201811;
     .date-picker-container {
         .input-wrapper {
             .calendar-container {
-                left: 50px;
-                right: 50px;
+                width: 320px;
                 margin-top: 8px;
             }
         }
@@ -340,8 +341,8 @@ $text: #201811;
             }
 
             .calendar-container {
-                left: -20px;
-                right: -20px;
+                width: 300px;
+                max-width: 95vw;
 
                 .calendar-header {
                     padding: 12px 16px;

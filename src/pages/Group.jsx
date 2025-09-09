@@ -88,16 +88,28 @@ const Group = () => {
       tags: ["找吃飯夥伴", "找踩點夥伴"],
     },
     {
+      key: "remote-coding",
+      // image: "./img-Group/coding.jpg",
+      // signupCount: 6,
+      date: "2025/10/05",
+      time: "09:00",
+      location: "東京",
+      title: "遠端程式馬拉松",
+      description: "不管你是前端、後端還是設計師，帶著筆電來參加。我們互相分享專案進度，順便交換技能，遠端工作也能一起衝刺。",
+      detailLink: "/group2",
+      tags: ["找工作夥伴"],
+    },
+    {
       key: "michelin",
       image: "./img-Group/dinner.jpg",
       signupCount: 6,
       date: "2025/09/20",
       time: "19:00",
       location: "曼谷",
-      title: "一起征服米其林",
-      description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。⏰",
+      title: "一起徵服米其林",
+      description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。Ⱟ",
       detailLink: "/group2",
-      tags: ["找吃飯夥伴"],
+      tags: ["找吃飯夥伴", "找踩點夥伴"],
     },
     {
       key: "dating",
@@ -131,13 +143,25 @@ const Group = () => {
       title: "投杯乒乓 Beer pong",
       description: `想看朋友一口接一口喝啤酒嗎？
 快來展現你的精準投球能力吧！
-**遊戲規則**：
+**遊戲要則**：
 - 每個回合內，每人有兩次機會投對方的杯子。
 - 投進一個杯子，對方就要喝一口。
 - 如果兩球進了不同的杯子，對方要拿三杯、喝三口。
 - 如果兩球進了同一個杯子，對方要拿四杯、喝四口。`,
       detailLink: "/group2",
       tags: ["找Chill伴"],
+    },
+    {
+      key: "design-collab",
+      image: "./img-Group/design.jpg",
+      signupCount: 4,
+      date: "2025/10/20",
+      time: "14:00",
+      location: "柏林",
+      title: "設計協作沙龍",
+      description: "平面設計、UIUX、插畫都歡迎，帶上你正在做的案子來討論。交流工具技巧，甚至找到能一起接案的夥伴。",
+      detailLink: "/group2",
+      tags: ["找工作夥伴"],
     },
     {
       key: "tennis",
@@ -165,12 +189,26 @@ const Group = () => {
       tags: ["找踩點夥伴"],
     },
     {
-      key: "desert-meditation",
-      date: "2025/10/15",
-      time: "23:00",
-      location: "摩洛哥",
-      title: "午夜星空冥想派對",
-      description: "集合在撒哈拉沙丘的帳篷營地，等夜幕完全降臨，大家先靜坐片刻，讓自己跟沙漠的寂靜同步。接著我會帶領一個「星空冥想體驗」，透過引導呼吸和專注，把注意力放在滿天星斗與銀河，讓腦袋從白天的工作模式切換成放鬆狀態。之後我們會進行「靈感分享環節」，每個人可以在沙漠夜空下分享自己最想完成的一個夢想，或是最近萌芽的創意。最後，我準備了小型投影裝置，在帳篷牆上映放一段「遊牧者的旅程紀錄片」或是大家共同的短片，陪伴彼此直到凌晨。這是一個融合靈性、創意、與遊牧連結的夜晚。",
+      key: "startup-ideas",
+      image: "./img-Group/startup.jpg",
+      signupCount: 5,
+      date: "2025/09/27",
+      time: "15:00",
+      location: "新加坡",
+      title: "新創點子腦力激盪",
+      description: "想創業卻卡住？帶上你的點子，我們來場頭腦風暴。不同背景的朋友互相激盪靈感，也許下個合作就在這裡誕生。",
+      detailLink: "/group2",
+      tags: ["找工作夥伴"],
+    },
+    {
+      key: "rooftop-talk",
+      image: "./img-Group/fireworks.jpeg",
+      signupCount: 8,
+      date: "2025/09/30",
+      time: "20:00",
+      location: "首爾",
+      title: "屋頂談心",
+      description: "心情不好，找不到好地方，好酒友，我們舉辦了一個專門給想一起看夜景，一起喝酒玩遊戲的屋頂聚會，現場提供超款桌遊跟特製調酒，別怕尷尬",
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
@@ -182,7 +220,7 @@ const Group = () => {
       time: "17:00",
       location: "雪梨",
       title: "參觀雪梨歌劇院雪梨",
-      description: "澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名，有全中文解說的導遊帶領，不用怕有聽沒有懂，目前報名人數已達5人，一人只要50澳幣，數量有限快來跟我們一起參加吧!結束還可以一起去",
+      description: "澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名，有全中文解說的導遊師帶領，不用怕有聽沒有懂，目前報名人數已達5人，一人只要50澳幣，數量有限快來跟我們一起參加吧!結束還可以一起去",
       detailLink: "/group2",
       tags: ["找踩點夥伴"],
     },
@@ -192,7 +230,7 @@ const Group = () => {
       time: "14:00",
       location: "泰國",
       title: "圖書館讀書會",
-      description: "看完一本書獲得很多感悟後沒地方分享嗎?來參加我們新創的讀書會，不僅可以解決你的分享欲，還可以獲得很多推薦書籍",
+      description: "看完一本書獲得很多感悟後沒地方分享嗎?來參加我們新創的讀書會，不僅可以解決你的分享慾，還可以獲得很多推薦書籍",
       detailLink: "/group2",
       tags: ["找工作夥伴"],
     },
@@ -205,21 +243,17 @@ const Group = () => {
       location: "清邁",
       title: "古城攝影散步",
       description: `這趟攝影散步將帶領大家穿梭於清邁古城的巷弄與寺廟。帶上你的相機或手機，
-一起捕捉光影下的金色佛塔、手工市集的繽紛布料，以及街頭巷尾的咖啡館日常。
-導遊同時也是專業攝影師，會指導構圖技巧與打光小撇步。
-行程最後，我們會到河畔的餐廳聚會，把每個人的作品投影出來分享，互相交流拍攝心得。`,
+一起捕捉光影下的金色佛塔、手工市集的繽紛布料，以及街頭巷尾的咖啡館日常。`,
       detailLink: "/group2",
       tags: ["找踩點夥伴"],
     },
     {
-      key: "rooftop-talk",
-      image: "./img-Group/fireworks.jpeg",
-      signupCount: 8,
-      date: "2025/09/30",
-      time: "20:00",
-      location: "首爾",
-      title: "屋頂談心",
-      description: "心情不好，找不到好地方，好酒友，我們舉辦了一個專門給想一起看夜景，一起喝酒玩遊戲的屋頂聚會，現場提供超款桌遊跟特製調酒，別怕尷尬",
+      key: "desert-meditation",
+      date: "2025/10/15",
+      time: "23:00",
+      location: "摩洛哥",
+      title: "午夜星空冥想派對",
+      description: "集合在撒哈拉沙丘的帳篷營地，等夜幕完全降臨，大家先靜坐片刻，讓自己跟沙漠的寂靜同步。接著我會帶領一個「星空冥想體驗」，透過引導呼吸和專注，把注意力放在滿天星斗與銀河，讓腦袋從白天的工作模式切換成放鬆狀態。之後我們會進行「靈感分享環節」，每個人可以在沙漠夜空下分享自己最想完成的一個夢想，或是最近萌芽的創意。最後，我準備了小型投影裝置，在帳篷牆上映放一段「遊牧者的旅程紀錄片」或是大家共同的短片，陪伴彼此直到凌晨。這是一個融合靈性、創意、與遊牧連結的夜晚。",
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
@@ -236,7 +270,34 @@ const Group = () => {
       detailLink: "/group2",
       tags: ["找吃飯夥伴", "找Chill伴"],
     },
-    // 你先前新增的 5 張（略）…如已放入，可保留；如未放入可接在此。
+    {
+      key: "co-work-cafe",
+      image: "./img-Group/co-work-cafe.jpg",
+      signupCount: 7,
+      date: "2025/09/18",
+      time: "10:00",
+      location: "台北",
+      title: "咖啡廳共工日",
+      description: "找個安靜的咖啡廳，一起開電腦工作。有人寫程式、有人剪片，不同領域的遊牧者互相陪伴，彼此專注又不孤單。",
+      detailLink: "/group2",
+      tags: ["找工作夥伴"],
+    },
+
+
+    {
+      key: "content-sprint",
+      image: "./img-Group/content.jpg",
+      signupCount: 8,
+      date: "2025/10/10",
+      time: "11:00",
+      location: "清邁",
+      title: "內容創作者快閃日",
+      description: "部落客、Youtuber、IG經營者，一起挑戰三小時快閃內容製作。大家互相給回饋，讓創作不再是孤軍奮戰。",
+      detailLink: "/group2",
+      tags: ["找工作夥伴", "找Chill伴"],
+    },
+
+
   ];
 
   // 合併用戶活動 + 靜態活動（用戶活動會在最前面）
@@ -247,13 +308,18 @@ const Group = () => {
     activeFilter === '全部活動' || (a.tags || []).includes(activeFilter)
   );
 
+  // 確保用戶活動始終在前面
+  const userFiltered = filtered.filter(a => userActivities.some(ua => ua.id === a.id));
+  const staticFiltered = filtered.filter(a => !userActivities.some(ua => ua.id === a.id));
+  const reorderedFiltered = [...userFiltered, ...staticFiltered];
+
   // 讓「更多活動」按鈕每次都再顯示 12 張卡片：
-  // 當 filtered 不足 visibleCount，就用原本順序重複補齊，再截斷到 visibleCount。
+  // 當 reorderedFiltered 不足 visibleCount，就用原本順序重複補齊，再截斷到 visibleCount。
   const getPagedActivities = () => {
-    if (filtered.length === 0) return [];
+    if (reorderedFiltered.length === 0) return [];
     const result = [];
     while (result.length < visibleCount) {
-      result.push(...filtered);
+      result.push(...reorderedFiltered);
     }
     return result.slice(0, visibleCount);
   };
@@ -290,7 +356,7 @@ const Group = () => {
         <div className="g-content-title">
           <FadeInOnScroll as="h3">Travel solo, connect together!</FadeInOnScroll>
           <FadeInOnScroll className="line" />
-          <FadeInOnScroll as="h2">漂友集合站！</FadeInOnScroll>
+          <FadeInOnScroll as="h2">漂流集合站！</FadeInOnScroll>
         </div>
 
         {/* 各揪團按鈕(篩選功能) —— 左到右逐一彈出 */}

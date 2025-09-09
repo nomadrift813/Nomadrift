@@ -63,7 +63,7 @@ $text: #201811;
             border: 2px solid #CCC;
             border-radius: 12px;
             background: white;
-            color: $text; //輸入完成後的字顏色
+            color: $text; //輸入完成後的字體色
             cursor: pointer;
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
             
@@ -102,13 +102,15 @@ $text: #201811;
         .time-picker-container-dropdown {
             position: absolute;
             top: 100%;
-            left: 30%;
-            right: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            max-width: 90vw;
             background: white;
             border: 2px solid $border-color;
             border-radius: 12px;
             box-shadow: 0 10px 25px -3px $shadow-color, 0 4px 6px -2px $shadow-color;
-            z-index: 50;
+            z-index: 9999; // 提高 z-index 確保不被遮蔽
             margin-top: 4px;
             overflow: hidden;
 
@@ -127,7 +129,7 @@ $text: #201811;
                 }
             }
 
-            // 新增：區間選擇提示
+            // 新增：範圍選擇提示
             .range-hint {
                 background: $range-hint-bg;
                 color: $text-primary;
@@ -264,8 +266,7 @@ $text: #201811;
     .time-picker-container {
         .input-wrapper {
             .time-picker-container-dropdown {
-                left: 50px;
-                right: 50px;
+                width: 320px;
                 margin-top: 8px;
             }
         }
@@ -287,8 +288,8 @@ $text: #201811;
             }
 
             .time-picker-container-dropdown {
-                left: -20px;
-                right: -20px;
+                width: 300px;
+                max-width: 95vw;
 
                 .time-picker-header {
                     padding: 8px 12px;

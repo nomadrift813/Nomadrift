@@ -167,7 +167,7 @@ const Group3 = () => {
                     {/* 白底表單1 */}
                     <div className='form1-fields'>
                         {/* 按鈕區塊 */}
-                        <FadeInOnScroll as="label" className="group-category">
+                        <label className="group-category">
                             <h3 className="category-title">想揪甚麼團?</h3>
                             <div className="g3-btns">
                                 {categories.map((label) => {
@@ -185,10 +185,10 @@ const Group3 = () => {
                                     );
                                 })}
                             </div>
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 活動日期（單日） */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <CalendarInput
                                 title="活動日期"
                                 placeholder="決定哪天要一起玩吧！"
@@ -196,10 +196,10 @@ const Group3 = () => {
                                 onChange={setSingleDate}
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 活動開始時間 */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <TimeInput
                                 title="活動開始時間"
                                 placeholder="選擇開始時間"
@@ -207,10 +207,10 @@ const Group3 = () => {
                                 onChange={setEventStartTime}
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 活動預計結束時間 */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <TimeInput
                                 title="活動預計結束時間"
                                 placeholder="選擇結束時間"
@@ -223,10 +223,10 @@ const Group3 = () => {
                                     {timeHint}
                                 </p>
                             )}
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 集合地點 */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <G3InputLabel
                                 title="集合地點"
                                 placeholder="例如：台北信義區"
@@ -235,10 +235,10 @@ const Group3 = () => {
                                 showLocationIcon
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 報名截止日（單日） */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <CalendarInput
                                 title="報名截止日"
                                 placeholder="選擇截止日期"
@@ -246,7 +246,7 @@ const Group3 = () => {
                                 onChange={setDeadlineDate}
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
                     </div>
                 </section>
 
@@ -260,7 +260,7 @@ const Group3 = () => {
                     {/* 白底表單2 */}
                     <div className='form2-fields'>
                         {/* 活動標題 */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <G3InputLabel
                                 title="活動標題"
                                 placeholder="一句話說明揪團主題（例如：一起去峇里島海邊做瑜珈!）"
@@ -268,10 +268,10 @@ const Group3 = () => {
                                 onChange={setActivityTitle}
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 活動詳細內容 */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <G3InputLabel
                                 title="活動詳細內容"
                                 placeholder="請輸入：行程安排/活動流程 吸引更多人參加！"
@@ -281,10 +281,10 @@ const Group3 = () => {
                                 maxLength={1000}
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
 
                         {/* 上傳照片（單張） */}
-                        <FadeInOnScroll as="label" className='group-category'>
+                        <label className='group-category'>
                             <G3InputLabel
                                 title="上傳照片"
                                 value={uploadedImage}
@@ -292,15 +292,15 @@ const Group3 = () => {
                                 isFileUpload
                                 required
                             />
-                        </FadeInOnScroll>
+                        </label>
                     </div>
                 </section>
 
                 {/* 完成建立按鈕 */}
                 <section id='createSuccessful-btn'>
-                    <FadeInOnScroll as="button" className='successful-btn' onClick={handleCreateSuccess}>
+                    <button className='successful-btn' onClick={handleCreateSuccess}>
                         完成建立
-                    </FadeInOnScroll>
+                    </button>
                 </section>
             </div>
 
