@@ -329,6 +329,9 @@
     border-radius: 12px;
     padding: 1.5px 12px;
     font-size: 0.8rem;
+    &:hover {
+            border-color: $accent;
+        }
 
     img {
         width: 24px;
@@ -342,6 +345,7 @@
         &:hover {
             color: $accent;
             border-color: $accent;
+            outline: none;
         }
     }
 }
