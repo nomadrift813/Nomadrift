@@ -208,48 +208,47 @@ body {
         }
     }
 
-    .banner-line {
-        position: absolute;
-        top: 300px;
-        right: 10px;
-        width: 1280px;
-        height: 641px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+   .banner-line {
+  position: absolute;
+  top: 300px; right: 10px;
+  width: 1280px; height: 641px;
+  display: flex; justify-content: center; align-items: center;
+  overflow: visible;            /* 船不被裁掉 */
+  pointer-events: none;         /* 只有船可互動 */
+  z-index: 100;
 
-        /* 以前是 visible，改成 hidden 才不會「跑出來」 */
-        overflow: hidden;
+  .b-line { width: 100%; height: 100%; display: block; overflow: visible; }
+  .b-wipe { stroke-dasharray: 1; stroke-dashoffset: 1; }
 
-        pointer-events: none;
-        z-index: 100;
+  /* 船互動與顏色（path 用 currentColor） */
+  .boat {
+    pointer-events: auto;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    transition: transform .15s ease;
 
-        .b-line {
-            width: 100%;
-            height: 100%;
-            display: block;
-            overflow: visible;
-        }
+    .boatIcon { color: #41453D; }      /* 初始深綠 */
+    &:hover .boatIcon { color: #f4d000; } /* hover 變黃 */
+  }
 
-        .b-wipe {
-            stroke-dasharray: 1;
-            stroke-dashoffset: 1;
-        }
-    }
+  /* 待機漂浮：JS 會寫 transform 在這層 */
+  .boatBob {
+    transform-box: fill-box;
+    transform-origin: center;
+    will-change: transform;
+  }
 
+  /* 命中盒：完全透明、無外框，但能接滑鼠事件 */
+  .boatHit {
+    fill: none;
+    stroke: none;
+    pointer-events: all;
+  }
 
-    .homeboat-b {
-        position: absolute;
-        top: 280px;
-        right: 68px;
-        max-width: 100%;
-
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
-    }
+  /* 抗縮放：避免縮放時描邊變粗細 */
+  .boatIcon path { vector-effect: non-scaling-stroke; }
+}
 }
 
 /* ========== 優勢區 ========== */
@@ -1226,11 +1225,11 @@ body {
                 align-items: center;
                 gap: 10px;
 
-                    img {
-                        border-radius: 99px;
-                        width: 30px;
-                        height: 30px;
-                    }
+                img {
+                    border-radius: 99px;
+                    width: 30px;
+                    height: 30px;
+                }
 
                 p {
                     color: $text;

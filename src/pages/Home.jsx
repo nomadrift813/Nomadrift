@@ -107,6 +107,61 @@ const Home = () => {
     };
   }, []);
 
+
+  // 划船
+  useEffect(() => {
+    const AMP = 6;        // 漂浮幅度(px)
+    const PERIOD = 3400;  // 週期(ms)
+    const W = (2 * Math.PI) / PERIOD;
+
+    const root = bannerRef.current;
+    if (!root) return;
+
+    const container = root.querySelector('.banner-line');
+    const boat = container?.querySelector('.boat');
+    const bob = container?.querySelector('.boatBob');
+    const init = container?.querySelector('#boatInit');
+    const fwd = container?.querySelector('#boatFwd');
+    if (!container || !boat || !bob || !init || !fwd) return;
+
+    // 進頁：把船定位到起點
+    init.beginElement?.();
+
+    // rAF：待機上下漂浮（播放時暫停）
+    let playing = false;
+    let rafId = 0;
+    const t0 = performance.now();
+
+    const loop = (t) => {
+      const y = playing ? 0 : Math.sin((t - t0) * W) * -AMP; // 往上為負
+      bob.style.transform = `translateY(${y}px)`;
+      rafId = requestAnimationFrame(loop);
+    };
+    rafId = requestAnimationFrame(loop);
+
+    // 點一下→沿路徑跑到底；結束→瞬間回起點，恢復漂浮
+    const play = () => {
+      if (playing) return;
+      playing = true;
+      fwd.beginElement();
+      const onEnd = () => {
+        init.beginElement?.();   // 立刻回到起點
+        playing = false;
+        fwd.removeEventListener('endEvent', onEnd);
+      };
+      fwd.addEventListener('endEvent', onEnd, { once: true });
+    };
+
+    boat.addEventListener('click', play);
+    boat.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+
+    return () => {
+      boat.removeEventListener('click', play);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
   return (
     <main ref={wrapRef}>
       <section id="homebanner" ref={bannerRef}>
@@ -130,67 +185,81 @@ const Home = () => {
         </div>
 
         <div className="banner-line">
-          <svg
-            className="b-line"
-            viewBox="0 0 1280 641"
-            preserveAspectRatio="xMaxYMin meet"
-            aria-hidden="true"
-          >
+          <svg className="b-line" viewBox="0 0 1280 641" preserveAspectRatio="xMaxYMin meet" aria-hidden="true">
             <defs>
-              {/* 開口箭頭（跟前面一樣），會沿路徑方向自動旋轉 */}
-              <marker id="bArrow"
-                viewBox="0 0 10 10"
-                refX="9" refY="5"
-                markerWidth="10" markerHeight="10"
-                orient="auto"
-                markerUnits="userSpaceOnUse">
-                <path d="M0,1 L9,5 L0,9"
-                  fill="none"
-                  stroke="context-stroke"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
+              {/* <!-- 箭頭 --> */}
+              <marker id="bArrow" viewBox="0 0 10 10" refX="9" refY="5"
+                markerWidth="10" markerHeight="10" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,1 L9,5 L0,9" fill="none" stroke="context-stroke"
+                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </marker>
 
-              {/* 白色畫筆遮罩：用較粗的筆，讓箭頭也被露出 */}
+              {/* <!-- 遮罩：讓虛線用「刷出」效果 --> */}
               <mask id="bReveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="641">
                 <rect x="0" y="0" width="1280" height="641" fill="black" />
-                <path
-                  className="b-wipe"
+                <path className="b-wipe"
                   d="M1268.3 7.15837C1237.66 21.299 1149.16 57.0041 1040.28 86.6994C904.178 123.819 798.123 107.91 776.912 86.6994C755.701 65.4885 755.701 26.6018 821.102 7.15837C886.502 -12.285 944.832 23.0666 943.064 54.883C941.297 86.6994 943.064 334.077 643.057 360.269C332.737 387.361 128.21 426.075 64.5775 484.405C13.6712 531.069 -9.66082 606.368 6.24739 639.952"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="16"          /* ↑ 夠粗，最後端的箭頭才會被露出 */
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  pathLength="1"
-                  strokeDasharray="1"
-                  strokeDashoffset="1"
-                >
-                  <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.8s" begin="indefinite" fill="freeze" />
+                  fill="none" stroke="white" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"
+                  pathLength="1" strokeDasharray="1" strokeDashoffset="1">
+                  <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.8s"
+                    begin="indefinite" fill="freeze" />
                 </path>
               </mask>
             </defs>
 
-            {/* 虛線主體（不動），靠遮罩露出；加上箭頭 */}
-            <path
+            {/* <!-- 可見的虛線（船跟著這條跑） --> */}
+            <path id="bPath"
               d="M1268.3 7.15837C1237.66 21.299 1149.16 57.0041 1040.28 86.6994C904.178 123.819 798.123 107.91 776.912 86.6994C755.701 65.4885 755.701 26.6018 821.102 7.15837C886.502 -12.285 944.832 23.0666 943.064 54.883C941.297 86.6994 943.064 334.077 643.057 360.269C332.737 387.361 128.21 426.075 64.5775 484.405C13.6712 531.069 -9.66082 606.368 6.24739 639.952"
-              fill="none"
-              stroke="#e0ded3ff"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeDasharray="8 10"       /* 想更密可改 6 8 / 5 6 */
-              vectorEffect="non-scaling-stroke"
-              markerEnd="url(#bArrow)"
-              mask="url(#bReveal)"
-            />
+              fill="none" stroke="#e0ded3ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              strokeDasharray="8 10" vectorEffect="non-scaling-stroke"
+              markerEnd="url(#bArrow)" mask="url(#bReveal)" />
+
+            {/* <!-- 船（整組） --> */}
+            <g className="boat" role="button" tabIndex="0" aria-label="sail">
+              {/* <!-- rAF 會在這層寫 translateY，整船一起漂浮 --> */}
+              <g className="boatBob">
+                {/* <!-- 局部座標（方便微調位置） --> */}
+                <g className="boatLocal" transform="translate(20,40)">
+                  {/* <!-- 命中盒：完全透明、無外框，但可接滑鼠事件 --> */}
+                  <rect className="boatHit" x="-42" y="-78" width="84" height="110"
+                    fill="none" stroke="none" />
+
+                  {/* <!-- 船圖（顏色用 currentColor 控制；角度可微調） --> */}
+                  <g className="boatIcon" transform="rotate(-155)">
+                    <g transform="translate(-32,-32)">
+                      <path d="M7.5 42.7021L18.5831 53.7852H53.8833L57.5 42.7021H7.5Z"
+                        fill="none" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                      <path d="M42.912 11V13.1719V42.7021"
+                        fill="none" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                      <path d="M29.7781 42.7021L29.2934 41.7699C27.349 37.9363 26.9107 33.5134 28.0649 29.3727C29.2192 25.2319 31.8822 21.6736 35.5294 19.3986L42.912 14.7938"
+                        fill="none" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                      <path d="M18.6763 42.7021H22.2464C21.3639 40.9549 20.6371 39.1333 20.0745 37.2584C19.4961 35.2266 19.3329 33.0991 19.5947 31.0029C19.8566 28.9067 20.5381 26.8847 21.5987 25.0577C22.6592 23.2307 24.077 21.6361 25.7674 20.3691C27.4578 19.1021 29.3862 18.1887 31.4373 17.6834L42.912 14.7938"
+                        fill="none" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+
+              {/* <!-- 沿路徑動畫：JS 觸發 begin()；跑完用 init 回起點 --> */}
+              <animateMotion id="boatInit" begin="0s;boatFwd.end" dur="0.001s"
+                rotate="auto" fill="freeze" keyTimes="0;1" keyPoints="0;0">
+                <mpath href="#bPath" />
+              </animateMotion>
+              <animateMotion id="boatFwd" begin="indefinite" dur="6s"
+                rotate="auto" fill="freeze" calcMode="spline"
+                keyTimes="0;1" keySplines="0.25 0.1 0.25 1">
+                <mpath href="#bPath" />
+              </animateMotion>
+            </g>
           </svg>
         </div>
-
-        <div className="homeboat-b">
+        {/* <div className="homeboat-b">
           <img src="./img-Home/boat-b.svg" alt="" />
-        </div>
+        </div> */}
       </section>
 
       <section id='homeadvantages'>
