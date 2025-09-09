@@ -3,68 +3,103 @@ import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
+  // component 內
   const [hvalue, setHvalue] = useState("");
+  const [show, setShow] = useState(true);
 
-  const wrapRef = useRef(null);   // 給 IntersectionObserver 用
+  // 觀察範圍：整頁主要容器 & 只有 banner 區
+  const wrapRef = useRef(null);     // 包住 .reveal、.h-location-line、.h-group-line 的外層
+  const bannerRef = useRef(null);   // 只包住 section#banner（含 .banner-line）
 
-
-  // 可重複進出視窗的捲動動畫（優勢區淡入；Group 左右滑入＋淡入）
-  // 滑入淡入（只針對 .reveal）
+  /* 1) .reveal：滑入淡入（加/移除 .in） */
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
 
-    const els = root.querySelectorAll('.reveal');
+    const els = root.querySelectorAll(".reveal");
+    if (!els.length) return;
+
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(({ isIntersecting, target }) => {
-          if (isIntersecting) target.classList.add('in');
-          else target.classList.remove('in');
+          target.classList.toggle("in", isIntersecting);
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
 
     els.forEach(el => io.observe(el));
     return () => io.disconnect();
   }, []);
 
-  // 線條（.h-location-line 與 .h-group-line）進出場時重新畫
+  /* 2) Banner 線：看到 section banner 就重播（SMIL .b-wipe） */
+  useEffect(() => {
+    const root = bannerRef.current;
+    if (!root) return;
+
+    const target = root.querySelector(".banner-line");
+    if (!target) return;
+
+    const io = new IntersectionObserver(
+      entries => {
+        entries.forEach(({ isIntersecting }) => {
+          if (!isIntersecting) return;
+
+          const wipe = target.querySelector(".b-wipe");
+          const anim = wipe?.querySelector?.("animate");
+          if (!wipe || !anim) return;
+
+          // 重設 → 強制 reflow → 重新播放
+          const dash = wipe.getAttribute("stroke-dasharray") || "1";
+          wipe.setAttribute("stroke-dashoffset", dash);
+          void wipe.getBoundingClientRect();
+          if (typeof anim.beginElement === "function") anim.beginElement();
+        });
+      },
+      { threshold: 0.6, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    io.observe(target);
+    return () => io.disconnect();
+  }, []);
+
+  /* 3) 其它兩條線（CSS 版）：進場重播（移除→reflow→加回 .play） */
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
 
-    const targets = root.querySelectorAll('.h-location-line, .h-group-line');
-    if (!targets.length) return;
+    const lines = root.querySelectorAll(".h-location-line, .h-group-line");
+    if (!lines.length) return;
 
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(({ isIntersecting, target }) => {
           if (isIntersecting) {
-            // 先移除再強制 reflow，確保每次進場都從 0 開始
-            target.classList.remove('play');
-            void target.offsetWidth;
-            target.classList.add('play');
+            target.classList.remove("play");
+            void target.getBoundingClientRect(); // 強制 reflow
+            target.classList.add("play");
           } else {
-            target.classList.remove('play');
+            target.classList.remove("play");
           }
         });
       },
-      { threshold: 0.25, rootMargin: '0px 0px -20% 0px' }
+      { threshold: 0.25, rootMargin: "0px 0px -20% 0px" }
     );
 
-    targets.forEach(el => io.observe(el));
+    lines.forEach(el => io.observe(el));
     return () => io.disconnect();
   }, []);
-  // 淡入淡出（Hero）
-  const [show, setShow] = useState(true);
+
+  /* 4) Hero 淡入淡出（依視窗高度 35% 為切換點） */
   useEffect(() => {
     const update = () => {
       const cutoff = Math.round(window.innerHeight * 0.35);
       setShow(window.scrollY <= cutoff);
     };
     update();
-    window.addEventListener("scroll", update, { passive: true });
+
+    const opts = { passive: true };
+    window.addEventListener("scroll", update, opts);
     window.addEventListener("resize", update);
     return () => {
       window.removeEventListener("scroll", update);
@@ -72,33 +107,9 @@ const Home = () => {
     };
   }, []);
 
-  // 可重複進出視窗的捲動動畫（優勢區淡入；Group 左右滑入＋淡入）
-  useEffect(() => {
-    const root = wrapRef.current;
-    if (!root) return;
-
-    const els = root.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          const el = entry.target;
-          if (entry.isIntersecting) el.classList.add('in');
-          else el.classList.remove('in');
-        });
-      },
-      {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px',
-      }
-    );
-
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
   return (
     <main ref={wrapRef}>
-      <section id="homebanner">
+      <section id="homebanner" ref={bannerRef}>
         <div className={`homeslogan ${show ? "fade-in" : "fade-out"}`}>
           <h2>在世界的浪潮中，自由前行</h2>
 
@@ -156,7 +167,7 @@ const Home = () => {
                   strokeDasharray="1"
                   strokeDashoffset="1"
                 >
-                  <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.8s" begin="0s" fill="freeze" />
+                  <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.8s" begin="indefinite" fill="freeze" />
                 </path>
               </mask>
             </defs>
