@@ -83,12 +83,20 @@
 .diaPost {
     display: flex;
     width: 360px;
-    padding: 35px;
+    padding: 30px;
     cursor: pointer;
 
     &:hover {
         transition: all .3s 0s;
         transform: translateY(0.1px) scale(1.08);
+    }
+
+    .current-user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #eee; 
     }
 
 
@@ -101,10 +109,11 @@
 
     .input-placeholder {
         padding-left: 12px;
-        font-size: $f-s-sm;
+        font-size: $f-s-md;
         color: #7A7872;
         width: 207px;
         border-bottom: 1px solid #333;
+        flex-grow: 1;
     }
 
 
@@ -184,7 +193,7 @@
 .post-title {
     width: 100%;
     height: 50px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 10px;
     padding: 10px 0 0 15px;
     font-size: $f-s-sm;
@@ -195,14 +204,14 @@
 
     &:focus {
         outline: none;
-        border-color: $primary1;
+        border-color: $accent;
     }
 }
 
 .post-textarea {
     width: 100%;
     min-height: 230px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     font-size: $f-s-sm;
@@ -213,7 +222,7 @@
 
     &:focus {
         outline: none;
-        border-color: $primary1;
+        border-color: $accent;
     }
 }
 
@@ -237,20 +246,20 @@
             display: flex;
             background-color: #fff;
             border-radius: 12px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             padding: 1.5px 12px;
             color: #aaa;
             font-size: $f-s-xs;
 
             &:focus {
                 outline: none;
-                border-color: $primary1;
+                border-color: $accent;
             }
         }
 
         .location-input {
             width: 120px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             background-color: #ffffff;
             border-radius: 12px;
             padding: 1.5px 12px;
@@ -259,7 +268,7 @@
 
             &:focus {
                 outline: none;
-                border-color: $primary1;
+                border-color: $accent;
             }
         }
 
@@ -296,7 +305,7 @@
 
     .publish-btn {
         background-color: $primary1;
-        color: $background1;
+        color: #fff;
         border: none;
         border-radius: 20px;
         padding: 5px 15px;
@@ -316,7 +325,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 12px;
     padding: 1.5px 12px;
     font-size: 0.8rem;
@@ -332,6 +341,7 @@
 
         &:hover {
             color: $accent;
+            border-color: $accent;
         }
     }
 }
@@ -413,6 +423,7 @@
     flex-direction: column;
     background-color: $background1;
     padding: 50px 50px 0 50px;
+    align-items: center;
 
 
 
@@ -558,11 +569,18 @@
     gap: 6rem;
     padding-bottom: 2rem 3rem;
     padding: 50px 0 0 0;
+    width: 100%;
+    /* 確保它填滿其父容器的寬度 */
+    max-width: 1200px;
+    /* 保持與 .title-content-wrapper 一致的最大寬度 */
+    justify-content: center;
+    /* 讓內容區塊在容器內置中 */
+
 }
 
 #diary-article {
     flex: 1;
-    padding: 2rem;
+    padding: 32px 16px 16px 16px;
     max-width: 1007px;
     width: 100%;
 
@@ -617,6 +635,17 @@
                 align-items: center;
                 gap: 0.5rem;
                 margin-bottom: 0.8rem;
+
+
+                .profile-avatar {
+                    width: 35px;
+                    /* Adjust size */
+                    height: 35px;
+                    /* Adjust size */
+                    border-radius: 50%;
+                    /* For a round image */
+                    object-fit: cover;
+                }
 
                 div {
                     width: 30px;
