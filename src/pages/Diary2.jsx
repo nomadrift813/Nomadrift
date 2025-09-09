@@ -12,10 +12,11 @@ const posts = [
         location: '大阪/ 日本',
         date: 'Apr,03 2025',
         imageUrl: './img-diary/diary-1.jpg',
+        profileImgSrc: './img-Group/people/Commenter (3).jpg',
         comments: [
-            { id: 1, author: 'Anna', text: '這也太棒了吧！好想去🥺', avatarUrl: './img-diary/avatar-1.jpg' },
-            { id: 2, author: 'Kevin', text: '我也在大阪！下次一起？', avatarUrl: './img-diary/avatar-2.jpg' },
-            { id: 3, author: 'Lynn', text: '好溫暖的日記！讓人在異地有力量！', avatarUrl: './img-diary/avatar-3.jpg' }
+            { id: 1, author: 'Anna', text: '這也太棒了吧！好想去🥺', avatarUrl: './img-Group/people/join-people (3).jpg' },
+            { id: 2, author: 'Kevin', text: '我也在大阪！下次一起？', avatarUrl: './img-Group/people/join-people (1).jpg' },
+            { id: 3, author: 'Lynn', text: '好溫暖的日記！讓人在異地有力量！', avatarUrl: './img-Group/people/join-people (4).jpg' }
         ]
     },
     {
@@ -26,9 +27,10 @@ const posts = [
         location: '清邁/ 泰國',
         date: 'Jun,10 2025',
         imageUrl: './img-diary/diary-2.jpg',
+        profileImgSrc: './img-Group/people/Commenter (1).jpg',
         comments: [
-            { id: 1, author: 'Peter', text: '這種感覺超棒的！我也試過一次。', avatarUrl: './img-diary/avatar-4.jpg' },
-            { id: 2, author: 'Chloe', text: '清邁的咖啡廳真的很適合工作！', avatarUrl: './img-diary/avatar-5.jpg' }
+            { id: 1, author: 'Peter', text: '</br>這種感覺超棒的！我也試過一次。', avatarUrl: './img-Group/people/join-people (5).jpg' },
+            { id: 2, author: 'Chloe', text: '清邁的咖啡廳真的很適合工作！', avatarUrl: './img-Group/people/join-people (2).jpg' }
         ]
     },
     {
@@ -39,8 +41,9 @@ const posts = [
         location: '葡萄牙/ 里斯本',
         date: 'Jul,14 2025',
         imageUrl: './img-diary/diary-5.png',
+        profileImgSrc: './img-Group/people/Commenter (2).jpg',
         comments: [
-            { id: 1, author: 'David', text: '狼人殺真的是破冰神器！', avatarUrl: './img-diary/avatar-6.jpg' }
+            { id: 1, author: 'David', text: '狼人殺真的是破冰神器！', avatarUrl: './img-Group/people/join-people (6).jpg' }
         ]
     }
 ];
@@ -54,7 +57,7 @@ const CommentSection = ({ comments, isVisible, onAddComment }) => {
     const handleCommentSubmit = () => {
         if (newComment.trim() !== '') {
             // 假設新留言者使用一個固定的頭像
-            onAddComment({ author: '你', text: newComment, avatarUrl: './img-diary/avatar-you.jpg' });
+            onAddComment({ author: 'Andy Chen', text: newComment, avatarUrl: './img-Group/people/People-(10).jpg' });
             setNewComment(''); // 清空輸入框
         }
     };
@@ -152,7 +155,7 @@ const Diary2 = () => {
                             <article className='diaArticle2'>
                                 <div className='d-text-card-wrapper'>
                                     <div className='d-member2'>
-                                        <div></div>
+                                        <img src={currentPost.profileImgSrc} alt={`${currentPost.member} `} className="profile-avatar" />
                                         <p>{currentPost.member}</p>
                                     </div>
                                     <div className='d-text2'>

@@ -8,7 +8,7 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('en-US', options).replace(/,/, '').replace(/(\w+) (\d+) (\d+)/, '$1, $2 $3');
 };
 
-// 初始的文章資料陣列 - 新增了 'category' 屬性
+
 const initialPosts = [
   {
     id: 1,
@@ -19,7 +19,8 @@ const initialPosts = [
     location: '大阪/ 日本',
     date: 'Apr,03 2025',
     liked: false,
-    category: '亞洲', // 新增分類
+    category: '亞洲',
+    profileImgSrc: './img-Group/people/Commenter (2).jpg',
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ const initialPosts = [
     location: '清邁/ 泰國',
     date: 'Jun,10 2025',
     liked: false,
-    category: '亞洲', // 新增分類
+    category: '亞洲',
+    profileImgSrc: './img-Group/people/Commenter (1).jpg',
   },
   {
     id: 3,
@@ -41,18 +43,20 @@ const initialPosts = [
     location: '富國島/ 越南',
     date: 'Sep,23 2025',
     liked: false,
-    category: '亞洲', // 新增分類
+    category: '亞洲',
+    profileImgSrc: './img-Group/people/join-people (2).jpg',
   },
   {
     id: 4,
-    author: 'Elain',
+    author: 'Florahua',
     title: '🏠合租生活 Day 5：廚房對話最療癒',
     content: '和一個韓國設計師合租一間兩房小公寓已經五天，說實話，語言不通讓我們前幾天有點尷尬。但好在我們都愛做早餐。\n每天早上都會輪流在廚房準備食物，今天我做了法式吐司，他則煎了韓式煎餅。\n最意外的是他主動幫我洗碗，然後還用翻譯 app 跟我說「這個很好吃！」那一刻，我突然覺得好溫暖。\n我們不一定會成為朋友，但這段「有距離的互助關係」，在異地的生活中，竟然成了最療癒的日常。',
     imgSrc: './img-diary/diary-4.jpg',
     location: '釜山/ 韓國',
     date: 'Feb,03 2025',
     liked: false,
-    category: '亞洲', // 新增分類
+    category: '亞洲',
+    profileImgSrc: './img-Group/people/join-people (3).jpg',
   },
   {
     id: 5,
@@ -63,7 +67,8 @@ const initialPosts = [
     location: '葡萄牙/ 里斯本',
     date: 'Jul,14 2025',
     liked: false,
-    category: '歐洲', // 新增分類
+    category: '歐洲',
+    profileImgSrc: './img-Group/people/join-people (5).jpg',
   },
   {
     id: 6,
@@ -74,7 +79,8 @@ const initialPosts = [
     location: '巴黎/ 法國',
     date: 'Oct,28 2025',
     liked: false,
-    category: '歐洲', // 新增分類
+    category: '歐洲',
+    profileImgSrc: './img-Group/people/join-people (6).jpg',
   },
   {
     id: 7,
@@ -85,7 +91,8 @@ const initialPosts = [
     location: '倫敦/ 英國',
     date: 'Nov,05 2025',
     liked: false,
-    category: '歐洲', // 新增分類
+    category: '歐洲',
+    profileImgSrc: './img-Group/people/people-(6).jpg',
   },
   {
     id: 8,
@@ -96,7 +103,8 @@ const initialPosts = [
     location: '富士山/ 日本',
     date: 'Nov,12 2025',
     liked: false,
-    category: '亞洲', // 新增分類
+    category: '亞洲',
+    profileImgSrc: './img-Group/people/People-(10).jpg',
   },
   {
     id: 9,
@@ -107,7 +115,8 @@ const initialPosts = [
     location: '羅馬/ 義大利',
     date: 'Nov,20 2025',
     liked: false,
-    category: '歐洲', // 新增分類
+    category: '歐洲',
+    profileImgSrc: './img-Group/people/People-(9).jpg',
   },
   {
     id: 10,
@@ -118,7 +127,8 @@ const initialPosts = [
     location: '紐約/ 美國',
     date: 'Nov,25 2025',
     liked: false,
-    category: '北美洲', // 新增分類
+    category: '北美洲',
+    profileImgSrc: './img-Group/people/Commenter (1).jpg',
   },
   {
     id: 11,
@@ -129,7 +139,8 @@ const initialPosts = [
     location: '柏林/ 德國',
     date: 'Nov,30 2025',
     liked: false,
-    category: '歐洲', // 新增分類
+    category: '歐洲',
+    profileImgSrc: './img-Group/people/Commenter (2).jpg',
   },
   {
     id: 12,
@@ -140,7 +151,8 @@ const initialPosts = [
     location: '馬德里/ 西班牙',
     date: 'Dec,05 2025',
     liked: false,
-    category: '歐洲', // 新增分類
+    category: '歐洲',
+    profileImgSrc: './img-Group/people/Commenter (3).jpg',
   },
   {
     id: 13,
@@ -151,7 +163,8 @@ const initialPosts = [
     location: '清邁/ 泰國',
     date: 'Dec,10 2025',
     liked: false,
-    category: '亞洲', // 新增分類
+    category: '亞洲',
+    profileImgSrc: './img-Group/people/join-people (4).jpg',
   },
   {
     id: 14,
@@ -162,7 +175,8 @@ const initialPosts = [
     location: '哈瓦那 / 古巴',
     date: 'Jan, 15 2026',
     liked: false,
-    category: '中南美洲', // 新增分類
+    category: '中南美洲',
+    profileImgSrc: './img-Group/people/join-people (5).jpg',
   },
   {
     id: 15,
@@ -173,7 +187,8 @@ const initialPosts = [
     location: '塔里科勒斯 / 哥斯大黎加',
     date: 'Feb, 22 2026',
     liked: false,
-    category: '中南美洲', // 新增分類
+    category: '中南美洲',
+    profileImgSrc: './img-Group/people/join-people (6).jpg',
   },
   {
     id: 16,
@@ -184,7 +199,8 @@ const initialPosts = [
     location: '開普敦 / 南非',
     date: ' Mar, 10 2026',
     liked: false,
-    category: '非洲', 
+    category: '非洲',
+    profileImgSrc: './img-Group/people/organizer.jpg',
   },
   {
     id: 17,
@@ -195,7 +211,8 @@ const initialPosts = [
     location: '皇后鎮 / 紐西蘭',
     date: ' Apr, 05 2026',
     liked: false,
-    category: '大洋洲', 
+    category: '大洋洲',
+    profileImgSrc: './img-Group/people/Commenter (3).jpg',
   },
 
 ];
@@ -211,9 +228,9 @@ const Diary = () => {
   const [newPostDate, setNewPostDate] = useState(new Date().toISOString().substring(0, 10));
 
   const [activeCategory, setActiveCategory] = useState('全部日記');
-  
-  const filteredPosts = activeCategory === '全部日記' 
-    ? posts 
+
+  const filteredPosts = activeCategory === '全部日記'
+    ? posts
     : posts.filter(post => post.category === activeCategory);
 
   const [visibleCount, setVisibleCount] = useState(5);
@@ -269,13 +286,13 @@ const Diary = () => {
   };
 
   const handleLike = (postId) => {
-    setPosts(posts.map(post => 
+    setPosts(posts.map(post =>
       post.id === postId ? { ...post, liked: !post.liked } : post
     ));
   };
-  
+
   const handleLoadMore = () => {
-    setVisibleCount(prevCount => prevCount + 6);
+    setVisibleCount(prevCount => prevCount + 5);
   };
 
   const hasMoreArticles = visibleCount < filteredPosts.length;
@@ -284,7 +301,7 @@ const Diary = () => {
     setActiveCategory(categoryName);
     setVisibleCount(5);
   };
-  
+
   const categories = ['全部日記', '亞洲', '歐洲', '北美洲', '中南美洲', '非洲', '大洋洲'];
 
 
@@ -298,12 +315,12 @@ const Diary = () => {
           <div className="title-content-wrapper">
             <div className='d-t-title'>
               <h2>漂日記<span>{activeCategory} ------------</span></h2>
-        <p>A diary beyond borders</p>
+              <p>A diary beyond borders</p>
             </div>
             <section className='diaContent'>
               <div className='diaDrop'>
                 {categories.map((category, index) => (
-                  <ul 
+                  <ul
                     key={index}
                     className={`${category === activeCategory ? 'active' : ''} slide-up-item`}
                     onClick={() => handleCategoryClick(category)}
@@ -316,7 +333,7 @@ const Diary = () => {
               </div>
               <section id='diary-article'>
                 <section className="diaPost" onClick={handleOpenModal}>
-                  <div className="member"></div>
+                  <img src="./img-Group/people/Commenter (3).jpg" alt="User Avatar" className="current-user-avatar" /> {/* Add this line */}
                   <p className="input-placeholder">新鮮事?</p>
                   <button className="share-btn">
                     <img src="./img-diary/open-in-new.svg" alt="Share" />
@@ -327,8 +344,8 @@ const Diary = () => {
                   <div className="post-modal-overlay">
                     <div className="post-modal-content" onClick={(e) => e.stopPropagation()}>
                       <div className="modal-header">
-                        <div className="member-avatar"></div>
-                        <span className="member-name">Jun cheng</span>
+                        <img src="./img-Group/people/Commenter (2).jpg" alt="" className="member-avatar" />
+                        <span className="member-name">Andy Chen</span>
                         <button className="close-btn" onClick={handleCloseModal}>&times;</button>
                       </div>
                       {imagePreview && (
@@ -380,7 +397,7 @@ const Diary = () => {
                 )}
                 {filteredPosts.slice(0, visibleCount).map((post, index) => (
                   <Link to="/diary2" key={post.id}>
-                    <section 
+                    <section
                       className='diaArticleSection1 article-slide-in'
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
@@ -391,7 +408,7 @@ const Diary = () => {
                       )}
                       <article className='diaArticle1'>
                         <div className='d-member'>
-                          <div></div>
+                          <img src={post.profileImgSrc} alt={`${post.author} 的頭像`} className="profile-avatar" />
                           <p>{post.author}</p>
                         </div>
                         <div className='d-text-card' >
