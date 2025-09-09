@@ -303,15 +303,15 @@ const Home = () => {
 
         <g className="move fill big">
           <use href="#segBig" x="0" />
-          <use href="#segBig" x="239" />
+          <use href="#segBig" x="238" />   {/* ← 原本 239，改成 238 做 2px 重疊 */}
         </g>
         <g className="move stroke mid">
           <use href="#segMid" x="0" />
-          <use href="#segMid" x="239" />
+          <use href="#segMid" x="238" />
         </g>
         <g className="move stroke small">
           <use href="#segSmall" x="0" />
-          <use href="#segSmall" x="239" />
+          <use href="#segSmall" x="238" />
         </g>
       </svg>
 
