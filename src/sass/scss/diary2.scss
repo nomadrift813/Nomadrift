@@ -109,13 +109,13 @@
 
 
 .diaDrop2 {
+    margin-left: 40px;
     position: relative; // 讓子元素的絕對定位可以參考這個父元素
     width: 40px; // 設定按鈕容器的寬度
     height: 40px; // 設定按鈕容器的高度
     overflow: hidden; // 超出容器的內容會被隱藏
     background-color: $primary1;
     transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
-    ; // 讓寬度變化有滑動效果
     justify-content: flex-end;
     display: flex;
     align-items: center;
@@ -131,7 +131,6 @@
         align-items: center;
         list-style: none; // 移除清單的點
         padding: 0 5px;
-        margin: 0;
 
         li {
             color: #fff;
@@ -215,7 +214,7 @@
     display: flex;
     font-family: 'Helvetica Neue', sans-serif;
     color: #333;
-    max-width: 870px;
+    max-width: 1000px;
     width: 100%;
     animation: slideInFromRight 0.8s ease-out forwards;
     /* 應用動畫 */
@@ -230,7 +229,6 @@
 
         .dia-p2-1 {
             border-top-left-radius: 100px;
-            max-height: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
