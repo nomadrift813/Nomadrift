@@ -43,7 +43,7 @@ const Location = () => {
             <p className='l-t-2'>熱門地點</p>
           </div>
           <div className="locScroll">
-            <svg  className='scrollDown' width="39" height="19" viewBox="0 0 39 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='scrollDown' width="39" height="19" viewBox="0 0 39 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.5 3.89404L19.5 16.9999L37.5 3.89404" /*stroke="#201811"*/ strokeWidth="3" strokeLinecap="round" />
               <path d="M6.75 1L19.5 10.4654L32.25 1" /*stroke="#201811"*/ strokeWidth="2" strokeLinecap="round" />
             </svg>
@@ -161,9 +161,9 @@ const Location = () => {
             direction={direction}
             navigation
             breakpoints={{
-              0: { slidesPerView: 1 },       // 手機
-              640: { slidesPerView: 2 },     // 平板
-              1024: { slidesPerView: 3 },    // 桌機
+              0: { slidesPerView: 1, spaceBetween: 2 },       // 手機
+              640: { slidesPerView: 2, spaceBetween: 2 },     // 平板
+              1300: { slidesPerView: 3, spaceBetween: 24 },    // 桌機
             }}
             className="mySwiper"
           >
@@ -402,9 +402,9 @@ const Location = () => {
             direction={direction}
             navigation
             breakpoints={{
-              0: { slidesPerView: 1 },       // 手機
-              640: { slidesPerView: 2 },     // 平板
-              1024: { slidesPerView: 3 },    // 桌機
+              0: { slidesPerView: 1, spaceBetween: 2 },       // 手機
+              640: { slidesPerView: 2, spaceBetween: 2 },     // 平板
+              1300: { slidesPerView: 3, spaceBetween: 24 },    // 桌機
             }}
             className="mySwiper"
           >
@@ -632,9 +632,9 @@ const Location = () => {
             direction={direction}
             navigation
             breakpoints={{
-              0: { slidesPerView: 1 },       // 手機
-              640: { slidesPerView: 2 },     // 平板
-              1024: { slidesPerView: 3 },    // 桌機
+              0: { slidesPerView: 1, spaceBetween: 2 },       // 手機
+              640: { slidesPerView: 2, spaceBetween: 2 },     // 平板
+              1300: { slidesPerView: 3, spaceBetween: 24 },    // 桌機
             }}
             className="mySwiper"
           >
@@ -863,9 +863,9 @@ const Location = () => {
             direction={direction}
             navigation
             breakpoints={{
-              0: { slidesPerView: 1 },       // 手機
-              640: { slidesPerView: 2 },     // 平板
-              1024: { slidesPerView: 3 },    // 桌機
+              0: { slidesPerView: 1, spaceBetween: 2 },       // 手機
+              640: { slidesPerView: 2, spaceBetween: 2 },     // 平板
+              1300: { slidesPerView: 3, spaceBetween: 24 },    // 桌機
             }}
             className="mySwiper"
           >
@@ -1094,9 +1094,9 @@ const Location = () => {
             direction={direction}
             navigation
             breakpoints={{
-              0: { slidesPerView: 1 },       // 手機
-              640: { slidesPerView: 2 },     // 平板
-              1024: { slidesPerView: 3 },    // 桌機
+              0: { slidesPerView: 1, spaceBetween: 12 },       // 手機
+              640: { slidesPerView: 2, spaceBetween: 2 },     // 平板
+              1300: { slidesPerView: 3, spaceBetween: 24 },    // 桌機
             }}
             className="mySwiper"
           >
@@ -1325,9 +1325,9 @@ const Location = () => {
             direction={direction}
             navigation
             breakpoints={{
-              0: { slidesPerView: 1 },       // 手機
-              640: { slidesPerView: 2 },     // 平板
-              1024: { slidesPerView: 3 },    // 桌機
+              0: { slidesPerView: 1, spaceBetween: 12 },       // 手機
+              640: { slidesPerView: 2, spaceBetween: 2 },     // 平板
+              1300: { slidesPerView: 3, spaceBetween: 24 },    // 桌機
             }}
             className="mySwiper"
           >

@@ -149,8 +149,6 @@ main {
                 }
             }
 
-
-
             .wifiStr {
                 display: flex;
                 flex-direction: column;
@@ -223,9 +221,21 @@ main {
 
         /* 評分 */
         .locScore {
-            display: inline-flex;
+            display: flex;
             align-items: flex-start;
             gap: 26px;
+
+            @media (max-width: 1199px) {
+                justify-content: center;
+                /* 讓兩欄在容器中居中，避免貼邊 */
+                flex-direction: row;
+            }
+
+            @media (max-width: 767px) {
+                flex-wrap: wrap;
+                /* 允許項目換行 */
+                gap: 10px;
+            }
 
             ul {
                 display: flex;
@@ -235,6 +245,22 @@ main {
                 justify-content: center;
                 align-items: flex-start;
                 gap: 20px;
+
+                /* 在小於 1199px 後，讓 ul 的寬度可以彈性調整 */
+                @media (max-width: 1199px) {
+                    width: calc(50% - 13px);
+                    /* 讓每個 ul 佔據 50% 的寬度，並扣掉一半的 gap (26px/2) */
+                    height: auto;
+                    /* 高度自動，避免評分過多時溢出 */
+                }
+
+                /* 在更小的手機螢幕上，讓評分區塊變成一列 */
+                @media (max-width: 767px) {
+                    width: 100%;
+                    /* 讓 ul 佔據 100% 的寬度，變成一列 */
+                    gap: 10px;
+                    /* 縮小項目間距 */
+                }
 
                 li {
                     display: flex;
@@ -270,6 +296,55 @@ main {
             background-color: $accent;
             position: relative;
             left: -28px;
+        }
+    }
+
+    // 新增的媒體查詢區塊
+    @media(max-width: 1199px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 40px 20px;
+
+        .allPic {
+            width: 100%;
+
+            .picXl {
+                width: 100%;
+                height: auto;
+                border-radius: 40px 0 0 0;
+                padding: 0 50px;
+            }
+
+            .detPic {
+                padding: 0 50px;
+
+                img {
+                    width: 30%;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .allContent {
+            width: 100%;
+
+            .locContent {
+                width: 100%;
+
+                p {
+                    width: 100%;
+                    -webkit-line-clamp: unset;
+                    overflow: visible;
+                }
+            }
+
+            .color-block {
+                width: calc(100% + 56px);
+                left: -28px;
+            }
         }
     }
 }
@@ -321,6 +396,22 @@ main {
         max-width: 1600px; // 可以依需求調整
         margin: 0 auto;
 
+        // RWD: 調整外層容器間距
+        @media (max-width: 1200px) {
+            padding: 0px 30px 80px 30px;
+            gap: 20px; // 間距可以縮小
+        }
+
+        @media (max-width: 1024px) {
+            padding: 0px 20px 60px 20px;
+            gap: 16px; // 間距可以再縮小
+        }
+
+        @media (max-width: 600px) {
+            padding: 0px 10px 40px 10px;
+            gap: 16px;
+        }
+
         .cards {
             display: flex;
             align-items: center;
@@ -338,7 +429,31 @@ main {
                 display: none;
             }
 
+            // RWD: 根據卡片數量重新計算寬度
+            // 從 4 張變 3 張
+            @media (max-width: 1200px) {
+                // 計算：(3張 * 270px) + (2個間距 * 28px) = 810 + 56 = 866px
+                width: 866px;
+                gap: 28px;
+            }
+
+            // 從 3 張變 2 張
+            @media (max-width: 1024px) {
+                // 計算：(2張 * 270px) + (1個間距 * 28px) = 540 + 28 = 568px
+                width: 568px;
+                gap: 28px;
+            }
+
+            // 從 2 張變 1 張
+            @media (max-width: 600px) {
+                width: 270px;
+                gap: 16px; // 可以將手機的間距設為更小的數字
+            }
+
             .country {
+                width: 270px; // 保持固定寬度
+                flex-shrink: 0;
+                // ... 保持其他樣式不變 ...
                 background-color: $white;
                 position: relative;
 
@@ -475,33 +590,6 @@ main {
         .right {
             width: 60px;
             height: 60px;
-        }
-
-        /* 平板 */
-        @media (max-width: 1024px) {
-            .cards {
-                width: 700px; // 顯示 2 張卡片
-            }
-
-            .left,
-            .right {
-                width: 50px;
-                height: 50px;
-            }
-        }
-
-        /* 手機 */
-        @media (max-width: 768px) {
-            .cards {
-                width: 300px; // 顯示 1 張卡片
-                gap: 16px;
-            }
-
-            .left,
-            .right {
-                width: 40px;
-                height: 40px;
-            }
         }
     }
 }

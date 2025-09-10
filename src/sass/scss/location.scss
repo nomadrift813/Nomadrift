@@ -74,7 +74,6 @@
                  @media (max-width: 1200px) {
                      stroke: $white;
                      filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.6));
-
                  }
              }
          }
@@ -95,6 +94,10 @@
          font-weight: 300;
          line-height: 150%;
          letter-spacing: $spacing-xxs;
+
+         @media ($mediaMd) {
+             display: none;
+         }
      }
 
      .bPath {
@@ -106,7 +109,7 @@
          padding-top: 400px;
      }
 
-     .hotLoc {
+  .hotLoc {
          display: flex;
          align-items: center;
          gap: 80px;
@@ -167,7 +170,6 @@
                  border: 5px solid #FFF;
                  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
 
-                 //  @media ($mediaMd) {}
 
                  &:hover {
                      box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
@@ -365,52 +367,56 @@
          position: relative;
 
          img {
-             // width: 500px;
-             height: 520px;
+             width: 100%;
+             height: 36vw;
+             object-fit: cover; // 讓圖片填滿容器且不變形
 
              // RWD響應式
-             @media ($mediaEx) {
-                 height: 450px;
-             }
-
              @media ($mediaLg) {
-                 height: 400px;
+                 height: 60vh;
+                 width: 60vh;
              }
 
-             @media ($mediaMd) {
-                 height: auto; // 高度自適應
-                 width: 100%; // 寬度佔滿容器
+             @media (max-width:768px) {
+                 height: auto;
              }
+
+             //  @media ($mediaSm) {
+             //      height: 250px;
+             //      width: 100%;
+             //  }
          }
 
          h2 {
              color: $white;
              text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
              font-family: $family-tc;
-             font-size: $f-s-xxxl;
+             font-size: 4.2vh;
              font-style: normal;
              font-weight: $f-w-5;
              line-height: 150%;
              letter-spacing: 14.4px;
              position: absolute;
-             left: 50px;
-
-             // RWD: 調整標題位置和字體大小
-             @media ($mediaEx) {
-                 left: 30px;
-             }
+             left: 3.5vh;
 
              @media ($mediaLg) {
-                 left: 20px;
-                 font-size: $f-s-xxl; // 縮小字體
+                 font-size: 2.9vw; // 計算: 30px / 1024px = 0.0292 * 100
+                 left: 1.9vw; // 計算: 20px / 1024px = 0.0195 * 100
              }
 
              @media ($mediaMd) {
-                 position: relative; // 移除絕對定位，回歸流動
+                 // 在手機上回歸相對定位
+                 position: relative;
                  left: 0;
                  text-align: center;
-                 font-size: $f-s-xl;
+                 font-size: $f-s-xxl; // 使用固定字體大小
                  margin-top: 20px;
+                 letter-spacing: 15px;
+                 bottom: 140px;
+             }
+
+             @media ($mediaSm) {
+                 font-size: 36px;
              }
          }
      }
@@ -441,10 +447,16 @@
              margin-left: 0; // 移除負邊距
              width: 100%; // 寬度佔滿
              margin-top: 30px; // 增加上邊距與大陸區隔開
+             gap: 10px;
+         }
+
+         @media ($mediaSm) {
+             display: none;
          }
 
          .country {
              width: 270px;
+             flex-shrink: 0;
              background-color: $white;
              position: relative;
              transition: all 0.3s ease;
@@ -455,7 +467,8 @@
                  //  transition: all .2s 0s;
 
                  .color-block {
-                     width: 270px;
+                     //  width: 270px;
+                     width: 100%;
                      height: 8px;
                      background-color: $accent;
                  }
@@ -465,9 +478,16 @@
                  display: flex;
 
                  .loc-p1 {
-                     display: flex;
-                     width: 270px;
+                     //  display: flex;
+                     //  width: 270px;
+                     width: 100%;
                      height: 180px;
+
+                     img {
+                         width: 100%;
+                         height: 100%;
+                         object-fit: cover; // 讓圖片填滿容器且不變形
+                     }
                  }
 
                  .select {
@@ -482,12 +502,13 @@
              .loc-info {
                  display: flex;
                  flex-direction: column;
+                 //  width: 100%;
                  padding: 20px;
                  gap: 10px;
 
                  h2 {
                      display: flex;
-                     width: 230px;
+                     width: 100%;
                      color: $text;
                      font-family: Inter;
                      font-size: 24px;
@@ -498,7 +519,8 @@
 
                  .loc-text {
                      display: -webkit-box;
-                     width: 230px;
+                     //  width: 230px;
+                     width: 100%;
                      -webkit-box-orient: vertical;
                      -webkit-line-clamp: 1;
 
@@ -514,7 +536,8 @@
 
                  .wi-st {
                      display: flex;
-                     width: 230px;
+                     //  width: 230px;
+                     width: 100%;
                      align-items: center;
                      gap: 3px;
 
@@ -560,7 +583,7 @@
 
                  span {
                      display: flex;
-                     width: 230px;
+                     width: 100%;
                      color: $primary1;
                      font-family: $en;
                      font-size: $f-s-md;
@@ -571,16 +594,36 @@
              }
 
              .color-block {
-                 width: 270px;
+                 //  width: 270px;
+                 width: 100%;
                  height: 8px;
                  background-color: $primary1;
              }
          }
      }
 
+     @media ($mediaMd) {
+         .continent {
+             flex-direction: column;
+             align-items: center;
+         }
+
+         .conCards {
+             flex-direction: column;
+             align-items: center;
+             width: 100%;
+             margin-left: 0;
+             gap: 20px;
+         }
+     }
+
      .mySwiper {
          width: 100%;
          height: 100%;
+
+         @media ($mediaSm) {
+             display: none;
+         }
 
          .swiper-slide {
              text-align: center;
@@ -633,6 +676,7 @@
          padding-bottom: 30px;
      }
 
+
      // 更多按鈕
      .viewMore {
          display: flex;
@@ -675,41 +719,11 @@
              right: auto;
              bottom: auto;
              margin-top: 20px;
-             align-self: flex-end; // 將按鈕靠右
+             align-self: unset;
+         }
+
+         @media ($mediaSm) {
+             display: none;
          }
      }
  }
-
-
-
- // 探索更多
- /*  .expMore {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     background-color: $background1;
-     padding: 10px 0 80px 0;
-
-     .btn-expMore {
-         display: flex;
-         padding: 4px 24px;
-         justify-content: center;
-         align-items: center;
-         width: 160px;
-
-         font-family: $family-tc;
-         font-size: $f-s-md;
-         font-weight: $f-w-3;
-         line-height: 150%;
-         letter-spacing: 2px;
-
-         color: $white;
-         border: none;
-         border-radius: 999px;
-         background: $primary1;
-
-         &:hover {
-             background: $accent;
-         }
-     }
- } */

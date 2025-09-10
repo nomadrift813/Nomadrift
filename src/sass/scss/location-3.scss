@@ -146,6 +146,34 @@
     gap: 42px;
     flex-wrap: wrap;
 
+    // RWD: 4 cards per row (1920px and below)
+    @media (max-width: 1920px) {
+        // Adjust padding and gap to fit 4 cards more comfortably
+        padding: 0px 100px 80px 100px;
+        gap: 30px;
+    }
+
+    // RWD: 3 cards per row (1199px and below)
+    @media (max-width: 1199px) {
+        // Adjust padding and gap for a 3-card layout
+        padding: 0px 80px 60px 80px;
+        gap: 20px;
+    }
+
+    // RWD: 2 cards per row (996px and below)
+    @media (max-width:996px) {
+        // Adjust padding and gap for a 2-card layout
+        padding: 0px 40px 40px 40px;
+        gap: 20px;
+    }
+
+    // RWD: 1 card per row (768px and below)
+    @media (max-width: 768px) {
+        // Ensure only one card fits by making it full-width
+        padding: 0px 20px 20px 20px;
+        gap: 20px;
+    }
+
     .country {
         background-color: $white;
         position: relative;
