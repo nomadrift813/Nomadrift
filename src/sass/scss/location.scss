@@ -9,6 +9,7 @@
      display: flex;
      width: 100%;
      height: 120vh;
+     max-height: 90vh;
      flex-direction: column;
      align-items: center;
      position: relative;
@@ -109,7 +110,7 @@
          padding-top: 400px;
      }
 
-  .hotLoc {
+     .hotLoc {
          display: flex;
          align-items: center;
          gap: 80px;
@@ -135,7 +136,6 @@
                  justify-content: center;
                  align-items: center;
                  gap: 5px;
-                 flex: 100;
 
                  border-radius: 100px;
                  background: #FFF;
@@ -391,7 +391,7 @@
              color: $white;
              text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
              font-family: $family-tc;
-             font-size: 4.2vh;
+             font-size: 3.6vh;
              font-style: normal;
              font-weight: $f-w-5;
              line-height: 150%;
@@ -399,8 +399,12 @@
              position: absolute;
              left: 3.5vh;
 
+             @media ($mediaXl) {
+                 font-size: 3vh;
+             }
+
              @media ($mediaLg) {
-                 font-size: 2.9vw; // 計算: 30px / 1024px = 0.0292 * 100
+                 font-size: 2.4vh; // 計算: 30px / 1024px = 0.0292 * 100
                  left: 1.9vw; // 計算: 20px / 1024px = 0.0195 * 100
              }
 
@@ -621,6 +625,14 @@
          width: 100%;
          height: 100%;
 
+         @media ($mediaLg) {
+             width: 680px;
+         }
+
+         @media ($mediaMd) {
+             width: 600px;
+         }
+
          @media ($mediaSm) {
              display: none;
          }
@@ -704,9 +716,9 @@
          }
 
          // RWD: 調整更多按鈕位置
-         @media ($mediaXl) {
-             right: 50px;
-             bottom: 50px;
+         @media ($mediaEx) {
+             right: 120px;
+             bottom: 20px;
          }
 
          @media ($mediaLg) {
