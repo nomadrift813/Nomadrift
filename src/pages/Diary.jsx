@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../sass/scss/diary.scss';
+import CalendarInput from '../component/CalendarInput'
 
 const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'short', day: '2-digit' };
@@ -218,6 +219,7 @@ const initialPosts = [
 ];
 
 const Diary = () => {
+  const [singleDate, setSingleDate] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [posts, setPosts] = useState(initialPosts);
   const [newPostTitle, setNewPostTitle] = useState('');
@@ -226,7 +228,6 @@ const Diary = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [newPostLocation, setNewPostLocation] = useState('台北/ 台灣');
   const [newPostDate, setNewPostDate] = useState(new Date().toISOString().substring(0, 10));
-
   const [activeCategory, setActiveCategory] = useState('全部日記');
 
   const filteredPosts = activeCategory === '全部日記'
@@ -382,12 +383,13 @@ const Diary = () => {
                                 onChange={(e) => setNewPostLocation(e.target.value)}
                               />
                             </div>
-                            <input
+                        
+                                 <input
                               type="date"
                               className="date-input"
                               value={newPostDate}
                               onChange={(e) => setNewPostDate(e.target.value)}
-                            />
+                            /> 
                           </div>
                         </div>
                         <button className="publish-btn" onClick={handlePublishPost}>發布</button>

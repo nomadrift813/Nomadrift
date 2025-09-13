@@ -166,7 +166,7 @@ const Diary2 = () => {
                         <section className='diaArticleSection2' key={currentPost.id}>
                             <div className='p1-sel2'>
                                 <figure className='dia-p2'><img src={currentPost.imageUrl} alt="" /></figure>
-                                <figure className='dia-p2-1'><img src={currentPost.imageUrl} alt="" /></figure>
+                                {/* <figure className='dia-p2-1'><img src={currentPost.imageUrl} alt="" /></figure> */}
                             </div>
                             <article className='diaArticle2'>
                                 <div className='d-text-card-wrapper'>
