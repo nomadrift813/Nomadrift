@@ -21,7 +21,7 @@ const initialPosts = [
     liked: false,
     saved: false,
     category: '亞洲',
-    profileImgSrc: './img-Group/people/Commenter (2).jpg',
+    profileImgSrc: './img-Group/people/Commenter (3).jpg',
   },
   {
     id: 2,
@@ -352,7 +352,7 @@ const Diary = () => {
           <div className="post-modal-overlay" style={{ zIndex: 1000 }} onClick={closePostModal}>
             <div className="post-modal-content" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header">
-                <img src="./img-Group/people/Commenter (2).jpg" alt="" className="member-avatar" />
+                <img src="./img-Group/people/People-(11).jpg" alt="" className="member-avatar" />
                 <span className="member-name">Andy Chen</span>
                 <button className="close-btn" onClick={closePostModal}>&times;</button>
               </div>
@@ -470,7 +470,7 @@ const Diary = () => {
               </div>
               <section id='diary-article'>
                 <section className="diaPost" onClick={handleOpenPostModal}>
-                  <img src="./img-Group/people/Commenter (3).jpg" alt="User Avatar" className="current-user-avatar" />
+                  <img src="./img-Group/people/People-(11).jpg" alt="User Avatar" className="current-user-avatar" />
                   <p className="input-placeholder">新鮮事?</p>
                   <button className="share-btn">
                     <img src="./img-diary/open-in-new.svg" alt="Share" />

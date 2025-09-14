@@ -57,7 +57,7 @@ const CommentSection = ({ comments, isVisible, onAddComment }) => {
     const handleCommentSubmit = () => {
         if (newComment.trim() !== '') {
             // 假設新留言者使用一個固定的頭像
-            onAddComment({ author: 'Andy Chen', text: newComment, avatarUrl: './img-Group/people/People-(10).jpg' });
+            onAddComment({ author: 'Andy Chen', text: newComment, avatarUrl: './img-Group/people/People-(11).jpg' });
             setNewComment(''); // 清空輸入框
         }
     };
