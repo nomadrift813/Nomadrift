@@ -1,5 +1,5 @@
 
-import React, { useRef , useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from 'react-router-dom'
 import '../sass/scss/location-2.scss'
 
@@ -24,6 +24,39 @@ const Location2 = () => {
     // select點擊
     const [active, setActive] = useState(false);
 
+    // 圖片來源陣列
+    const images = [
+        "./img-Location/p01.jpeg",
+        "./img-Location/p02.jpeg",
+        "./img-Location/p03.jpeg",
+        "./img-Location/p04.jpeg",
+    ];
+
+    // 使用 useState 來管理主圖片的 URL
+    const [mainImage, setMainImage] = useState(images[0]);
+
+    // 使用 useState 來管理縮圖陣列
+    const [thumbnailImages, setThumbnailImages] = useState(images.slice(1));
+
+    // 處理點擊事件的函式
+    const handleThumbnailClick = (clickedImage) => {
+        // 找出目前主圖片在縮圖陣列中的位置
+        const currentMainIndex = thumbnailImages.findIndex(img => img === mainImage);
+
+        // 如果主圖片不在縮圖中，代表它被點選了
+        if (currentMainIndex === -1) {
+            // 找到被點選的縮圖，並將主圖片替換
+            const newThumbnails = thumbnailImages.map(img => img === clickedImage ? mainImage : img);
+            setThumbnailImages(newThumbnails);
+            setMainImage(clickedImage);
+        } else {
+            // 否則，將點選的縮圖與主圖片交換位置
+            const newThumbnails = thumbnailImages.map(img => img === clickedImage ? mainImage : img);
+            setThumbnailImages(newThumbnails);
+            setMainImage(clickedImage);
+        }
+    };
+
 
     return (
         <main>
@@ -45,11 +78,19 @@ const Location2 = () => {
             <section id='allInfo'>
                 {/* 地點照片 */}
                 <figure className='allPic'>
-                    <img className='picXl' src="./img-Location/p01.jpeg" alt="" />
+                    {/* 主圖片，src 會根據狀態改變 */}
+                    <img className='picXl' src={mainImage} alt="" />
+
+                    {/* 縮圖區 */}
                     <div className='detPic'>
-                        <img src="./img-Location/p02.jpeg" alt="" />
-                        <img src="./img-Location/p03.jpeg" alt="" />
-                        <img src="./img-Location/p04.jpeg" alt="" />
+                        {thumbnailImages.map((image, index) => (
+                            <img
+                                key={index} // 記得為列表項目提供 key
+                                src={image}
+                                alt={`Thumbnail ${index + 2}`}
+                                onClick={() => handleThumbnailClick(image)} // 點擊時呼叫處理函式
+                            />
+                        ))}
                     </div>
                 </figure>
 
@@ -62,7 +103,7 @@ const Location2 = () => {
                                 onClick={() => setActive(!active)} // 點擊切換狀態
                                 style={{ cursor: "pointer" }}>
                                 <circle cx="30" cy="30" r="30" fill="none" />
-                                <path d="M18 21.667C18 18.5372 20.5746 16 23.7506 16H36.2494C39.4254 16 42 18.5372 42 21.667V39.215C42 42.368 38.312 44.1337 35.7968 42.185L31.1847 38.6117C30.4895 38.073 29.5105 38.073 28.8153 38.6117L24.2032 42.185C21.688 44.1337 18 42.368 18 39.215V21.667Z" stroke="#1F1F1F" strokeWidth="1.5" fill={active ? "#201811" : "none"}  />
+                                <path d="M18 21.667C18 18.5372 20.5746 16 23.7506 16H36.2494C39.4254 16 42 18.5372 42 21.667V39.215C42 42.368 38.312 44.1337 35.7968 42.185L31.1847 38.6117C30.4895 38.073 29.5105 38.073 28.8153 38.6117L24.2032 42.185C21.688 44.1337 18 42.368 18 39.215V21.667Z" stroke="#1F1F1F" strokeWidth="1.5" fill={active ? "#201811" : "none"} />
                             </svg>
                         </div>
                         <div className='wifiStr'>

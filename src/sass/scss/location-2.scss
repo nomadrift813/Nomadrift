@@ -87,10 +87,27 @@ main {
         align-items: center;
         gap: 20px;
 
+        /* RWD: 在小螢幕上讓照片區塊寬度佔滿容器 */
+        @media ($mediaMd) {
+            width: 100%;
+            gap: 10px;
+        }
+
         .picXl {
             height: 532px;
             align-self: stretch;
             border-radius: 80px 0 0 0;
+
+            /* RWD: 在小螢幕上讓圖片寬高自適應 */
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 478 / 532;
+            /* 保持圖片比例 */
+
+            @media ($mediaMd) {
+                border-radius: 40px 0 0 0;
+            }
         }
 
         .detPic {
@@ -100,9 +117,23 @@ main {
             gap: 20px;
             align-self: stretch;
 
+            /* RWD: 在小螢幕上縮小間距 */
+            @media ($mediaMd) {
+                gap: 10px;
+            }
+
             img {
                 width: 146px;
                 height: 146px;
+
+                /* RWD: 讓縮圖使用百分比寬度，並保持正方形比例 */
+                width: calc(33.33% - 14px);
+                /* (100% - 2*20px)/3 = 20% */
+                height: auto;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                cursor: pointer;
+                /* 增加點擊效果 */
             }
         }
     }
