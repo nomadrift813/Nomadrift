@@ -52,7 +52,6 @@
 }
 
 .diaAll2 {
-
     background-image: url('../img/diary-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -65,23 +64,41 @@
     width: 100%;
     flex-direction: column;
     background-color: $background1;
-    padding: 50px 50px 0 50px;
+    padding: 50px 100px 0 100px;
+
+    .t-1{
+         color: $primary2;
+            font-family: $en;
+            font-size: $f-s-md2;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: 4.4px;
+            span {
+                border-bottom: 1px solid $primary1;
+                padding-bottom: 8px;
+            }
+    }
 
     .d-t-title2 {
+        padding: 50px 0 60px 16px;
+        gap: 15px;
         display: flex;
-        align-items: baseline;
-        padding: 70px 0 70px 16px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         gap: 15px;
     }
 
-
     .title-large2 {
-        color: $primary2;
-        font-family: $en;
-        font-size: $f-s-xxl;
-        font-weight: $f-w-4;
-        line-height: 150%;
-        letter-spacing: 4.4px;
+        color: $text;
+            font-family: $family-tc;
+            font-size: $f-s-xxl;
+            font-style: normal;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            letter-spacing: 10.8px;
     }
 
     .title-small2 {
@@ -92,8 +109,6 @@
         line-height: 150%;
         letter-spacing: 4.4px;
     }
-
-
 
     header {
         width: 100%;
@@ -110,10 +125,10 @@
 
 .diaDrop2 {
     margin-left: 40px;
-    position: relative; // 讓子元素的絕對定位可以參考這個父元素
-    width: 40px; // 設定按鈕容器的寬度
-    height: 40px; // 設定按鈕容器的高度
-    overflow: hidden; // 超出容器的內容會被隱藏
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
     background-color: $primary1;
     transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
     justify-content: flex-end;
@@ -123,99 +138,91 @@
     border-radius: 25px;
 
     &:hover {
-        width: 150px; // 滑鼠懸停時，寬度變大
+        width: 150px;
     }
 
     ul {
         display: flex;
         align-items: center;
-        list-style: none; // 移除清單的點
+        list-style: none;
         padding: 0 5px;
 
         li {
             color: #fff;
-            white-space: nowrap; // 防止文字換行
-            opacity: 0; // 預設隱藏文字
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; // 文字的淡入和移動效果
-            transform: translateX(50px); // 文字預設位置
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform: translateX(50px);
         }
     }
 
-    // 調整回上一頁的圖片樣式
     img {
-        width: 30px; // 設定圖片大小
+        width: 30px;
         height: 30px;
-        margin-left: 0; // 預設沒有間距
-        transition: margin-right 0.3s ease-in-out; // 圖片的滑動效果
+        margin-left: 0;
+        transition: margin-right 0.3s ease-in-out;
     }
 
-    // 滑鼠懸停時的變化
     &:hover {
         ul {
             li {
-                opacity: 1; // 顯示文字
-                transform: translateX(0); // 將文字移到原始位置
-                margin-right: 10px; // 圖片和文字之間新增間距
+                opacity: 1;
+                transform: translateX(0);
+                margin-right: 10px;
             }
         }
 
         img {
-            margin-left: 10px; // 圖片和文字之間新增間距
+            margin-left: 10px;
         }
     }
 }
 
-
-
 .next-post-btn {
-    position: absolute; // 關鍵：使用絕對定位
-    top: 50%; // 將按鈕頂部移到父元素的垂直中心點
-    right: 20px; // 距離父元素右側 20px
-    transform: translateY(-50%); // 關鍵：向上平移按鈕自身高度的一半，實現垂直居中
-    z-index: 10; // 確保按鈕在其他元素上方
+    position: absolute;
+    top: 60%;
+    right: 70px;
+    transform: translateY(-50%);
+    z-index: 10;
     animation: moveArrow 1.5s ease-in-out infinite;
 
-    &:hover {}
 
     img {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
+    }
+     @media (max-width: 1200px) {
+        top: 100%;
     }
 }
 
 .next-post-btn2 {
-    position: absolute; // 關鍵：使用絕對定位
-    top: 50%; // 將按鈕頂部移到父元素的垂直中心點
-    left: 20px; // 距離父元素右側 20px
-    transform: translateY(-50%); // 關鍵：向上平移按鈕自身高度的一半，實現垂直居中
-    z-index: 10; // 確保按鈕在其他元素上方
+    position: absolute;
+    top: 60%;
+    left: 70px;
+    transform: translateY(-50%);
+    z-index: 10;
     animation: moveArrow 1.5s ease-in-out infinite;
 
-    &:hover {}
-
     img {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
+    }
+     @media (max-width: 1200px) {
+        top: 100%;
     }
 }
 
 .diaContent2 {
     display: flex;
-    // align-items: flex-start;
-    // gap: 10rem;
-    // padding: 20px 0 0 0;
-    position: relative;
     justify-content: center;
 
-     @media (max-width: 1200px) {
+    @media (max-width: 1200px) {
         flex-direction: row;
         display: flex;
         flex-wrap: wrap;
-
     }
 }
-
-
 
 .diaArticleSection2 {
     display: flex;
@@ -224,12 +231,19 @@
     max-width: 1000px;
     width: 100%;
     animation: slideInFromRight 0.8s ease-out forwards;
-    /* 應用動畫 */
     opacity: 0;
-    /* 確保動畫開始前是隱藏的 */
     border-bottom: none;
-    /*移除這條線，改到裡面*/
 
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        align-items: center;
+        .p1-sel2 {
+            width: 95%;
+        }
+        .diaArticle2 {
+            width: 100%;
+        }
+    }
 
     .p1-sel2 {
         padding: 24px;
@@ -264,7 +278,6 @@
                 height: 100%;
                 object-fit: cover;
                 display: block;
-
             }
         }
     }
@@ -306,7 +319,13 @@
     display: flex;
     flex-direction: column;
     padding: 24px;
-    width: 550px
+    width: 550px;
+
+    /* 關鍵：在 1200px 處改變寬度 */
+    @media (max-width: 1200px) {
+        width: 100%; // 將寬度調整為 100%
+        padding: 24px 50px; // 調整左右邊距，讓內容看起來更舒適
+    }
 }
 
 .d-text2 {
@@ -331,10 +350,9 @@
     flex-wrap: wrap;
     font-size: 0.8rem;
     color: #999;
-    padding-bottom: 15px; // 留言區前的間距
-    margin-bottom: 15px; // 留言區前的間距
-    border-bottom: 1px solid #ccc; // 底部線條
-
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
 
     .d-locaion2 {
         display: flex;
@@ -380,7 +398,6 @@
 }
 
 /* 新增留言區樣式 */
-
 .comment-section-container {
     display: flex;
     flex-direction: column;
@@ -450,5 +467,4 @@
     &:hover {
         background-color: $accent;
     }
-
 }

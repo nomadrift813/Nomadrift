@@ -401,7 +401,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 260px;
+    height: 280px;
     /* 控制圖片高度 */
     background-image: url('../img-diary/World Map.png');
     background-position: center top;
@@ -443,30 +443,31 @@
 
         h2 {
             color: $primary2;
-            font-family: $en;
+            font-family: $family-tc;
             font-size: $f-s-xxl;
             font-weight: $f-w-4;
             line-height: 150%;
-            letter-spacing: 4.4px;
+            letter-spacing: $spacing-xs;
             position: relative;
             z-index: 3;
         }
 
         p {
             color: $primary2;
-            /* 假設你希望它與 h2 同色，可根據需求調整 */
             font-family: $en;
-            font-size: $f-s-sm;
-            /* 假設你希望它字體小一點 */
-            letter-spacing: 2px;
+            font-size: 22px;
+             font-style: normal;
+                 font-weight: $f-w-4;
+                 line-height: 150%;
+                 letter-spacing: $spacing-xxs;
         }
 
 
         span {
             padding-left: 15px;
             color: $primary2;
-            font-family: $en;
-            font-size: $f-s-xs;
+            font-family: $family-tc;
+            font-size: 22px;
             font-weight: $f-w-4;
             line-height: 150%;
             letter-spacing: 4.4px;

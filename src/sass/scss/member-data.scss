@@ -64,7 +64,7 @@
             border-bottom: 1px dashed $text;
             margin-bottom: 32px;
             padding-bottom: 7px;
-            margin-right: calc(50% - 40vw);
+            margin-right: calc(50% - 30vw);
 
             p {
                 color: $text;
@@ -157,9 +157,10 @@
                         height: 32px;
                         border: none;
                         border-radius: 12px;
-                        padding: 5px;
+                        padding: 10px;
                         border: 2px solid #ccc;
                         background: white;
+                        font-size: 16px;
 
                         &:hover {
                             border: 2px solid $accent;
@@ -173,7 +174,7 @@
 
                     .m-sex-box {
                         display: flex;
-                        gap: 3px;
+                        gap: 15px;
                         justify-content: flex-end;
                         align-items: center;
                         margin: auto;
@@ -221,6 +222,13 @@
 
 /* 編輯照片按鈕的樣式 */
 .photo {
+    color: $text;
+    font-family: "Noto Sans TC";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 2px;
     background: #ccc;
     display: flex;
     padding: 5px 30px;
@@ -228,6 +236,7 @@
     align-items: center;
     border-radius: 99px;
     border: none;
+
 
     &:nth-child(1) {
         background: #E5E5E5;
@@ -240,6 +249,13 @@
 
 /* 登出按鈕的樣式 */
 .logout {
+    color: $text;
+    font-family: "Noto Sans TC";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 2px;
     background: $accent;
     display: flex;
     padding: 5px 30px;
@@ -264,6 +280,13 @@
     align-items: center;
 
     .save-btn {
+        color: $text;
+        font-family: "Noto Sans TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 2px;
         background: $accent;
         display: flex;
         padding: 5px 30px;

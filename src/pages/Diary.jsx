@@ -67,7 +67,7 @@ const initialPosts = [
     author: 'Ting',
     title: '🎲 今天和網友玩桌遊到凌晨三點',
     content: '本來只是想找個地方 chill 一下，結果一進門就被拉進一局狼人殺。一開始大家還很拘謹，結果越玩越開，吵到老闆都來看我們是怎樣了。\n我從沒想過，語言不同、背景不同，靠一場遊戲居然也能拉近距離。\n回家的路上我竟然有點捨不得，還忍不住問他們「聖誕節你們在哪？」原來認識朋友有時不需要理由，只要你願意一起玩。',
-    imgSrc: './img-diary/diary-5.png',
+    imgSrc: './img-diary/diary-5.jpg',
     location: '葡萄牙/ 里斯本',
     date: 'Jul,14 2025',
     liked: false,

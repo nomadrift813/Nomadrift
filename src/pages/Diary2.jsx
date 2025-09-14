@@ -40,7 +40,7 @@ const posts = [
         text: '本來只是想找個地方 chill 一下，結果一進門就被拉進一局狼人殺。</br>一開始大家還很拘謹，結果越玩越開，吵到老闆都來看我們是怎樣了。</br>我從沒想過，語言不同、背景不同，靠一場遊戲居然也能拉近距離。</br>回家的路上我竟然有點捨不得，還忍不住問他們「聖誕節你們在哪？」原來認識朋友有時不需要理由，只要你願意一起玩。<br />—<br />#遊戲 #桌遊 #新朋友 #深夜食堂',
         location: '葡萄牙/ 里斯本',
         date: 'Jul,14 2025',
-        imageUrl: './img-diary/diary-5.png',
+        imageUrl: './img-diary/diary-5.jpg',
         profileImgSrc: './img-Group/people/Commenter (2).jpg',
         comments: [
             { id: 1, author: 'David', text: '狼人殺真的是破冰神器！', avatarUrl: './img-Group/people/join-people (6).jpg' }
@@ -172,10 +172,11 @@ const Diary2 = () => {
             
             <section className="diaAll2">
                 <section id='diary-discover2'>
-                  
+                  <div className="title-bg-container"></div>
                     <div className='d-t-title2'>
+                         <p className='t-1'>A diary b<span>eyon</span>d borders</p>
                         <span className='title-large2'>漂日記</span>
-                        <span className='title-small2'>亞洲 ------------</span>
+                        <span className='title-small2'>----- 亞洲 ------</span>
                     </div>
                     <div className='diaDrop2'>
                             <Link to="/diary">
