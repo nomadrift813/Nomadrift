@@ -3,10 +3,13 @@
 
 #log {
     padding: 0px;
+    .auth-inner{
+        gap: 10px;
+    }
     form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         justify-content: flex-start;
         align-items: center;
 

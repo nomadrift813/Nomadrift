@@ -16,11 +16,11 @@
     background: url('/img-Group/BannerPhoto.jpg') center/cover no-repeat;
 
     @media ($mediaMd) {
-        height: 80vh;
+        height: 90vh;
     }
 
     @media ($mediaSm) {
-        height: 70vh;
+        height: 80vh;
     }
 
     // 標語區
@@ -33,7 +33,7 @@
         align-items: center;
         gap: 20px;
         // padding: 24px;
-        height: 150vh;
+        height: 140vh;
         text-align: center;
 
         @media ($mediaMd) {
@@ -53,16 +53,16 @@
 
         h3 {
             font-family: $en;
-            font-size: $f-s-sm2;
+            font-size: $f-s-md2;
             font-weight: $f-w-4;
-            letter-spacing: 2px;
+            letter-spacing: $spacing-xxs;
         }
 
         h2 {
             font-family: $family-tc;
-            font-size: $f-s-xl;
+            font-size: $f-s-xxl;
             font-weight: $f-w-5;
-            letter-spacing: 4px;
+            letter-spacing: $spacing-xs;
         }
 
         .line {
@@ -101,7 +101,7 @@
         }
 
         .locScroll {
-            margin-top: 37px;
+            margin-top: 10px;
             display: flex;
             justify-content: center;
         }
@@ -138,24 +138,24 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 40px 150px;
+    margin: 70px 150px;
     overflow-x: clip;
-    gap: 32px;
+    gap: 40px;
 
     @media ($mediaXl) {
-        margin: 20px 50px;
+        margin: 60px 50px;
     }
 
     @media ($mediaLg) {
-        margin: 20px 80px;
+        margin: 50px 80px;
     }
 
     @media ($mediaMd) {
-        margin: 10px 60px;
+        margin: 40px 60px;
     }
 
     @media ($mediaSm) {
-        margin: 10px 50px;
+        margin: 30px 50px;
     }
 
 
@@ -178,17 +178,17 @@
         h3 {
             color: $primary2;
             font-family: $en;
-            font-size: $f-s-sm2;
+            font-size: $f-s-md2;
             font-weight: $f-w-4;
-            letter-spacing: 2px;
+            letter-spacing: $spacing-xxs;
         }
 
         h2 {
             color: $text;
             font-family: $family-tc;
-            font-size: $f-s-xl;
+            font-size: $f-s-xxl;
             font-weight: $f-w-5;
-            letter-spacing: 4px;
+            letter-spacing: $spacing-xs;
         }
 
         .line {
@@ -208,6 +208,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
+            // margin: 10px 0px;
         }
 
         .group-buttons>li {
@@ -253,6 +254,19 @@
         column-gap: 16px; // 欄與欄之間的距離
         column-fill: balance; // 盡量平衡每欄高度
         column-count: 3; // 桌機 3 欄
+        
+        //目前沒有符合條件的活動
+        .no-activities{
+            // 文字樣式
+            color:$primary2;
+            font-family: $family-tc;
+            font-size: $f-s-sm2;
+            font-style: normal;
+            font-weight: $f-w-5;
+            line-height: 150%;
+            letter-spacing: 2px;
+            justify-content: center;
+        }
 
         /* 響應式欄數 */
         @media ($mediaLg) {
@@ -336,7 +350,7 @@
 
 .button-list .group-buttons.stagger li {
     opacity: 0;
-    transform: translateY(10px) ;
+    transform: translateY(10px);
     transition:
         opacity 2s cubic-bezier(.2, 1, .3, 1),
         transform 2s cubic-bezier(.2, 1, .3, 1);
@@ -345,7 +359,7 @@
 
 .button-list .group-buttons.stagger.stagger-show li {
     opacity: 1;
-    transform: translateY(0) ;
+    transform: translateY(0);
 }
 
 /* 逐一延遲（由左到右），可依實際 li 數量增減 */

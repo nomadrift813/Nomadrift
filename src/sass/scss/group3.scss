@@ -9,10 +9,10 @@
 #groupSlogan3 {
     // position: static;
     display: flex;
-    margin-top: 50px;
+    margin: 50px;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 13px;
     background: $background1;
     z-index: 1;
 
@@ -25,17 +25,17 @@
     h3 {
         color: $primary2;
         font-family: $en;
-        font-size: $f-s-sm2;
+        font-size: $f-s-md2;
         font-weight: $f-w-4;
-        letter-spacing: 2px;
+        letter-spacing: 7px;
     }
 
     h2 {
         color: $text;
         font-family: $family-tc;
-        font-size: $f-s-xl;
+        font-size: $f-s-xxl;
         font-weight: $f-w-5;
-        letter-spacing: 4px;
+        letter-spacing: $spacing-xs;
     }
 
     .line {

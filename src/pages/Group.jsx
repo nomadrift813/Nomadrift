@@ -462,7 +462,7 @@ const Group = () => {
         {/* 所有卡片合輯（每張卡片淡入） */}
         <div className='cards-container'>
           {pagedActivities.length === 0 ? (
-            <p style={{ textAlign: 'center', width: '100%' }}>目前沒有符合條件的活動</p>
+            <p className='no-activities'>目前沒有符合條件的活動</p>
           ) : (
             pagedActivities.map((activity, idx) => (
               <FilterableCard
