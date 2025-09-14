@@ -70,7 +70,7 @@
     .d-t-title2 {
         display: flex;
         align-items: baseline;
-        padding: 70px 0 0 16px;
+        padding: 70px 0 70px 16px;
         gap: 15px;
     }
 
@@ -206,6 +206,13 @@
     // padding: 20px 0 0 0;
     position: relative;
     justify-content: center;
+
+     @media (max-width: 1200px) {
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
 }
 
 

@@ -103,7 +103,7 @@ $text: #201811;
             position: absolute;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translatey(-100%) translateX(-50%);
             width: 350px;
             max-width: 90vw;
             background: white;

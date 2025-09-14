@@ -294,8 +294,8 @@
         }
 
         img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
         }
 
         .location-icon {
@@ -598,6 +598,47 @@
 
 }
 
+.toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  animation: fadeInOut 3.5s ease-in-out;
+}
+
+.toast-content {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
 #diary-article {
     flex: 1;
     padding: 32px 16px 16px 16px;
@@ -630,6 +671,9 @@
 
         .p1-sel {
             order: 1;
+            @media (max-width: 1142px) {
+                order:-1;
+            }
 
             .dia-p1 {
                 width: 274px;
@@ -646,9 +690,11 @@
 
                 @media (max-width: 1142px) {
                     width: 100%;
+                    
                 }
 
             }
+            
         }
 
         .diaArticle1 {
@@ -763,6 +809,10 @@
                                 transform: scale(1.1);
                             }
                         }
+                    }
+                    .allbutton{
+                        display: flex;
+                        gap: 1rem;
                     }
                 }
             }

@@ -1,17 +1,14 @@
 @use 'reset';
 @use 'var' as *;
 
-
 #member-information {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: flex-start;
-
     background-color: $background1;
     padding-top: 166px;
     padding-left: 225px;
-
     gap: 185px;
 
     @media ($mediaXl) {
@@ -26,9 +23,6 @@
         padding-top: 150px;
         align-items: flex-start;
     }
-
-
-
 
     header {
         ul {
@@ -65,14 +59,11 @@
         }
     }
 
-
     .m-all-box {
-
         .m-d-title {
             border-bottom: 1px dashed $text;
             margin-bottom: 32px;
             padding-bottom: 7px;
-
             margin-right: calc(50% - 40vw);
 
             p {
@@ -85,11 +76,9 @@
                 line-height: 130%;
                 letter-spacing: 1.2px;
             }
-
         }
 
         article {
-
             display: flex;
             gap: 100px;
 
@@ -102,16 +91,12 @@
                 gap: 50px;
             }
 
-
-
             .m-p-b {
                 display: flex;
                 flex-direction: column;
                 gap: 22px;
                 justify-content: flex-start;
                 align-items: center;
-
-
 
                 figure {
                     display: flex;
@@ -128,251 +113,241 @@
                         height: 100%;
                         object-fit: cover;
                     }
-
-
-
-
                 }
 
                 div {
                     display: flex;
                     flex-direction: column;
                     gap: 14px;
-
-
-                    .photo {
-                        background: #ccc;
-
-                        display: flex;
-                        padding: 5px 30px;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 99px;
-                        border: none;
-
-                        &:nth-child(1) {
-                            background: #E5E5E5;
-                        }
-
-                        &:hover {
-                            box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-                        }
-
-                    }
-
-                    .logout {
-                        background: $accent;
-
-                        display: flex;
-                        padding: 5px 30px;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 99px;
-                        border: none;
-
-                        &:nth-child(1) {
-                            background: #E5E5E5;
-                        }
-                        &:hover {
-                            box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-                        }
-
-                    }
-
-
                 }
-
-
             }
 
-        }
-        .save {
-                        background: $accent;
-
-                        display: flex;
-                        padding: 5px 30px;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 99px;
-                        border: none;
-
-                        &:nth-child(1) {
-                            background: #E5E5E5;
-                        }
-                        &:hover {
-                            box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-                        }
-
-                    }
-
-
-        #memberform {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-
-
-
-            @media ($mediaSm) {
-                gap: 15px;
-            }
-
-
-            .form-row {
+            #memberform {
                 display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 12px;
+                flex-direction: column;
+                gap: 30px;
 
-                label {
-                    text-align: right;
-                    white-space: nowrap;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-
-                    color: $text;
-                    font-family: $family-tc;
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 150%;
-                    letter-spacing: 2px;
-
+                @media ($mediaSm) {
+                    gap: 15px;
                 }
 
-                input {
-
-                    flex: 1;
-                    height: 32px;
-                    border: none;
-                    border-radius: 12px;
-                    // text-align: end;
-                    padding: 5px;
-                    border: 2px solid #ccc;
-
-
-
-                    background: white;
-
-                    &:hover {
-                        border: 2px solid $accent;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        border-color: $accent;
-                    }
-
-                }
-
-                .m-sex-box {
+                .form-row {
                     display: flex;
-                    gap: 3px;
-                    justify-content: flex-end;
+                    justify-content: flex-start;
                     align-items: center;
-                    margin: auto;
+                    gap: 12px;
 
-
-                    .m-sex-choice1 {
+                    label {
+                        text-align: right;
+                        white-space: nowrap;
                         display: flex;
                         justify-content: center;
                         align-items: center;
-
-                        #m-sex-1 {
-                            /* 使用絕對定位將其移出可見區域 */
-                            position: absolute;
-                            /* 設為 0 以隱藏，但仍可被點擊 */
-                            opacity: 0;
-                        }
-
-                        /* 自訂未選取狀態的圓圈樣式 */
-                        #m-sex-1+label {
-
-                            &::before {
-                                content: '';
-                                display: inline-block;
-                                width: 16px;
-                                height: 16px;
-                                border-radius: 50%;
-                                border: 2px solid #ccc;
-                                margin-right: 8px;
-                                vertical-align: middle;
-                                box-sizing: border-box;
-                                background-color: #fff;
-                            }
-                        }
-
-                        /* 自訂選取狀態的圓圈樣式 */
-                        #m-sex-1:checked+label {
-                            /* 選取時，改變文字顏色 */
-                            color: $accent;
-                            /* 藍色 */
-
-                            /* 選取時，改變偽元素的樣式 */
-                            &::before {
-                                border-color: #ccc;
-                                /* 藍色邊線 */
-                                background-color: $accent;
-                                /* 藍色背景 */
-                            }
-                        }
-
-                        #m-sex-2 {
-                            /* 使用絕對定位將其移出可見區域 */
-                            position: absolute;
-                            /* 設為 0 以隱藏，但仍可被點擊 */
-                            opacity: 0;
-                        }
-
-                        /* 自訂未選取狀態的圓圈樣式 */
-                        #m-sex-2+label {
-
-                            /* 使用 ::before 偽元素來繪製圓圈 */
-                            &::before {
-                                content: '';
-                                display: inline-block;
-                                width: 16px;
-                                height: 16px;
-                                border-radius: 50%;
-                                border: 2px solid #ccc;
-                                margin-right: 8px;
-                                vertical-align: middle;
-                                box-sizing: border-box;
-                                background-color: #fff;
-                            }
-                        }
-
-                        /* 自訂選取狀態的圓圈樣式 */
-                        #m-sex-2:checked+label {
-                            /* 選取時，改變文字顏色 */
-                            color: $accent;
-                            /* 藍色 */
-
-                            /* 選取時，改變偽元素的樣式 */
-                            &::before {
-                                border-color: #ccc;
-                                background-color: $accent;
-                            }
-                        }
-
-
+                        color: $text;
+                        font-family: $family-tc;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 150%;
+                        letter-spacing: 2px;
                     }
 
+                    input {
+                        flex: 1;
+                        height: 32px;
+                        border: none;
+                        border-radius: 12px;
+                        padding: 5px;
+                        border: 2px solid #ccc;
+                        background: white;
+
+                        &:hover {
+                            border: 2px solid $accent;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: $accent;
+                        }
+                    }
+
+                    .m-sex-box {
+                        display: flex;
+                        gap: 3px;
+                        justify-content: flex-end;
+                        align-items: center;
+                        margin: auto;
+
+                        .m-sex-choice1 {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            input[type="radio"] {
+                                position: absolute;
+                                opacity: 0;
+                            }
+
+                            label {
+                                &::before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 50%;
+                                    border: 2px solid #ccc;
+                                    margin-right: 8px;
+                                    vertical-align: middle;
+                                    box-sizing: border-box;
+                                    background-color: #fff;
+                                }
+                            }
+
+                            input[type="radio"]:checked+label {
+                                color: $accent;
+
+                                &::before {
+                                    border-color: #ccc;
+                                    background-color: $accent;
+                                }
+                            }
+                        }
+                    }
                 }
-
-
-
-
             }
-
-
-
         }
+    }
+}
 
+/* 編輯照片按鈕的樣式 */
+.photo {
+    background: #ccc;
+    display: flex;
+    padding: 5px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 99px;
+    border: none;
 
+    &:nth-child(1) {
+        background: #E5E5E5;
     }
 
+    &:hover {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+    }
+}
 
+/* 登出按鈕的樣式 */
+.logout {
+    background: $accent;
+    display: flex;
+    padding: 5px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 99px;
+    border: none;
+
+    &:nth-child(1) {
+        background: #E5E5E5;
+    }
+
+    &:hover {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+    }
+}
+
+/* 儲存按鈕的樣式 */
+.save {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .save-btn {
+        background: $accent;
+        display: flex;
+        padding: 5px 30px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 99px;
+        border: none;
+
+        &:hover {
+            box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+        }
+    }
+}
+
+/* Modal 背景半透明遮罩 */
+.custom-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+/* Modal 本體 */
+.custom-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 32px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 400px;
+    width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Modal 標頭 */
+.custom-modal-header {
+    font-family: $family-tc;
+    font-size: 24px;
+    font-weight: 600;
+    color: $text;
+    margin-bottom: 8px;
+    margin: 0 0 8px 0;
+}
+
+/* Modal 內容 */
+.custom-modal-body {
+    font-family: $family-tc;
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 32px;
+    margin: 0 0 32px 0;
+}
+
+
+/* Modal 的確認按鈕 */
+.modal-ok-button {
+    font-family: $family-tc;
+    background: $accent;
+    color: $text;
+    border: none;
+    border-radius: 99px;
+    padding: 8px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+/* 淡入動畫 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

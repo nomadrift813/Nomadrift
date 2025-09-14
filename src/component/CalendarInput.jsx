@@ -7,7 +7,7 @@ const CalendarInput = ({
     value = '',
     onChange,
     placeholder = '選擇日期',
-    title = '活動日期',
+    title = '',
     required = false,
     disabled = false,
     allowRange = false, // 新增：是否允許選擇區間

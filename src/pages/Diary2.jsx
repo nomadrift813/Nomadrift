@@ -98,33 +98,62 @@ const CommentSection = ({ comments, isVisible, onAddComment }) => {
 };
 
 const Diary2 = () => {
-    const [isLiked, setIsLiked] = useState(false);
+    // 狀態管理
     const [currentPostIndex, setCurrentPostIndex] = useState(0);
     const [isCommentsVisible, setIsCommentsVisible] = useState(true);
-    // 使用一個物件來儲存每個 post 的留言，key 為 post 的 id
+
+    // 使用物件來儲存每個 post 的收藏和按讚狀態
+    const [postStates, setPostStates] = useState(
+        posts.reduce((acc, post) => ({
+            ...acc,
+            [post.id]: { liked: false, saved: false },
+        }), {})
+    );
+
+    // 使用物件來儲存每個 post 的留言
     const [allComments, setAllComments] = useState(
         posts.reduce((acc, post) => ({ ...acc, [post.id]: post.comments || [] }), {})
     );
 
+    const currentPost = posts[currentPostIndex];
+
+    // 處理按讚
     const handleLikeClick = () => {
-        setIsLiked(!isLiked);
+        setPostStates(prevStates => ({
+            ...prevStates,
+            [currentPost.id]: {
+                ...prevStates[currentPost.id],
+                liked: !prevStates[currentPost.id].liked
+            }
+        }));
     };
 
-    // 新增「上一篇」的處理函式
+    // 處理收藏
+    const handleSaveClick = () => {
+        setPostStates(prevStates => ({
+            ...prevStates,
+            [currentPost.id]: {
+                ...prevStates[currentPost.id],
+                saved: !prevStates[currentPost.id].saved
+            }
+        }));
+    };
+
+    // 處理上一篇
     const handlePrevPost = () => {
         setCurrentPostIndex((prevIndex) => 
             (prevIndex - 1 + posts.length) % posts.length
         );
-        setIsLiked(false);
         setIsCommentsVisible(true);
     };
 
+    // 處理下一篇
     const handleNextPost = () => {
         setCurrentPostIndex((prevIndex) => (prevIndex + 1) % posts.length);
-        setIsLiked(false);
         setIsCommentsVisible(true);
     };
 
+    // 處理顯示/隱藏留言區
     const handleCommentClick = () => {
         setIsCommentsVisible(!isCommentsVisible);
     };
@@ -137,8 +166,6 @@ const Diary2 = () => {
             [currentPostId]: [...prevComments[currentPostId], newComment],
         }));
     };
-
-    const currentPost = posts[currentPostIndex];
 
     return (
         <main>
@@ -160,8 +187,8 @@ const Diary2 = () => {
                         </div>
                     <section className='diaContent2'>
                         {/* 左側「上一篇」按鈕 */}
-                        <button className='next-post-btn2' onClick={handleNextPost}>
-                            <img src="./img-diary/left.svg" alt="Next" />
+                        <button className='next-post-btn2' onClick={handlePrevPost}>
+                            <img src="./img-diary/left.svg" alt="Previous" />
                         </button>
                         <section className='diaArticleSection2' key={currentPost.id}>
                             <div className='p1-sel2'>
@@ -186,12 +213,14 @@ const Diary2 = () => {
                                         </div>
                                         <p className='h-d-date2'>{currentPost.date}</p>
                                         <figure onClick={handleLikeClick}>
-                                            <img src={isLiked ? "./img-diary/heart.svg" : "./img-Home/heart.svg"} alt="like" />
+                                            <img src={postStates[currentPost.id].liked ? "./img-diary/heart.svg" : "./img-Home/heart.svg"} alt="like" />
                                         </figure>
                                         <figure onClick={handleCommentClick}>
                                             <img src="./img-Home/chat.svg" alt="comment" />
                                         </figure>
-                                        <figure><img src="./img-Home/save.svg" alt="" /></figure>
+                                        <figure onClick={handleSaveClick}>
+                                            <img src={postStates[currentPost.id].saved ? "./img-diary/bookmark.svg" : "./img-Home/save.svg"} alt="save" />
+                                        </figure>
                                     </div>
 
                                     <CommentSection
