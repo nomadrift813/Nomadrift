@@ -201,6 +201,7 @@
         }
 
         @media ($mediaSm) {
+            justify-content: center;
             width: 100%;
         }
     }
@@ -231,7 +232,8 @@
         }
 
         @media ($mediaSm) {
-            width: 100%;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

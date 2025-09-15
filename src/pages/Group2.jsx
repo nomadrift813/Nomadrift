@@ -262,7 +262,7 @@ const Group2 = () => {
                         </FadeInOnScroll>
 
                         <FadeInOnScroll className="activity-btn">
-                            <button className="pm">私訊揪團主</button>
+                            {/* <button className="pm">私訊揪團主</button> */}
                             <button className="join">
                                 報名參加
                                 <img src="./img-Group/right-arrow.svg" alt="right-arrow" />

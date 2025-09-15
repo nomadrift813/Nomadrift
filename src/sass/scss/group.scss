@@ -233,11 +233,13 @@
             border-radius: 99px;
             background-color: $primary1;
 
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            // transition: transform 0.2s ease, box-shadow 0.2s ease;
 
             &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                background-color: $accent;
+                color: $text;
+                // transform: translateY(-2px);
+                // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             }
 
             &:active {
@@ -254,11 +256,11 @@
         column-gap: 16px; // 欄與欄之間的距離
         column-fill: balance; // 盡量平衡每欄高度
         column-count: 3; // 桌機 3 欄
-        
+
         //目前沒有符合條件的活動
-        .no-activities{
+        .no-activities {
             // 文字樣式
-            color:$primary2;
+            color: $primary2;
             font-family: $family-tc;
             font-size: $f-s-sm2;
             font-style: normal;
