@@ -27,32 +27,7 @@ body {
     white-space: nowrap;
 }
 
-// .home-all-spot {
-//     display: flex;
-//     padding: 5px 30px;
-//     justify-content: center;
-//     align-items: center;
-//     border-radius: 99px;
-//     background-color: $primary1;
-//     border: none;
-//     cursor: pointer;
-//     border: none;
 
-//     a {
-//         color: $white;
-//         font-family: $family-tc;
-//         font-size: $spacing-md;
-//         font-weight: $f-w-4;
-//         line-height: 150%;
-//         letter-spacing: 2px;
-//     }
-
-//     &:hover {
-//         box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-//         transition: all .2s 0s;
-
-//     }
-// }
 
 
 .home-all-spot {
@@ -463,69 +438,73 @@ body {
     }
 }
 
-/* ========== 波浪 (原樣) ========== */
-.wave-svg {
-    position: relative;
-    top: -2px;
-    /* ← 向上吃 1px，蓋住水平白縫 */
-    width: 100%;
-    height: 20vh;
-    display: block;
-    shape-rendering: geometricPrecision;
-    transform: scaleY(-1) scaleX(-1);
+/* ========== 波浪  ========== */
 
-    @media ($mediaXl) {
-        height: 20vh;
-    }
+.wave-svg {
+  position: relative;
+  top: -2px;                       /* 往上吃掉白縫 */
+  width: 100%;
+  height: 20vh;
+  display: block;
+  shape-rendering: geometricPrecision;
+  transform: scaleY(-1) scaleX(-1); /* 上下左右翻轉 */
+
+  @media ($mediaXl) {
+    height: 20vh;
+  }
+
+  @media ($mediaSm) {
+    height: 15vh;
+  }
+
+  /* 填色區（大面積） */
+  .fill use {
+    fill: $primary1;
+  }
+
+  /* 描邊線（中線與小線） */
+  .stroke use {
+    fill: none;
+    stroke: #fff;                        /* 預設白色 */
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
 
     @media ($mediaSm) {
-        height: 10vh;
+      stroke-width: 3;
     }
+  }
 
-    .fill use {
-        fill: $primary1;
-    }
+  /* 灰色中線 */
+  .move.stroke.mid use {
+    stroke: #737B6B;
+  }
 
-    .stroke use {
-        fill: none;
-        stroke: #fff;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        vector-effect: non-scaling-stroke;
+  /* 動畫設定 */
+  .move {
+    animation: slide 70s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+  }
 
-        @media ($mediaSm) {
-            stroke-width: 3;
-        }
-    }
+  .move.mid {
+    animation-duration: 50s;
+    opacity: .7;
+  }
 
-    .move.mid.stroke use {
-        stroke: #737B6B;
-    }
-
-    .move {
-        animation: slide 70s linear infinite;
-        will-change: transform;
-        transform: translateZ(0);
-    }
-
-    .move.mid {
-        animation-duration: 50s;
-        opacity: .7;
-    }
-
-    .move.small {
-        animation-duration: 0s;
-        opacity: .5;
-    }
+  .move.small {
+    animation-duration: 0s;  /* 0 表示不動，想要一起動就設個值如 60s */
+    opacity: .5;
+  }
 }
 
+/* 滾動動畫：整條往左滑一個 viewBox 寬度 */
 @keyframes slide {
-    to {
-        transform: translateX(-240px);
-    }
+  to {
+    transform: translateX(-240px);
+  }
 }
-
 /* ========== 地點區========== */
 #homelocation {
     width: 100%;
