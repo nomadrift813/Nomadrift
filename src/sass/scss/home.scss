@@ -487,301 +487,270 @@ body {
     }
 }
 
-/* ========== 地點區（原樣） ========== */
+/* ========== 地點區========== */
 #homelocation {
-    width: 100%;
-    height: 110vh;
-    padding: 42px 50px 0 50px;
-    position: relative;
+  width: 100%;
+  height: 110vh;
+  padding: 42px 50px 0 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $background1;
+  overflow: visible;
+
+  @media ($mediaSm) { gap: 100px; }
+
+  /* --- Header 置頂但不擋滑鼠 --- */
+  header {
     display: flex;
     flex-direction: column;
-    background-color: $background1;
+    position: relative;
+    z-index: 30;         /* 視覺在最上 */
+    pointer-events: none;/* 不截滑鼠事件（關鍵） */
+    user-select: none;   /* 避免 I 游標 */
+
+    span {
+      border-bottom: 1px solid $primary1;
+      padding-bottom: 8px;
+    }
+
+    .homenext {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 13px;
+      margin-right: 100px;
+      @media ($mediaSm) { margin-right: 0; }
+    }
+
+    .popularcity {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-left: 100px;
+      margin-top: -30px;
+      position: relative;
+      z-index: 31;        /* 高於 grid */
+      pointer-events: none;
+      user-select: none;
+
+      @media ($mediaMd) {
+        margin-left: 50px;
+        margin-top: 30px;
+      }
+      @media ($mediaSm) { margin-left: -20px; }
+
+      p {
+        font-family: $family-en;
+        font-size: 96px;
+        font-weight: $f-w-4;
+        line-height: 100%;
+        opacity: .6;
+        background: linear-gradient(180deg, #F4D000 76.95%, rgba(244,208,0,0) 113.51%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @media ($mediaSm) { font-size: 56px; }
+      }
+    }
+
+    /* 若 header 內有真的要點的按鈕/連結，加 .is-interactive 開回事件 */
+    .is-interactive { pointer-events: auto; user-select: auto; }
+  }
+
+  /* --- Grid 區塊置於次高層 --- */
+  .home-lo-boxs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 80px 100px 0;
+    gap: 30px;
+    margin-top: -160px;
+    position: relative;
+    z-index: 20;        /* 次高層，確保可 hover */
+    @media ($mediaSm) { padding: 0; }
+
+    .home-city-grid {
+      width: 78%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 180px 153px 153px;
+      grid-template-areas:
+        "a a b"
+        "c d b"
+        "e f g";
+      gap: 12px;
+      position: relative;
+      z-index: 20;
+      user-select: none;
+
+      /* 每格外層，讓 overlay 能定位 */
+      > .h-city {
+        position: relative;
+        display: block;           /* 整塊可 hover */
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;          /* 不要 I 游標 */
+        isolation: isolate;       /* 防抖：獨立合成層 */
+        will-change: transform;
+        transform: translateZ(0);
+      }
+
+      /* 圖片：較亮的灰階；加防抖 */
+      > .h-city > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(100%) contrast(95%) brightness(98%);
+        transition: filter .22s ease, transform .22s ease, box-shadow .22s ease;
+        backface-visibility: hidden;
+        will-change: transform, filter;
+        transform: translateZ(0);
+        z-index: 1;
+      }
+
+      /* 文字：hover 才顯示（維持你第一版） */
+      .h-cityname {
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%) scale(.98);
+        color: #fff;
+        font-family: $family-tc;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 4px rgba(0,0,0,.45);
+        pointer-events: none;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity .25s ease, transform .25s ease;
+        z-index: 3;
+      }
+
+      /* 黑漸層：預設淡，hover 略加深 */
+      > .h-city::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,.16) 70%);
+        opacity: 1;
+        transition: background .25s ease, opacity .25s ease;
+        pointer-events: none;     /* 不擋滑鼠 */
+        z-index: 2;
+      }
+
+      /* Hover 效果（綁 .h-city）：彩色 + 超小縮放 + 文字顯示 + 漸層變深 */
+      > .h-city:hover > img {
+        filter: grayscale(0%) contrast(100%) brightness(100%);
+        transform: scale(1.005);  /* 超小縮放避免邊緣抖動 */
+        box-shadow: 0 8px 20px rgba(0,0,0,.25);
+      }
+      > .h-city:hover .h-cityname {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      > .h-city:hover::before {
+        background: radial-gradient(ellipse at center, rgba(0,0,0,.06) 0%, rgba(0,0,0,.24) 70%);
+      }
+
+      /* 沒 hover 時預設第 2 張彩色 + 顯示地名 */
+      &:not(:hover) > .h-city:nth-child(2) > img {
+        filter: grayscale(0%) contrast(100%) brightness(100%);
+      }
+      &:not(:hover) > .h-city:nth-child(2)::before,
+      &:not(:hover) > .h-city:nth-child(2) .h-cityname {
+        opacity: 1;
+      }
+      &:not(:hover) > .h-city:nth-child(2) .h-cityname {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* 指派每張到對應格子 */
+      > .h-city:nth-child(1) { grid-area: a; }
+      > .h-city:nth-child(2) { grid-area: b; }
+      > .h-city:nth-child(3) { grid-area: c; }
+      > .h-city:nth-child(4) { grid-area: d; }
+      > .h-city:nth-child(5) { grid-area: e; }
+      > .h-city:nth-child(6) { grid-area: f; }
+      > .h-city:nth-child(7) { grid-area: g; }
+
+    //   /* 容易被壓住的幾格（1/3/4）加保險層級，hover 再墊高 */
+    //   > .h-city:nth-child(1),
+    //   > .h-city:nth-child(3),
+    //   > .h-city:nth-child(4) { position: relative; z-index: 22; }
+    //   > .h-city:nth-child(1):hover,
+    //   > .h-city:nth-child(3):hover,
+    //   > .h-city:nth-child(4):hover { z-index: 28; }
+    }
+
+    .home-all-spot a {
+      color: $white;
+      font-family: $family-tc;
+      font-size: $spacing-md;
+      font-weight: $f-w-4;
+      line-height: 150%;
+      letter-spacing: 2px;
+    }
+  }
+
+  /* 側邊文字與路線：不擋 hover（你原本已設定 pointer-events:none） */
+  .h-1-side-word-1 {
+    position: absolute;
+    right: 50px;
+    top: 210px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    color: $primary1;
+    text-align: center;
+    font-family: $en;
+    font-size: $spacing-md;
+    font-weight: 300;
+    line-height: 150%;
+    letter-spacing: $spacing-xxs;
+    @media ($mediaSm) { display: none; }
+  }
+
+  .h-1-side-word-2 {
+    position: absolute;
+    left: 50px;
+    bottom: 100px;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    color: $primary1;
+    text-align: center;
+    font-family: "Inter";
+    font-size: $spacing-md;
+    font-weight: 300;
+    line-height: 150%;
+    letter-spacing: $spacing-xxs;
+  }
+
+  .h-location-line {
+    position: absolute;
+    top: 400px;
+    left: 150px;
+    width: 160px;
+    height: 575px;
+    z-index: 1;
+    pointer-events: none;
     overflow: visible;
 
-    @media ($mediaSm) {
-        gap: 100px;
-    }
+    @media ($mediaMd) { display: none; }
 
-    header {
-        display: flex;
-        flex-direction: column;
+    svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    path { vector-effect: non-scaling-stroke; }
 
-        span {
-            border-bottom: 1px solid $primary1;
-            padding-bottom: 8px;
-        }
+    .loc-wipe { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    &.play .loc-wipe { animation: loc-draw 1.8s cubic-bezier(.25,.1,.25,1) forwards; }
+  }
 
-        .homenext {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 13px;
-            margin-right: 100px;
-
-            @media ($mediaSm) {
-                margin-right: 0;
-            }
-        }
-
-        .popularcity {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            margin-left: 100px;
-            margin-top: -30px;
-
-            @media ($mediaMd) {
-                margin-left: 50px;
-                margin-top: 30px;
-            }
-
-            @media ($mediaSm) {
-                margin-left: -20px;
-            }
-
-            p {
-                font-family: $family-en;
-                font-size: 96px;
-                font-weight: $f-w-4;
-                line-height: 100%;
-                opacity: .6;
-                background: linear-gradient(180deg, #F4D000 76.95%, rgba(244, 208, 0, 0) 113.51%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-
-                @media ($mediaSm) {
-                    font-size: 56px;
-                }
-            }
-        }
-    }
-
-    .home-lo-boxs {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-end;
-        padding: 80px 100px 0;
-        gap: 30px;
-        margin-top: -160px;
-
-        @media ($mediaSm) {
-            padding: 0;
-        }
-
-        .home-city-grid {
-            width: 78%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 180px 153px 153px;
-            grid-template-areas:
-                "a a b"
-                "c d b"
-                "e f g";
-            gap: 12px;
-        }
-
-        /* 每格外層，讓 overlay 能定位 */
-        .home-city-grid>.h-city {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* 圖片：預設全黑白 */
-        .home-city-grid>.h-city img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-
-            filter: grayscale(100%) contrast(80%) brightness(90%);
-            transition: filter .3s ease, transform .3s ease, box-shadow .3s ease;
-        }
-
-
-        .h-cityname {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(.98);
-            color: #fff;
-            font-family: $family-tc;
-            font-size: 20px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-shadow: 0 4px 4px rgba(0, 0, 0, .45);
-            pointer-events: none;
-            white-space: nowrap;
-
-
-            opacity: 0;
-            transition: opacity .25s ease, transform .25s ease;
-        }
-
-
-        .home-city-grid>.h-city:hover img {
-            filter: grayscale(0%) contrast(100%) brightness(100%);
-            transform: scale(1.005);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
-        }
-
-        .home-city-grid>.h-city:hover .h-cityname {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-
-        .home-city-grid:not(:hover)>.h-city:nth-child(2) img {
-            filter: grayscale(0%) contrast(100%) brightness(100%);
-        }
-
-        .home-city-grid:not(:hover)>.h-city:nth-child(2) .h-cityname {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-
-        .home-city-grid>.h-city::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .45) 70%);
-            opacity: 0;
-            transition: opacity .25s ease;
-        }
-
-        .home-city-grid>.h-city:hover::before {
-            opacity: 1;
-        }
-
-        .home-city-grid:not(:hover)>.h-city:nth-child(2)::before {
-            opacity: 1;
-        }
-
-
-        .home-city-grid>.h-city:nth-child(1) {
-            grid-area: a;
-        }
-
-        .home-city-grid>.h-city:nth-child(2) {
-            grid-area: b;
-        }
-
-        .home-city-grid>.h-city:nth-child(3) {
-            grid-area: c;
-        }
-
-        .home-city-grid>.h-city:nth-child(4) {
-            grid-area: d;
-        }
-
-        .home-city-grid>.h-city:nth-child(5) {
-            grid-area: e;
-        }
-
-        .home-city-grid>.h-city:nth-child(6) {
-            grid-area: f;
-        }
-
-        .home-city-grid>.h-city:nth-child(7) {
-            grid-area: g;
-        }
-
-
-        .home-all-spot a {
-            color: $white;
-            font-family: $family-tc;
-            font-size: $spacing-md;
-            font-weight: $f-w-4;
-            line-height: 150%;
-            letter-spacing: 2px;
-        }
-    }
-
-    .h-1-side-word-1 {
-        position: absolute;
-        right: 50px;
-        top: 210px;
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
-        white-space: nowrap;
-        color: $primary1;
-        text-align: center;
-        font-family: $en;
-        font-size: $spacing-md;
-        font-weight: 300;
-        line-height: 150%;
-        letter-spacing: $spacing-xxs;
-
-        @media ($mediaSm) {
-            display: none;
-        }
-    }
-
-    .h-1-side-word-2 {
-        position: absolute;
-        left: 50px;
-        bottom: 100px;
-        writing-mode: vertical-rl;
-        white-space: nowrap;
-        color: $primary1;
-        text-align: center;
-        font-family: "Inter";
-        font-size: $spacing-md;
-        font-weight: 300;
-        line-height: 150%;
-        letter-spacing: $spacing-xxs;
-    }
-
-    .h-location-line {
-        position: absolute;
-        top: 400px;
-        left: 150px;
-        width: 160px; // 與 viewBox 對齊
-        height: 575px; // 與 viewBox 對齊
-        z-index: 1;
-        pointer-events: none;
-        overflow: visible;
-
-        @media ($mediaMd) {
-        display: none;
-    }
-
-        svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-            overflow: visible;
-        }
-
-        path {
-            vector-effect: non-scaling-stroke;
-        }
-
-        /* 畫筆（白色實線）：初始藏起來 */
-        .loc-wipe {
-            stroke-dasharray: 1;
-            stroke-dashoffset: 1;
-        }
-
-        /* 進入視窗時外層加 .play → 重新從頭畫 */
-        &.play .loc-wipe {
-            animation: loc-draw 1.8s cubic-bezier(.25, .1, .25, 1) forwards;
-        }
-    }
-
-    @keyframes loc-draw {
-        to {
-            stroke-dashoffset: 0;
-        }
-    }
-
+  @keyframes loc-draw { to { stroke-dashoffset: 0; } }
 }
-
 /* ========== 揪團區（含滑入＋淡入，且保留旋轉） ========== */
 #homegroup {
     position: relative;
