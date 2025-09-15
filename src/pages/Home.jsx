@@ -328,7 +328,7 @@ const Home = () => {
         </header>
 
         <div className='home-lo-boxs'>
-          <figure className="home-city-grid">
+          <div className="home-city-grid">
             <div className="h-city">
               <img src="./img-Home/location-1.jpg" alt="奧克蘭" />
               <span className="h-cityname">奧克蘭</span>
@@ -357,8 +357,9 @@ const Home = () => {
               <img src="./img-Home/location-7.jpg" alt="紐約" />
               <span className="h-cityname">紐約</span>
             </div>
-          </figure>
-          <button className='home-all-spot'>
+          </div>
+
+          <button className="home-all-spot">
             <Link to="/location">更多地點</Link>
           </button>
 
