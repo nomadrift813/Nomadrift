@@ -329,39 +329,46 @@ const Home = () => {
 
         <div className='home-lo-boxs'>
           <div className="home-city-grid">
-            <div className="h-city">
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-1.jpg" alt="奧克蘭" />
               <span className="h-cityname">奧克蘭</span>
-            </div>
-            <div className="h-city">
+            </Link>
+
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-2.jpg" alt="峇里島" />
               <span className="h-cityname">峇里島</span>
-            </div>
-            <div className="h-city">
+            </Link>
+
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-3.jpg" alt="曼谷" />
               <span className="h-cityname">曼谷</span>
-            </div>
-            <div className="h-city">
+            </Link>
+
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-4.jpg" alt="里斯本" />
               <span className="h-cityname">里斯本</span>
-            </div>
-            <div className="h-city">
+            </Link>
+
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-5.jpg" alt="墨西哥城" />
               <span className="h-cityname">墨西哥城</span>
-            </div>
-            <div className="h-city">
+            </Link>
+
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-6.jpg" alt="柏林" />
               <span className="h-cityname">柏林</span>
-            </div>
-            <div className="h-city">
+            </Link>
+
+            <Link to="/location" className="h-city">
               <img src="./img-Home/location-7.jpg" alt="紐約" />
               <span className="h-cityname">紐約</span>
-            </div>
+            </Link>
           </div>
 
-          <button className="home-all-spot">
-            <Link to="/location">更多地點</Link>
-          </button>
+
+          <Link to="/location" className="home-all-spot" role="button">
+            更多地點
+          </Link>
 
           <div className="h-location-line">
             <svg viewBox="0 0 160 575" preserveAspectRatio="none" aria-hidden="true">
@@ -466,9 +473,10 @@ const Home = () => {
                 </span>
               </Link>
             </li>
-            <button className='home-all-spot'>
-              <Link to="/group">所有活動</Link>
-            </button>
+
+            <Link to="/group" className="home-all-spot" role="button">
+              所有活動
+            </Link>
           </ul>
         </div>
 
@@ -542,15 +550,15 @@ const Home = () => {
                   <p>越南/番西邦峰</p>
                 </div>
                 <p className='h-d-date'>Apr,03 2025</p>
-                <figure><img src="./img-Home/heart.svg" alt="" /></figure>
+                {/* <figure><img src="./img-Home/heart.svg" alt="" /></figure>
                 <figure><img src="./img-Home/chat.svg" alt="" /></figure>
-                <figure><img src="./img-Home/save.svg" alt="" /></figure>
+                <figure><img src="./img-Home/save.svg" alt="" /></figure> */}
               </div>
             </div>
           </article>
-          <button className='home-all-spot'>
-            <Link to="/diary">所有日記</Link>
-          </button>
+          <Link to="/diary" className="home-all-spot" role="button">
+            所有日記
+          </Link>
         </div>
 
         <figure className='h-d-pics'>
