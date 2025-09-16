@@ -1,5 +1,5 @@
 import '../sass/scss/home.scss'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
     if (!root) return;
 
     const els = root.querySelectorAll(".reveal");
-    if (!els.length) return;
+    // if (!els.length) return;
 
     const io = new IntersectionObserver(
       entries => {
@@ -32,7 +32,7 @@ const Home = () => {
     return () => io.disconnect();
   }, []);
 
-  /* 2) Banner 線：看到 section banner 就重播（SMIL .b-wipe） */
+  /* 2) 進入 section：重播刷線；刷完線自動觸發一次划船 */
   useEffect(() => {
     const root = bannerRef.current;
     if (!root) return;
@@ -40,20 +40,41 @@ const Home = () => {
     const target = root.querySelector(".banner-line");
     if (!target) return;
 
+    const wipe = target.querySelector(".b-wipe");
+    const anim = wipe?.querySelector?.("animate");
+    if (!wipe || !anim) return;
+
+    let autoQueued = false; // 避免同一輪重複掛 endEvent
+
+
+    const onEnter = () => {
+      // 先重設虛線並播放刷線
+      const dash = wipe.getAttribute("stroke-dasharray") || "1";
+      wipe.setAttribute("stroke-dashoffset", dash);
+      void wipe.getBoundingClientRect(); // 強制 reflow
+      if (typeof anim.beginElement === "function") anim.beginElement();
+
+      // 線刷完 → 自動發出一次「boat-play」事件，讓船跑一次
+      if (!autoQueued) {
+        autoQueued = true;
+        const handleWipeEnd = () => {
+          target.dispatchEvent(new CustomEvent("boat-play"));
+          anim.removeEventListener("endEvent", handleWipeEnd);
+          // 等船跑完會自動回起點；等下次再次進入視窗時再重播
+        };
+        anim.addEventListener("endEvent", handleWipeEnd, { once: true });
+      }
+    };
+
+    // IntersectionObserver：看到 section 才觸發
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(({ isIntersecting }) => {
-          if (!isIntersecting) return;
-
-          const wipe = target.querySelector(".b-wipe");
-          const anim = wipe?.querySelector?.("animate");
-          if (!wipe || !anim) return;
-
-          // 重設 → 強制 reflow → 重新播放
-          const dash = wipe.getAttribute("stroke-dasharray") || "1";
-          wipe.setAttribute("stroke-dashoffset", dash);
-          void wipe.getBoundingClientRect();
-          if (typeof anim.beginElement === "function") anim.beginElement();
+          if (isIntersecting) onEnter();
+          else {
+            // 離開視窗時把旗標清掉，避免停留期間多次觸發
+            autoQueued = false;
+          }
         });
       },
       { threshold: 0.6, rootMargin: "0px 0px -10% 0px" }
@@ -108,7 +129,7 @@ const Home = () => {
   }, []);
 
 
-  // 划船
+  /* 5) 划船：維持待機漂浮；收到點擊或「boat-play」事件就沿路徑跑到底，結束回起點 */
   useEffect(() => {
     const AMP = 6;        // 漂浮幅度(px)
     const PERIOD = 3400;  // 週期(ms)
@@ -117,11 +138,11 @@ const Home = () => {
     const root = bannerRef.current;
     if (!root) return;
 
-    const container = root.querySelector('.banner-line');
-    const boat = container?.querySelector('.boat');
-    const bob = container?.querySelector('.boatBob');
-    const init = container?.querySelector('#boatInit');
-    const fwd = container?.querySelector('#boatFwd');
+    const container = root.querySelector(".banner-line");
+    const boat = container?.querySelector(".boat");
+    const bob = container?.querySelector(".boatBob");
+    const init = container?.querySelector("#boatInit");
+    const fwd = container?.querySelector("#boatFwd");
     if (!container || !boat || !bob || !init || !fwd) return;
 
     // 進頁：把船定位到起點
@@ -139,44 +160,90 @@ const Home = () => {
     };
     rafId = requestAnimationFrame(loop);
 
-    // 點一下→沿路徑跑到底；結束→瞬間回起點，恢復漂浮
+    // 觸發一次完整航行
     const play = () => {
       if (playing) return;
       playing = true;
-      fwd.beginElement();
+      fwd.beginElement(); // 開始沿路徑前進
+
       const onEnd = () => {
-        init.beginElement?.();   // 立刻回到起點
-        playing = false;
-        fwd.removeEventListener('endEvent', onEnd);
+        init.beginElement?.();   // 跑完立刻回到起點
+        playing = false;         // 恢復漂浮
+        fwd.removeEventListener("endEvent", onEnd);
       };
-      fwd.addEventListener('endEvent', onEnd, { once: true });
+      fwd.addEventListener("endEvent", onEnd, { once: true });
     };
 
-    boat.addEventListener('click', play);
-    boat.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
-    });
+    // 點擊 / 鍵盤 啟動
+    const onClick = () => play();
+    const onKey = (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); }
+    };
+    boat.addEventListener("click", onClick);
+    boat.addEventListener("keydown", onKey);
+
+    // 監聽「刷線完成後」由上一個 effect 發出的自動播放事件
+    const onAutoPlay = () => play();
+    container.addEventListener("boat-play", onAutoPlay);
 
     return () => {
-      boat.removeEventListener('click', play);
+      boat.removeEventListener("click", onClick);
+      boat.removeEventListener("keydown", onKey);
+      container.removeEventListener("boat-play", onAutoPlay);
       cancelAnimationFrame(rafId);
     };
   }, []);
+
+  // 6.更換提示字
+  const navigate = useNavigate();
+  const inputRef = useRef(null);
+  const [placeholder, setPlaceholder] = useState("Start");
+
+  const activate = () => {
+    const next = "請輸入地名";
+    setPlaceholder(next);
+    if (inputRef.current) {
+      inputRef.current.placeholder = next;
+      requestAnimationFrame(() => inputRef.current?.focus());
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // 若要「沒輸入也能跳轉」，把下面 if 整段刪掉
+    // if (!hvalue.trim()) {
+    //   setPlaceholder("請輸入地名");
+    //   inputRef.current?.focus();
+    //   return;
+    // }
+    navigate("/location");
+  };
   return (
     <main ref={wrapRef}>
       <section id="homebanner" ref={bannerRef}>
         <div className={`homeslogan ${show ? "fade-in" : "fade-out"}`}>
           <h2>在世界的浪潮中，自由前行</h2>
 
-          <div className={`home-b-form ${hvalue ? "typing" : ""}`}>
+          <form
+            className={`home-b-form ${hvalue ? "typing" : ""}`}
+            onSubmit={handleSubmit}
+            onMouseDown={activate}
+            role="search"
+          >
             <input
+              ref={inputRef}
               type="text"
-              placeholder="Start"
+              placeholder={placeholder}
               value={hvalue}
+              onFocus={activate}
               onChange={(e) => setHvalue(e.target.value)}
+              onBlur={() => setPlaceholder("Start")}
             />
-            <img src="./img-Home/home-s-right.svg" alt="" />
-          </div>
+            <button type="submit" style={{ all: "unset", cursor: "pointer" }}>
+              <img src="./img-Home/home-s-right.svg" alt="" />
+            </button>
+          </form>
+
         </div>
 
         <p className='banner-side-word'>floating your own way</p>
