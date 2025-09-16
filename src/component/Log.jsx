@@ -18,7 +18,7 @@ const Log = ({ onAuth, onSwitch }) => {
     <main>
       <section id="log">
         <div className="auth-inner">
-          <form id="logform" method="post" onSubmit={handleSubmit}>
+          <form className="log-form" method="post" onSubmit={handleSubmit}>
             <h1>會員登入</h1>
 
             <article>
