@@ -33,13 +33,6 @@ const Location = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Use useState to manage the fill state (initially transparent)
-  const [isFilled, setIsFilled] = useState(false);
-
-  // Handle the click event to toggle the state
-  const handleClick = () => {
-    setIsFilled(!isFilled);
-  };
 
   // 地點收藏
   const [active, setActive] = useState(false);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
+import Card from '../component/CardSelect';
 import '../sass/scss/location-3.scss'
 
 // Import Swiper React components
@@ -375,39 +376,8 @@ const Location3 = () => {
       <>
         <article id="mCards">
           {cardsData.slice(0, visibleCount).map((card) => (
-            <Link to="/location2" key={card.id}>
-              <section className="country">
-                <div className="p1-sel">
-                  <figure className="loc-p1">
-                    <img src={card.img} alt={card.country} />
-                  </figure>
-                  <figure className="select">
-                    <img src="./img-Location/select.svg" alt="" />
-                  </figure>
-                </div>
-                <article className="loc-info">
-                  <h2>{card.country}</h2>
-                  <p className="loc-text">{card.text}</p>
-                  <div className="wi-st">
-                    <ul>
-                      <img src="./img-Location/Wifi.svg" alt="" />
-                      <p>{card.wifi}</p>
-                    </ul>
-                    <figure className="stars">
-                      {card.stars.map((s, idx) => (
-                        <img
-                          key={idx}
-                          src={`./img-Location/Star${s}.svg`}
-                          alt={`star${s}`}
-                        />
-                      ))}
-                    </figure>
-                  </div>
-                  <span>{card.price}</span>
-                </article>
-                <div className="color-block"></div>
-              </section>
-            </Link>
+            // 使用新的 Card 元件，並將每張卡片的資料作為 prop 傳遞
+            <Card key={card.id} cardData={card} />
           ))}
         </article>
 

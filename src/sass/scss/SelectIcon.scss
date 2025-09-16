@@ -1,0 +1,9 @@
+// 直接針對 SVG 元件設定寬高與位置
+.select-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    transition: fill 0.3s ease; // 動畫更順
+}

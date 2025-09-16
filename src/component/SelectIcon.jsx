@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../sass/scss/SelectIcon.scss';
 
 const SelectIcon = ({ className }) => {
     // 使用 useState 來追蹤 SVG 的點選狀態
@@ -12,6 +13,7 @@ const SelectIcon = ({ className }) => {
     return (
         <figure className={className} onClick={handleClick}>
             <svg 
+                className="select-icon"
                 width="60" 
                 height="60" 
                 viewBox="0 0 60 60" 

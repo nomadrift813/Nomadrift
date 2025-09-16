@@ -1,6 +1,7 @@
 
 import React, { useRef, useState } from "react";
 import { Link } from 'react-router-dom'
+import SelectIcon from '../component/SelectIcon';
 import '../sass/scss/location-2.scss'
 
 const Location2 = () => {
@@ -55,6 +56,13 @@ const Location2 = () => {
             setThumbnailImages(newThumbnails);
             setMainImage(clickedImage);
         }
+    };
+
+    // 地點收藏
+    const [active2, setActive2] = useState(false);
+
+    const handleToggle = () => {
+        setActive2(!active2);
     };
 
 
@@ -161,12 +169,12 @@ const Location2 = () => {
 
                     < article className='cards' ref={cardsRef}>
                         {/* 卡片1 義大利 */}
-                        <Link to="/location2">
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Italy.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Italy.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>義大利</h2>
                                     <p className='loc-text'>以古羅馬遺跡、文藝復興藝術、美食與時尚聞名。擁有羅馬、威尼斯、佛羅倫斯等歷史名城，文化魅力獨特。</p>
@@ -185,15 +193,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link>
+                            </Link>
+                        </section >
                         {/* 卡片2 加拿大 */}
-                        <Link to="/location2">
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Canada.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Canada.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>加拿大</h2>
                                     <p className='loc-text'>氣候宜人、自然風光壯麗，是融合多元文化的城市，擁有海灘、山脈與都市生活的完美平衡。</p>
@@ -212,15 +220,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link>
+                            </Link>
+                        </section >
                         {/* 卡片3 尼泊爾 */}
-                        <Link to="/location2">
-                            <section className='country'>
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country'>
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Nepal.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>尼泊爾</h2>
                                     <p className='loc-text'>位於喜馬拉雅山腳下，是宗教與歷史重鎮，擁有眾多佛教與印度教寺廟，文化深厚、街道熱鬧，是前往登山與探索尼泊爾文化的門戶。</p>
@@ -239,15 +247,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section>
-                        </Link>
+                            </Link>
+                        </section>
                         {/* 卡片4 西班牙 */}
-                        <Link to="/location2">
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Spain.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Spain.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>西班牙</h2>
                                     <p className='loc-text'>擁有豐富歷史與藝術文化，以佛朗明哥、鬥牛、美食和建築聞名，是充滿熱情與陽光的國度。ß</p>
@@ -266,15 +274,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link>
+                            </Link>
+                        </section >
                         {/* 卡片5 阿根廷 */}
-                        <Link to="/location2" >
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Argentina.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Argentina.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>阿根廷</h2>
                                     <p className='loc-text'>以熱情和對探戈、足球的熱愛而著稱，擁有悠久的歐洲移民歷史，並在文化、經濟和政治上是拉丁美洲的重要國家。</p>
@@ -293,15 +301,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link >
+                            </Link>
+                        </section >
                         {/* 卡片6 摩洛哥 */}
-                        <Link to="/location2" >
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Morocco.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Morocco.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>摩洛哥</h2>
                                     <p className='loc-text'>擁有獨特多樣的地貌，包括地中海沿岸、大西洋、撒哈拉沙漠和綿延的阿特拉斯山脈，使其成為受歡迎的旅遊目的地，特別是以「北非花園」的稱號著稱。</p>
@@ -320,15 +328,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link >
+                            </Link>
+                        </section >
                         {/* 卡片7 以色列 */}
-                        <Link to="/location2">
-                            <section className='country'>
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Israel.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country'>
+                            <div className='p1-sel'>
+                                <Link to="/location2"><figure className='loc-p1'><img src="./img-Location/Israel.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2">
                                 <article className='loc-info'>
                                     <h2>以色列</h2>
                                     <p className='loc-text'>融合古老宗教文化與現代科技創新，以耶路撒冷與特拉維夫聞名。</p>
@@ -347,15 +355,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section>
-                        </Link>
+                            </Link>
+                        </section>
                         {/* 卡片8 荷蘭 */}
-                        <Link to="/location2" >
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Netherlands.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Netherlands.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>荷蘭</h2>
                                     <p className='loc-text'>以風車、鬱金香、運河和自行車文化著稱。首都阿姆斯特丹充滿藝術氣息，是自由、多元且環保的現代化國家。</p>
@@ -374,15 +382,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link >
+                            </Link>
+                        </section >
                         {/* 卡片9 美國 */}
-                        <Link to="/location2" >
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/US.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/US.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>美國</h2>
                                     <p className='loc-text'>擁融合多元文化，擁有自由女神、中央公園、時代廣場等地標，是全球金融、藝術與時尚重鎮，節奏快速，活力十足。</p>
@@ -401,15 +409,15 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link >
+                            </Link>
+                        </section >
                         {/* 卡片10 哥倫比亞 */}
-                        <Link to="/location2" >
-                            <section className='country' >
-                                <div className='p1-sel'>
-                                    <figure className='loc-p1'><img src="./img-Location/Colombia.jpg" alt="" /></figure>
-                                    <figure className='select'><img src="./img-Location/select.svg" alt="" /></figure>
-                                </div>
+                        <section className='country' >
+                            <div className='p1-sel'>
+                                <Link to="/location2" ><figure className='loc-p1'><img src="./img-Location/Colombia.jpg" alt="" /></figure></Link>
+                                <SelectIcon active={active} onClick={handleToggle} />
+                            </div>
+                            <Link to="/location2" >
                                 <article className='loc-info'>
                                     <h2>哥倫比亞</h2>
                                     <p className='loc-text'>以多元文化著稱，擁有豐富的咖啡、寶石和製造業，也是拉丁美洲重要的文化和經濟中心之一。 </p>
@@ -428,8 +436,8 @@ const Location2 = () => {
                                     <span>15000 /月</span>
                                 </article>
                                 <div className='color-block'></div>
-                            </section >
-                        </Link >
+                            </Link>
+                        </section >
                     </article >
 
                     <button className='right' onClick={scrollRight}>
