@@ -1,5 +1,6 @@
 import React from 'react'
 import '../sass/scss/footer.scss'
+import { Link } from "react-router-dom";
 
 const Footer = ({ authed, onOpenAuth, onGoMember }) => {
   // Scroll Top
@@ -36,6 +37,16 @@ const Footer = ({ authed, onOpenAuth, onGoMember }) => {
       {/* Sitemap 區塊 */}
       <nav>
         <ul className="Sitemap">
+
+          <li>
+            <a>網站導覽</a>
+            <ul>
+              <li><Link to="/location">熱門地點</Link></li>
+              <li><Link to="/group">揪團活動</Link></li>
+              <li><Link to="/diary">漂日記</Link></li>
+            </ul>
+          </li>
+
           <li>
             <a>關於我們</a>
             <ul>
@@ -69,8 +80,8 @@ const Footer = ({ authed, onOpenAuth, onGoMember }) => {
           <li>
             <a>最新消息</a>
             <ul>
-              <li><a href="#" className='frame1'>E-mail</a></li>
-              <li><a href="#" className='frame2'>Subscribe</a></li>
+              <li><a className='frame1'>E-mail</a></li>
+              <li><a className='frame2'>Subscribe</a></li>
             </ul>
           </li>
         </ul>
