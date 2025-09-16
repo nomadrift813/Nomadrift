@@ -130,7 +130,7 @@ const Member = ({ user, onLogout }) => {
                   onChange={handleInputChange}
                 />
               </div>
-             <div className="form-row">
+              <div className="form-row">
                 <label htmlFor="m-email">信箱 :</label>
                 <input
                   type="email"
@@ -180,7 +180,7 @@ const Member = ({ user, onLogout }) => {
                   onChange={handleInputChange}
                 />
               </div>
-               <div className="form-row">
+              <div className="form-row">
                 <label htmlFor="m-birthdate">生日 :</label>
                 {/* 這裡替換為 CalendarInput 元件 */}
                 <CalendarInput
@@ -191,7 +191,7 @@ const Member = ({ user, onLogout }) => {
                   placeholder="選擇生日"
                 />
               </div>
-              
+
               <div className="form-row">
                 <label htmlFor="m-city">國籍 :</label>
                 <input
