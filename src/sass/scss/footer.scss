@@ -127,6 +127,17 @@ footer {
 
 }
 
+ul.Sitemap {
+
+    /* a 跟 .linklike 同步色彩與互動 */
+    a,
+    .linklike {
+        color: #F4F1E5;
+        text-decoration: none;
+        transition: opacity .2s ease;
+        font-weight: 200;
+    }
+}
 
 ul.Sitemap {
     display: flex;
@@ -153,6 +164,8 @@ ul.Sitemap {
         border-radius: 999px;
         border: 1px solid $background1;
         background: $background1;
+
+
     }
 
     .frame2 {
@@ -166,6 +179,8 @@ ul.Sitemap {
         border-radius: 999px;
         border: 1px solid $accent;
         background: $accent;
+
+
     }
 
     ul {
@@ -183,18 +198,47 @@ ul.Sitemap {
         gap: 8px;
     }
 
-}
+    .linklike {
+        background: none;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        display: inline;
+        font: inherit;
+        /* ← 使用父層字體 */
+        color: #F4F1E5;
+        /* ← 跟 a 一樣 */
+        // font-weight: 200;         /* ← 跟 a 一樣 */
+        line-height: 20px;
+        /* ← 跟 a 一樣 */
+        text-decoration: none;
+        text-align: left;
+        cursor: pointer;
+        transition: opacity .2s ease;
 
-h4 {
-    display: flex;
-    justify-content: center;
-    background-color: #201811;
-    color: #F4F1E5;
 
-    span {
-        font-size: 12px;
-        font-weight: 300;
-        padding: 10px 0px;
+
     }
+
+    h4 {
+        display: flex;
+        justify-content: center;
+        background-color: #201811;
+        color: #F4F1E5;
+
+        span {
+            font-size: 12px;
+            font-weight: 300;
+            padding: 10px 0px;
+        }
+
+
+    }
+ > li > a {
+    color: #F4F1E5;
+    font-weight: 400;   /* 粗一點讓它當標題 */
+    text-decoration: none;
+  }
+
 
 }

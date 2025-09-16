@@ -110,7 +110,11 @@ const MyApp = () => {
         )}
       </Modal>
 
-      <Footer />
+      <Footer
+        authed={auth.isAuthed}
+        onOpenAuth={openAuth}
+        onGoMember={() => navigate("/member")}
+      />
     </div>
   );
 };
