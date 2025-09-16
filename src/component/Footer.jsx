@@ -1,8 +1,13 @@
-import React from 'react'
-import '../sass/scss/footer.scss'
+import React, { useState } from 'react';
+import '../sass/scss/footer.scss';
 import { Link } from "react-router-dom";
 
 const Footer = ({ authed, onOpenAuth, onGoMember }) => {
+  // 新增狀態來管理成功與失敗彈窗的顯示
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
   // Scroll Top
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -12,6 +17,38 @@ const Footer = ({ authed, onOpenAuth, onGoMember }) => {
   const goOrAuth = (pref) => {
     if (authed) onGoMember?.();
     else onOpenAuth?.(pref); // 'login' | 'register'
+  };
+
+  // 關閉彈窗的函式
+  const closeSuccessModal = () => {
+    setShowSuccessModal(false);
+    setModalMessage('');
+  };
+
+  const closeErrorModal = () => {
+    setShowErrorModal(false);
+    setModalMessage('');
+  };
+
+  // 處理訂閱的函式
+  const handleSubscribe = () => {
+    const emailInput = document.querySelector('.frame1');
+    const email = emailInput.value;
+    
+    // 使用正則表達式進行更嚴格的 Email 格式驗證
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email && emailRegex.test(email)) {
+      // 成功邏輯
+      console.log(`Email ${email} has been subscribed.`);
+      setModalMessage(`我們會將最新消息發送到您的信箱。`);
+      setShowSuccessModal(true);
+      emailInput.value = ''; // 清空輸入框
+    } else {
+      // 失敗邏輯
+      setModalMessage('請輸入有效的 Email 地址。');
+      setShowErrorModal(true);
+    }
   };
 
   return (
@@ -50,9 +87,9 @@ const Footer = ({ authed, onOpenAuth, onGoMember }) => {
           <li>
             <a>關於我們</a>
             <ul>
-              <li><a href="#">認識漂遊牧</a></li>
-              <li><a href="#">加入我們</a></li>
-              <li><a href="#">聯絡我們</a></li>
+              <li><a>認識漂遊牧</a></li>
+              <li><a>加入我們</a></li>
+              <li><a>聯絡我們</a></li>
             </ul>
           </li>
 
@@ -80,16 +117,59 @@ const Footer = ({ authed, onOpenAuth, onGoMember }) => {
           <li>
             <a>最新消息</a>
             <ul>
-              <li><a className='frame1'>E-mail</a></li>
-              <li><a className='frame2'>Subscribe</a></li>
+              <textarea className='frame1' placeholder="Email"></textarea>
+              <button className='frame2' onClick={handleSubscribe} >Subscribe</button>
             </ul>
           </li>
         </ul>
       </nav>
 
+      {/* 成功彈窗 */}
+      {showSuccessModal && (
+          <div className="custom-modal-backdrop" style={{ zIndex: 2000 }} onClick={closeSuccessModal}>
+            <div className="custom-modal" onClick={e => e.stopPropagation()}>
+              <div className="success-icon">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                  <circle cx="30" cy="30" r="30" fill="#F4D000" />
+                  <path d="M18 30L26 38L42 22" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div className="custom-modal-header">
+                <h3>訂閱成功</h3>
+              </div>
+              <div className="custom-modal-body">
+                <p>{modalMessage}</p>
+              </div>
+              <button className="modal-ok-button" onClick={closeSuccessModal}>確認</button>
+            </div>
+          </div>
+      )}
+      
+      {/* 失敗彈窗 */}
+      {showErrorModal && (
+        <div className="custom-modal-backdrop" style={{ zIndex: 2000 }} onClick={closeErrorModal}>
+          <div className="custom-modal" onClick={e => e.stopPropagation()}>
+            <div className="error-icon">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="30" fill="#F40000" />
+                <path d="M22 22L38 38M38 22L22 38" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="custom-modal-header">
+              <h3>訂閱失敗</h3>
+            </div>
+            <div className="custom-modal-body">
+              <p>{modalMessage}</p>
+            </div>
+            <button className="modal-ok-button" onClick={closeErrorModal}>確認</button>
+          </div>
+        </div>
+      )}
+
       <h4>
         <span>亞洲第一數位遊牧平台 ｜ © 2025 Nomadrift. All rights reserved.</span>
       </h4>
+      
     </footer>
   );
 };
