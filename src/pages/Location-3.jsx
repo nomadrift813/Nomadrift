@@ -237,7 +237,7 @@ const cardsData = [
     price: "15000 /月",
     text: "是歷史與現代交融的城市，擁有西班牙殖民遺跡與繁忙商業區，文化多元，生活節奏熱情而活力十足。",
   },
-    {
+  {
     id: 26,
     country: "尼泊爾",
     img: "./img-Location/Nepal.jpg",
@@ -324,37 +324,50 @@ const Location3 = () => {
           <Link to="/location3">
             <li>亞洲</li>
           </Link>
-          <img src="./img-Location/smScroll.svg" alt="" />
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
+
         </ul>
         <ul>
           <Link to="/location3">
             <li>歐洲</li>
           </Link>
-          <img src="./img-Location/smScroll.svg" alt="" />
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
         </ul>
         <ul>
           <Link to="/location3">
             <li>北美洲</li>
           </Link>
-          <img src="./img-Location/smScroll.svg" alt="" />
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
         </ul>
         <ul>
           <Link to="/location3">
             <li>中南美洲</li>
           </Link>
-          <img src="./img-Location/smScroll.svg" alt="" />
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
         </ul>
         <ul>
           <Link to="/location3">
             <li>非洲</li>
           </Link>
-          <img src="./img-Location/smScroll.svg" alt="" />
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
         </ul>
         <ul>
           <Link to="/location3">
             <li>大洋洲</li>
           </Link>
-          <img src="./img-Location/smScroll.svg" alt="" />
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
         </ul>
       </div>
 

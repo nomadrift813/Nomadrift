@@ -117,27 +117,27 @@ const Location = () => {
         <div className='locDrop'>
           <ul>
             <a href="#section3" onClick={(e) => handleScroll(e, "#global1")}><li>亞洲</li></a>
-            <img src="./img-Location/smScroll.svg" alt="" />
+            {/* <img src="./img-Location/smScroll.svg" alt="" /> */}
           </ul>
           <ul>
             <a href="#section3" onClick={(e) => handleScroll(e, "#global2")}><li>歐洲</li></a>
-            <img src="./img-Location/smScroll.svg" alt="" />
+            {/* <img src="./img-Location/smScroll.svg" alt="" /> */}
           </ul>
           <ul>
             <a href="#section3" onClick={(e) => handleScroll(e, "#global3")}><li>北美洲</li></a>
-            <img src="./img-Location/smScroll.svg" alt="" />
+            {/* <img src="./img-Location/smScroll.svg" alt="" /> */}
           </ul>
           <ul>
             <a href="#section3" onClick={(e) => handleScroll(e, "#global4")}><li>中南美洲</li></a>
-            <img src="./img-Location/smScroll.svg" alt="" />
+            {/* <img src="./img-Location/smScroll.svg" alt="" /> */}
           </ul>
           <ul>
             <a href="#section3" onClick={(e) => handleScroll(e, "#global5")}><li>非洲</li></a>
-            <img src="./img-Location/smScroll.svg" alt="" />
+            {/* <img src="./img-Location/smScroll.svg" alt="" /> */}
           </ul>
           <ul>
             <a href="#section3" onClick={(e) => handleScroll(e, "#global6")}><li>大洋洲</li></a>
-            <img src="./img-Location/smScroll.svg" alt="" />
+            {/* <img src="./img-Location/smScroll.svg" alt="" /> */}
           </ul>
         </div>
       </section>
