@@ -305,8 +305,11 @@
 
              &:hover {
                  background: $accent;
-             }
 
+                 li {
+                     color: $text;
+                 }
+             }
 
              li {
                  display: flex;
@@ -319,10 +322,6 @@
                  line-height: 150%;
                  letter-spacing: 2px;
                  white-space: nowrap;
-
-                 &:hover {
-                     color: $text;
-                 }
              }
 
              //  img {
