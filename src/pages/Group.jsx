@@ -365,7 +365,7 @@ const Group = () => {
   };
 
   const handleViewMore = () => {
-    setVisibleCount(prev => prev + 12);
+    setVisibleCount(prev => prev + 6);
   };
 
   const pagedActivities = getPagedActivities();
@@ -380,9 +380,9 @@ const Group = () => {
     if (!show) return null;
     // 外層套淡入效果，內層仍由 GroupCard 渲染
     return (
-      <FadeInOnScroll className="card-fade-wrapper">
+      <div className="card-fade-wrapper">
         <GroupCard {...props} />
-      </FadeInOnScroll>
+      </div>
     );
   };
 
