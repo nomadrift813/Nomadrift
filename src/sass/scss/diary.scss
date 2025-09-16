@@ -457,10 +457,10 @@
             color: $primary2;
             font-family: $en;
             font-size: 22px;
-             font-style: normal;
-                 font-weight: $f-w-4;
-                 line-height: 150%;
-                 letter-spacing: $spacing-xxs;
+            font-style: normal;
+            font-weight: $f-w-4;
+            line-height: 150%;
+            letter-spacing: $spacing-xxs;
         }
 
 
@@ -495,7 +495,7 @@
     gap: 10px;
     // justify-content: center;
     // align-items: center;
-      //flex-direction: column;
+    //flex-direction: column;
 
 
     @media (max-width: 1142px) {
@@ -511,41 +511,47 @@
     ul {
         width: 100%;
         display: flex;
-        flex:1;
+        flex: 1;
         padding: 5px 20px;
         justify-content: center;
         align-items: center;
         border-radius: 100px;
         background: $primary1;
         flex: 0 0 150px;
-
-
-        &:hover {
-            background: $accent;
-        }
+        color: #fff;
+        text-align: center;
+        font-family: $family-tc;
+        font-size: $f-s-md;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 2px;
+        flex-wrap: nowrap;
 
         cursor: pointer; // 讓使用者知道可以點擊
 
-        li {
-            display: flex;
-            color: #fff;
-            text-align: center;
-            font-family: $family-tc;
-            font-size: $f-s-md;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: 2px;
-            flex-wrap: nowrap;
-             &:hover {
-            color: $text;
-        }
-        }
+        // li {
+        //     display: flex;
+        //     color: #fff;
+        //     text-align: center;
+        //     font-family: $family-tc;
+        //     font-size: $f-s-md;
+        //     font-style: normal;
+        //     font-weight: 400;
+        //     line-height: 150%;
+        //     letter-spacing: 2px;
+        //     flex-wrap: nowrap;
+        // }
 
         img {
             width: 15px;
             height: 15px;
 
+        }
+
+        &:hover {
+            background: $accent;
+            color: $text;
         }
 
     }
@@ -579,6 +585,7 @@
     &:hover {
         background: $accent;
         cursor: pointer;
+        color:$text;
     }
 }
 
@@ -604,44 +611,47 @@
 }
 
 .toast-container {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-  animation: fadeInOut 3.5s ease-in-out;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    animation: fadeInOut 3.5s ease-in-out;
 }
 
 .toast-content {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
-  }
-  10% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  90% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
-  }
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
 }
 
 #diary-article {
@@ -676,8 +686,9 @@
 
         .p1-sel {
             order: 1;
+
             @media (max-width: 1142px) {
-                order:-1;
+                order: -1;
             }
 
             .dia-p1 {
@@ -695,11 +706,11 @@
 
                 @media (max-width: 1142px) {
                     width: 100%;
-                    
+
                 }
 
             }
-            
+
         }
 
         .diaArticle1 {
@@ -796,7 +807,7 @@
                         background-color: #fff;
                         border-radius: 12px;
                         padding: 1.5px 9px;
-                        color:$text;
+                        color: $text;
                         font-size: 0.8rem;
 
                     }
@@ -815,7 +826,8 @@
                             }
                         }
                     }
-                    .allbutton{
+
+                    .allbutton {
                         display: flex;
                         gap: 1rem;
                     }
