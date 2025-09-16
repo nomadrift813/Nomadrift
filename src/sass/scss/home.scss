@@ -1034,6 +1034,7 @@ body {
         width: 100%;
         margin-right: 280px;
         margin-top: -50px;
+           z-index: 5;
 
         @media ($mediaMd) {
             display: none;
@@ -1042,7 +1043,7 @@ body {
         @media ($mediaXl) {
             margin-right: 150px;
             margin-top: -250px;
-            z-index: 1;
+         
         }
 
 
@@ -1091,7 +1092,7 @@ body {
 
         /* 共用互動效果 */
         .hover-fun {
-            cursor: pointer;
+            cursor: default;
             will-change: transform, box-shadow, filter;
             transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 
