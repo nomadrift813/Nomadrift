@@ -45,7 +45,7 @@
 .swiper-button-prev,
 .swiper-button-next {
     color: #f4cf00 !important;
-    opacity: 0.5;
+    opacity: 0;
 }
 
 .title {
@@ -114,7 +114,19 @@
 
         &:hover {
             background: $accent;
+
+            li {
+                color: $text;
+            }
+
+            svg {
+                path {
+                    stroke: $text;
+                }
+            }
+
         }
+
 
         li {
             display: flex;
@@ -129,7 +141,7 @@
             white-space: nowrap;
         }
 
-        img {
+        svg {
             width: 12px;
             height: 9px;
         }
@@ -248,7 +260,7 @@
                 align-items: center;
                 gap: 3px;
 
-                border-bottom: 1px solid #737B6B ;
+                border-bottom: 1px solid #737B6B;
                 padding-bottom: 12px;
 
                 ul {

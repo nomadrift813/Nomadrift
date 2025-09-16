@@ -319,12 +319,16 @@
                  line-height: 150%;
                  letter-spacing: 2px;
                  white-space: nowrap;
+
+                 &:hover {
+                     color: $text;
+                 }
              }
 
-             img {
-                 width: 12px;
-                 height: 9px;
-             }
+             //  img {
+             //      width: 12px;
+             //      height: 9px;
+             //  }
          }
      }
  }
@@ -433,7 +437,7 @@
          z-index: 1;
          margin-left: -150px;
 
-         width: 70%;
+         width: 74%;
          height: 100%;
 
          // RWD: 調整邊距和寬度
