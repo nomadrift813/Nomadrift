@@ -176,67 +176,83 @@
         align-items: center;
         margin-top: 8px;
 
-    }
-
-    .pm {
-        font-family: $family-tc;
-        letter-spacing: 2px;
-        display: flex;
-        align-items: center;
-        padding: 5px 30px;
-        justify-content: center;
-        align-items: center;
-
-        color: $text;
-        font-size: $f-s-sm2;
-        border-radius: 999px;
-
-        border: 1px solid #7A7872;
-
-        cursor: pointer;
-        transition: 0.2s;
-
-        &:hover {
-            background: #e0e0e0;
-        }
-
-        @media ($mediaSm) {
+        @media ($mediaMd) {
             justify-content: center;
-            width: 100%;
-        }
-    }
-
-    .join {
-        display: flex;
-        padding: 5px 30px;
-        gap: 8px;
-        justify-content: center;
-        align-items: center;
-
-        background-color: $accent;
-        color: $text;
-        font-size: $f-s-sm2;
-        border-radius: 999px;
-
-        cursor: pointer;
-        transition: 0.2s;
-
-        &:hover {
-            background: #e7c300;
-        }
-
-        img {
-            margin-top: 3px;
-            width: 8.5px;
-            height: 15.5px;
+            align-items: center;
         }
 
         @media ($mediaSm) {
             justify-content: center;
             align-items: center;
         }
+
+        .pm {
+            font-family: $family-tc;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            padding: 5px 30px;
+            justify-content: center;
+            align-items: center;
+
+            color: $text;
+            font-size: $f-s-sm2;
+            border-radius: 999px;
+
+            border: 1px solid #7A7872;
+
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background: #e0e0e0;
+            }
+
+            @media ($mediaSm) {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        .join {
+            display: flex;
+            padding: 5px 30px;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+
+            background-color: $accent;
+            color: $text;
+            font-size: $f-s-sm2;
+            border-radius: 999px;
+
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background: #e7c300;
+            }
+
+            img {
+                margin-top: 3px;
+                width: 8.5px;
+                height: 15.5px;
+            }
+
+            @media ($mediaMd) {
+                justify-content: center;
+                align-items: center;
+            }
+
+            @media ($mediaSm) {
+                justify-content: center;
+                align-items: center;
+            }
+        }
     }
 }
+
+
 
 // 活動說明
 #activity-content {
