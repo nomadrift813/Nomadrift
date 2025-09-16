@@ -464,7 +464,6 @@ const Diary = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <li>{category}</li>
-                    <img src="./img-diary/icon-right.png" alt="" />
                   </ul>
                 ))}
               </div>
