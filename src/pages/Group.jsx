@@ -40,9 +40,8 @@ const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold =
 };
 
 const Group = () => {
-  // state + handler
+  // 篩選、顯示數量、彈窗
   const [activeFilter, setActiveFilter] = useState('全部活動');
-  const [userActivities, setUserActivities] = useState([]);
   const [visibleCount, setVisibleCount] = useState(12); // 初始顯示 12 張
   const [showJoinSuccessModal, setShowJoinSuccessModal] = useState(false); // 加入成功彈窗
   const location = useLocation();
@@ -52,36 +51,9 @@ const Group = () => {
     setActiveFilter(tag);
   };
 
-  // 處理加入活動的函數
-  const handleJoinActivity = () => {
-    setShowJoinSuccessModal(true);
-  };
-
   // 關閉彈窗
   const closeJoinModal = () => {
     setShowJoinSuccessModal(false);
-  };
-
-  // 檢查是否有從 Group3 頁面傳來的新活動
-  useEffect(() => {
-    if (location.state?.newActivity) {
-      setUserActivities([location.state.newActivity]);
-      // 清除 navigation state，避免重複添加
-      window.history.replaceState({}, document.title);
-    }
-  }, [location.state]);
-
-  // 小包裝：符合就顯示，不符合就不渲染
-  const FilterableCard = ({ activeFilter, ...props }) => {
-    const tags = props.tags || [];
-    const show = activeFilter === '全部活動' || tags.includes(activeFilter);
-    if (!show) return null;
-    // 外層套淡入效果，內層仍由 GroupCard 渲染
-    return (
-      <FadeInOnScroll className="card-fade-wrapper">
-        <GroupCard {...props} />
-      </FadeInOnScroll>
-    );
   };
 
   // 預設的活動數據（含你原本與新增的）
@@ -146,7 +118,6 @@ const Group = () => {
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
-
     {
       key: "dating",
       date: "2025/09/22",
@@ -330,8 +301,6 @@ const Group = () => {
       detailLink: "/group2",
       tags: ["找工作夥伴"],
     },
-
-
     {
       key: "content-sprint",
       image: "./img-Group/content.jpg",
@@ -344,25 +313,48 @@ const Group = () => {
       detailLink: "/group2",
       tags: ["找工作夥伴", "找Chill伴"],
     },
-
-
   ];
 
-  // 合併用戶活動 + 靜態活動（用戶活動會在最前面）
-  const baseActivities = [...userActivities, ...staticActivities];
+  /** 重要：使用一個 activities state 由父層統一管理人數 */
+  const [activities, setActivities] = useState(staticActivities);
+
+  // 如果從 group3 帶入新活動，插到最前面（標記 isUserActivity 以便排序在前）
+  useEffect(() => {
+    const newActivity = location.state?.newActivity;
+    if (newActivity) {
+      setActivities(prev => {
+        const idKey = newActivity.key || newActivity.id;
+        const filtered = prev.filter(a => (a.key || a.id) !== idKey);
+        return [{ ...newActivity, isUserActivity: true }, ...filtered];
+      });
+      // 清除 navigation state，避免重複添加
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
+
+  // 點擊加入：依 key/id 找到活動 → signupCount + 1 → 打開彈窗
+  const handleJoinActivity = (activityKeyOrId) => {
+    setActivities(prev =>
+      prev.map(a =>
+        (a.key ?? a.id) === activityKeyOrId
+          ? { ...a, signupCount: (a.signupCount || 0) + 1 }
+          : a
+      )
+    );
+    setShowJoinSuccessModal(true);
+  };
 
   // 依篩選結果過濾
-  const filtered = baseActivities.filter(a =>
+  const filtered = activities.filter(a =>
     activeFilter === '全部活動' || (a.tags || []).includes(activeFilter)
   );
 
-  // 確保用戶活動始終在前面
-  const userFiltered = filtered.filter(a => userActivities.some(ua => ua.id === a.id));
-  const staticFiltered = filtered.filter(a => !userActivities.some(ua => ua.id === a.id));
+  // 用 isUserActivity 讓新建立的活動永遠排在前面
+  const userFiltered = filtered.filter(a => a.isUserActivity);
+  const staticFiltered = filtered.filter(a => !a.isUserActivity);
   const reorderedFiltered = [...userFiltered, ...staticFiltered];
 
-  // 讓「更多活動」按鈕每次都再顯示 12 張卡片：
-  // 當 reorderedFiltered 不足 visibleCount，就用原本順序重複補齊，再截斷到 visibleCount。
+  // 「更多活動」按鈕：不足就循環補滿，再截斷至 visibleCount
   const getPagedActivities = () => {
     if (reorderedFiltered.length === 0) return [];
     const result = [];
@@ -373,13 +365,26 @@ const Group = () => {
   };
 
   const handleViewMore = () => {
-    setVisibleCount(prev => prev + 12); // 每按一次就增加 12 張
+    setVisibleCount(prev => prev + 12);
   };
 
   const pagedActivities = getPagedActivities();
 
   // 按鈕列：使用 IntersectionObserver 觸發由左到右彈出
   const { ref: btnsRef, inView: btnsShow } = useInView(0.5);
+
+  // 小包裝：符合就顯示，不符合就不渲染
+  const FilterableCard = ({ activeFilter, ...props }) => {
+    const tags = props.tags || [];
+    const show = activeFilter === '全部活動' || tags.includes(activeFilter);
+    if (!show) return null;
+    // 外層套淡入效果，內層仍由 GroupCard 渲染
+    return (
+      <FadeInOnScroll className="card-fade-wrapper">
+        <GroupCard {...props} />
+      </FadeInOnScroll>
+    );
+  };
 
   return (
     <main>
@@ -488,7 +493,8 @@ const Group = () => {
                 description={activity.description}
                 detailLink={activity.detailLink}
                 tags={activity.tags}
-                onJoin={handleJoinActivity}
+                // 這裡把 key/id 往上拋，父層根據 key/id +1
+                onJoin={() => handleJoinActivity(activity.key ?? activity.id)}
               />
             ))
           )}
