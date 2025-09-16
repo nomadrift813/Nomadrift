@@ -40,7 +40,7 @@ const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold =
 };
 
 /** 修正版：不使用淡入、只負責水平無限輪播 */
-const CardCarousel = ({ items }) => {
+const CardCarousel = ({ items, onJoin }) => {
     const viewportRef = useRef(null);
     const trackRef = useRef(null);
     const [oneSetWidth, setOneSetWidth] = useState(0);  // 一組卡片的總寬（px）
@@ -51,7 +51,7 @@ const CardCarousel = ({ items }) => {
     // 產出 3 組一樣的卡片，做無縫循環
     const tripleSets = useMemo(() => [items, items, items], [items]);
 
-    // 量測第一組寬度
+    // 重測第一組寬度
     useEffect(() => {
         const calc = () => {
             if (!trackRef.current) return;
@@ -115,7 +115,7 @@ const CardCarousel = ({ items }) => {
                                         title={card.title}
                                         description={card.description}
                                         detailLink={card.detailLink}
-                                        onJoin={() => console.log("加入活動")}
+                                        onJoin={onJoin}
                                     />
                                 </div>
                             ))}
@@ -128,6 +128,12 @@ const CardCarousel = ({ items }) => {
 };
 
 const Group2 = () => {
+    // 新增：報名人數狀態
+    const [currentSignupCount, setCurrentSignupCount] = useState(7);
+    
+    // 新增：加入成功彈窗狀態
+    const [showJoinSuccessModal, setShowJoinSuccessModal] = useState(false);
+
     const groupCardData = [
         {
             id: 1,
@@ -159,7 +165,7 @@ const Group2 = () => {
             time: "10:00",
             location: "里斯本",
             title: "每周一網球",
-            description: "手癢想打網球卻找不到球友嗎?\n周一網球社歡迎你的加入，我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!",
+            description: "手癢想打網球卻找不到球友嗎?\n周一網球社歡迎你的加入！我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!",
             detailLink: "/group2",
         },
         {
@@ -221,6 +227,17 @@ const Group2 = () => {
         setNewComment("");
     };
 
+    // 新增：處理加入活動的函數
+    const handleJoinActivity = () => {
+        setCurrentSignupCount(prev => prev + 1);
+        setShowJoinSuccessModal(true);
+    };
+
+    // 新增：關閉彈窗
+    const closeJoinModal = () => {
+        setShowJoinSuccessModal(false);
+    };
+
     return (
         <main>
             {/* Banner區：不動背景，只讓文字淡入 */}
@@ -262,8 +279,7 @@ const Group2 = () => {
                         </FadeInOnScroll>
 
                         <FadeInOnScroll className="activity-btn">
-                            {/* <button className="pm">私訊揪團主</button> */}
-                            <button className="join">
+                            <button className="join" onClick={handleJoinActivity}>
                                 報名參加
                                 <img src="./img-Group/right-arrow.svg" alt="right-arrow" />
                             </button>
@@ -294,7 +310,7 @@ const Group2 = () => {
 
                 <FadeInOnScroll className="participants">
                     <h3>報名人數</h3>
-                    <p>7 人已報名</p>
+                    <p>{currentSignupCount} 人已報名</p>
 
                     <div className="join-people">
                         <img className="people-img" src="./img-Group/people/join-people (1).jpg" alt="" />
@@ -342,7 +358,7 @@ const Group2 = () => {
 
             {/* 更多揪團（Carousel 無淡入） */}
             <section id="more-activities">
-                <CardCarousel items={groupCardData} />
+                <CardCarousel items={groupCardData} onJoin={handleJoinActivity} />
             </section>
 
             {/* 發起揪團 */}
@@ -355,6 +371,27 @@ const Group2 = () => {
                     </FadeInOnScroll>
                 </div>
             </section>
+
+            {/* 加入成功彈窗 - 固定在整個畫面中央 */}
+            {showJoinSuccessModal && (
+                <div className="group-join-modal-overlay" onClick={closeJoinModal}>
+                    <div className="group-join-success-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="group-join-modal-content group-join-fade-in show">
+                            <div className="group-join-success-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                    <circle cx="30" cy="30" r="30" fill="#F4D000" />
+                                    <path d="M18 30L26 38L42 22" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <h2>加入成功</h2>
+                            <p>你已成功加入此活動！</p>
+                            <button className="group-join-modal-close-btn" onClick={closeJoinModal}>
+                                確定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 };

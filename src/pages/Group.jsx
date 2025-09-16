@@ -44,11 +44,22 @@ const Group = () => {
   const [activeFilter, setActiveFilter] = useState('全部活動');
   const [userActivities, setUserActivities] = useState([]);
   const [visibleCount, setVisibleCount] = useState(12); // 初始顯示 12 張
+  const [showJoinSuccessModal, setShowJoinSuccessModal] = useState(false); // 加入成功彈窗
   const location = useLocation();
 
   const handleFilterClick = (tag, e) => {
-    e?.preventDefault?.();      // 避免 <a href="#"> 跳到頁首
+    e?.preventDefault?.();      // 避免 <a href="#"> 跳到頂端
     setActiveFilter(tag);
+  };
+
+  // 處理加入活動的函數
+  const handleJoinActivity = () => {
+    setShowJoinSuccessModal(true);
+  };
+
+  // 關閉彈窗
+  const closeJoinModal = () => {
+    setShowJoinSuccessModal(false);
   };
 
   // 檢查是否有從 Group3 頁面傳來的新活動
@@ -83,7 +94,7 @@ const Group = () => {
       time: "18:00",
       location: "台灣",
       title: "逛饒河夜市",
-      description: "來去饒河夜市走走吧！集合好之後就一起逛，先買個剛出爐的胡椒餅，再來一杯冰冰涼涼的仙草茶，邊吃邊聊超chill～一路上想停哪就停哪，看到什麼想吃就買，沒有SOP、也不用趕行程，就是數位遊牧者聚在一起隨興散步，順便認識新朋友。燈火通明、人聲熱鬧，美食香氣一路陪伴，聊工作、聊旅行、聊生活，輕鬆自在到不想回家，快來加入我們，用夜市的熱鬧氛圍開啟一個超好玩的夜晚吧！",
+      description: "來去饒河夜市走走吧！集合好之後就一起逛，先買個剛出爐的胡椒餅，再來一杯冰冰涼涼的仙草茶，邊吃邊聊超chill～一路上想停哪就停哪，看到什麼想吃就買，沒有SOP、也不用趕行程，就是數位游牧者聚在一起隨興散步，順便認識新朋友。燈火通明、人聲熱鬧，美食香氣一路陪伴，聊工作、聊旅行、聊生活，輕鬆自在到不想回家，快來加入我們，用夜市的熱鬧氛圍開啟一個超好玩的夜晚吧！",
       detailLink: "/group2",
       tags: ["找吃飯夥伴", "找踩點夥伴"],
     },
@@ -95,7 +106,7 @@ const Group = () => {
       time: "09:00",
       location: "東京",
       title: "遠端程式馬拉松",
-      description: "不管你是前端、後端還是設計師，帶著筆電來參加。我們互相分享專案進度，順便交換技能，遠端工作也能一起衝刺。",
+      description: "不管你是前端、後端還是設計師，帶著筆電來參加。我們互相分享專案進度，順便交流技能，遠端工作也能一起衝刺。",
       detailLink: "/group2",
       tags: ["找工作夥伴"],
     },
@@ -107,7 +118,7 @@ const Group = () => {
       time: "19:00",
       location: "曼谷",
       title: "一起征服米其林",
-      description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊遊牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的遊牧社交體驗。Ⱟ",
+      description: "這次我們把筆電和咖啡廳先放一邊，換上米其林二星餐桌，享受主廚精心設計的 tasting menu，邊品嚐邊聊游牧工作與旅行故事。用餐後還會一起去昭披耶河畔小酌，看夜景繼續交流，這不是單純吃飯，而是一場奢華的游牧社交體驗。⚡️",
       detailLink: "/group2",
       tags: ["找吃飯夥伴", "找踩點夥伴"],
     },
@@ -197,7 +208,7 @@ const Group = () => {
       location: "里斯本",
       title: "每周一網球",
       description: `手癢想打網球卻找不到球友嗎?
-周一網球社歡迎你的加入，我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!`,
+周一網球社歡迎你的加入！我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!`,
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
@@ -221,7 +232,7 @@ const Group = () => {
       time: "16:30",
       location: "香港",
       title: "夕陽輕登山",
-      description: "慢慢走上小山，邊走邊聊天。到山頂剛好看到夕陽灑下的金色光，帶點運動、帶點浪漫，讓心情徹底放鬆。",
+      description: "慢慢走上小山，邊走邊聊天。到山頂剛好看到夕陽瀉下的金色光，帶點運動、帶點浪漫，讓心情徹底放鬆。",
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
@@ -267,7 +278,7 @@ const Group = () => {
       time: "14:00",
       location: "泰國",
       title: "圖書館讀書會",
-      description: "看完一本書獲得很多感悟後沒地方分享嗎?來參加我們新創的讀書會，不僅可以解決你的分享慾，還可以獲得很多推薦書籍",
+      description: "看完一本書獲得很多感悟後沒地方分享嗎?來參加我們新創的讀書會！不僅可以解決你的分享慾，還可以獲得很多推薦書籍",
       detailLink: "/group2",
       tags: ["找工作夥伴"],
     },
@@ -290,7 +301,7 @@ const Group = () => {
       time: "23:00",
       location: "摩洛哥",
       title: "午夜星空冥想派對",
-      description: "集合在撒哈拉沙丘的帳篷營地，等夜幕完全降臨，大家先靜坐片刻，讓自己跟沙漠的寂靜同步。接著我會帶領一個「星空冥想體驗」，透過引導呼吸和專注，把注意力放在滿天星斗與銀河，讓腦袋從白天的工作模式切換成放鬆狀態。之後我們會進行「靈感分享環節」，每個人可以在沙漠夜空下分享自己最想完成的一個夢想，或是最近萌芽的創意。最後，我準備了小型投影裝置，在帳篷牆上映放一段「遊牧者的旅程紀錄片」或是大家共同的短片，陪伴彼此直到凌晨。這是一個融合靈性、創意、與遊牧連結的夜晚。",
+      description: "集合在撒哈拉沙丘的帳篷營地，等夜幕完全降臨，大家先靜默片刻，讓自己跟沙漠的寂靜同步。接著我會帶領一個「星空冥想體驗」，透過引導呼吸和專注，把注意力放在滿天星斗與銀河，讓腦袋從白天的工作模式切換成放鬆狀態。之後我們會進行「靈感分享環節」，每個人可以在沙漠夜空下分享自己最想完成的一個夢想，或是最近萌芽的創意。最後，我準備了小型投影裝置，在帳篷牆上映放一段「游牧者的旅程紀錄片」或是大家共同的短片，陪伴彼此直到凌晨。這是一個融合靈性、創意、與游牧連結的夜晚。",
       detailLink: "/group2",
       tags: ["找Chill伴"],
     },
@@ -315,7 +326,7 @@ const Group = () => {
       time: "10:00",
       location: "台北",
       title: "咖啡廳共工日",
-      description: "找個安靜的咖啡廳，一起開電腦工作。有人寫程式、有人剪片，不同領域的遊牧者互相陪伴，彼此專注又不孤單。",
+      description: "找個安靜的咖啡廳，一起開電腦工作。有人寫程式、有人剪片，不同領域的游牧者互相陪伴，彼此專注卻不孤單。",
       detailLink: "/group2",
       tags: ["找工作夥伴"],
     },
@@ -477,7 +488,7 @@ const Group = () => {
                 description={activity.description}
                 detailLink={activity.detailLink}
                 tags={activity.tags}
-                onJoin={() => console.log("加入活動")}
+                onJoin={handleJoinActivity}
               />
             ))
           )}
@@ -493,6 +504,27 @@ const Group = () => {
           </button>
         </FadeInOnScroll>
       </section>
+
+      {/* 加入成功彈窗 - 固定在整個畫面中央 */}
+      {showJoinSuccessModal && (
+        <div className="group-join-modal-overlay" onClick={closeJoinModal}>
+          <div className="group-join-success-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="group-join-modal-content group-join-fade-in show">
+              <div className="group-join-success-icon">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                  <circle cx="30" cy="30" r="30" fill="#F4D000" />
+                  <path d="M18 30L26 38L42 22" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h2>加入成功</h2>
+              <p>你已成功加入此活動！</p>
+              <button className="group-join-modal-close-btn" onClick={closeJoinModal}>
+                確定
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

@@ -263,3 +263,89 @@
         }
     }
 }
+
+// 加入成功彈窗樣式（Group 頁面專用，使用 group-join- 前綴避免重複）
+.group-join-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.group-join-success-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 32px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 400px;
+    width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.group-join-modal-content {
+    text-align: center;
+}
+
+.group-join-success-icon {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.group-join-success-modal h2 {
+    font-family: $family-tc;
+    font-size: 24px;
+    font-weight: 600;
+    color: $text;
+    margin-bottom: 8px;
+    margin: 0 0 8px 0;
+}
+
+.group-join-success-modal p {
+    font-family: $family-tc;
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 32px;
+    margin: 0 0 32px 0;
+}
+
+.group-join-modal-close-btn {
+    font-family: $family-tc;
+    background: $accent;
+    color: $text;
+    border: none;
+    border-radius: 99px;
+    padding: 8px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+.group-join-modal-close-btn:hover {
+    background: #e7c300;
+    transform: translateY(-1px);
+}
+
+.group-join-modal-close-btn:active {
+    transform: translateY(0);
+}
+
+.group-join-fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 2s ease, transform .6s ease;
+    will-change: opacity, transform;
+}
+
+.group-join-fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
