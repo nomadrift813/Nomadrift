@@ -242,7 +242,7 @@ const Diary = () => {
   const [newPostContent, setNewPostContent] = useState('');
   const [newPostImage, setNewPostImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  const [newPostLocation, setNewPostLocation] = useState('台北/ 台灣');
+  const [newPostLocation, setNewPostLocation] = useState('');
   const [newPostDate, setNewPostDate] = useState(new Date().toISOString().substring(0, 10));
   const [activeCategory, setActiveCategory] = useState('全部日記');
   const [modalMessage, setModalMessage] = useState('');
@@ -385,6 +385,7 @@ const Diary = () => {
                       <img src="./img-Home/location.svg" alt="位置圖示" />
                       <input
                         type="text"
+                        placeholder="台灣/ 台北"
                         className="location-input"
                         value={newPostLocation}
                         onChange={(e) => setNewPostLocation(e.target.value)}
