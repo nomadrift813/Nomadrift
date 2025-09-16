@@ -32,36 +32,57 @@ const Home = () => {
     return () => io.disconnect();
   }, []);
 
-  /* 2) Banner 線：看到 section banner 就重播（SMIL .b-wipe） */
-  useEffect(() => {
-    const root = bannerRef.current;
-    if (!root) return;
+ /* 2) 進入 section：重播刷線；刷完線自動觸發一次划船 */
+useEffect(() => {
+  const root = bannerRef.current;
+  if (!root) return;
 
-    const target = root.querySelector(".banner-line");
-    if (!target) return;
+  const target = root.querySelector(".banner-line");
+  if (!target) return;
 
-    const io = new IntersectionObserver(
-      entries => {
-        entries.forEach(({ isIntersecting }) => {
-          if (!isIntersecting) return;
+  const wipe = target.querySelector(".b-wipe");
+  const anim = wipe?.querySelector?.("animate");
+  if (!wipe || !anim) return;
 
-          const wipe = target.querySelector(".b-wipe");
-          const anim = wipe?.querySelector?.("animate");
-          if (!wipe || !anim) return;
+  let autoQueued = false; // 避免同一輪重複掛 endEvent
 
-          // 重設 → 強制 reflow → 重新播放
-          const dash = wipe.getAttribute("stroke-dasharray") || "1";
-          wipe.setAttribute("stroke-dashoffset", dash);
-          void wipe.getBoundingClientRect();
-          if (typeof anim.beginElement === "function") anim.beginElement();
-        });
-      },
-      { threshold: 0.6, rootMargin: "0px 0px -10% 0px" }
-    );
 
-    io.observe(target);
-    return () => io.disconnect();
-  }, []);
+  const onEnter = () => {
+    // 先重設虛線並播放刷線
+    const dash = wipe.getAttribute("stroke-dasharray") || "1";
+    wipe.setAttribute("stroke-dashoffset", dash);
+    void wipe.getBoundingClientRect(); // 強制 reflow
+    if (typeof anim.beginElement === "function") anim.beginElement();
+
+    // 線刷完 → 自動發出一次「boat-play」事件，讓船跑一次
+    if (!autoQueued) {
+      autoQueued = true;
+      const handleWipeEnd = () => {
+        target.dispatchEvent(new CustomEvent("boat-play"));
+        anim.removeEventListener("endEvent", handleWipeEnd);
+        // 等船跑完會自動回起點；等下次再次進入視窗時再重播
+      };
+      anim.addEventListener("endEvent", handleWipeEnd, { once: true });
+    }
+  };
+
+  // IntersectionObserver：看到 section 才觸發
+  const io = new IntersectionObserver(
+    entries => {
+      entries.forEach(({ isIntersecting }) => {
+        if (isIntersecting) onEnter();
+        else {
+          // 離開視窗時把旗標清掉，避免停留期間多次觸發
+          autoQueued = false;
+        }
+      });
+    },
+    { threshold: 0.6, rootMargin: "0px 0px -10% 0px" }
+  );
+
+  io.observe(target);
+  return () => io.disconnect();
+}, []);
 
   /* 3) 其它兩條線（CSS 版）：進場重播（移除→reflow→加回 .play） */
   useEffect(() => {
@@ -108,60 +129,70 @@ const Home = () => {
   }, []);
 
 
-  // 划船
-  useEffect(() => {
-    const AMP = 6;        // 漂浮幅度(px)
-    const PERIOD = 3400;  // 週期(ms)
-    const W = (2 * Math.PI) / PERIOD;
+ /* 5) 划船：維持待機漂浮；收到點擊或「boat-play」事件就沿路徑跑到底，結束回起點 */
+useEffect(() => {
+  const AMP = 6;        // 漂浮幅度(px)
+  const PERIOD = 3400;  // 週期(ms)
+  const W = (2 * Math.PI) / PERIOD;
 
-    const root = bannerRef.current;
-    if (!root) return;
+  const root = bannerRef.current;
+  if (!root) return;
 
-    const container = root.querySelector('.banner-line');
-    const boat = container?.querySelector('.boat');
-    const bob = container?.querySelector('.boatBob');
-    const init = container?.querySelector('#boatInit');
-    const fwd = container?.querySelector('#boatFwd');
-    if (!container || !boat || !bob || !init || !fwd) return;
+  const container = root.querySelector(".banner-line");
+  const boat = container?.querySelector(".boat");
+  const bob = container?.querySelector(".boatBob");
+  const init = container?.querySelector("#boatInit");
+  const fwd = container?.querySelector("#boatFwd");
+  if (!container || !boat || !bob || !init || !fwd) return;
 
-    // 進頁：把船定位到起點
-    init.beginElement?.();
+  // 進頁：把船定位到起點
+  init.beginElement?.();
 
-    // rAF：待機上下漂浮（播放時暫停）
-    let playing = false;
-    let rafId = 0;
-    const t0 = performance.now();
+  // rAF：待機上下漂浮（播放時暫停）
+  let playing = false;
+  let rafId = 0;
+  const t0 = performance.now();
 
-    const loop = (t) => {
-      const y = playing ? 0 : Math.sin((t - t0) * W) * -AMP; // 往上為負
-      bob.style.transform = `translateY(${y}px)`;
-      rafId = requestAnimationFrame(loop);
-    };
+  const loop = (t) => {
+    const y = playing ? 0 : Math.sin((t - t0) * W) * -AMP; // 往上為負
+    bob.style.transform = `translateY(${y}px)`;
     rafId = requestAnimationFrame(loop);
+  };
+  rafId = requestAnimationFrame(loop);
 
-    // 點一下→沿路徑跑到底；結束→瞬間回起點，恢復漂浮
-    const play = () => {
-      if (playing) return;
-      playing = true;
-      fwd.beginElement();
-      const onEnd = () => {
-        init.beginElement?.();   // 立刻回到起點
-        playing = false;
-        fwd.removeEventListener('endEvent', onEnd);
-      };
-      fwd.addEventListener('endEvent', onEnd, { once: true });
+  // 觸發一次完整航行
+  const play = () => {
+    if (playing) return;
+    playing = true;
+    fwd.beginElement(); // 開始沿路徑前進
+
+    const onEnd = () => {
+      init.beginElement?.();   // 跑完立刻回到起點
+      playing = false;         // 恢復漂浮
+      fwd.removeEventListener("endEvent", onEnd);
     };
+    fwd.addEventListener("endEvent", onEnd, { once: true });
+  };
 
-    boat.addEventListener('click', play);
-    boat.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
-    });
+  // 點擊 / 鍵盤 啟動
+  const onClick = () => play();
+  const onKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); }
+  };
+  boat.addEventListener("click", onClick);
+  boat.addEventListener("keydown", onKey);
 
-    return () => {
-      boat.removeEventListener('click', play);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
+  // 監聽「刷線完成後」由上一個 effect 發出的自動播放事件
+  const onAutoPlay = () => play();
+  container.addEventListener("boat-play", onAutoPlay);
+
+  return () => {
+    boat.removeEventListener("click", onClick);
+    boat.removeEventListener("keydown", onKey);
+    container.removeEventListener("boat-play", onAutoPlay);
+    cancelAnimationFrame(rafId);
+  };
+}, []);
   return (
     <main ref={wrapRef}>
       <section id="homebanner" ref={bannerRef}>
