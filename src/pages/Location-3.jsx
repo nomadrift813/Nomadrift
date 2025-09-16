@@ -297,19 +297,19 @@ const Location3 = () => {
       >
         <h1 className='titleAsia'>亞洲</h1>
         <SwiperSlide>
-          <img src="/img-Location/bannerAsia.jpg" alt="" />
+          <img src="./img-Location/bannerAsia.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/img-Location/bJapan.jpg" alt="" />
+          <img src="./img-Location/bJapan.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/img-Location/bTurkey.jpg" alt="" />
+          <img src="./img-Location/bTurkey.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/img-Location/bUAE.jpg" alt="" />
+          <img src="./img-Location/bUAE.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/img-Location/bUzbekistan.jpg" alt="" />
+          <img src="./img-Location/bUzbekistan.jpg" alt="" />
         </SwiperSlide>
       </Swiper>
       <h2 className='title'>亞洲</h2>
