@@ -3,10 +3,12 @@
 
 #log {
     padding: 0px;
-    .auth-inner{
+
+    .auth-inner {
         gap: 10px;
     }
-    form {
+
+    .log-form {
         display: flex;
         flex-direction: column;
         gap: 30px;
@@ -20,6 +22,8 @@
             font-size: 24px;
             font-style: normal;
             line-height: 100%;
+            font-weight: $f-w-5;
+            letter-spacing: $spacing-xxs;
         }
 
         article {
@@ -39,37 +43,37 @@
                 .log-input-custom {
                     display: flex;
                     width: 100%;
-                    
+
                     // 修改 G3InputLabel 內部的樣式
                     .text-input-container {
                         display: flex;
-                        flex-direction: row !important;  // 水平排列
+                        flex-direction: row !important; // 水平排列
                         align-items: center;
                         gap: 0px;
                         width: 100%;
 
                         .inputLabel-title-section {
-                            flex-shrink: 0;  // title 不壓縮
+                            flex-shrink: 0; // title 不壓縮
                             min-width: 60px; // 確保 title 有固定寬度
-                            
+
                             .inputLabel-title {
                                 font-family: $family-tc;
                                 font-weight: 500;
-                                font-size: 16px !important;  // 縮小 2px (原本 20px)
+                                font-size: 16px !important; // 縮小 2px (原本 20px)
                                 margin: 0;
                                 white-space: nowrap; // 防止 title 換行
                             }
                         }
 
                         .input-wrapper {
-                            flex: 1;  // input 占剩餘空間
-                            
+                            flex: 1; // input 占剩餘空間
+
                             .text-input {
                                 display: flex;
                                 font-family: $family-tc;
                                 width: 100%;
                                 padding: 5px 5px;
-                                border-radius:12px;
+                                border-radius: 12px;
                                 font-size: 14px !important;
                             }
                         }
@@ -112,7 +116,7 @@
         button {
             display: flex;
             padding: 5px 24px;
-            gap: 4px;
+            gap: 8px;
             color: #000;
             font-family: $en;
             font-size: 14px;
@@ -125,8 +129,8 @@
             border: 1px solid rgba(76, 74, 74, 0.50);
 
             &:nth-of-type(1) img {
-                width: 27px;
-                height: 27px;
+                width: 21px;
+                height: 21px;
             }
 
             &:nth-of-type(2) img {
@@ -151,6 +155,8 @@
         margin-bottom: 8px;
 
         a {
+            color: #d4a624;
+            border-bottom: 1.5px solid #d4a624;
             font-family: $family-tc;
             font-size: 14px;
             font-style: normal;

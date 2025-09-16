@@ -12,6 +12,8 @@
         font-style: normal;
         line-height: 100%;
         margin-bottom: 20px; // 與 log 的 gap 一致
+        font-weight: $f-w-5;
+        letter-spacing: $spacing-xxs;
     }
 
     form {
@@ -147,6 +149,12 @@
 
 
         a {
+            // font-family: $family-tc;
+            // font-size: 14px;
+            // font-style: normal;
+            // line-height: 100%;
+            color: #d4a624;
+            border-bottom: 1.5px solid #d4a624;
             font-family: $family-tc;
             font-size: 14px;
             font-style: normal;
