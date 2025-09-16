@@ -199,10 +199,10 @@
 }
 
 /* ===== 基本覆蓋：全螢幕暗幕 + 背景模糊 ===== */
-.modal-overlay {
+.modal-overlay2 {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,7 +211,7 @@
 }
 
 /* Modal 外殼改成透明容器：不用白底，不影響你原本卡片 */
-.modal-content {
+.modal-content2 {
   position: relative;
   padding: 0;
   background: transparent;
@@ -233,88 +233,88 @@
 }
 
 /* ===== 讓 #log/#sign 在 Modal 內維持你原本的卡片樣式 ===== */
-.modal-content #log,
-.modal-content #sign {
+.modal-content2 #log,
+.modal-content2 #sign {
   margin: 0 auto;
   height: auto;
   box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
 }
 
-.modal-content #log {
+.modal-content2 #log {
   width: min(526px, 90vw); // 響應式寬度
   border-radius: 20px;
   background-color: $white;
   padding: clamp(30px, 5vw, 50px) clamp(35px, 6vw, 65px) clamp(20px, 3vw, 30px);
 }
 
-.modal-content #sign {
+.modal-content2 #sign {
   width: min(526px, 90vw); // 響應式寬度
   border-radius: 20px;
   background-color: $white;
   padding: clamp(25px, 4vw, 40px) clamp(35px, 6vw, 65px) clamp(15px, 3vw, 25px);
 }
 
-.modal-content main,
-.modal-content section {
+.modal-content2 main,
+.modal-content2 section {
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
 /* 登入：每列填滿寬度，label 不換行 */
-.modal-content #log .log-f-box {
+.modal-content2 #log .log-f-box {
   width: 100%;
 }
 
-.modal-content #log .log-f-row {
+.modal-content2 #log .log-f-row {
   width: 100%;
 }
 
-.modal-content #log .log-f-row label {
+.modal-content2 #log .log-f-row label {
   white-space: nowrap;
   flex: 0 0 clamp(60px, 10vw, 88px); // 動態標籤寬度
 }
 
-.modal-content #log .log-f-row input {
+.modal-content2 #log .log-f-row input {
   flex: 1 1 auto;
   min-width: 0;
 }
 
 /* 註冊：同樣處理 */
-.modal-content #sign .sign-f-row {
+.modal-content2 #sign .sign-f-row {
   width: 100%;
 }
 
-.modal-content #sign .sign-f-row label {
+.modal-content2 #sign .sign-f-row label {
   white-space: nowrap;
   flex: 0 0 clamp(60px, 10vw, 88px);
 }
 
-.modal-content #sign .sign-f-row input {
+.modal-content2 #sign .sign-f-row input {
   flex: 1 1 auto;
   min-width: 0;
 }
 
-.modal-content #sign .sign-f-row input[type="date"] {
+.modal-content2 #sign .sign-f-row input[type="date"] {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 28px;
 }
 
-.modal-content #sign .sign-f-row input::-webkit-calendar-picker-indicator {
+.modal-content2 #sign .sign-f-row input::-webkit-calendar-picker-indicator {
   opacity: .75;
   cursor: pointer;
 }
 
-.modal-content #sign .auth-inner,
-.modal-content #log .auth-inner {
+.modal-content2 #sign .auth-inner,
+.modal-content2 #log .auth-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.modal-content #sign p,
-.modal-content #log p {
+.modal-content2 #sign p,
+.modal-content2 #log p {
   align-self: center;
   text-align: center;
   width: 100%;

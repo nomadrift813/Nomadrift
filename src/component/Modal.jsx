@@ -51,12 +51,12 @@ export default function Modal({ open, onClose, children, closeOnOverlay = true }
 
   return createPortal(
     <div
-      className="modal-overlay"
+      className="modal-overlay2"
       onClick={closeOnOverlay ? onClose : undefined}
       aria-hidden="true"
     >
       <div
-        className="modal-content"
+        className="modal-content2"
         role="dialog"
         aria-modal="true"
         onClick={(e) => e.stopPropagation()}
