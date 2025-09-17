@@ -1,30 +1,42 @@
 @use 'reset';
 @use 'var' as *;
 
+/* ============== 動畫（與 Diary / Member-save 對齊） ============== */
+@keyframes slideInFromRight {
+  0% { transform: translateX(50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.article-slide-in {
+  animation-name: slideInFromRight;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  margin-bottom: 20px;
+}
 
+/* ============== 版面骨架（同 membersave） ============== */
 #member-diary {
-    width: 100%;
-   min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;      /* 水平置中整組 */
-  align-items: flex-start;      /* 頂齊上方 ← 關鍵 */
+  justify-content: center;   /* 水平置中整組 */
+  align-items: flex-start;   /* 頂齊上方 */
   background-color: $background1;
-  padding-top: 166px;            /* 與 member-information 相同 */
-  gap: 80px;                     /* 與 member-information 相同 */
+  padding-top: 166px;        /* 與 member-information 同步 */
+  gap: 80px;
 
   @media ($mediaXl) {
-    // flex-direction: column;   // 要的話再開
-    padding-top: 0px;            /* 與 member-information 相同 */
+    padding-top: 0px;
     padding-left: 50px;
     align-items: center;
     gap: 50px;
   }
-
   @media ($mediaSm) {
     padding-top: 150px;
     align-items: flex-start;
   }
 
+  /* 左側導覽 */
   header {
     ul {
       display: flex;
@@ -47,12 +59,11 @@
         border-bottom: 1px solid #C5C5C5;
         transition: all .25s ease;
       }
-
+      /* 第三個是「漂日記」分頁，預設高亮 */
       &:not(:hover) li:nth-child(3) a {
         color: $text;
         border-bottom: 1px solid $text;
       }
-
       li:hover a {
         color: $text;
         border-bottom: 1px solid $text;
@@ -60,11 +71,13 @@
     }
   }
 
+  /* 右側內容包裹 */
   .m-all-box {
     min-width: 623.65px;
-    flex: 0 1 auto;      /* 不強迫撐滿，也不被擠超小 */
-    min-height: 304px; /* 避免內容太少太矮 */
-    
+    flex: 0 1 auto;
+    min-height: 304px;
+    max-width: 800px;
+
     .m-d-title {
       border-bottom: 1px dashed $text;
       margin-bottom: 24px;
@@ -80,5 +93,170 @@
         letter-spacing: 1.2px;
       }
     }
+
+    /* 空狀態（沒發過文時） */
+    .empty-hint {
+      color: #8f8f8f;
+      font-family: $family-tc;
+      font-size: $f-s-sm;
+    }
+  }
+}
+
+/* ============== 卡片（與 membersave 呈現一致） ============== */
+#member-diary .diaArticleSection1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 35px;
+  gap: 4rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+  border-bottom: 1px solid #bdbdbd;
+  border-radius: 12px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    transition: all .3s 0s;
+    border-top-right-radius: 60px;
+    transform: translateY(0.1px) scale(1.02);
+  }
+
+  @media (max-width: 1142px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .p1-sel {
+    order: 1;
+    @media (max-width: 1142px) { order: -1; }
+
+    .dia-p1 {
+      width: 274px;
+      height: 223px;
+      border-top-right-radius: 60px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      @media (max-width: 1142px) { width: 100%; }
+    }
+  }
+
+  .diaArticle1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .d-member {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .8rem;
+
+      .profile-avatar {
+        width: 35px; height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      p {
+        font-weight: 600;
+        font-size: $f-s-sm;
+      }
+    }
+
+    .d-text-card {
+      display: flex;
+      flex-direction: column;
+
+      .d-text {
+        .d-tit {
+          font-size: $f-s-md;
+          font-weight: bold;
+          margin-bottom: .8rem;
+        }
+        .d-word {
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: $f-s-sm;
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: .8rem;
+        }
+      }
+
+      .d-sign {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: .8rem;
+        color: #999;
+
+        .d-locaion {
+          display: flex;
+          align-items: center;
+          gap: .4rem;
+          img { width: 25px; height: 25px; }
+        }
+
+        .h-d-loc, .h-d-date {
+          background-color: #fff;
+          border-radius: 12px;
+          padding: 1.5px 12px;
+          color: $text;
+          font-size: .8rem;
+        }
+        .h-d-date { padding: 1.5px 9px; }
+
+        .allbutton {
+          display: flex;
+          gap: 1rem;
+
+          figure {
+            margin: 0;
+            cursor: pointer;
+
+            img {
+              width: 20px; height: 20px;
+              transition: transform .2s;
+              &:hover { transform: scale(1.1); }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ============== 小瑣碎 ============== */
+#member-diary .m-all-box .diaArticleSection1 + .diaArticleSection1 {
+  margin-top: 12px;
+}
+
+.md-delete-btn {
+  margin-left: auto;           /* 把按鈕推到右邊 */
+  background: rgba(0,0,0,0.04);
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all .2s ease;
+  
+  img { width: 16px; height: 16px; display: block; }
+
+  &:hover {
+    // 
+    border-color: $accent;
   }
 }

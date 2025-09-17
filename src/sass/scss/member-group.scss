@@ -1,20 +1,19 @@
 @use 'reset';
 @use 'var' as *;
 
-
 #member-group {
   width: 100%;
-   min-height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;      /* 水平置中整組 */
-  align-items: flex-start;      /* 頂齊上方 ← 關鍵 */
+  justify-content: center;
+  align-items: flex-start;
   background-color: $background1;
-  padding-top: 166px;            /* 與 member-information 相同 */
-  gap: 80px;                     /* 與 member-information 相同 */
+  padding-top: 166px;
+  gap: 80px;
+  margin-bottom: 100px;
 
   @media ($mediaXl) {
-    // flex-direction: column;   // 要的話再開
-    padding-top: 0px;            /* 與 member-information 相同 */
+    padding-top: 0;
     padding-left: 50px;
     align-items: center;
     gap: 50px;
@@ -25,6 +24,7 @@
     align-items: flex-start;
   }
 
+  /* 左側導覽 */
   header {
     ul {
       display: flex;
@@ -60,11 +60,13 @@
     }
   }
 
+  /* 右側內容 */
   .m-all-box {
     min-width: 623.65px;
-    flex: 0 1 auto;      /* 不強迫撐滿，也不被擠超小 */
-    min-height: 304px; /* 避免內容太少太矮 */
-    
+    flex: 0 1 auto;
+    min-height: 304px;
+    max-width: 800px;
+
     .m-d-title {
       border-bottom: 1px dashed $text;
       margin-bottom: 24px;
@@ -78,6 +80,148 @@
         font-weight: 700;
         line-height: 130%;
         letter-spacing: 1.2px;
+      }
+    }
+
+    /* 空狀態 */
+    .empty-hint {
+      color: #8f8f8f;
+      font-family: $family-tc;
+      font-size: $f-s-sm;
+      padding: 16px 0;
+    }
+
+    /* ========================
+       A) 卡片佈局（搭配 GroupCard）→ 瀑布流
+       ======================== */
+    .cards-container {
+      column-count: 2;       /* 桌機兩欄 */
+      column-gap: 24px;
+
+      @media (max-width: 1142px) {
+        column-count: 1;
+      }
+
+      @media (max-width: 720px) {
+        column-count: 1;
+      }
+    }
+
+    /* 每張卡片避免被 columns 拆開 */
+    .cards-container .group-event-card {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 24px;
+      break-inside: avoid;
+    }
+
+    /* 讓 GroupCard 上的「取消」狀態有視覺差異（可選） */
+    .group-event-card .card-btns .join.is-cancel {
+      background: $accent;
+      color: $text;
+    }
+
+    .group-event-card .card-btns .join.is-cancel:hover {
+      background: #e7c300;
+    }
+
+    /* ========================
+       B) 列表佈局（你原本的 mg-list）
+       ======================== */
+    .mg-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mg-item {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .65);
+      border: 1px solid #e8e8e8;
+
+      @media ($mediaSm) {
+        grid-template-columns: 90px 1fr;
+        grid-auto-rows: auto;
+      }
+
+      .mg-cover {
+        width: 120px;
+        height: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #eee;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        @media ($mediaSm) {
+          width: 90px;
+          height: 60px;
+        }
+      }
+
+      .mg-body {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .mg-title {
+          font-family: $family-tc;
+          font-size: $f-s-md;
+          font-weight: 600;
+          color: $primary1;
+        }
+
+        .mg-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          color: #666;
+          font-size: $f-s-xs;
+
+          .chip {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 999px;
+            padding: 2px 10px;
+            line-height: 1;
+          }
+        }
+      }
+
+      .mg-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        @media ($mediaSm) {
+          grid-column: 1 / -1;
+          justify-content: flex-end;
+        }
+
+        .btn-cancel {
+          cursor: pointer;
+          border-radius: 999px;
+          border: 1px solid #d4b800;
+          padding: 6px 16px;
+          background: #fff7c2;
+          color: $text;
+          font-size: $f-s-xs;
+          transition: .15s;
+
+          &:hover {
+            background: #ffef8a;
+          }
+        }
       }
     }
   }

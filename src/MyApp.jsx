@@ -23,6 +23,8 @@ import Log from "./component/Log";
 import Sign from "./component/Sign";
 import Modal from "./component/Modal";
 
+import { initFavDelegator, hydrateFavIcons } from "./js/favStore.js"; // ⭐ 新增
+
 // ⭐ ScrollToTop
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +36,7 @@ function ScrollToTop() {
 
 const MyApp = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // ⭐ 為了每次換頁同步收藏圖示
 
   // ⭐ 全站登入狀態（從 localStorage 載入）
   const [auth, setAuth] = useState(() => {
@@ -41,13 +44,27 @@ const MyApp = () => {
     return raw ? JSON.parse(raw) : { isAuthed: false, user: null };
   });
 
-  // ⭐ 任一處成功登入/註冊時呼叫
+  // 彈窗控制
+  const [authOpen, setAuthOpen] = useState(false);
+  const [authType, setAuthType] = useState(null); // 'login' | 'register'
+  const openAuth = (type) => { setAuthType(type); setAuthOpen(true); };
+  const closeAuth = () => { setAuthOpen(false); setAuthType(null); };
+  const switchAuthTo = (type) => setAuthType(type);
+
+  // ⭐ 任一處成功登入/註冊時呼叫（優先導回登入前頁）
   const handleAuth = (user) => {
     const next = { isAuthed: true, user };
     setAuth(next);
     localStorage.setItem("nd_auth", JSON.stringify(next));
     closeAuth();
-    navigate("/member");
+
+    const back = sessionStorage.getItem("nd_login_back");
+    if (back) {
+      sessionStorage.removeItem("nd_login_back");
+      navigate(back, { replace: true });
+    } else {
+      navigate("/member");
+    }
   };
 
   // ⭐ 登出
@@ -55,14 +72,40 @@ const MyApp = () => {
     setAuth({ isAuthed: false, user: null });
     localStorage.removeItem("nd_auth");
     navigate("/");
+    // 登出後也同步一次收藏圖示
+    setTimeout(hydrateFavIcons, 0);
   };
 
-  // 彈窗控制
-  const [authOpen, setAuthOpen] = useState(false);
-  const [authType, setAuthType] = useState(null); // 'login' | 'register'
-  const openAuth = (type) => { setAuthType(type); setAuthOpen(true); };
-  const closeAuth = () => { setAuthOpen(false); setAuthType(null); };
-  const switchAuthTo = (type) => setAuthType(type);
+  // ⭐ 啟動全域收藏委派（一次就好）
+  useEffect(() => {
+    const stop = initFavDelegator({
+      getAuth: () => auth,
+      navigate,
+      onNeedLogin: () => openAuth("login"),
+    });
+    return stop;
+  }, [auth, navigate]);
+
+  // ⭐ 每次路由變化，同步圖示狀態（避免 SPA 換頁時沒更新）
+  useEffect(() => {
+    hydrateFavIcons();
+  }, [location.pathname, location.search, location.hash]);
+
+  // 讓任何頁面可以叫出登入或註冊彈窗（並記住回跳）
+useEffect(() => {
+  window.__ndOpenLogin = (from) => {
+    if (from) sessionStorage.setItem("nd_login_back", from);
+    openAuth("login");
+  };
+  window.__ndOpenRegister = (from) => {
+    if (from) sessionStorage.setItem("nd_login_back", from);
+    openAuth("register");
+  };
+  return () => {
+    delete window.__ndOpenLogin;
+    delete window.__ndOpenRegister;
+  };
+}, []);
 
   return (
     <div className="wrap">
@@ -95,7 +138,7 @@ const MyApp = () => {
         <Route path="/membersave" element={<MemberSave />} />
         <Route path="/membergroup" element={<MemberGroup />} />
 
-        {/* 選擇保留可直接網址開啟的頁面 */}
+        {/* 可直接網址開啟的頁面 */}
         <Route path="/log" element={<Log onAuth={handleAuth} onSwitch={() => switchAuthTo("register")} />} />
         <Route path="/sign" element={<Sign onAuth={handleAuth} onSwitch={() => switchAuthTo("login")} />} />
       </Routes>

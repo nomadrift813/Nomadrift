@@ -273,7 +273,6 @@ const Sign = ({ onAuth, onSwitch }) => {
                 required
                 name="password"
                 type="password"
-                required
               />
             </div>
 
