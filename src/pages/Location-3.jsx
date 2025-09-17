@@ -325,50 +325,50 @@ const Location3 = () => {
           <Link to="/location3">
             <li>亞洲</li>
           </Link>
-          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          </svg> */}
 
         </ul>
         <ul>
           <Link to="/location3">
             <li>歐洲</li>
           </Link>
-          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          </svg> */}
         </ul>
         <ul>
           <Link to="/location3">
             <li>北美洲</li>
           </Link>
-          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          </svg> */}
         </ul>
         <ul>
           <Link to="/location3">
             <li>中南美洲</li>
           </Link>
-          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          </svg> */}
         </ul>
         <ul>
           <Link to="/location3">
             <li>非洲</li>
           </Link>
-          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          </svg> */}
         </ul>
         <ul>
           <Link to="/location3">
             <li>大洋洲</li>
           </Link>
-          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          </svg> */}
         </ul>
       </div>
 

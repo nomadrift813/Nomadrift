@@ -297,7 +297,7 @@ const Diary = () => {
 
     const newPost = {
       id: Date.now(),
-      author: 'Jun cheng',
+      author: 'Andy cheg',
       title: newPostTitle,
       content: newPostContent,
       imgSrc: imagePreview,
@@ -306,7 +306,7 @@ const Diary = () => {
       liked: false,
       saved: false,
       category: activeCategory,
-      profileImgSrc: './img-Group/people/Commenter (2).jpg',
+      profileImgSrc: './img-Group/people/People-(11).jpg',
     };
 
     setPosts([newPost, ...posts]);
