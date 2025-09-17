@@ -1,5 +1,5 @@
 import React from 'react'
-import '../sass/css/member-city.min.css'
+import '../sass/scss/member-city.scss';
 import { Link } from 'react-router-dom'
 
 const MemberCity = () => {

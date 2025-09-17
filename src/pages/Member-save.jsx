@@ -1,4 +1,4 @@
-import '../sass/css/member-save.min.css'
+import '../sass/scss/member-save.scss';
 import { Link } from 'react-router-dom'
 
 const MemberSave = () => {

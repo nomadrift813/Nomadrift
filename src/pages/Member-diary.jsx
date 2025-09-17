@@ -1,4 +1,4 @@
-import '../sass/css/member-diary.min.css'
+import '../sass/scss/member-diary.scss';
 import { Link } from 'react-router-dom'
 
 const MemberDiary = () => {

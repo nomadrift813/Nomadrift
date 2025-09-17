@@ -1,4 +1,4 @@
-import '../sass/css/member-group.min.css'
+import '../sass/scss/member-group.scss';
 import { Link } from 'react-router-dom'
 
 const MemberGroup = () => {
