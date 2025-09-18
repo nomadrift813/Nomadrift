@@ -19,10 +19,11 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;   /* 水平置中整組 */
+  //justify-content: center;   /* 水平置中整組 */
   align-items: flex-start;   /* 頂齊上方 */
   background-color: $background1;
-  padding-top: 166px;        /* 與 member-information 同步 */
+  padding-top: 166px;  
+  padding-left: 300px;            /* 與 member-information 同步 */
   gap: 80px;
 
   @media ($mediaXl) {
