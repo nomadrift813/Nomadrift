@@ -6,11 +6,12 @@
   width: 100%;
    min-height: 100vh;
   display: flex;
-  justify-content: center;      /* 水平置中整組 */
+  // justify-content: center;      /* 水平置中整組 */
   align-items: flex-start;      /* 頂齊上方 ← 關鍵 */
   background-color: $background1;
   padding-top: 166px;            /* 與 member-information 相同 */
   gap: 80px;                     /* 與 member-information 相同 */
+   padding-left: 300px;        /* 與 member-information 同步 */
 
   @media ($mediaXl) {
     // flex-direction: column;   // 要的話再開
