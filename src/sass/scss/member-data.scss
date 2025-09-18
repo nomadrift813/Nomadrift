@@ -350,7 +350,10 @@
     margin: 0 0 32px 0;
 }
 
-
+.modal-buttons{
+    display: flex;
+    gap:30px;
+}
 /* Modal 的確認按鈕 */
 .modal-ok-button {
     font-family: $family-tc;
@@ -364,6 +367,18 @@
     transition: all 0.2s;
     min-width: 120px;
 }
+.modal-cancel-button {
+        font-family: $family-tc;
+        background: #ccc;
+        color: $text;
+        border: none;
+        border-radius: 99px;
+        padding: 8px 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-width: 120px;
+      }
 
 /* 淡入動畫 */
 @keyframes fadeIn {

@@ -3,9 +3,17 @@
 
 /* ============== 動畫（與 Diary / Member-save 對齊） ============== */
 @keyframes slideInFromRight {
-  0% { transform: translateX(50px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
+
 .article-slide-in {
   animation-name: slideInFromRight;
   animation-duration: .6s;
@@ -20,10 +28,12 @@
   min-height: 100vh;
   display: flex;
   //justify-content: center;   /* 水平置中整組 */
-  align-items: flex-start;   /* 頂齊上方 */
+  align-items: flex-start;
+  /* 頂齊上方 */
   background-color: $background1;
   padding-top: 166px;
-  padding-left: 300px;        /* 與 member-information 同步 */
+  padding-left: 300px;
+  /* 與 member-information 同步 */
   gap: 80px;
 
   @media ($mediaXl) {
@@ -32,6 +42,7 @@
     align-items: center;
     gap: 50px;
   }
+
   @media ($mediaSm) {
     padding-top: 150px;
     align-items: flex-start;
@@ -60,11 +71,13 @@
         border-bottom: 1px solid #C5C5C5;
         transition: all .25s ease;
       }
+
       /* 第三個是「漂日記」分頁，預設高亮 */
       &:not(:hover) li:nth-child(3) a {
         color: $text;
         border-bottom: 1px solid $text;
       }
+
       li:hover a {
         color: $text;
         border-bottom: 1px solid $text;
@@ -116,7 +129,7 @@
   border-radius: 12px;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
     transition: all .3s 0s;
     border-top-right-radius: 60px;
     transform: translateY(0.1px) scale(1.02);
@@ -129,7 +142,11 @@
 
   .p1-sel {
     order: 1;
-    @media (max-width: 1142px) { order: -1; }
+    position: relative;
+
+    @media (max-width: 1142px) {
+      order: -1;
+    }
 
     .dia-p1 {
       width: 274px;
@@ -144,7 +161,9 @@
         object-fit: cover;
       }
 
-      @media (max-width: 1142px) { width: 100%; }
+      @media (max-width: 1142px) {
+        width: 100%;
+      }
     }
   }
 
@@ -160,10 +179,12 @@
       margin-bottom: .8rem;
 
       .profile-avatar {
-        width: 35px; height: 35px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         object-fit: cover;
       }
+
       p {
         font-weight: 600;
         font-size: $f-s-sm;
@@ -180,6 +201,7 @@
           font-weight: bold;
           margin-bottom: .8rem;
         }
+
         .d-word {
           display: -webkit-box;
           -webkit-line-clamp: 4;
@@ -193,6 +215,8 @@
         }
       }
 
+      
+
       .d-sign {
         display: flex;
         align-items: center;
@@ -205,17 +229,25 @@
           display: flex;
           align-items: center;
           gap: .4rem;
-          img { width: 25px; height: 25px; }
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
         }
 
-        .h-d-loc, .h-d-date {
+        .h-d-loc,
+        .h-d-date {
           background-color: #fff;
           border-radius: 12px;
           padding: 1.5px 12px;
           color: $text;
           font-size: .8rem;
         }
-        .h-d-date { padding: 1.5px 9px; }
+
+        .h-d-date {
+          padding: 1.5px 9px;
+        }
 
         .allbutton {
           display: flex;
@@ -226,9 +258,13 @@
             cursor: pointer;
 
             img {
-              width: 20px; height: 20px;
+              width: 20px;
+              height: 20px;
               transition: transform .2s;
-              &:hover { transform: scale(1.1); }
+
+              &:hover {
+                transform: scale(1.1);
+              }
             }
           }
         }
@@ -238,26 +274,43 @@
 }
 
 /* ============== 小瑣碎 ============== */
-#member-diary .m-all-box .diaArticleSection1 + .diaArticleSection1 {
+#member-diary .m-all-box .diaArticleSection1+.diaArticleSection1 {
   margin-top: 12px;
 }
 
+.delete-btn-container {
+  position: absolute;
+  top: 1px;
+  /* 距離頂部 */
+  right: 1px;
+  /* 距離右側 */
+  z-index: 10;
+  /* 確保它在最上層 */
+}
+
+/* 刪除按鈕本身的樣式 */
 .md-delete-btn {
-  margin-left: auto;           /* 把按鈕推到右邊 */
-  background: rgba(0,0,0,0.04);
-  border: 1px solid #e6e6e6;
-  border-radius: 999px;
-  padding: 6px 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  background-color: rgba(43, 43, 43, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
   cursor: pointer;
-  transition: all .2s ease;
-  
-  img { width: 16px; height: 16px; display: block; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
 
   &:hover {
-    // 
-    border-color: $accent;
+    background-color: rgba(238, 212, 15, 0.8);
+
+    svg {
+      color: #222222;
+    }
+  }
+
+  svg {
+    color: #ffffff;
+    font-size: 1.2rem;
   }
 }
