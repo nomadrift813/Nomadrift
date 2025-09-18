@@ -70,6 +70,15 @@
     /* 增加一點間距以配合效果 */
 }
 
+.flying-icon {
+  position: fixed;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  transition: top 0.7s ease-in, left 0.7s ease-in, opacity 0.5s ease-out;
+  pointer-events: none;
+}
 // 日記首頁背景
 .diaAll {
     background-image: url('../img/diary-bg.png');
@@ -357,7 +366,7 @@
     margin-bottom: 10px;
     border-radius: 10px;
     overflow: hidden;
-    max-width: 500px;
+    max-width: 530px;
     max-height: 200px;
     display: flex;
     justify-content: center;
@@ -654,6 +663,7 @@
     }
 }
 
+
 #diary-article {
     flex: 1;
     padding: 32px 16px 16px 16px;
@@ -797,7 +807,7 @@
 
                     .h-d-loc {
                         background-color: #fff;
-                        border-radius: 12px;
+                        border-radmus: 12px;
                         padding: 1.5px 12px;
                         color: $text;
                         font-size: 0.8rem;
