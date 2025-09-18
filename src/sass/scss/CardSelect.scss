@@ -5,3 +5,30 @@
         transition: fill 0.3s ease; // 動畫更順
     }
 }
+
+.select {
+  /* 不吃父層顏色：預設外框色（灰綠） */
+  color: #41453D;
+
+  svg {
+    width: 34px;
+    height: 34px;
+    transition: fill 0.2s ease, color 0.2s ease, stroke 0.2s ease;
+  }
+
+  /* 初始只描邊、不填色（用 currentColor 控制） */
+  svg path[data-bm] {
+    stroke: currentColor;
+    fill: none;
+  }
+
+  /* ★ 收藏狀態 → 深綠實心 */
+  &.is-active,
+  &[data-active="true"] {
+    color: #1F1F1F;               /* 深綠 */
+    svg path[data-bm] {
+      stroke: currentColor;
+      fill: currentColor;
+    }
+  }
+}

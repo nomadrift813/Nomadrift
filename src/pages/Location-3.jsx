@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Card from '../component/CardSelect';
-import '../sass/scss/location-3.scss'
+import '../sass/scss/location-3.scss';
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+
 
 // 卡片陣列
 const cardsData = [
@@ -269,130 +267,56 @@ const cardsData = [
 
 
 const Location3 = () => {
-
-  // 陣列卡片
-  const [visibleCount, setVisibleCount] = useState(12); // 預設顯示 12 張
-
-  const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 8); // 每次多顯示 8 張
-  };
-
+  const [visibleCount, setVisibleCount] = useState(12);
+  const handleShowMore = () => setVisibleCount(prev => prev + 8);
 
   return (
     <main>
-      {/* <div className='locBanner3'> */}
+      {/* ✅ 標題在 Swiper 外面，避免 Swiper 把後面內容蓋掉 */}
+      <h1 className='titleAsia'>亞洲</h1>
+
       <Swiper
         spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
+        centeredSlides
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
-        <h1 className='titleAsia'>亞洲</h1>
-        <SwiperSlide>
-          <img src="./img-Location/bannerAsia.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img-Location/bJapan.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img-Location/bTurkey.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img-Location/bUAE.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img-Location/bUzbekistan.jpg" alt="" />
-        </SwiperSlide>
+        <SwiperSlide><img src="./img-Location/bannerAsia.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="./img-Location/bJapan.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="./img-Location/bTurkey.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="./img-Location/bUAE.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="./img-Location/bUzbekistan.jpg" alt="" /></SwiperSlide>
       </Swiper>
+
       <h2 className='title'>亞洲</h2>
-      {/* </div> */}
-
-
-      {/* <section id='locBanner3'>
-        <p className="titleAsia">亞洲</p>
-      </section> */}
 
       <div className='locDrop3'>
-        <ul>
-          <Link to="/location3">
-            <li>亞洲</li>
-          </Link>
-          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg> */}
-
-        </ul>
-        <ul>
-          <Link to="/location3">
-            <li>歐洲</li>
-          </Link>
-          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg> */}
-        </ul>
-        <ul>
-          <Link to="/location3">
-            <li>北美洲</li>
-          </Link>
-          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg> */}
-        </ul>
-        <ul>
-          <Link to="/location3">
-            <li>中南美洲</li>
-          </Link>
-          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg> */}
-        </ul>
-        <ul>
-          <Link to="/location3">
-            <li>非洲</li>
-          </Link>
-          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg> */}
-        </ul>
-        <ul>
-          <Link to="/location3">
-            <li>大洋洲</li>
-          </Link>
-          {/* <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.9167 1L6.41667 7.0001L1.91663 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg> */}
-        </ul>
+        <ul><Link to="/location3"><li>亞洲</li></Link></ul>
+        <ul><Link to="/location3"><li>歐洲</li></Link></ul>
+        <ul><Link to="/location3"><li>北美洲</li></Link></ul>
+        <ul><Link to="/location3"><li>中南美洲</li></Link></ul>
+        <ul><Link to="/location3"><li>非洲</li></Link></ul>
+        <ul><Link to="/location3"><li>大洋洲</li></Link></ul>
       </div>
 
-      {/* 卡片們 */}
-      <>
-        <article id="mCards">
-          {cardsData.slice(0, visibleCount).map((card) => (
-            // 使用新的 Card 元件，並將每張卡片的資料作為 prop 傳遞
-            <Card key={card.id} cardData={card} />
-          ))}
-        </article>
+      <article id="mCards">
+        {cardsData.slice(0, visibleCount).map((card) => (
+          <Card key={card.id} cardData={card} />
+        ))}
+      </article>
 
-        {/* 探索更多按鈕 */}
-        {visibleCount < cardsData.length && (
-          <div className="expMore">
-            <button className="btn-expMore" onClick={handleShowMore}>
-              探索更多
-            </button>
-          </div>
-        )}
-      </>
+      {/* ✅「探索更多」邏輯不變 */}
+      {visibleCount < cardsData.length && (
+        <div className="expMore">
+          <button className="btn-expMore" onClick={handleShowMore}>
+            探索更多
+          </button>
+        </div>
+      )}
     </main>
+  );
+};
 
-  )
-}
-
-export default Location3 
+export default Location3;
