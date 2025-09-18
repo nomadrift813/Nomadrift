@@ -392,6 +392,7 @@ const Diary = () => {
   return (
     <main>
       <section className="diaAll">
+        <div className="title-bg-container"></div>
         {/* 發布新文章 Modal */}
         {showPostModal && (
           <div className="post-modal-overlay" onClick={closePostModal}>
