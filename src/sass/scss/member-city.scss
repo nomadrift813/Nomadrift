@@ -285,3 +285,22 @@
 .country .select svg path[data-bm] {
   transition: fill .25s ease, stroke .25s ease;
 }
+
+.fav-cities .country {
+  position: relative; // 讓絕對定位可以基於卡片
+}
+
+.fav-cities .country .card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.fav-cities .country .select {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 2; // 在卡片連結之上
+  cursor: pointer;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+}
