@@ -229,3 +229,13 @@
     }
   }
 }
+
+#member-group .m-all-box .cards-container {
+  height: auto;
+}
+
+/* 只有兩個子元素（卡片）時 → 固定 30vh
+   這裡我示範子元素是 <a class="group-event-card">，你也可改成 > * */
+#member-group .m-all-box .cards-container:has(> .group-event-card:nth-child(2)):not(:has(> .group-event-card:nth-child(3))) {
+  height: 30vh;
+}
