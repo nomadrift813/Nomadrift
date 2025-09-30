@@ -92,6 +92,7 @@
         line-height: 130%;
         letter-spacing: 1.2px;
       }
+      
     }
 
     /* 空狀態 */
@@ -99,10 +100,10 @@
       color: #8f8f8f;
       font-family: $family-tc;
       font-size: $f-s-sm;
-      // padding: 24px 8px;
-      // background: rgba(255,255,255,.6);
-      // border: 1px dashed #d9d9d9;
-      // border-radius: 12px;
+    }
+    .empty-link {
+      color: #d4a624;
+      border-bottom: 1.5px solid #d4a624;
     }
   }
 }

@@ -34,7 +34,7 @@ const MemberGroup = () => {
             <li><Link to="/member">會員資料</Link></li>
             <li><Link to="/memberCity">收藏國家</Link></li>
             <li><Link to="/memberdiary">我的文章</Link></li>
-            <li><Link to="/membersave">收藏文章</Link></li>
+            <li><Link to="/membersave">收藏日記</Link></li>
             <li><Link to="/membergroup">活動紀錄</Link></li>
           </ul>
         </header>
@@ -45,8 +45,11 @@ const MemberGroup = () => {
           </div>
 
           {joined.length === 0 ? (
-            <p className="empty-hint">還沒有參加任何活動。</p>
-          ) : (
+                                  <p className="empty-hint">
+                                      尚未加入任何活動去
+                                      <Link to="/Group" className="empty-link"> 揪團活動 </Link>逛逛吧！
+                                  </p>
+                              ) : (
             // ✅ 卡片模式：直接沿用 Group 的 GroupCard + .cards-container
             <div className="cards-container">
               {joined.map((a, i) => (
