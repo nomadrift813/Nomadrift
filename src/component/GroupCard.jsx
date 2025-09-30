@@ -52,6 +52,7 @@ const GroupCard = ({
           {isFull && (
             <div className="badge-full" aria-label="已滿團">已滿團</div>
           )}
+          <div className="card-location">{location}</div>
         </figure>
       )}
 
@@ -61,7 +62,7 @@ const GroupCard = ({
             <div className="date">{date}</div>
             <div className="time">{time}</div>
           </div>
-          <div className="card-location">{location}</div>
+          {/* <div className="card-location">{location}</div> */} {/* 移到圖片上 */}
         </header>
 
         <article className="card-item">

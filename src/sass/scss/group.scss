@@ -416,6 +416,12 @@
     }
 }
 
-.group-join-success-modal p{
+.group-join-success-modal p {
     margin-bottom: 16px !important;
+}
+
+// 彈窗卡片連結樣式
+.join-link {
+    color: #d4a624;
+    border-bottom: 1.5px solid #d4a624;
 }

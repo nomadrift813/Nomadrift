@@ -568,6 +568,7 @@ const Group = () => {
                   image={activity.image}
                   signupCount={activity.signupCount}
                   date={activity.date}
+                  time={activity.time}
                   location={activity.location}
                   title={activity.title}
                   description={activity.description}
@@ -611,7 +612,7 @@ const Group = () => {
 
               {/* 會員專區 / 活動紀錄連結 */}
               <p className="group-join-links">
-                前往 <Link to="/member" onClick={closeJoinModal}>會員專區</Link> 查看 <Link to="/membergroup" onClick={closeJoinModal}>活動紀錄</Link>
+                前往 <Link to="/member" className="join-link" onClick={closeJoinModal}>會員專區</Link> 查看 <Link to="/membergroup" className="join-link" onClick={closeJoinModal}>活動紀錄</Link>
               </p>
 
               <button className="group-join-modal-close-btn" onClick={closeJoinModal}>

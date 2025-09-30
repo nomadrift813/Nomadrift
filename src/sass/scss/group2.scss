@@ -253,11 +253,10 @@
         }
     }
 
-
-
     // 活動說明
     #activity-content {
         margin-top: 40px;
+
         .content-title {
             display: flex;
             /* 建議打開 flex，讓子元素好控制 */
@@ -862,5 +861,12 @@
             transform: none !important;
             opacity: 1 !important;
         }
+    }
+
+
+    // 彈窗卡片連結樣式
+    .join-link {
+        color: #d4a624;
+        border-bottom: 1.5px solid #d4a624;
     }
 }
