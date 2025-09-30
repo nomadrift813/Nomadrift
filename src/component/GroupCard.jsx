@@ -4,38 +4,53 @@ import "../sass/scss/GroupCardStyle.scss";
 const GroupCard = ({
   id,
   image,
-  signupCount,
+  signupCount = 0,
+  groupSize = 10,         // 滿團人數（預設 10）
   date,
   time,
   location,
   title,
   description,
   detailLink,
-  joined = false,           // ✅ 新增：是否已加入（member-group 會傳 true）
-  onToggleJoin,             // ✅ 新增：加入/取消 切換
-  onJoin                    // 兼容舊用法（Group 頁傳 onJoin）
+  joined = false,         // 是否已加入
+  onToggleJoin,           // 新用法：加入/取消
+  onJoin                  // 舊用法：兼容
 }) => {
+  const isFull = Number.isFinite(groupSize) && signupCount >= groupSize;
+
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // 優先走 onToggleJoin；舊用法 fallback 到 onJoin
+    if (isFull && !joined) return; // 已滿且未加入者不可再加入
     if (onToggleJoin) onToggleJoin();
     else onJoin?.();
   };
 
-  // 如果沒有 detailLink，就不要用 <Link> 包，避免點到其它地方導頁
   const Wrapper = detailLink ? Link : "div";
   const wrapperProps = detailLink ? { to: detailLink } : {};
 
+  // 計算進度條百分比
+  const pct = Math.max(0, Math.min(100, Math.round((signupCount / (groupSize || 1)) * 100)));
+
   return (
-    <Wrapper className="group-event-card" {...wrapperProps}>
+    <Wrapper
+      className={`group-event-card ${joined ? "is-joined" : ""} ${isFull ? "is-full" : ""}`}
+      data-id={id}
+      {...wrapperProps}
+    >
       {image && (
         <figure className="card-img">
           <img src={image} alt={title} />
-          {signupCount !== undefined && (
-            <div className="badge-signup-count" aria-label="已報名人數">
-              {(signupCount ?? 0)}人已報名
+          {/* 右上角人數徽章：顯示已報名/滿團人數 */}
+          <div className="badge-signup-count" aria-label="已報名人數">
+            {signupCount} / {groupSize} 人
+            {/* 報名進度條 */}
+            <div className="people-progress" role="progressbar" aria-valuemin={0} aria-valuemax={groupSize} aria-valuenow={signupCount}>
+              <div className="people-progress-bar" style={{ width: `${pct}%` }} />
             </div>
+          </div>
+          {isFull && (
+            <div className="badge-full" aria-label="已滿團">已滿團</div>
           )}
         </figure>
       )}
@@ -56,11 +71,14 @@ const GroupCard = ({
 
         <div className="card-btns">
           <button
-            className={`join ${joined ? "is-cancel" : ""}`}  // ✅ 套用取消樣式
+            className={`join ${joined ? "is-cancel" : ""} ${isFull && !joined ? "is-disabled" : ""}`}
             onClick={handleClick}
+            disabled={isFull && !joined}
+            aria-disabled={isFull && !joined}
           >
-            {joined ? "取消" : "加入"}                         {/* ✅ 文字切換 */}
+            {isFull && !joined ? "已滿團" : (joined ? "取消" : "加入")}
           </button>
+
           {detailLink && (
             <div className="view-more">
               了解更多 <img src="./img-Group/right-arrow.svg" alt="right-arrow" />
