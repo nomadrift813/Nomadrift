@@ -1,9 +1,12 @@
 // src/pages/Location2.jsx
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import '../sass/scss/location-2.scss';
 
 const Location2 = () => {
+  useEffect(() => {
+      document.title = '熱門地點｜漂遊牧';
+    }, []);
   // ===== 共用收藏按鈕（和 Location.jsx 一樣做法） =====
   const FavBtn = ({ active, onClick, payload }) => (
     <figure
