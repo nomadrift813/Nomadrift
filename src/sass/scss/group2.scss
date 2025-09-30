@@ -327,7 +327,7 @@
     #people-info {
         display: flex;
         width: 100%;
-        margin-top: 350px;
+        margin-top: 400px;
         padding: 0px 150px;
         gap: 20%;
         align-items: center;
@@ -342,12 +342,12 @@
 
         @media ($mediaMd) {
             padding: 0px 80px;
-            margin-top: 530px;
+            margin-top: 600px;
         }
 
         @media ($mediaSm) {
             padding: 0px 50px;
-            margin-top: 570px;
+            margin-top: 630px;
             gap: 15%;
         }
 

@@ -3,7 +3,7 @@
 
 // Group-揪團卡片區
 .group-event-card {
-
+    min-width: 330px;
     // width: 360px;
     display: flex;
     flex-direction: column;
@@ -127,25 +127,25 @@
         font-size: $f-s-md;
 
         @media ($mediaMd) {
-            flex-direction: column;
+            // flex-direction: column;
             gap: 4px;
             align-items: start;
         }
 
         @media ($mediaXl) {
-            flex-direction: column;
+            // flex-direction: column;
             gap: 4px;
             align-items: start;
         }
 
         @media ($mediaLg) {
-            flex-direction: column;
+            // flex-direction: column;
             gap: 4px;
             align-items: start;
         }
 
         @media ($mediaSm) {
-            flex-direction: column;
+            // flex-direction: column;
             gap: 4px;
             align-items: start;
         }

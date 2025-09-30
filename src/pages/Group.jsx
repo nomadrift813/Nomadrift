@@ -314,7 +314,7 @@ const Group = () => {
       date: "2025/09/28 (日)",
       time: "17:00",
       location: "澳洲 / 雪梨",
-      title: "參觀雪梨歌劇院雪梨",
+      title: "參觀雪梨歌劇院",
       description:
         "澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名,有全中文解說的導遊師帶領,不用怕有聽沒有懂,目前報名人數已達5人,一人只要50澳幣,數量有限快來跟我們一起參加吧!結束還可以一起去",
       detailLink: "/group2",
@@ -432,6 +432,13 @@ const Group = () => {
     const id = activity.key ?? activity.id;
     const already = isJoined(id, auth);
 
+    // 容量檢查（保險起見，雖然 UI 已擋）
+    const curCount = Number.isFinite(activity.signupCount) ? activity.signupCount : 0;
+    const cap = Number.isFinite(activity.groupSize) && activity.groupSize > 0 ? activity.groupSize : 10;
+    if (!already && curCount >= cap) {
+      return; // 已滿團，直接不動作
+    }
+
     if (already) {
       removeJoined(id, auth);
     } else {
@@ -451,8 +458,8 @@ const Group = () => {
         auth
       );
       // 彈窗資訊
-      const newCount = Math.max(0, (activity.signupCount || 0) + 1);
-      const fullSize = activity.groupSize ?? 10;
+      const newCount = Math.max(0, curCount + 1);
+      const fullSize = cap;
       setJoinedActivityTitle(activity.title);
       setJoinedActivityCount(newCount);
       setJoinedActivityFull(fullSize);
@@ -464,7 +471,8 @@ const Group = () => {
         const aid = a.key ?? a.id;
         if (aid !== id) return a;
         const delta = already ? -1 : +1;
-        return { ...a, signupCount: Math.max(0, (a.signupCount || 0) + delta) };
+        const nextCount = Math.max(0, (a.signupCount || 0) + delta);
+        return { ...a, signupCount: nextCount };
       })
     );
 

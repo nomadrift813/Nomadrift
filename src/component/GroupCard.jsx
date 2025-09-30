@@ -16,7 +16,10 @@ const GroupCard = ({
   onToggleJoin,           // 新用法：加入/取消
   onJoin                  // 舊用法：兼容
 }) => {
-  const isFull = Number.isFinite(groupSize) && signupCount >= groupSize;
+  const safeGroupSize = Number.isFinite(groupSize) && groupSize > 0 ? groupSize : 10;
+  const safeSignup = Number.isFinite(signupCount) ? signupCount : 0;
+
+  const isFull = safeSignup >= safeGroupSize;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -29,8 +32,8 @@ const GroupCard = ({
   const Wrapper = detailLink ? Link : "div";
   const wrapperProps = detailLink ? { to: detailLink } : {};
 
-  // 計算進度條百分比
-  const pct = Math.max(0, Math.min(100, Math.round((signupCount / (groupSize || 1)) * 100)));
+  // 計算進度條百分比（安全值）
+  const pct = Math.max(0, Math.min(100, Math.round((safeSignup / safeGroupSize) * 100)));
 
   return (
     <Wrapper
@@ -43,9 +46,15 @@ const GroupCard = ({
           <img src={image} alt={title} />
           {/* 右上角人數徽章：顯示已報名/滿團人數 */}
           <div className="badge-signup-count" aria-label="已報名人數">
-            {signupCount} / {groupSize} 人
+            {safeSignup} / {safeGroupSize} 人
             {/* 報名進度條 */}
-            <div className="people-progress" role="progressbar" aria-valuemin={0} aria-valuemax={groupSize} aria-valuenow={signupCount}>
+            <div
+              className="people-progress"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={safeGroupSize}
+              aria-valuenow={safeSignup}
+            >
               <div className="people-progress-bar" style={{ width: `${pct}%` }} />
             </div>
           </div>
@@ -62,7 +71,6 @@ const GroupCard = ({
             <div className="date">{date}</div>
             <div className="time">{time}</div>
           </div>
-          {/* <div className="card-location">{location}</div> */} {/* 移到圖片上 */}
         </header>
 
         <article className="card-item">

@@ -158,17 +158,18 @@ const Group2 = () => {
 
   // 讀取是否已加入
   const [joinedMain, setJoinedMain] = useState(() => isJoined(MAIN.id));
-  // 顯示人數（本地同步增減）
-  const [currentSignupCount, setCurrentSignupCount] = useState(
-    MAIN.baseSignupCount + (joinedMain ? 1 : 0)
-  );
+  // 顯示人數（本地同步增減，且不超出容量）
+  const safeCap = Number.isFinite(MAIN.groupSize) && MAIN.groupSize > 0 ? MAIN.groupSize : 10;
+  const initCount = Math.min(safeCap, (Number.isFinite(MAIN.baseSignupCount) ? MAIN.baseSignupCount : 0) + (joinedMain ? 1 : 0));
+  const [currentSignupCount, setCurrentSignupCount] = useState(initCount);
 
   // joinStore 變更時同步本頁狀態（例如在別頁加入/取消）
   useEffect(() => {
     const onChange = () => {
       const j = isJoined(MAIN.id);
       setJoinedMain(j);
-      setCurrentSignupCount(MAIN.baseSignupCount + (j ? 1 : 0));
+      const base = Number.isFinite(MAIN.baseSignupCount) ? MAIN.baseSignupCount : 0;
+      setCurrentSignupCount(Math.min(safeCap, base + (j ? 1 : 0)));
     };
     window.addEventListener(JOIN_EVENT, onChange);
     return () => window.removeEventListener(JOIN_EVENT, onChange);
@@ -182,7 +183,7 @@ const Group2 = () => {
   const [joinedActivityFull, setJoinedActivityFull] = useState(0);
   const closeJoinModal = () => setShowJoinSuccessModal(false);
 
-  // 通用：登入檢查＋加入/取消
+  // 通用：登入檢查＋加入/取消（含容量檢查）
   const ensureLoginAndToggle = (activity) => {
     const auth = getAuthFromLS();
     const loggedIn = !!(auth && (auth.isAuthed || auth.isLogin || auth.user));
@@ -194,6 +195,19 @@ const Group2 = () => {
 
     const id = activity.id;
     const already = isJoined(id, auth);
+
+    const curCount = Number.isFinite(activity.signupCount)
+      ? activity.signupCount
+      : Number.isFinite(activity.baseSignupCount)
+      ? activity.baseSignupCount
+      : 0;
+
+    const cap = Number.isFinite(activity.groupSize) && activity.groupSize > 0 ? activity.groupSize : 10;
+
+    // 未加入且已滿 → 阻擋
+    if (!already && curCount >= cap) {
+      return { ok: false, reason: "full" };
+    }
 
     if (already) {
       removeJoined(id, auth);
@@ -207,32 +221,42 @@ const Group2 = () => {
           location: activity.location,
           image: activity.image,
           description: activity.description,
-          signupCount: activity.signupCount ?? activity.baseSignupCount ?? 0,
+          signupCount: curCount,
           detailLink: activity.detailLink ?? "/group2",
-          groupSize: activity.groupSize ?? 10,
+          groupSize: cap,
         },
         auth
       );
     }
-    return { ok: true, joinedNow: !already };
+    return { ok: true, joinedNow: !already, cap, curCount };
   };
 
   // 1) 主活動按鈕（報名參加 / 取消報名）
   const handleToggleMain = () => {
-    const { ok, joinedNow } = ensureLoginAndToggle(MAIN);
+    // 主活動目前顯示的人數以 currentSignupCount 為主
+    const blockJoin = !joinedMain && currentSignupCount >= safeCap;
+    if (blockJoin) return; // 已滿團且尚未加入，直接不動作
+
+    const { ok, joinedNow } = ensureLoginAndToggle({
+      ...MAIN,
+      signupCount: currentSignupCount,
+    });
     if (!ok) return;
 
     if (joinedNow) {
       // 在更新 state 之前先計算要顯示在彈窗的數字
-      const nextCount = currentSignupCount + 1;
+      const nextCount = Math.min(safeCap, currentSignupCount + 1);
       setJoinedActivityTitle(MAIN.title);
       setJoinedActivityCount(nextCount);
-      setJoinedActivityFull(MAIN.groupSize ?? 10);
+      setJoinedActivityFull(safeCap);
       setShowJoinSuccessModal(true);
     }
 
     setJoinedMain(joinedNow);
-    setCurrentSignupCount((n) => n + (joinedNow ? +1 : -1));
+    setCurrentSignupCount((n) => {
+      const next = n + (joinedNow ? +1 : -1);
+      return Math.max(0, Math.min(safeCap, next));
+    });
   };
 
   // 2) 輪播卡片按鈕（共用流程；會進 member-group）
@@ -245,18 +269,18 @@ const Group2 = () => {
       location: card.location,
       image: card.image,
       description: card.description,
-      signupCount: card.signupCount ?? 0,
+      signupCount: Number.isFinite(card.signupCount) ? card.signupCount : 0,
       detailLink: card.detailLink ?? "/group2",
-      groupSize: card.groupSize ?? 10,
+      groupSize: Number.isFinite(card.groupSize) && card.groupSize > 0 ? card.groupSize : 10,
     };
 
-    const { ok, joinedNow } = ensureLoginAndToggle(payload);
+    const { ok, joinedNow, cap } = ensureLoginAndToggle(payload);
     if (!ok) return;
 
     if (joinedNow) {
       setJoinedActivityTitle(payload.title);
-      setJoinedActivityCount((payload.signupCount ?? 0) + 1);
-      setJoinedActivityFull(payload.groupSize ?? 10);
+      setJoinedActivityCount(Math.min(cap, (payload.signupCount ?? 0) + 1));
+      setJoinedActivityFull(cap);
       setShowJoinSuccessModal(true);
     }
   };
@@ -270,7 +294,7 @@ const Group2 = () => {
       groupSize: 10,
       date: "2025/09/30 (二)",
       time: "20:00",
-      location: "首爾",
+      location: "韓國 / 首爾",
       title: "屋頂談心",
       description:
         "心情不好，找不到好地方，好酒友，我們舉辦了一個專門給想一起看夜景，一起喝酒玩遊戲的屋頂聚會，現場提供超款桌遊跟特製調酒，別怕尷尬",
@@ -283,7 +307,7 @@ const Group2 = () => {
       groupSize: 12,
       date: "2025/09/01 (一)",
       time: "7:00",
-      location: "黃金海岸",
+      location: "澳洲 / 黃金海岸",
       title: "來衝個早浪",
       description:
         "一起早起去海邊，踩著第一道陽光下水衝浪，滑幾道舒服的浪，讓身體醒過來，心也跟著放鬆。衝完再找間早餐店，好好開啟這一天，給生活一點鹹鹹的、自由的味道。",
@@ -296,7 +320,7 @@ const Group2 = () => {
       groupSize: 10,
       date: "2025/10/13 (一)",
       time: "10:00",
-      location: "里斯本",
+      location: "葡萄牙 / 里斯本",
       title: "每周一網球",
       description:
         "手癢想打網球卻找不到球友嗎?\n周一網球社歡迎你的加入！我們有哥等級的給你練練技術，也有初階等級的夥伴跟你一起搭配練習，快來加入!",
@@ -309,7 +333,7 @@ const Group2 = () => {
       groupSize: 10,
       date: "2025/09/17 (三)",
       time: "8:00",
-      location: "巴黎",
+      location: "法國 / 巴黎",
       title: "一日艾蜜莉在巴黎",
       description:
         "打卡所有劇中的經典景點，化身艾蜜莉漫遊城市角落，走進每一幕熟悉場景，從咖啡館到花店，劇迷絕對不能錯過的一日朝聖行程，讓你拍好拍滿、浪漫爆棚！",
@@ -322,8 +346,8 @@ const Group2 = () => {
       groupSize: 10,
       date: "2025/09/28 (日)",
       time: "17:00",
-      location: "雪梨",
-      title: "參觀雪梨歌劇院雪梨",
+      location: "澳洲 / 雪梨",
+      title: "參觀雪梨歌劇院",
       description:
         "澳洲雪梨必去景點!但你一定還沒有進去參觀過吧!我們正在找10個人一起團體報名，有全中文解說的導遊帶領，不用怕有聽沒有懂，目前報名人數已達5人，一人只要50澳幣，數量有限快來跟我們一起參加吧!結束還可以一起去",
       detailLink: "/group2",
@@ -364,6 +388,8 @@ const Group2 = () => {
     ]);
     setNewComment("");
   };
+
+  const isMainFullForNonJoined = !joinedMain && currentSignupCount >= safeCap;
 
   return (
     <main id="E-group2">
@@ -406,8 +432,13 @@ const Group2 = () => {
             </FadeInOnScroll>
 
             <FadeInOnScroll className="activity-btn">
-              <button className={`join ${joinedMain ? "is-cancel" : ""}`} onClick={handleToggleMain}>
-                {joinedMain ? "取消報名" : "報名參加"}
+              <button
+                className={`join ${joinedMain ? "is-cancel" : ""} ${isMainFullForNonJoined ? "is-disabled" : ""}`}
+                onClick={handleToggleMain}
+                disabled={isMainFullForNonJoined}
+                aria-disabled={isMainFullForNonJoined}
+              >
+                {isMainFullForNonJoined ? "已滿團" : (joinedMain ? "取消報名" : "報名參加")}
                 <img src="./img-Group/right-arrow.svg" alt="right-arrow" />
               </button>
             </FadeInOnScroll>
@@ -425,7 +456,7 @@ const Group2 = () => {
 
         <FadeInOnScroll className="participants">
           <h3>報名人數</h3>
-          <p>{currentSignupCount} 人已報名</p>
+          <p>{currentSignupCount} / {safeCap} 人已報名</p>
 
           <div className="join-people">
             <img className="people-img" src="./img-Group/people/join-people (1).jpg" alt="" />
