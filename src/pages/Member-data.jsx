@@ -85,7 +85,7 @@ const Member = ({ user, onLogout }) => {
             <li><Link to="/member">會員資料</Link></li>
             <li><Link to="/memberCity">收藏國家</Link></li>
             <li><Link to="/memberdiary">我的文章</Link></li>
-            <li><Link to="/membersave">收藏文章</Link></li>
+            <li><Link to="/membersave">收藏日記</Link></li>
             <li><Link to="/membergroup">活動紀錄</Link></li>
           </ul>
         </header>

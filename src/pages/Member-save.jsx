@@ -50,7 +50,7 @@ const MemberSave = () => {
                         <li><Link to="/member">會員資料</Link></li>
                         <li><Link to="/memberCity">收藏國家</Link></li>
                         <li><Link to="/memberdiary">我的文章</Link></li>
-                        <li><Link to="/membersave">收藏文章</Link></li>
+                        <li><Link to="/membersave">收藏日記</Link></li>
                         <li><Link to="/membergroup">活動紀錄</Link></li>
                     </ul>
                 </header>
@@ -62,8 +62,8 @@ const MemberSave = () => {
 
                     {items.length === 0 && (
                         <p className="empty-hint">
-                            尚未收藏任何文章去
-                            <Link to="/diary" className="empty-link"> 漂日記 </Link>逛逛吧
+                            尚未收藏任何日記去
+                            <Link to="/diary" className="empty-link"> 漂日記 </Link>逛逛吧！
                         </p>
                     )}
 

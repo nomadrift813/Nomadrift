@@ -89,9 +89,11 @@
       color: #8f8f8f;
       font-family: $family-tc;
       font-size: $f-s-sm;
-      padding: 16px 0;
     }
-
+    .empty-link {
+      color: #d4a624;
+      border-bottom: 1.5px solid #d4a624;
+    }
     /* ========================
        A) 卡片佈局（搭配 GroupCard）→ 瀑布流
        ======================== */

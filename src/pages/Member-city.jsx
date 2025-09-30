@@ -27,7 +27,7 @@ const MemberCity = () => {
             <li><Link to="/member">會員資料</Link></li>
             <li><Link to="/memberCity">收藏國家</Link></li>
             <li><Link to="/memberdiary">我的文章</Link></li>
-            <li><Link to="/membersave">收藏文章</Link></li>
+            <li><Link to="/membersave">收藏日記</Link></li>
             <li><Link to="/membergroup">活動紀錄</Link></li>
           </ul>
         </header>
@@ -38,7 +38,12 @@ const MemberCity = () => {
           </div>
 
           <article className="fav-cities">
-            {favs.length === 0 && <p className="empty">目前沒有收藏的國家</p>}
+            {favs.length === 0 && (
+                                    <p className="empty-hint">
+                                        尚未收藏任何國家去
+                                        <Link to="/Location" className="empty-link"> 熱門地點 </Link>逛逛吧！
+                                    </p>
+                                )}
 
             {favs.map((c) => (
               <section key={c.id} className="country saved">
