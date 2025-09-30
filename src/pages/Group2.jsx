@@ -114,7 +114,7 @@ const CardCarousel = ({ items, onToggleJoin }) => {
                       image={card.image}
                       signupCount={card.signupCount}
                       date={card.date}
-                      // time={card.time}
+                      time={card.time}
                       location={card.location}
                       title={card.title}
                       description={card.description}

@@ -253,9 +253,16 @@
     // 所有揪團卡片合集
     .cards-container {
         width: 100%;
+        
         column-gap: 16px; // 欄與欄之間的距離
         column-fill: balance; // 盡量平衡每欄高度
         column-count: 3; // 桌機 3 欄
+
+        .card-fade-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         //目前沒有符合條件的活動
         .no-activities {
@@ -279,8 +286,6 @@
         @media ($mediaSm) {
             column-count: 1;
         }
-
-        // 手機 1 欄
     }
 
     /* 每張卡片（直接套用到 .cards-container 的直接子元素） */
@@ -338,17 +343,6 @@
     opacity: 1;
     transform: translateY(0);
 }
-
-/* 卡片外層可用來微調間距（選用） */
-// .card-fade-wrapper {
-//     /* 若卡片彼此太擠，可在這加 margin 調整 */
-// }
-
-/* ========= Button List: Left-to-Right Stagger Pop ========= */
-/* 只針對 <button-list> 中的 <group-buttons> 做逐一彈出動畫 */
-// .button-list .group-buttons.stagger {
-//     /* 不改你原本的排版，只加初始狀態 */
-// }
 
 .button-list .group-buttons.stagger li {
     opacity: 0;

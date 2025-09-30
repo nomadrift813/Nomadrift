@@ -332,6 +332,7 @@
 
         @media ($mediaXl) {
             padding: 0px 130px;
+            
         }
 
         @media ($mediaLg) {
@@ -340,6 +341,7 @@
 
         @media ($mediaMd) {
             padding: 0px 80px;
+            margin-top: 620px;
         }
 
         @media ($mediaSm) {
@@ -724,12 +726,12 @@
 
         /* 卡片寬度：桌機 3 張、平板 2 張、手機 1 張 */
         .carousel-card {
-            flex: 0 0 calc((100% - 3 * 30px) / 4);
+            flex: 0 0 calc((100% - 4*30px) / 5);
         }
 
         @media ($mediaLg) {
             .carousel-card {
-                flex: 0 0 calc((100% - 3*30px) / 4);
+                flex: 0 0 calc((100% - 4*30px) / 5);
             }
         }
 
