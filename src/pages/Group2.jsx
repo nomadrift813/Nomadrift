@@ -114,7 +114,7 @@ const CardCarousel = ({ items, onToggleJoin }) => {
                       image={card.image}
                       signupCount={card.signupCount}
                       date={card.date}
-                      time={card.time}
+                      // time={card.time}
                       location={card.location}
                       title={card.title}
                       description={card.description}
@@ -147,7 +147,7 @@ const Group2 = () => {
     image: "./img-Group/night-market.jpg",
     baseSignupCount: 8, // 原始顯示人數
     groupSize: 10, // ✅ 滿團人數
-    date: "2025/09/12",
+    date: "2025/09/12 (五)",
     time: "18:00",
     location: "台灣/ 台北市　捷運松山站 4 號出口",
     title: "一起逛饒河夜市",
@@ -268,7 +268,7 @@ const Group2 = () => {
       image: "./img-Group/fireworks.jpeg",
       signupCount: 8,
       groupSize: 10,
-      date: "2025/09/30",
+      date: "2025/09/30 (二)",
       time: "20:00",
       location: "首爾",
       title: "屋頂談心",
@@ -281,7 +281,7 @@ const Group2 = () => {
       image: "./img-Group/surf.jpg",
       signupCount: 9,
       groupSize: 12,
-      date: "2025/09/01",
+      date: "2025/09/01 (一)",
       time: "7:00",
       location: "黃金海岸",
       title: "來衝個早浪",
@@ -294,7 +294,7 @@ const Group2 = () => {
       image: "./img-Group/tennis.jpg",
       signupCount: 5,
       groupSize: 10,
-      date: "2025/10/13",
+      date: "2025/10/13 (一)",
       time: "10:00",
       location: "里斯本",
       title: "每周一網球",
@@ -307,7 +307,7 @@ const Group2 = () => {
       image: "./img-Group/Paris.jpg",
       signupCount: 8,
       groupSize: 10,
-      date: "2025/09/17",
+      date: "2025/09/17 (三)",
       time: "8:00",
       location: "巴黎",
       title: "一日艾蜜莉在巴黎",
@@ -320,7 +320,7 @@ const Group2 = () => {
       image: "./img-Group/sydney-opera-house-view.jpg",
       signupCount: 10,
       groupSize: 10,
-      date: "2025/09/28",
+      date: "2025/09/28 (日)",
       time: "17:00",
       location: "雪梨",
       title: "參觀雪梨歌劇院雪梨",
@@ -392,7 +392,7 @@ const Group2 = () => {
 
             <FadeInOnScroll as="li">
               <h3>活動時間</h3>
-              <p>2025/ 09/ 12　18:00 ~ 22:00</p>
+              <p>2025/09/12 (五) 18:00 ~ 22:00</p>
             </FadeInOnScroll>
 
             <FadeInOnScroll as="li">
@@ -402,7 +402,7 @@ const Group2 = () => {
 
             <FadeInOnScroll as="li">
               <h3>報名截止日</h3>
-              <p>2025/ 09/ 10　23:59</p>
+              <p>2025/09/10(三)23:59</p>
             </FadeInOnScroll>
 
             <FadeInOnScroll className="activity-btn">
