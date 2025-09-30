@@ -335,7 +335,7 @@ const Group2 = () => {
   };
 
   return (
-    <main>
+    <main id="E-group2">
       {/* Banner區：不動背景，只讓文字淡入 */}
       <section id="groupBanner2">
         <img src="./img-Group/g-2-BN.jpg" alt="" />
@@ -387,16 +387,6 @@ const Group2 = () => {
         </div>
       </section>
 
-      {/* 活動說明 */}
-      <article id="activity-content">
-        <div className="content-title">
-          <FadeInOnScroll as="h3">Activity content</FadeInOnScroll>
-          <FadeInOnScroll className="line" />
-          <FadeInOnScroll as="h2">活動說明</FadeInOnScroll>
-          <FadeInOnScroll as="p">{MAIN.description}</FadeInOnScroll>
-        </div>
-      </article>
-
       {/* 發起人+報名人數 */}
       <section id="people-info">
         <FadeInOnScroll className="organizer-info">
@@ -419,6 +409,16 @@ const Group2 = () => {
           </div>
         </FadeInOnScroll>
       </section>
+
+      {/* 活動說明 */}
+      <article id="activity-content">
+        <div className="content-title">
+          <FadeInOnScroll as="h3">Activity content</FadeInOnScroll>
+          <FadeInOnScroll className="line" />
+          <FadeInOnScroll as="h2">活動說明</FadeInOnScroll>
+          <FadeInOnScroll as="p">{MAIN.description}</FadeInOnScroll>
+        </div>
+      </article>
 
       {/* 留言區 */}
       <section id="activity-comments">
