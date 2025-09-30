@@ -18,6 +18,11 @@ const Member = ({ user, onLogout }) => {
   // Modal 狀態，控制提示視窗的顯示與內容
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  // 設定網頁標題
+  useEffect(() => {
+    document.title = '會員中心｜漂遊牧';
+    // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+  }, []);
 
   // 元件載入時，從 localStorage 讀取資料
   useEffect(() => {

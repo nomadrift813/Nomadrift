@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
+  useEffect(() => {
+      document.title = 'Nomadrift｜漂遊牧';
+    }, []);
   // component 內
   const [hvalue, setHvalue] = useState("");
   const [show, setShow] = useState(true);

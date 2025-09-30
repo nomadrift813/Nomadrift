@@ -27,6 +27,12 @@ const Location = () => {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // 設定網頁標題
+    useEffect(() => {
+      document.title = '熱門地點｜漂遊牧';
+      // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+    }, []);
+
   // ✅ 收藏按鈕（交給全域委派 .js-fav）
   //    ※ 這裡一次打包「完整卡片資料」，收藏頁就能渲染整張卡。
   const FavBtn = ({ payload }) => {

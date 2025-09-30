@@ -26,6 +26,11 @@ const useInView = (threshold = 0.5) => {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
+// 設定網頁標題
+  useEffect(() => {
+    document.title = '揪團活動｜漂遊牧';
+    // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+  }, []);
 
   useEffect(() => {
     const el = ref.current;

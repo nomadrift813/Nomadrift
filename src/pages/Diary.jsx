@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../sass/scss/diary.scss';
 import CalendarInput from '../component/CalendarInput';
 import { addMyDiary } from '../js/myDiaryStore';
 import { getAuthFromLS } from '../js/favStore';
+
+
 
 // --- 工具：格式化日期 ---
 const formatDate = (dateString) => {
@@ -14,6 +16,8 @@ const formatDate = (dateString) => {
     .replace(/,/, '')
     .replace(/(\w+) (\d+) (\d+)/, '$1, $2 $3');
 };
+
+
 
 // --- 初始貼文 ---
 const initialPosts = [
@@ -258,6 +262,9 @@ const initialPosts = [
 ];
 
 const Diary = () => {
+  useEffect(() => {
+    document.title = '漂日記｜漂遊牧';
+  }, []);
   const [showPostModal, setShowPostModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -275,6 +282,8 @@ const Diary = () => {
   const [newPostDate, setNewPostDate] = useState(
     new Date().toISOString().substring(0, 10)
   );
+
+  
 
   const categories = ['全部日記', '亞洲', '歐洲', '北美洲', '中南美洲', '非洲', '大洋洲'];
 
@@ -315,6 +324,7 @@ const Diary = () => {
     }
     return;
   }
+  
 
   // 已登入 → 開發文彈窗
   setShowPostModal(true);
