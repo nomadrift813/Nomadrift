@@ -218,6 +218,19 @@ const Home = () => {
     // }
     navigate("/location");
   };
+
+
+  // 滾動到下一區
+  // ① 新增一個 ref 給 homelocation
+  const locationRef = useRef(null);
+
+  // ② 新增一個點擊時捲動的函式（放在 Home 裡就好）
+  const scrollToLocation = () => {
+    locationRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+
+
   return (
     <main ref={wrapRef}>
       <section id="homebanner" ref={bannerRef}>
@@ -247,8 +260,8 @@ const Home = () => {
         </div>
 
         <p className='banner-side-word'>floating your own way</p>
-        <div className="homescroll">
-          <img src="./img-Home/homescroll.svg" alt="" />
+        <div className="homescroll" onClick={scrollToLocation} role="button" tabIndex={0}>
+          <img src="./img-Home/homescroll.svg" alt="scroll down" />
         </div>
 
         <div className="banner-line">
@@ -652,7 +665,7 @@ const Home = () => {
         </g>
       </svg>
 
-      <section id='homelocation'>
+      <section id='homelocation' ref={locationRef}>
         <header>
           <div className='homenext'>
             <p className='h-t-1'>Start your next journey <span>here</span></p>

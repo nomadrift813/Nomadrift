@@ -203,8 +203,9 @@ body {
         flex-direction: column;
         align-items: center;
         position: absolute;
-        bottom: 250px;
+        bottom: 350px;
         width: 88px;
+        cursor: pointer;
 
         img {
             display: block;
@@ -955,6 +956,7 @@ body {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            z-index: 5;
 
             @media ($mediaXl) {
                 flex-direction: row;
