@@ -16,6 +16,7 @@ const useInView = (threshold = 0.5) => {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,6 +28,7 @@ const useInView = (threshold = 0.5) => {
       },
       { threshold }
     );
+
     io.observe(el);
     return () => io.disconnect();
   }, [threshold]);
@@ -66,6 +68,7 @@ const CardCarousel = ({ items, onToggleJoin }) => {
       }
     };
     calc();
+
     const ro = new ResizeObserver(calc);
     if (trackRef.current) ro.observe(trackRef.current);
     return () => ro.disconnect();
@@ -122,6 +125,7 @@ const CardCarousel = ({ items, onToggleJoin }) => {
                         e?.stopPropagation?.();
                         onToggleJoin(card);
                       }}
+                      groupSize={card.groupSize ?? 10}
                     />
                   </div>
                 );
@@ -137,11 +141,12 @@ const CardCarousel = ({ items, onToggleJoin }) => {
 const Group2 = () => {
   const location = useLocation();
 
-  // 這頁的主活動（用同一個 id：「night-market」對上 Group 頁的卡片）
+  // 這頁的主活動（加上 groupSize）
   const MAIN = {
     id: "night-market",
     image: "./img-Group/night-market.jpg",
     baseSignupCount: 8, // 原始顯示人數
+    groupSize: 10, // ✅ 滿團人數
     date: "2025/09/12",
     time: "18:00",
     location: "台灣/ 台北市　捷運松山站 4 號出口",
@@ -170,8 +175,11 @@ const Group2 = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // 加入成功彈窗
+  // 加入成功彈窗（版型與 Group.jsx 一樣）
   const [showJoinSuccessModal, setShowJoinSuccessModal] = useState(false);
+  const [joinedActivityTitle, setJoinedActivityTitle] = useState("");
+  const [joinedActivityCount, setJoinedActivityCount] = useState(0);
+  const [joinedActivityFull, setJoinedActivityFull] = useState(0);
   const closeJoinModal = () => setShowJoinSuccessModal(false);
 
   // 通用：登入檢查＋加入/取消
@@ -201,6 +209,7 @@ const Group2 = () => {
           description: activity.description,
           signupCount: activity.signupCount ?? activity.baseSignupCount ?? 0,
           detailLink: activity.detailLink ?? "/group2",
+          groupSize: activity.groupSize ?? 10,
         },
         auth
       );
@@ -213,14 +222,22 @@ const Group2 = () => {
     const { ok, joinedNow } = ensureLoginAndToggle(MAIN);
     if (!ok) return;
 
+    if (joinedNow) {
+      // 在更新 state 之前先計算要顯示在彈窗的數字
+      const nextCount = currentSignupCount + 1;
+      setJoinedActivityTitle(MAIN.title);
+      setJoinedActivityCount(nextCount);
+      setJoinedActivityFull(MAIN.groupSize ?? 10);
+      setShowJoinSuccessModal(true);
+    }
+
     setJoinedMain(joinedNow);
     setCurrentSignupCount((n) => n + (joinedNow ? +1 : -1));
-    if (joinedNow) setShowJoinSuccessModal(true);
   };
 
   // 2) 輪播卡片按鈕（共用流程；會進 member-group）
   const handleJoinFromCarousel = (card) => {
-    const { ok, joinedNow } = ensureLoginAndToggle({
+    const payload = {
       id: card.id ?? card.key ?? String(card.title || "activity"),
       title: card.title,
       date: card.date,
@@ -230,17 +247,27 @@ const Group2 = () => {
       description: card.description,
       signupCount: card.signupCount ?? 0,
       detailLink: card.detailLink ?? "/group2",
-    });
+      groupSize: card.groupSize ?? 10,
+    };
+
+    const { ok, joinedNow } = ensureLoginAndToggle(payload);
     if (!ok) return;
-    if (joinedNow) setShowJoinSuccessModal(true);
+
+    if (joinedNow) {
+      setJoinedActivityTitle(payload.title);
+      setJoinedActivityCount((payload.signupCount ?? 0) + 1);
+      setJoinedActivityFull(payload.groupSize ?? 10);
+      setShowJoinSuccessModal(true);
+    }
   };
 
-  // --- Carousel 的示意資料 ---
+  // --- Carousel 的示意資料（預設加上 groupSize: 10） ---
   const groupCardData = [
     {
       id: 1,
       image: "./img-Group/fireworks.jpeg",
       signupCount: 8,
+      groupSize: 10,
       date: "2025/09/30",
       time: "20:00",
       location: "首爾",
@@ -253,6 +280,7 @@ const Group2 = () => {
       id: 2,
       image: "./img-Group/surf.jpg",
       signupCount: 9,
+      groupSize: 12,
       date: "2025/09/01",
       time: "7:00",
       location: "黃金海岸",
@@ -265,6 +293,7 @@ const Group2 = () => {
       id: 3,
       image: "./img-Group/tennis.jpg",
       signupCount: 5,
+      groupSize: 10,
       date: "2025/10/13",
       time: "10:00",
       location: "里斯本",
@@ -277,6 +306,7 @@ const Group2 = () => {
       id: 4,
       image: "./img-Group/Paris.jpg",
       signupCount: 8,
+      groupSize: 10,
       date: "2025/09/17",
       time: "8:00",
       location: "巴黎",
@@ -289,6 +319,7 @@ const Group2 = () => {
       id: 5,
       image: "./img-Group/sydney-opera-house-view.jpg",
       signupCount: 10,
+      groupSize: 10,
       date: "2025/09/28",
       time: "17:00",
       location: "雪梨",
@@ -375,10 +406,7 @@ const Group2 = () => {
             </FadeInOnScroll>
 
             <FadeInOnScroll className="activity-btn">
-              <button
-                className={`join ${joinedMain ? "is-cancel" : ""}`}
-                onClick={handleToggleMain}
-              >
+              <button className={`join ${joinedMain ? "is-cancel" : ""}`} onClick={handleToggleMain}>
                 {joinedMain ? "取消報名" : "報名參加"}
                 <img src="./img-Group/right-arrow.svg" alt="right-arrow" />
               </button>
@@ -473,7 +501,7 @@ const Group2 = () => {
         </div>
       </section>
 
-      {/* 加入成功彈窗 */}
+      {/* ✅ 加入成功彈窗（與 Group.jsx 完全一致） */}
       {showJoinSuccessModal && (
         <div className="group-join-modal-overlay" onClick={closeJoinModal}>
           <div className="group-join-success-modal" onClick={(e) => e.stopPropagation()}>
@@ -490,8 +518,22 @@ const Group2 = () => {
                   />
                 </svg>
               </div>
+
               <h2>加入成功</h2>
-              <p>你已成功加入此活動！</p>
+              <p>你已成功加入「{joinedActivityTitle}」活動！</p>
+
+              {/* 活動資訊補充 */}
+              <p className="group-join-extra">
+                目前 <strong>{joinedActivityCount}</strong> 人報名 ｜{" "}
+                <strong>{joinedActivityFull}</strong> 人滿團
+              </p>
+
+              {/* 會員專區 / 活動紀錄連結 */}
+              <p className="group-join-links">
+                前往 <Link to="/member" onClick={closeJoinModal}>會員專區</Link> 查看{" "}
+                <Link to="/membergroup" onClick={closeJoinModal}>活動紀錄</Link>
+              </p>
+
               <button className="group-join-modal-close-btn" onClick={closeJoinModal}>
                 確定
               </button>

@@ -1,9 +1,8 @@
 // src/pages/Group.jsx
 import '../sass/scss/group.scss';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import GroupCard from '../component/GroupCard';
-
 
 // 登入判斷與報名清單
 import { getAuthFromLS } from '../js/favStore';
@@ -14,16 +13,14 @@ import {
   JOIN_EVENT,
 } from '../js/joinStore';
 
-
 /** 共用：觀察元素是否進入畫面 50% */
 const useInView = (threshold = 0.5) => {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
-// 設定網頁標題
+  // 設定網頁標題
   useEffect(() => {
     document.title = '揪團活動｜漂遊牧';
-    // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
   }, []);
 
   useEffect(() => {
@@ -44,10 +41,8 @@ const useInView = (threshold = 0.5) => {
     return () => io.disconnect();
   }, [threshold]);
 
-
   return { ref, inView };
 };
-
 
 /** 元件：任意內容套用淡入（y:-3px → 0） */
 const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold = 0.5 }) => {
@@ -59,6 +54,14 @@ const FadeInOnScroll = ({ as: Tag = 'div', className = '', children, threshold =
   );
 };
 
+const ALLOWED_FILTERS = [
+  '全部活動',
+  '找吃飯夥伴',
+  '找工作夥伴',
+  '找踩點夥伴',
+  '找合租室友',
+  '找Chill伴',
+];
 
 const Group = () => {
   // 篩選、顯示數量、彈窗
@@ -66,11 +69,20 @@ const Group = () => {
   const [visibleCount, setVisibleCount] = useState(12); // 初始顯示 12 張
   const [showJoinSuccessModal, setShowJoinSuccessModal] = useState(false); // 加入成功彈窗
   const [joinedActivityTitle, setJoinedActivityTitle] = useState(''); // 彈窗使用:活動標題
-  // 新增: 彈窗額外資訊(目前報名人數/滿團人數)
   const [joinedActivityCount, setJoinedActivityCount] = useState(0);
   const [joinedActivityFull, setJoinedActivityFull] = useState(0);
 
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // 讓 URL 成為單一真相：監聽 location.search，自動同步 activeFilter
+  useEffect(() => {
+    const sp = new URLSearchParams(location.search);
+    const fromURL = sp.get('filter');
+    // 空值或非法值 → 回到「全部活動」
+    const next = ALLOWED_FILTERS.includes(fromURL || '') ? fromURL : '全部活動';
+    setActiveFilter(next);
+  }, [location.search]);
 
   // 為了讓卡片能在 joinStore 改變時自動重渲染(含其它頁/彈窗操作)
   const [joinedVersion, setJoinedVersion] = useState(0);
@@ -80,9 +92,16 @@ const Group = () => {
     return () => window.removeEventListener(JOIN_EVENT, onJoinedChange);
   }, []);
 
+  // 點按按鈕時：只改 URL 的 filter，activeFilter 交給上面 useEffect 同步
   const handleFilterClick = (tag, e) => {
     e?.preventDefault?.();
-    setActiveFilter(tag);
+    const sp = new URLSearchParams(location.search);
+    if (tag === '全部活動') {
+      sp.delete('filter');
+    } else {
+      sp.set('filter', tag);
+    }
+    navigate({ pathname: location.pathname, search: `?${sp.toString()}` });
   };
 
   // 關閉彈窗
@@ -523,12 +542,13 @@ const Group = () => {
             ref={btnsRef}
             className={`group-buttons stagger ${btnsShow ? 'stagger-show' : ''}`}
           >
-            <li><a href="#" className={activeFilter === '全部活動' ? 'active' : ''} onClick={(e) => handleFilterClick('全部活動', e)}>全部活動</a></li>
-            <li><a href="#" className={activeFilter === '找吃飯夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找吃飯夥伴', e)}>找吃飯夥伴</a></li>
-            <li><a href="#" className={activeFilter === '找工作夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找工作夥伴', e)}>找工作夥伴</a></li>
-            <li><a href="#" className={activeFilter === '找踩點夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找踩點夥伴', e)}>找踩點夥伴</a></li>
-            <li><a href="#" className={activeFilter === '找合租室友' ? 'active' : ''} onClick={(e) => handleFilterClick('找合租室友', e)}>找合租室友</a></li>
-            <li><a href="#" className={activeFilter === '找Chill伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找Chill伴', e)}>找Chill伴</a></li>
+            {/* 這裡仍保留 <a>，也可改成 <Link>；點擊時只改 URL，狀態交給 useEffect */}
+            <li><a href={`?`} className={activeFilter === '全部活動' ? 'active' : ''} onClick={(e) => handleFilterClick('全部活動', e)}>全部活動</a></li>
+            <li><a href={`?filter=${encodeURIComponent('找吃飯夥伴')}`} className={activeFilter === '找吃飯夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找吃飯夥伴', e)}>找吃飯夥伴</a></li>
+            <li><a href={`?filter=${encodeURIComponent('找工作夥伴')}`} className={activeFilter === '找工作夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找工作夥伴', e)}>找工作夥伴</a></li>
+            <li><a href={`?filter=${encodeURIComponent('找踩點夥伴')}`} className={activeFilter === '找踩點夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找踩點夥伴', e)}>找踩點夥伴</a></li>
+            <li><a href={`?filter=${encodeURIComponent('找合租室友')}`} className={activeFilter === '找合租室友' ? 'active' : ''} onClick={(e) => handleFilterClick('找合租室友', e)}>找合租室友</a></li>
+            <li><a href={`?filter=${encodeURIComponent('找Chill伴')}`} className={activeFilter === '找Chill伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找Chill伴', e)}>找Chill伴</a></li>
           </ul>
         </div>
 
@@ -606,6 +626,3 @@ const Group = () => {
 };
 
 export default Group;
-
-
-
