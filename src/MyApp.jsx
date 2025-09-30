@@ -18,6 +18,14 @@ import MemberSave from "./pages/Member-save";
 import MemberGroup from "./pages/Member-group";
 import Location2 from "./pages/Location-2";
 import Location3 from "./pages/Location-3";
+import Location2Auckland from "./pages/Location-2-Auckland";
+import Location2Bangkok from "./pages/Location-2-Bangkok";
+import Location2Lisboa from "./pages/Location-2-Lisboa";
+import Location2Bali from "./pages/Location-2-Bali";
+import Location2MexicoCity from "./pages/Location-2-MexicoCity";
+import Location2Berlin from "./pages/Location-2-Berlin";
+import Location2Newyork from "./pages/Location-2-Newyork";
+
 
 import Log from "./component/Log";
 import Sign from "./component/Sign";
@@ -130,6 +138,13 @@ useEffect(() => {
         <Route path="/diary2" element={<Diary2 />} />
         <Route path="/location2" element={<Location2 />} />
         <Route path="/location3" element={<Location3 />} />
+        <Route path="/location2Auckland" element={<Location2Auckland />}/>
+        <Route path="/location2Bangkok" element={<Location2Bangkok />}/>
+        <Route path="/location2Lisboa" element={<Location2Lisboa />}/>
+        <Route path="/location2Bali" element={<Location2Bali />}/>
+        <Route path="/location2MexicoCity" element={<Location2MexicoCity />}/>
+        <Route path="/location2Berlin" element={<Location2Berlin />}/>
+        <Route path="/location2Newyork" element={<Location2Newyork />}/>
 
         {/* ⭐ 傳登出與使用者資料給會員中心 */}
         <Route path="/member" element={<Member user={auth.user} onLogout={handleLogout} />} />

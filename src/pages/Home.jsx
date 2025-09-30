@@ -682,37 +682,37 @@ const Home = () => {
 
         <div className='home-lo-boxs'>
           <div className="home-city-grid">
-            <Link to="/location" className="h-city">
+            <Link to="/location2Auckland" className="h-city">
               <img src="./img-Home/location-1.jpg" alt="奧克蘭" />
               <span className="h-cityname">奧克蘭</span>
             </Link>
 
-            <Link to="/location" className="h-city">
+            <Link to="/location2Bali" className="h-city">
               <img src="./img-Home/location-2.jpg" alt="峇里島" />
               <span className="h-cityname">峇里島</span>
             </Link>
 
-            <Link to="/location" className="h-city">
+            <Link to="/location2Bangkok" className="h-city">
               <img src="./img-Home/location-3.jpg" alt="曼谷" />
               <span className="h-cityname">曼谷</span>
             </Link>
 
-            <Link to="/location" className="h-city">
+            <Link to="/location2Lisboa" className="h-city">
               <img src="./img-Home/location-4.jpg" alt="里斯本" />
               <span className="h-cityname">里斯本</span>
             </Link>
 
-            <Link to="/location" className="h-city">
+            <Link to="location2MexicoCity" className="h-city">
               <img src="./img-Home/location-5.jpg" alt="墨西哥城" />
               <span className="h-cityname">墨西哥城</span>
             </Link>
 
-            <Link to="/location" className="h-city">
+            <Link to="/location2Berlin" className="h-city">
               <img src="./img-Home/location-6.jpg" alt="柏林" />
               <span className="h-cityname">柏林</span>
             </Link>
 
-            <Link to="/location" className="h-city">
+            <Link to="/location2Newyork" className="h-city">
               <img src="./img-Home/location-7.jpg" alt="紐約" />
               <span className="h-cityname">紐約</span>
             </Link>

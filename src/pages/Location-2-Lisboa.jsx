@@ -48,12 +48,12 @@ const Location2 = () => {
   // ===== 主區塊收藏 =====
   const [active, setActive] = useState(false);
 
-  // ===== 圖片來源陣列（清邁相簿） =====
+  // ===== 圖片來源陣列（城市相簿） =====
   const images = [
-    "./img-Location/p01.jpeg",
-    "./img-Location/p02.jpeg",
-    "./img-Location/p03.jpeg",
-    "./img-Location/p04.jpeg",
+    "./img-Location/lisboa-1.jpg",
+    "./img-Location/lisboa-2.jpg",
+    "./img-Location/lisboa-5.jpg",
+    "./img-Location/lisboa-4.jpg",
   ];
   const [mainImage, setMainImage] = useState(images[0]);
   const [thumbnailImages, setThumbnailImages] = useState(images.slice(1));
@@ -78,7 +78,7 @@ const Location2 = () => {
           <p className='l-t-1'>Discover<span> De</span>stination</p>
           <p className='l-t-2'>探索地點</p>
         </header>
-        <p className='theCity'>亞洲-泰國-清邁</p>
+        <p className='theCity'>歐洲-葡萄牙-里斯本</p>
       </section>
 
       {/* 內容-探索地點 */}
@@ -97,19 +97,19 @@ const Location2 = () => {
           {/* 地點內容 */}
           <div className='locContent'>
             <div className='locTitle'>
-              <h2>清邁</h2>
+              <h2>里斯本</h2>
               {/* ✅ 和 Location.jsx 一樣的收藏按鈕，帶完整 payload */}
               <FavBtn
                 active={active}
                 onClick={() => setActive(!active)}
                 payload={{
-                  id: 'chiang-mai',
-                  country: '清邁',
+                  id: 'lisboa',
+                  country: '里斯本',
                   img: images[0],
                   text:
-                    '清邁的生活節奏相對曼谷來得慢與平靜。城市不大，但應有盡有。走在老城區，滿是佛寺、咖啡館和手作市集；到了寧曼路一帶，又搖身一變成充滿創意和現代感的熱點，集合了co-working空間、設計品牌店與人氣甜點店，是數位遊牧者的根據地之一。清邁氣候宜人，尤其11月到2月的涼季，氣溫舒適又乾爽，非常適合長時間工作與生活。加上周邊有豐富的大自然資源，週末可以輕鬆安排短程旅遊，如拜訪象園、瀑布健行，或到郊區租機車探索咖啡山路。如果你正在尋找一個生活成本合理、步調舒適、又能有效遠距工作的城市，清邁絕對值得一試。',
+                    '里斯本（Lisbon）作為歐洲的數位遊牧熱點，完美結合了古典的魅力與現代的自由工作文化。這座城市的生活步調相較於歐洲其他主要首都，顯得更為悠閒、從容，城市規模適中，且擁有完善的公共交通網絡。穿梭於阿爾法瑪（Alfama）古老的石板小巷，耳邊迴盪著憂傷的法朵（Fado）歌聲，滿是傳統的瓷磚建築與隱藏版的家庭餐廳，而阿爾坎塔拉（Alcântara）或卡伊斯杜索德雷（Cais do Sodré），則盡是充滿設計感的Co-working Space與新創科技公司的餐飲熱點。這種新舊交織的獨特氛圍，深深吸引著追求工作與生活平衡的數位遊牧者。擁有歐洲最宜人的氣候，從春季到秋季（3月到10月），陽光充足且氣溫舒適，非常適合長時間保持高效率的工作狀態。',
                   wifi: WIFI,
-                  stars: [1, 1, 2, 2, 2],
+                  stars: [1, 1, 1, 1, 2],
                   price: 'NT $15000 /月',
                 }}
               />
@@ -120,35 +120,33 @@ const Location2 = () => {
               <figure className='stars'>
                 <img src="./img-Location/Star1.svg" alt="" />
                 <img src="./img-Location/Star1.svg" alt="" />
-                <img src="./img-Location/Star2.svg" alt="" />
-                <img src="./img-Location/Star2.svg" alt="" />
+                <img src="./img-Location/Star1.svg" alt="" />
+                <img src="./img-Location/Star1.svg" alt="" />
                 <img src="./img-Location/Star2.svg" alt="" />
               </figure>
               <span>NT $15000 /月</span>
             </div>
 
             <p>
-              清邁的生活節奏相對曼谷來得慢與平靜。城市不大，但應有盡有。走在老城區，滿是佛寺、咖啡館和手作市集；到了寧曼路一帶，又搖身一變成充滿創意和現代感的熱點，集合了co-working空間、設計品牌店與人氣甜點店，是數位遊牧者的根據地之一。
-              清邁氣候宜人，尤其11月到2月的涼季，氣溫舒適又乾爽，非常適合長時間工作與生活。加上周邊有豐富的大自然資源，週末可以輕鬆安排短程旅遊，如拜訪象園、瀑布健行，或到郊區租機車探索咖啡山路。
-              如果你正在尋找一個生活成本合理、步調舒適、又能有效遠距工作的城市，清邁絕對值得一試。或許你會和許多人一樣，原本只打算待兩週，卻一不小心住了半年。
+              里斯本（Lisbon）作為歐洲的數位遊牧熱點，完美結合了古典的魅力與現代的自由工作文化。這座城市的生活步調相較於歐洲其他主要首都，顯得更為悠閒、從容，城市規模適中，且擁有完善的公共交通網絡。穿梭於阿爾法瑪（Alfama）古老的石板小巷，耳邊迴盪著憂傷的法朵（Fado）歌聲，滿是傳統的瓷磚建築與隱藏版的家庭餐廳，而阿爾坎塔拉（Alcântara）或卡伊斯杜索德雷（Cais do Sodré），則盡是充滿設計感的Co-working Space與新創科技公司的餐飲熱點。這種新舊交織的獨特氛圍，深深吸引著追求工作與生活平衡的數位遊牧者。擁有歐洲最宜人的氣候，從春季到秋季（3月到10月），陽光充足且氣溫舒適，非常適合長時間保持高效率的工作狀態。
             </p>
           </div>
 
           {/* 評分 */}
           <div className='locScore'>
             <ul>
-              <li><p>整體</p><img src="./img-Location/level-4.svg" alt="" /></li>
-              <li><p>安全性</p><img src="./img-Location/level-5.svg" alt="" /></li>
-              <li><p>網路順暢</p><img src="./img-Location/level-2.svg" alt="" /></li>
-              <li><p>消費水平</p><img src="./img-Location/level-5.svg" alt="" /></li>
-              <li><p>氣候舒適</p><img src="./img-Location/level-3.svg" alt="" /></li>
+              <li><p>整體</p><img src="./img-Location/level-5.svg" alt="" /></li>
+              <li><p>安全性</p><img src="./img-Location/level-3.svg" alt="" /></li>
+              <li><p>網路順暢</p><img src="./img-Location/level-4.svg" alt="" /></li>
+              <li><p>消費水平</p><img src="./img-Location/level-3.svg" alt="" /></li>
+              <li><p>氣候舒適</p><img src="./img-Location/level-4.svg" alt="" /></li>
             </ul>
             <ul>
-              <li><p>友善度</p><img src="./img-Location/level-5.svg" alt="" /></li>
-              <li><p>語言溝通</p><img src="./img-Location/level-2.svg" alt="" /></li>
-              <li><p>交通便利</p><img src="./img-Location/level-1.svg" alt="" /></li>
-              <li><p>食物品質</p><img src="./img-Location/level-1.svg" alt="" /></li>
-              <li><p>醫療品質</p><img src="./img-Location/level-4.svg" alt="" /></li>
+              <li><p>友善度</p><img src="./img-Location/level-4.svg" alt="" /></li>
+              <li><p>語言溝通</p><img src="./img-Location/level-3.svg" alt="" /></li>
+              <li><p>交通便利</p><img src="./img-Location/level-2.svg" alt="" /></li>
+              <li><p>食物品質</p><img src="./img-Location/level-4.svg" alt="" /></li>
+              <li><p>醫療品質</p><img src="./img-Location/level-3.svg" alt="" /></li>
             </ul>
           </div>
 
@@ -182,7 +180,7 @@ const Location2 = () => {
                     img: './img-Location/Italy.jpg',
                     text: '以古羅馬遺跡、文藝復興藝術、美食與時尚聞名。擁有羅馬、威尼斯、佛羅倫斯等歷史名城，文化魅力獨特。',
                     wifi: WIFI,
-                    stars: [1,1,1,2,2],
+                    stars: [1, 1, 1, 2, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -220,7 +218,7 @@ const Location2 = () => {
                     img: './img-Location/Canada.jpg',
                     text: '氣候宜人、自然風光壯麗，是融合多元文化的城市，擁有海灘、山脈與都市生活的完美平衡。',
                     wifi: WIFI,
-                    stars: [1,1,1,1,2],
+                    stars: [1, 1, 1, 1, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -258,7 +256,7 @@ const Location2 = () => {
                     img: './img-Location/Nepal.jpg',
                     text: '位於喜馬拉雅山腳下，是宗教與歷史重鎮，擁有眾多佛教與印度教寺廟，文化深厚、街道熱鬧，是前往登山與探索文化的門戶。',
                     wifi: WIFI,
-                    stars: [1,1,1,1,2],
+                    stars: [1, 1, 1, 1, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -296,7 +294,7 @@ const Location2 = () => {
                     img: './img-Location/Spain.jpg',
                     text: '擁有豐富歷史與藝術文化，以佛朗明哥、鬥牛、美食和建築聞名，是充滿熱情與陽光的國度。',
                     wifi: WIFI,
-                    stars: [1,1,1,2,2],
+                    stars: [1, 1, 1, 2, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -334,7 +332,7 @@ const Location2 = () => {
                     img: './img-Location/Argentina.jpg',
                     text: '以熱情和對探戈、足球的熱愛而著稱，文化、經濟與政治都極具影響力。',
                     wifi: WIFI,
-                    stars: [1,1,1,1,2],
+                    stars: [1, 1, 1, 1, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -372,7 +370,7 @@ const Location2 = () => {
                     img: './img-Location/Morocco.jpg',
                     text: '地中海、大西洋、撒哈拉與阿特拉斯山脈交織，享有「北非花園」美名。',
                     wifi: WIFI,
-                    stars: [1,1,1,1,2],
+                    stars: [1, 1, 1, 1, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -410,7 +408,7 @@ const Location2 = () => {
                     img: './img-Location/Israel.jpg',
                     text: '融合古老宗教文化與現代科技創新，以耶路撒冷與特拉維夫聞名。',
                     wifi: WIFI,
-                    stars: [1,2,2,2,2],
+                    stars: [1, 2, 2, 2, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -448,7 +446,7 @@ const Location2 = () => {
                     img: './img-Location/Netherlands.jpg',
                     text: '以風車、鬱金香、運河和自行車文化著稱；阿姆斯特丹充滿藝術氣息。',
                     wifi: WIFI,
-                    stars: [1,1,1,2,2],
+                    stars: [1, 1, 1, 2, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -486,7 +484,7 @@ const Location2 = () => {
                     img: './img-Location/US.jpg',
                     text: '多元文化與全球金融藝術重鎮，節奏快速，活力十足。',
                     wifi: WIFI,
-                    stars: [1,1,1,2,2],
+                    stars: [1, 1, 1, 2, 2],
                     price: '15000 /月',
                   }}
                 />
@@ -524,7 +522,7 @@ const Location2 = () => {
                     img: './img-Location/Colombia.jpg',
                     text: '以多元文化著稱，擁有豐富的咖啡、寶石和製造業，也是拉丁美洲重要的文化和經濟中心之一。',
                     wifi: WIFI,
-                    stars: [1,1,2,2,2],
+                    stars: [1, 1, 2, 2, 2],
                     price: '15000 /月',
                   }}
                 />
