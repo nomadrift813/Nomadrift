@@ -10,7 +10,11 @@ import {
 
 const MemberGroup = () => {
   const [joined, setJoined] = useState([]);
-
+  // 設定網頁標題
+  useEffect(() => {
+    document.title = '活動紀錄｜漂遊牧';
+    // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+  }, []);
   // 載入 + 監聽變更（從 Group 頁加入/取消也會同步）
   useEffect(() => {
     const refresh = () => setJoined(getJoinedList());

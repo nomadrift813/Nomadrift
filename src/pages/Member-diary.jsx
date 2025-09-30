@@ -15,7 +15,11 @@ const MemberDiary = () => {
   
   // 新增：控制刪除成功提示視窗的狀態
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-
+  // 設定網頁標題
+  useEffect(() => {
+    document.title = '我的文章｜漂遊牧';
+    // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+  }, []);
   useEffect(() => {
     const a = getAuthFromLS();
     setAuth(a);

@@ -6,7 +6,11 @@ import { getFavList, setFavList, FAV_EVENT, hydrateFavIcons } from '../js/favSto
 const MemberSave = () => {
     const [items, setItems] = useState(() => getFavList('diary'));
     const navigate = useNavigate();
-
+  // 設定網頁標題
+  useEffect(() => {
+    document.title = '收藏日記｜漂遊牧';
+    // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+  }, []);
     useEffect(() => {
         const sync = () => setItems(getFavList('diary'));
         window.addEventListener(FAV_EVENT, sync);

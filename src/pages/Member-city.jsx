@@ -18,6 +18,11 @@ const MemberCity = () => {
     setFavList('city', next);
     setFavs(next);
   };
+    // 設定網頁標題
+    useEffect(() => {
+      document.title = '收藏國家｜漂遊牧';
+      // 空陣列 [] 表示這個副作用只會在元件首次載入時執行一次
+    }, []);
 
   return (
     <main>
