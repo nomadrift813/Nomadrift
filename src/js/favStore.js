@@ -68,7 +68,7 @@ export function hydrateFavIcons() {
         const cfg = JSON.parse(el.dataset.fav);
         type = cfg?.type;
         id = cfg?.id;
-      } catch {}
+      } catch { }
     } else {
       type = el.dataset.favType;
       id = el.dataset.favId;
@@ -82,12 +82,17 @@ export function hydrateFavIcons() {
     // 若裡面是 <path data-bm>，切換填色
     const path = el.querySelector && el.querySelector("path[data-bm]");
     if (path) {
+      // 簡單過度：顏色/線條顏色
+      path.style.transition = "fill .18s ease, stroke .18s ease";
+
       if (active) {
-        path.setAttribute("fill", "currentColor");
-        path.setAttribute("stroke", "currentColor");
+        // 已收藏：金黃實心（含邊框）
+        path.style.fill = "#F4D000";
+        path.style.stroke = "#F4D000";
       } else {
-        path.setAttribute("fill", "none");
-        path.setAttribute("stroke", "currentColor");
+        // 未收藏：空心 + 綠框
+        path.style.fill = "none";
+        path.style.stroke = "currentColor";
       }
     }
 
@@ -108,7 +113,7 @@ export function hydrateFavIcons() {
 export function initFavDelegator({ onNeedLogin, navigate, getAuth } = {}) {
   // 若已經綁過，先清掉（避免 StrictMode 重複綁）
   if (window.__ndFavDelegatorCleanup) {
-    try { window.__ndFavDelegatorCleanup(); } catch {}
+    try { window.__ndFavDelegatorCleanup(); } catch { }
   }
 
   const clickHandler = (e) => {
@@ -126,7 +131,7 @@ export function initFavDelegator({ onNeedLogin, navigate, getAuth } = {}) {
         img: el.dataset.favImg,
       };
       if (el.dataset.favJson) {
-        try { cfg.item = JSON.parse(el.dataset.favJson); } catch {}
+        try { cfg.item = JSON.parse(el.dataset.favJson); } catch { }
       }
     }
 
