@@ -25,6 +25,7 @@ import Location2Bali from "./pages/Location-2-Bali";
 import Location2MexicoCity from "./pages/Location-2-MexicoCity";
 import Location2Berlin from "./pages/Location-2-Berlin";
 import Location2Newyork from "./pages/Location-2-Newyork";
+import Location3Thailand from "./pages/Location-3-Thailand";
 
 
 import Log from "./component/Log";
@@ -145,6 +146,7 @@ useEffect(() => {
         <Route path="/location2MexicoCity" element={<Location2MexicoCity />}/>
         <Route path="/location2Berlin" element={<Location2Berlin />}/>
         <Route path="/location2Newyork" element={<Location2Newyork />}/>
+        <Route path="/location3Thailand" element={<Location3Thailand />}/>
 
         {/* ⭐ 傳登出與使用者資料給會員中心 */}
         <Route path="/member" element={<Member user={auth.user} onLogout={handleLogout} />} />

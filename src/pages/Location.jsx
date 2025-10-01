@@ -87,25 +87,25 @@ const Location = () => {
 
         {/* 熱門地點 */}
         <div className="hotLoc">
-          <Link to="/location2">
+          <Link to="/location3Thailand">
             <div className="hotCard-1">
               <ul className="hot-1"><img src="./img-Location/coordinate.svg" alt="" /><li>印尼</li></ul>
               <figure className="h-l-1"><img src="./img-Location/Bali.jpg" alt="" /></figure>
             </div>
           </Link>
-          <Link to="/location2">
+          <Link to="/location3Thailand">
             <div className="hotCard-2">
               <ul className="hot-2"><img src="./img-Location/coordinate.svg" alt="" /><li>土耳其</li></ul>
               <figure className="h-l-2"><img src="./img-Location/Turkey.jpg" alt="" /></figure>
             </div>
           </Link>
-          <Link to="/location2">
+          <Link to="/location3Thailand">
             <div className="hotCard-3">
               <ul className="hot-3"><img src="./img-Location/coordinate.svg" alt="" /><li>日本</li></ul>
               <figure className="h-l-3"><img src="./img-Location/Japan.jpg" alt="" /></figure>
             </div>
           </Link>
-          <Link to="/location2">
+          <Link to="/location3Thailand">
             <div className="hotCard-4">
               <ul className="hot-4"><img src="./img-Location/coordinate.svg" alt="" /><li>泰國</li></ul>
               <figure className="h-l-4"><img src="./img-Location/Thailand.jpg" alt="" /></figure>
