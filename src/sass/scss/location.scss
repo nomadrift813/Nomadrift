@@ -426,7 +426,12 @@
              @media ($mediaSm) {
                  font-size: 36px;
              }
+
+             &:hover {
+                 color: $accent;
+             }
          }
+
      }
 
      // 各大洲卡片
@@ -501,9 +506,9 @@
                  svg {
                      width: 34px;
                      height: 34px;
-                    //  position: absolute;
-                    // top: 12px;
-                    // right: 12px;
+                     //  position: absolute;
+                     // top: 12px;
+                     // right: 12px;
                  }
 
                  .select {
