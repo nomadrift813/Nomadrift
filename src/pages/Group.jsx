@@ -539,7 +539,7 @@ const Group = () => {
     if (fromURL) {
       const el = document.getElementById('group-content');
       if (el) {
-        const headerOffset = 130; // 固定導覽列高度，依實際情況調整
+        const headerOffset = 120; // 固定導覽列高度，依實際情況調整
         const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
         window.scrollTo({ top: y,});
         // window.scrollTo({ top: y, behavior: "smooth" });
@@ -581,7 +581,8 @@ const Group = () => {
             className={`group-buttons stagger ${btnsShow ? 'stagger-show' : ''}`}
           >
             {/* 這裡仍保留 <a>，也可改成 <Link>；點擊時只改 URL，狀態交給 useEffect */}
-            <li><a href={`?`} className={activeFilter === '全部活動' ? 'active' : ''} onClick={(e) => handleFilterClick('全部活動', e)}>全部活動</a></li>
+            {/* <li><a href={`?`} className={activeFilter === '全部活動' ? 'active' : ''} onClick={(e) => handleFilterClick('全部活動', e)}>全部活動</a></li> */}
+            <li><a href={`?filter=${encodeURIComponent('全部活動')}`} className={activeFilter === '全部活動' ? 'active' : ''} onClick={(e) => handleFilterClick('全部活動', e)}>全部活動</a></li>
             <li><a href={`?filter=${encodeURIComponent('找吃飯夥伴')}`} className={activeFilter === '找吃飯夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找吃飯夥伴', e)}>找吃飯夥伴</a></li>
             <li><a href={`?filter=${encodeURIComponent('找工作夥伴')}`} className={activeFilter === '找工作夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找工作夥伴', e)}>找工作夥伴</a></li>
             <li><a href={`?filter=${encodeURIComponent('找踩點夥伴')}`} className={activeFilter === '找踩點夥伴' ? 'active' : ''} onClick={(e) => handleFilterClick('找踩點夥伴', e)}>找踩點夥伴</a></li>
