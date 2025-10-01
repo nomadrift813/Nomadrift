@@ -223,7 +223,7 @@ const Group = () => {
       tags: ["找Chill伴"],
     },
     {
-      key: "design-collab",
+      key: "design-party",
       image: "./img-Group/design.jpg",
       signupCount: 4,
       groupSize: 10,
@@ -398,7 +398,7 @@ const Group = () => {
       location: "泰國 / 清邁",
       title: "內容創作者快閃日",
       description:
-        "部落客、Youtuber、IG經營者,一起挑戰三小時快閃內容製作。大家互相給回饋,讓創作不再是孤軍奮戰。",
+        "部落客、影音創作者、IG經營者,一起挑戰三小時快閃內容製作。大家互相給回饋,讓創作不再是孤軍奮戰。",
       detailLink: "/group2",
       tags: ["找工作夥伴", "找Chill伴"],
     },
