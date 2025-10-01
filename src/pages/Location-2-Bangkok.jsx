@@ -53,7 +53,7 @@ const Location2 = () => {
 
   // ===== 圖片來源陣列（城市相簿） =====
   const images = [
-    "/img-Home/location-3.jpg",
+    "./img-Home/location-3.jpg",
     "./img-Location/bangkok-2.jpg",
     "./img-Location/bangkok-1.jpg",
     "./img-Location/bangkok-4.jpg",

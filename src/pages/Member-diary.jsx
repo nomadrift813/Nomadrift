@@ -173,7 +173,7 @@ const MemberDiary = () => {
                     </div>
 
                     <article>
-                        {list.length === 0 && <p className="empty-hint">尚未發布任何文章去<Link to="/diary" className="empty-link"> 漂日記 </Link>逛逛吧！</p>}
+                        {list.length === 0 && <p className="empty-hint">尚未發布任何文章去<Link to="/diary" className="empty-link"> 新鮮事 </Link>發佈吧！</p>}
 
                         {list.map((post, index) => (
                             <Link

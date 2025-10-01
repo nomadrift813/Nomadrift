@@ -562,8 +562,12 @@
             background: $accent;
             color: $text;
         }
+        &.active {
+    background: $accent;
+    color: $text;
 
     }
+}
 }
 
 .load-more {
