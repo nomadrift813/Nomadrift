@@ -186,7 +186,7 @@ const Member = ({ user, onLogout }) => {
                 />
               </div>
               <div className="form-row">
-                <label htmlFor="m-birthdate">生日 :</label>
+                <label className="m-birthdate">生日 :</label>
                 {/* 這裡替換為 CalendarInput 元件 */}
                 <CalendarInput
                   title="" // 將標題設定為空字串，以隱藏「活動日期」
