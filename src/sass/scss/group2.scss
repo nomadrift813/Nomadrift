@@ -81,25 +81,26 @@
             display: flex;
             align-items: flex-end;
             gap: 48px;
-            margin-top: 34%;
+            // padding-top: 10px;
+            margin-top: 280px;
 
             @media ($mediaXl) {
-                margin-top: 40%;
+                margin-top: 300px;
             }
 
             @media ($mediaLg) {
-                margin-top: 48%;
+                margin-top: 320px;
             }
 
             @media ($mediaMd) {
-                margin-top: 75%;
+                margin-top: 260px;
                 flex-direction: column;
                 align-items: center;
                 gap: 32px;
             }
 
             @media ($mediaSm) {
-                margin-top: 82%;
+                margin-top: 290px;
                 flex-direction: column;
                 align-items: center;
                 gap: 24px;

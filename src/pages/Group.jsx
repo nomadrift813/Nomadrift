@@ -64,6 +64,9 @@ const ALLOWED_FILTERS = [
 ];
 
 const Group = () => {
+
+  // Ref: scroll target for group-content
+  const groupContentRef = useRef(null);
   // 篩選、顯示數量、彈窗
   const [activeFilter, setActiveFilter] = useState('全部活動');
   const [visibleCount, setVisibleCount] = useState(12); // 初始顯示 12 張
@@ -102,6 +105,12 @@ const Group = () => {
       sp.set('filter', tag);
     }
     navigate({ pathname: location.pathname, search: `?${sp.toString()}` });
+
+
+    // Smoothly scroll to the group-content section after URL updates
+    if (groupContentRef.current) {
+      groupContentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   // 關閉彈窗
@@ -518,6 +527,27 @@ const Group = () => {
     );
   };
 
+  // 讓 URL 成為單一真相：監聽 location.search，自動同步 activeFilter
+  useEffect(() => {
+    const sp = new URLSearchParams(location.search);
+    const fromURL = sp.get('filter');
+    // 空值或非法值 → 回到「全部活動」
+    const next = ALLOWED_FILTERS.includes(fromURL || '') ? fromURL : '全部活動';
+    setActiveFilter(next);
+
+    // 如果有 filter，進來時直接捲到內容區塊，並扣掉固定 header 高度
+    if (fromURL) {
+      const el = document.getElementById('group-content');
+      if (el) {
+        const headerOffset = 130; // 固定導覽列高度，依實際情況調整
+        const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: y,});
+        // window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [location.search]);
+
+
   return (
     <main>
       {/* Banner 區:不動背景圖,只對文字做淡入 */}
@@ -536,7 +566,7 @@ const Group = () => {
       </section>
 
       {/* 內容區 */}
-      <section id="group-content">
+      <section id="group-content" ref={groupContentRef}>
         {/* 主標題(淡入) */}
         <div className="g-content-title">
           <FadeInOnScroll as="h3">Travel solo, connect together!</FadeInOnScroll>
