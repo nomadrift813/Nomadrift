@@ -735,9 +735,9 @@ const Home = () => {
                   <path d="M1,2 L11,6 L1,10"
                     fill="none"
                     stroke="context-stroke"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round" />
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round" />
                 </marker>
 
                 {/* 遮罩：白色「畫筆」只負責把虛線擦出來 */}
@@ -747,12 +747,12 @@ const Home = () => {
                     d="M150 8 C 38 150, 20 315, 58 435 C 102 535, 145 565, 150 568"
                     fill="none"
                     stroke="white"
-                    stroke-width="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     pathLength="1"
-                    stroke-dasharray="1"
-                    stroke-dashoffset="1" />
+                    strokeDasharray="1"
+                    strokeDashoffset="1" />
                 </mask>
               </defs>
 
@@ -761,11 +761,11 @@ const Home = () => {
                 d="M150 8 C 38 150, 20 315, 58 435 C 102 535, 145 565, 150 568"
                 fill="none"
                 stroke="#737B6B"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-dasharray="5 4"
-                marker-end="url(#locArrow)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray="5 4"
+                markerEnd="url(#locArrow)"
                 vectorEffect="non-scaling-stroke"
                 mask="url(#locReveal)"
               />
@@ -854,7 +854,7 @@ const Home = () => {
                 orient="auto" markerUnits="userSpaceOnUse">
                 <path d="M0,1 L9,5 L0,9"
                   fill="none" stroke="context-stroke"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </marker>
 
               <mask id="grpReveal" maskUnits="userSpaceOnUse" x="0" y="0" width="474" height="614">
